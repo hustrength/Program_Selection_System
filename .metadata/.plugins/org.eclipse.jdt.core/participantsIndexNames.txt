@@ -1,7 +1,0 @@
-INDEX VERSION 1.131
-/Users/hustrength/Desktop/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2164539263.index
-/Ten/src
-/Users/hustrength/Desktop/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/103214057.index
-/Ten/src
-/Users/hustrength/Desktop/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1248463361.index
-/Ten/src

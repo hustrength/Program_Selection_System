@@ -1,7 +1,0 @@
-INDEX VERSION 1.4+/Users/hustrength/Desktop/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-2110885.index
-710793756.index
-2835579988.index
-3205281287.index
-3943527297.index
-996496469.index
