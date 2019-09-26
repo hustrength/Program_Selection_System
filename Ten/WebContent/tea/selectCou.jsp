@@ -50,7 +50,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="function"><p>[通知]选课系统已开放</p></div>
 			<%
     		DaoCou select = new DaoCou();
-			Iterator<Course> list = select.selectCou(); %>
+			List<Course> list = select.selectCou(); 
+			Iterator<Course> it = list.iterator(); %>
 			<div class="form">
 				<table>
   					<tr><td></td></tr>
@@ -60,8 +61,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   						
   					</tr>
 			  		<%
-			   			while(list.hasNext()){
-						Course cou = list.next();
+			   			while(it.hasNext()){
+						Course cou = it.next();
 			   		%>
   					<tr>
   					<td><%= cou.getCNo() %></td>
