@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+/Users/hustrength/Desktop/eclipse-workspace/.metadata/.plugins/org.eclipse.jdt.core
+1395288283.index
+2340517637.index
+1393289293.index
+2110885.index
