@@ -16,15 +16,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-<script type="text/javascript">
-function check(r) { 
-　　if (isNaN(r.username.value)) { 
-　　　　alert("请输入学号"); 
-　　　　r.username.focus();
-　　　　return false;
-　　} 
-}
+	
+<script type="text/javascript" src="./jquery-latest.js"></script>
+<script type ="text/javascript">
+function commitForm(r){  
+    var data_json=[{"username": 1,"password":"0"}];
+    
+    if(r.username.value==""){
+    	alert('请输入用户名');
+    	return false;
+    }
+    $.ajax({
+        url:"servlet/serDoLogin?type=stu",
+        type:"post",
+        async:false,
+        data:$('#form_login').serialize(),  
+        dataType: "text",
+        success:function(text){
+       
+        	if(text=="0"){
+        		alert('用户名或密码错误');
+        	}
+        	else {
+        		$("#form_login").attr("action","stu/student.jsp");
+        	}
+            console.log(1);
+        },
+    })
+}  
+
 </script>
+<script type="text/javascript" src="/js/jquery/jquery.form.js"></script>   
+
   </head>
   <body>
   <div class="login_bg">
@@ -37,7 +60,7 @@ function check(r) {
 				<div class="login_content">
 					<h2>学生选课信息管理系统</h2>
 					<p>Student Selection Management System</p>
-					<form action="servlet/serDoLogin?type=stu" method="post" onsubmit = "return check(this)">
+					<form id="form_login" method='post' onsubmit='commitForm(this)' >
 						<div class="login_input">
 							<input type="text" placeholder="请输入学号" class="login_username" name="username">
 						</div>
@@ -47,9 +70,11 @@ function check(r) {
 						</div>
 						
 						<div class="">
-							<input class="login_btn sure" type="submit" value="登录">
+							<input id="login_button" class="login_btn sure" type="submit" value="登录"  >
+							
 							<input class="login_btn cancle" type="button" value="教师入口 " onclick="window.location.href='tea/teaLogin.jsp'">
 						</div>
+						<div id="output1" ></div>
 					</form>
 				</div>
 			</div>

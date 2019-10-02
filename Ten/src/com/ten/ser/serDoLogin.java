@@ -3,6 +3,7 @@ package com.ten.ser;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +17,7 @@ import com.ten.user.Teacher;
 
 @SuppressWarnings("serial")
 public class serDoLogin extends HttpServlet {
-
+	
 	/**
 	 * Constructor of the object.
 	 */
@@ -65,7 +66,9 @@ public class serDoLogin extends HttpServlet {
 		//response.setCharacterEncoding("utf-8");
 		//response.setHeader("content-type","text/html;charset=utf-8");
 		try{
+			System.out.println("后台");
 			int username = Integer.parseInt(request.getParameter("username"));
+			
 			String password = request.getParameter("password");
 			String type  = null;
 			if(request.getParameter("type")!=null)
@@ -82,34 +85,35 @@ public class serDoLogin extends HttpServlet {
 					response.setHeader("refresh","2;url=/Ten/tea/teaLogin.jsp");
 				}
 			}else if(type.equals("stu")){	//判断是否为学生
+				
 				Student stu = new Student(username,null,password,null,null,0);
-				out.println(stu.getSname()+"::"+stu.getSpassword()+"<br>");
-				out.println(stu.getSname()+"::"+stu.getSpassword()+"<br>");
+			
 				DaoStu logins  = new DaoStu();
 				stu = logins.loginStu(stu);
 				if(stu!=null){
+				
+					String text="1";
+					
+					response.getWriter().print(text); 
+				
 					session.setAttribute("student", stu);
-					response.sendRedirect("/Ten/stu/student.jsp");
+					
+					System.out.println("登录转向");
+					
 				}else{
-					out.println("S用户名或密码不正确，请核对后重试!!");
-					response.setHeader("refresh","2;url=/Ten/Login.jsp");
+                    String text="0";
+					
+					response.getWriter().print(text); 
+			
 				}
 			}else{
 				out.println("错误！请登录！");
-				response.setHeader("refresh","2;url=/Ten/Login.jsp");
+		
 			}
 		}catch(Exception e){ e.printStackTrace();response.sendRedirect("/Ten/Login.jsp");}
-		out.flush();
-		out.close();
+	
 		}
 
-	/**
-	 * Initialization of the servlet. <br>
-	 *
-	 * @throws ServletException if an error occurs
-	 */
-	public void init() throws ServletException {
-		// Put your code here
-	}
+
 
 }
