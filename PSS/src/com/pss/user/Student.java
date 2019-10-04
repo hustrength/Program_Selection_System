@@ -88,14 +88,6 @@ public class Student {
 	}
 	
 	
-	public float getScredit() {
-		return Scredit;
-	}
-	
-	public void setScredit(float scredit) {
-		Scredit = scredit;
-	}
-	
 	/**
 	 * @param sNo
 	 * @param sname
@@ -103,22 +95,27 @@ public class Student {
 	 * @param sclass
 	 * @param ssex
 	 */
-	public Student(String sNo, String sname, String spassword, String sgroup,
-			String sposition,float scredit) {
+	public Student(String sNo, String sname, String spassword, String ssex, String sclass, String sgroup,
+			String sposition,int sscore) {
 		SNo = sNo;
 		Sname = sname;
 		Spassword = spassword;
+		Ssex = ssex;
+		Sclass = sclass;
 		Sgroup = sgroup;
 		Sposition = sposition;
-		Scredit = scredit;
+		Sscore = sscore;
 	}
-	public Student( String sname, String spassword, String sgroup,
-			String sposition,float scredit) {
+	public Student(String sNo, String sname, String spassword, String ssex, String sclass, String sgroup,
+			String sposition) {
+		this.SNo = sNo;
 		this.Sname = sname;
 		this.Spassword = spassword;
+		this.Ssex = ssex;
+		this.Sclass = sclass;
 		this.Sgroup = sgroup;
 		this.Sposition = sposition;
-		this.Scredit = scredit;
+		
 	}
 
 

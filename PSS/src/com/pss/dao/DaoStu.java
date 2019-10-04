@@ -12,7 +12,7 @@ import com.pss.user.Student;
 
 public class DaoStu {
 	/**
-	 * ѧ����¼
+	 * 学生登录
 	 * **/
 	public Student loginStu(Student stu){
 		Student stu1 = null;
@@ -20,41 +20,21 @@ public class DaoStu {
 		try{
 			Connection conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql_loginS);
-			pst.setInt(1, stu.getSNo());
+			pst.setString(1, stu.getSNo());
 			pst.setString(2,stu.getSpassword());
 			ResultSet rs = pst.executeQuery();
 			if(rs.next()){
-				stu1 = new Student(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),0);
+				stu1 = new Student(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),0);
 				System.out.println("student login select over");
 			}
 		}catch(Exception e){e.printStackTrace();}
 		return stu1;
 	}
-	/*
-	 * ѧ������ѡ��;;
-	 * 
-	public Iterator<Course> selectSC(){
-		List<Course> list = null;
-		Iterator<Course> listall = null;
-		String sql_selectsc="select * from sc,course where Sname=? and Spassword=?;";
-		try{
-			list = new ArrayList<Course>();
-			Connection conn = new Conn().getConn();
-			PreparedStatement pst = conn.prepareStatement(sql_selectsc);
-			pst.setString(1, null);
-			
-			ResultSet rs = pst.executeQuery();
-			while(rs.next()){
-				Course cou = new Course(rs.getInt(""),,);
-			}
-		}catch(Exception e){e.printStackTrace();}
-		return listall;
-	}
-	*/
+	
 	
 	
 	/*
-	 * ��ѯ����ѧ��
+	 * 查询所有学生
 	 * */
 	public List<Student> selectStu1(){
 		List<Student> list = null;
@@ -62,7 +42,7 @@ public class DaoStu {
 			String sql_select = "select student.sno as SNo,Sname,Spassword,Sclass,Ssex,sum(course.ccredit) as Scredit from student,sc,course" +
 								"	where student.sno=sc.sno" +
 								"		and sc.cno=course.cno" +
-								"		 group by student.sno;";//��ѯȫ��ѧ����Ϣ+ѧ��ѧ��;//��ѯ���е�sql���
+								"		 group by student.sno;";//锟斤拷询全锟斤拷学锟斤拷锟斤拷息+学锟斤拷学锟斤拷;//锟斤拷询锟斤拷锟叫碉拷sql锟斤拷锟�
 			Connection conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql_select);
 			ResultSet rs = pst.executeQuery();
@@ -76,12 +56,12 @@ public class DaoStu {
 		return list;
 	}
 	/*
-	 * ��ѯ����ѧ��
+	 * 锟斤拷询锟斤拷锟斤拷学锟斤拷
 	 * */
 	public List<Student> selectStu(){
 		List<Student> list = null;
 		try{
-			String sql_select = "select SNo,Sname,Spassword,Sclass,Ssex from student;";//��ѯȫ��ѧ����Ϣ+ѧ��ѧ��;//��ѯ���е�sql���
+			String sql_select = "select SNo,Sname,Spassword,Sclass,Ssex from student;";//锟斤拷询全锟斤拷学锟斤拷锟斤拷息+学锟斤拷学锟斤拷;//锟斤拷询锟斤拷锟叫碉拷sql锟斤拷锟�
 			Connection conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql_select);
 			ResultSet rs = pst.executeQuery();
@@ -96,7 +76,7 @@ public class DaoStu {
 		return list;
 	}
 	/*
-	 * ��ѯѧ�����������ѧ��
+	 * 锟斤拷询学锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟窖э拷锟�
 	 * */
 	public Iterator<Student> selectSum(){
 		List<Student> list = null;
@@ -105,7 +85,7 @@ public class DaoStu {
 			String sql_select = "select student.sno as SNo,Sname,Spassword,Sclass,Ssex,sum(course.ccredit) as Scredit from student,sc,course" +
 								"	where student.sno=sc.sno" +
 								"		and sc.cno=course.cno" +
-								"		 group by student.sno;";//��ѯȫ��ѧ����Ϣ+ѧ��ѧ��ɸѡ����ѧ�ֲ����
+								"		 group by student.sno;";//锟斤拷询全锟斤拷学锟斤拷锟斤拷息+学锟斤拷学锟斤拷筛选锟斤拷锟斤拷学锟街诧拷锟斤拷锟�
 			Connection conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql_select);
 			ResultSet rs = pst.executeQuery();
@@ -120,7 +100,7 @@ public class DaoStu {
 		return listall;
 	}
 	/*
-	 * ��ѯѧ����ѧ��_ĳλѧ��
+	 * 锟斤拷询学锟斤拷锟斤拷学锟斤拷_某位学锟斤拷
 	 * */
 	public Student selectScre(Student stu){
 		ResultSet rs = null;
@@ -128,7 +108,7 @@ public class DaoStu {
 			String sql_insert = "select student.sno as sno,sum(course.ccredit) as scredit from student,sc,course" +
 			"	where student.sno=sc.sno" +
 			"		and sc.cno=course.cno" +
-			"		 and student.sno=?";//��ѯĳλͬѧѧ��
+			"		 and student.sno=?";//锟斤拷询某位同学学锟斤拷
 			Connection conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql_insert);
 			pst.setInt(1,stu.getSNo());
@@ -141,12 +121,12 @@ public class DaoStu {
 		return stu;
 	}
 	/*
-	 * ��ѯĳ����ѧ��
+	 * 锟斤拷询某锟斤拷锟斤拷学锟斤拷
 	 * */
 	public Student selectStu(int id){
 		Student Stu = null;
 		try{
-			String sql_selectone = "select * from student where SNo=?";//��ѯĳһ���γ�
+			String sql_selectone = "select * from student where SNo=?";//锟斤拷询某一锟斤拷锟轿筹拷
 			Connection conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql_selectone);
 			pst.setInt(1, id);
@@ -159,13 +139,13 @@ public class DaoStu {
 		return Stu;
 	}
 	/*
-	 * ��ѯĳ��ѧ����Ϣ��ģ����ѯ��
+	 * 锟斤拷询某锟斤拷学锟斤拷锟斤拷息锟斤拷模锟斤拷锟斤拷询锟斤拷
 	 * */
-	public Iterator<Student> selectStu(String aa){//aa��Ϊģ����ѯ�Ĺؼ���
+	public Iterator<Student> selectStu(String aa){//aa锟斤拷为模锟斤拷锟斤拷询锟侥关硷拷锟斤拷
 		List<Student> list = null;
 		Iterator<Student> listall = null;
 		try{
-			String sql_selectfuz = "select * from student where CNo=? or....";//fuzzy queryģ����ѯ
+			String sql_selectfuz = "select * from student where CNo=? or....";//fuzzy query模锟斤拷锟斤拷询
 			Connection conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql_selectfuz);
 			ResultSet rs = pst.executeQuery();
@@ -180,19 +160,21 @@ public class DaoStu {
 		return listall;
 	}
 	/*
-	 * �޸�ĳ��ѧ����Ϣ
+	 * 修改某个学生信息
 	 * */
 	public int updateStu(Student stu){
 		int rs = 0;
 		try{
-			String sql_update = "update Student set Sname=?,Spassword=?,Sclass=?,Ssex=? where SNo=?;";//�޸�һ��ѧ����Ϣ
+			String sql_update = "update Student set Sname=?,Spassword=?,Ssex=?,Sclass=?,Sgroup=?,Sposition=? where SNo=?;";//修改一条学生信息
 			Connection conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql_update);
 			pst.setString(1, stu.getSname());
 			pst.setString(2, stu.getSpassword());
-			pst.setString(3, stu.getSclass());
-			pst.setString(4, stu.getSsex());
-			pst.setInt(5, stu.getSNo());
+			pst.setString(3, stu.getSsex());
+			pst.setString(4, stu.getSclass());
+			pst.setString(5, stu.getSgroup());
+			pst.setString(6, stu.getSposition());
+			pst.setString(7, stu.getSNo());
 			rs = pst.executeUpdate();
 			if(rs!=0){
 				System.out.println("Student_id"+stu.getSNo()+"update over!");
@@ -201,15 +183,15 @@ public class DaoStu {
 		return rs;
 	}
 	/*
-	 * ɾ��ĳ��ѧ����Ϣ
+	 * 删除某个学生信息
 	 * */
-	public int deleteStu(int id){
+	public int deleteStu(String id){
 		int rs = 0;
 		try{
-			String sql_delete = "delete from student where SNo=?;";//ɾ��һ���γ���Ϣ
+			String sql_delete = "delete from student where SNo=?;";//删锟斤拷一锟斤拷锟轿筹拷锟斤拷息
 			Connection conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql_delete);
-			pst.setInt(1, id);
+			pst.setString(1, id);
 			rs = pst.executeUpdate();
 			if(rs!=0){
 				System.out.println("Student_id"+id+"delete over!");
@@ -218,12 +200,12 @@ public class DaoStu {
 		return rs;
 	}
 	/*
-	 * ���һλѧ����Ϣ
+	 * 锟斤拷锟揭晃谎э拷锟斤拷锟较�
 	 * */
 	public int insertStu(Student stu){
 		int rs = 0;
 		try{
-			String sql_insert = "insert into student(Sname,Spassword,Sclass,Ssex) values(?,?,?,?);";//���һ���γ���Ϣ
+			String sql_insert = "insert into student(Sname,Spassword,Sclass,Ssex) values(?,?,?,?);";//锟斤拷锟揭伙拷锟斤拷纬锟斤拷锟较�
 			Connection conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql_insert);
 			pst.setString(1,stu.getSname());

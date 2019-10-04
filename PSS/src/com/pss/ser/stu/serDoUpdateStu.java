@@ -65,16 +65,16 @@ public class serDoUpdateStu extends HttpServlet {
 		out.println("  <BODY><center>");
 		try{
 			request.setCharacterEncoding("utf-8");
-			Student stu = new Student(Integer.parseInt(request.getParameter("SNo")),request.getParameter("Sname")
-					,request.getParameter("Spassword"),request.getParameter("Sclass"),request.getParameter("Ssex"),0);
+			Student stu = new Student(request.getParameter("SNo"),request.getParameter("Sname"),request.getParameter("Spassword"),
+					request.getParameter("Ssex"),request.getParameter("Sclass"),request.getParameter("Sgroup"),request.getParameter("Sposition"),0);
 			DaoStu update = new DaoStu();
 			int rs = update.updateStu(stu);
 			if(rs!=0){
-				out.println("ï¿½Þ¸Ä³É¹ï¿½ï¿½ï¿½"+stu.getSNo());
+				out.println("ÐÞ¸Ä³É¹¦:"+stu.getSNo());
 			}else{
-				out.println("ï¿½Þ¸ï¿½Ê§ï¿½ï¿½"+stu.getSNo());
+				out.println("ÐÞ¸ÄÊ§°Ü:"+stu.getSNo());
 			}
-			response.sendRedirect("/Ten/tea/selectStu.jsp");
+			response.sendRedirect("/PSS/tea/selectStu.jsp");
 		}catch(Exception e){e.printStackTrace();}
 		
 		out.println("</center></BODY>");

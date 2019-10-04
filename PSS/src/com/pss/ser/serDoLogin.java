@@ -67,7 +67,7 @@ public class serDoLogin extends HttpServlet {
 		//response.setHeader("content-type","text/html;charset=utf-8");
 		try{
 			System.out.println("ºóÌ¨");
-			int username = Integer.parseInt(request.getParameter("username"));
+			String username = request.getParameter("username");
 			
 			String password = request.getParameter("password");
 			String type  = null;
@@ -79,15 +79,18 @@ public class serDoLogin extends HttpServlet {
 				tea = logint.loginTea(tea);
 				if(tea!=null){
 					session.setAttribute("teacher", tea);
-					response.sendRedirect("/Ten/tea/teacher.jsp");
+                    String text="1";
+					response.getWriter().print(text); 
+				//	response.sendRedirect("/PSS/tea/teacher.jsp");
 				}else{
+                    String text="0";
 					
-					response.setHeader("refresh","2;url=/Ten/tea/teaLogin.jsp");
+					response.getWriter().print(text); 
+				//	response.setHeader("refresh","2;url=/Ten/tea/teaLogin.jsp");
 				}
 			}else if(type.equals("stu")){	//?Ð¶????????;
 				
-				Student stu = new Student(username,null,password,null,null,0);
-			
+				Student stu = new Student(username,null,password,null,null,null,null,0);
 				DaoStu logins  = new DaoStu();
 				stu = logins.loginStu(stu);
 				if(stu!=null){
@@ -98,7 +101,7 @@ public class serDoLogin extends HttpServlet {
 				
 					session.setAttribute("student", stu);
 					
-					System.out.println("??????");
+				
 					
 				}else{
                     String text="0";
@@ -107,7 +110,7 @@ public class serDoLogin extends HttpServlet {
 			
 				}
 			}else{
-				out.println("??????????");
+				out.println("?");
 		
 			}
 		}catch(Exception e){ e.printStackTrace();response.sendRedirect("/PSS/Login.jsp");}
