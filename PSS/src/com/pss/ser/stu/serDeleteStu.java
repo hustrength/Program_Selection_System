@@ -65,14 +65,14 @@ public class serDeleteStu extends HttpServlet {
 		try{
 			
 			DaoStu delete = new DaoStu();
-			int rs = delete.deleteStu(Integer.parseInt(request.getParameter("id")));
+			int rs = delete.deleteStu(request.getParameter("id"));
 			if(rs==0){
-				out.println("<center>É¾ï¿½ï¿½Ê§ï¿½Ü£ï¿½</center>");
+				out.println("<center>É¾³ýÊ§°Ü£¡</center>");
 			}else {
-				out.println("<center>É¾ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½</center>");
+				out.println("<center>É¾³ý³É¹¦£¡</center>");
 			}
 			response.setHeader("refresh","2;url=serSelectStu?page="+request.getParameter("page")+"");
-			response.sendRedirect("/Ten/tea/selectStu.jsp");
+			response.sendRedirect("/PSS/tea/selectStu.jsp");
 		}catch(Exception e){e.printStackTrace();}
 		out.println("</BODY>");
 		out.println("</HTML>");
