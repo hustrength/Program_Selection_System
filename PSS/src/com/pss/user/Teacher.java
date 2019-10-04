@@ -1,13 +1,14 @@
 package com.pss.user;
 
 public class Teacher {
-	private int TNo;
+	private String TNo;
 	private String Tname;
 	private String Tpassword;
-	public int getTNo() {
+	public String getTNo() {
 		return TNo;
 	}
-	public void setTNo(int tNo) {
+	public void setTNo(String tNo) {
+		
 		TNo = tNo;
 	}
 	public String getTname() {
@@ -27,14 +28,9 @@ public class Teacher {
 	 * @param tname
 	 * @param tpassword
 	 */
-	public Teacher(int tNo, String tname, String tpassword) {
+	public Teacher(String tNo, String tname, String tpassword) {
 		TNo = tNo;
 		Tname = tname;
 		Tpassword = tpassword;
 	}
-	public Teacher( String tname, String tpassword) {
-		Tname = tname;
-		Tpassword = tpassword;
-	}
-
 }
