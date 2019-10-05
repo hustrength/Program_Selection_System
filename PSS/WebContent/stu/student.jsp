@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     <meta charset="UTF-8">
-	<title>学生选课信息管理系统</title>
+	<title>学生选题信息管理系统</title>
 	<link href="style_1.css" type="text/css" rel="stylesheet"/>
     
 	<meta http-equiv="pragma" content="no-cache">
@@ -35,11 +35,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="main">
 	<div class="main_left">
 		<div class="main_left_class00"><img src=img/touxiang.png></div>
-		<div class="main_left_class01"><a href="stu/choiceCou.jsp">学生选课</a></div>
-		<div class="main_left_class02"><a href="stu/showCou.jsp">课程查询</a></div>
+		<div class="main_left_class01"><a href="stu/choiceCou.jsp">学生选题</a></div>
+		<div class="main_left_class02"><a href="stu/showCou.jsp">选题查询</a></div>
 		<div class="main_left_class03"><a href="stu/stuInfo.jsp">学籍信息</a></div>
 		<div class="main_left_class100">
-		<input class="reset" type="button" value="注销" onClick="window.location.href=('/Ten/servlet/serDoLogout')">
+		<input class="reset" type="button" value="注销" onClick="window.location.href=('/PSS/servlet/serDoLogout')">
 		</div>
 	</div>
 	<div class="main_right">
@@ -47,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<p>亲爱的<%= stu.getSname() %>同学，下午好</p>
 		</div>
 		<div class="box">
-			<div class="function"><p>[通知]选课系统已开放</p></div>
+			<div class="function"><p>[通知]选题系统已开放</p></div>
 			<div class="form">
 			<table class="news">
 			<tr><td><h2>关于本学期校级任选课相关事宜安排的通知</h2></td></tr>

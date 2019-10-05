@@ -200,18 +200,21 @@ public class DaoStu {
 		return rs;
 	}
 	/*
-	 * 锟斤拷锟揭晃谎э拷锟斤拷锟较�
+	 * 添加一位学生信息
 	 * */
 	public int insertStu(Student stu){
 		int rs = 0;
 		try{
-			String sql_insert = "insert into student(Sname,Spassword,Sclass,Ssex) values(?,?,?,?);";//锟斤拷锟揭伙拷锟斤拷纬锟斤拷锟较�
+			String sql_insert = "insert into student(Sname,Spassword,Ssex,Sclass,Sgroup,Sposition,Sno) values(?,?,?,?,?,?,?);";//锟斤拷锟揭伙拷锟斤拷纬锟斤拷锟较�
 			Connection conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql_insert);
-			pst.setString(1,stu.getSname());
+			pst.setString(1, stu.getSname());
 			pst.setString(2, stu.getSpassword());
-			pst.setString(3, stu.getSclass());
-			pst.setString(4, stu.getSsex());
+			pst.setString(3, stu.getSsex());
+			pst.setString(4, stu.getSclass());
+			pst.setString(5, stu.getSgroup());
+			pst.setString(6, stu.getSposition());
+			pst.setString(7, stu.getSNo());
 			rs = pst.executeUpdate();
 			if(rs!=0){
 				System.out.println("Student_id"+stu.getSNo()+"insert over!");

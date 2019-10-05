@@ -65,14 +65,14 @@ public class serInsertStu extends HttpServlet {
 		out.println("  <BODY><center>");
 		try{
 			request.setCharacterEncoding("utf-8");
-			Student stu = new Student(request.getParameter("Sname"),request.getParameter("Spassword"),request.getParameter("Sclass")
-					,request.getParameter("Ssex"),0);
+			Student stu = new Student(request.getParameter("SNo"),request.getParameter("Sname"),request.getParameter("Spassword"),
+					request.getParameter("Ssex"),request.getParameter("Sclass"),request.getParameter("Sgroup"),request.getParameter("Sposition"),0);
 			DaoStu insert = new DaoStu();
 			int rs = insert.insertStu(stu);
 			if(rs!=0){
-				out.println("ï¿½ï¿½Ó³É¹ï¿½ï¿½ï¿½"+stu.getSNo());
+				out.println("Ìí¼Ó³É¹¦£º"+stu.getSNo());
 			}else{
-				out.println("ï¿½ï¿½ï¿½Ê§ï¿½ï¿½"+stu.getSNo());
+				out.println("Ìí¼ÓÊ§°Ü£º"+stu.getSNo());
 			}
 			response.sendRedirect("/Ten/tea/selectStu.jsp");
 		}catch(Exception e){e.printStackTrace();}
