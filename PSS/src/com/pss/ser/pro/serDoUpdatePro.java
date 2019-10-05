@@ -1,4 +1,4 @@
-package com.pss.ser.cou;
+package com.pss.ser.pro;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.pss.dao.DaoPro;
 import com.pss.user.Project;
 
-public class serDoUpdateCou extends HttpServlet {
+public class serDoUpdatePro extends HttpServlet {
 
 	/**
 	 * Constructor of the object.
 	 */
-	public serDoUpdateCou() {
+	public serDoUpdatePro() {
 		super();
 	}
 

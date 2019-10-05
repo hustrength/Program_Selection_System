@@ -1,4 +1,4 @@
-package com.pss.ser.cou;
+package com.pss.ser.pro;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.pss.dao.DaoPro;
 
-public class serDeleteCou extends HttpServlet {
+public class serDeletePro extends HttpServlet {
 
 	/**
 	 * Constructor of the object.
 	 */
-	public serDeleteCou() {
+	public serDeletePro() {
 		super();
 	}
 

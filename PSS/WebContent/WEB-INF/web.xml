@@ -10,31 +10,31 @@
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>serSelectCou</servlet-name>
-    <servlet-class>com.pss.ser.cou.serSelectCou</servlet-class>
+    <servlet-class>com.pss.ser.pro.serSelectCou</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>serDeleteCou</servlet-name>
-    <servlet-class>com.pss.ser.cou.serDeleteCou</servlet-class>
+    <servlet-class>com.pss.ser.pro.serDeletePro</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>serUpdateCou</servlet-name>
-    <servlet-class>com.pss.ser.cou.serUpdateCou</servlet-class>
+    <servlet-class>com.pss.ser.pro.serUpdateCou</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>serDoUpdateCou</servlet-name>
-    <servlet-class>com.pss.ser.cou.serDoUpdateCou</servlet-class>
+    <servlet-class>com.pss.ser.pro.serDoUpdatePro</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>serDoInsertCou</servlet-name>
-    <servlet-class>com.pss.ser.cou.serDoInsertCou</servlet-class>
+    <servlet-class>com.pss.ser.pro.serDoInsertPro</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
