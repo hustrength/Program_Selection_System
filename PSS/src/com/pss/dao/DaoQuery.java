@@ -11,7 +11,7 @@ import com.pss.user.QueryResult;
 
 public class DaoQuery {
 	/*
-	 * ����ѧ�Ų�ѯѡ����
+	 * ����ѧ�Ų�ѯѡ�����
 	 * */
 	public List<QueryResult> selectSno(int sno){
 		List<QueryResult> list = null;
