@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,com.pss.dao.DaoSc,com.pss.user.Student,com.pss.user.SedCou" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,com.pss.dao.DaoGPS,com.pss.user.Student,com.pss.user.SedPro" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -56,9 +56,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   						
   					</tr>
 			  		<%
-			   			DaoSc select = new DaoSc();
-			   			Iterator<SedCou> list = select.selectSc(stu.getSNo());
-			   			SedCou cou = null;
+			   			DaoGPS select = new DaoGPS();
+			   			Iterator<SedPro> list = select.selectSc(stu.getSNo());
+			   			SedPro cou = null;
 			   			while(list.hasNext()){
 			   				cou = list.next();
 			   		%>

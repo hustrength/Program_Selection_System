@@ -66,7 +66,7 @@ public class DaoStu {
 			PreparedStatement pst = conn.prepareStatement(sql_select);
 			ResultSet rs = pst.executeQuery();
 			list = new ArrayList<Student>();
-			DaoCou scredit = new DaoCou();
+			DaoPro scredit = new DaoPro();
 			while(rs.next()){				
 				Student stu = new Student(rs.getInt("SNo"),rs.getString("Sname"),rs.getString("Spassword"),rs.getString("Sclass")
 						,rs.getString("Ssex"), scredit.selectScre(rs.getInt("SNo")));

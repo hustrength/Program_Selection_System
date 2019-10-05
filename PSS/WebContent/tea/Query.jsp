@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,com.pss.dao.DaoSc,com.pss.user.Teacher,com.pss.user.QueryResult" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,com.pss.dao.DaoGPS,com.pss.user.Teacher,com.pss.user.QueryResult" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";

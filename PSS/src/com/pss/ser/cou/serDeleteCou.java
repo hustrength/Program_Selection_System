@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.pss.dao.DaoCou;
+import com.pss.dao.DaoPro;
 
 public class serDeleteCou extends HttpServlet {
 
@@ -63,7 +63,7 @@ public class serDeleteCou extends HttpServlet {
 		out.println("  <BODY>");
 		try{
 			
-			DaoCou delete = new DaoCou();
+			DaoPro delete = new DaoPro();
 			int rs = delete.deleteCou(Integer.parseInt(request.getParameter("id")));
 			if(rs==0){
 				out.println("<center>ɾ��ʧ�ܣ�</center>");

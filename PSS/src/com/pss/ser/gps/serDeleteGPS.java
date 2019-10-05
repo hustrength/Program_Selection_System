@@ -1,4 +1,4 @@
-package com.pss.ser.sc;
+package com.pss.ser.gps;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,15 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.pss.dao.DaoSc;
-import com.pss.user.SC;
+import com.pss.dao.DaoGPS;
+import com.pss.user.Student;
 
-public class serDoUpdateClass extends HttpServlet {
+@SuppressWarnings("serial")
+public class serDeleteGPS extends HttpServlet {
 
 	/**
 	 * Constructor of the object.
 	 */
-	public serDoUpdateClass() {
+	public serDeleteGPS() {
 		super();
 	}
 
@@ -56,40 +57,37 @@ public class serDoUpdateClass extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		response.setContentType("text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
-/**************************************************************/
+/***************************************************************/
 		HttpSession session = request.getSession();
-		if(session.getAttribute("teacher")==null){
+		PrintWriter out = response.getWriter();
+		Student stu = null;
+		if(session.getAttribute("student")==null){
 			response.sendRedirect("../Login.jsp");
 		}else{
-/**************************************************************/
+			stu = (Student) session.getAttribute("student");
+			out.println("Welcome SNO:"+stu.getSNo());
+/***************************************************************/
+			response.setContentType("text/html;charset=utf-8");		
 			out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
 			out.println("<HTML>");
 			out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
 			out.println("  <BODY>");
 			try{
-				int sno = Integer.parseInt(request.getParameter("sno"));
+				int sno = stu.getSNo();
 				int cno = Integer.parseInt(request.getParameter("cno"));
-				String classroom = request.getParameter("classroom");
-				DaoSc update = new DaoSc();
-				SC sc = new SC();
-				sc.setSNo(sno);
-				sc.setCNo(cno);
-				sc.setClassroom(classroom);
-				int rs = update.updateClass(sc);
+				DaoGPS delete = new DaoGPS();
+				int rs = delete.deleteSc(sno, cno);
 				if(rs!=0) {
-					System.out.println("classroom update over!!");
-					out.println("<center><h2>�����޸ĳɹ�</h2></center>");
-				}else{
-					out.println("<center><h2>�����޸�ʧ��</h2></center>");
-				}
-				response.setHeader("refresh","2;url=/Ten/tea/Query.jsp?type="+request.getParameter("type")+"&query="+request.getParameter("key")+"");
+					System.out.println("Sc one delete over!!");
+					out.println("<h2><center>�ɹ�ȡ��ѡ��</center></h2>");
+				}else out.println("<h2><center>������ϣ� �����ԣ�</center></h2>");
+				//response.setHeader("refresh", "2;url=../stu/showCou.jsp");
+				response.sendRedirect("../stu/showCou.jsp");
 			}catch(Exception e){e.printStackTrace();}
-			out.println("  </BODY>");
-			out.println("</HTML>");
 		}
+		out.println("  </BODY>");
+		out.println("</HTML>");
 		out.flush();
 		out.close();
 	}

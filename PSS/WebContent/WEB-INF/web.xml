@@ -70,13 +70,13 @@
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>serInsertSc</servlet-name>
-    <servlet-class>com.pss.ser.sc.serInsertSc</servlet-class>
+    <servlet-class>com.pss.ser.gps.serInsertGPS</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>serDeleteSc</servlet-name>
-    <servlet-class>com.pss.ser.sc.serDeleteSc</servlet-class>
+    <servlet-class>com.pss.ser.gps.serDeleteGPS</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
@@ -88,19 +88,19 @@
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>serQuerySc</servlet-name>
-    <servlet-class>com.pss.ser.sc.serQuerySc</servlet-class>
+    <servlet-class>com.pss.ser.gps.serQueryGPS</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>serUpdateClass</servlet-name>
-    <servlet-class>com.pss.ser.sc.serUpdateClass</servlet-class>
+    <servlet-class>com.pss.ser.gps.serUpdateGPS</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>serDoUpdateClass</servlet-name>
-    <servlet-class>com.pss.ser.sc.serDoUpdateClass</servlet-class>
+    <servlet-class>com.pss.ser.gps.serDoUpdateGPS</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>serDoLogin</servlet-name>

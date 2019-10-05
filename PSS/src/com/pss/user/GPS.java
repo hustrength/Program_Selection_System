@@ -1,6 +1,6 @@
 package com.pss.user;
 
-public class SC {
+public class GPS {
 	private int SNo;
 	private int CNo;
 	private String classroom;

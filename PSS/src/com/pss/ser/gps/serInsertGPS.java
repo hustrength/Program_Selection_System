@@ -1,4 +1,4 @@
-package com.pss.ser.sc;
+package com.pss.ser.gps;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,18 +9,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.pss.dao.DaoCou;
-import com.pss.dao.DaoSc;
+import com.pss.dao.DaoPro;
+import com.pss.dao.DaoGPS;
 import com.pss.dao.DaoStu;
 import com.pss.user.Student;
-import com.pss.user.SC;
+import com.pss.user.GPS;
 
-public class serInsertSc extends HttpServlet {
+public class serInsertGPS extends HttpServlet {
 
 	/**
 	 * Constructor of the object.
 	 */
-	public serInsertSc() {
+	public serInsertGPS() {
 		super();
 	}
 
@@ -78,21 +78,21 @@ public class serInsertSc extends HttpServlet {
 		try{
 			String choiceR[] = request.getParameterValues("choiceCou");
 			DaoStu selects = new DaoStu();
-			DaoCou selectc = new DaoCou();
+			DaoPro selectc = new DaoPro();
 			Student stu2 = selects.selectScre(stu);
 			float scredit = stu2.getScredit();//ѧ���Ѿ�ѡ����ѧ����
 			int sno = stu.getSNo();
 			if(choiceR.length!=0){//���쳣��ʲô������
-				SC sc[] = new SC[choiceR.length];
+				GPS sc[] = new GPS[choiceR.length];
 				for(int i =0;i<choiceR.length;i++){
-					sc[i] = new SC();
+					sc[i] = new GPS();
 					sc[i].setSNo(sno);
 					sc[i].setCNo(Integer.parseInt(choiceR[i]));
 					sc[i].setClassroom("0");//�Ͽν���Ӧ�����¼�룿����Ĭ��Ϊ0����ʾû�н���
 					scredit += selectc.selectCcre(sc[i].getCNo());//ѧ����ѡ�γ�+ѧ����ѡ�γ�ѧ��
 				}
 				if(scredit<=Student.MAXscore){
-					DaoSc insert = new DaoSc();
+					DaoGPS insert = new DaoGPS();
 					int rs[] = insert.insertSc(sc),sum =0;
 					for(int i =0;i<rs.length;i++){
 						if(rs[i]==0) System.out.println("rs"+i+"is null  !!");

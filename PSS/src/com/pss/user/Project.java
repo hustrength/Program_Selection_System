@@ -1,6 +1,6 @@
 package com.pss.user;
 
-public class Course {
+public class Project {
 	private int CNo;
 	private String Cname;
 	private String Ccredit;
@@ -29,12 +29,12 @@ public class Course {
 	 * @param cname
 	 * @param classroom
 	 */
-	public Course(int cNo, String cname, String Ccredit) {
+	public Project(int cNo, String cname, String Ccredit) {
 		this.CNo = cNo;
 		this.Cname = cname;
 		this.Ccredit = Ccredit;
 	}
-	public Course( String cname, String Ccredit) {
+	public Project(String cname, String Ccredit) {
 		this.Cname = cname;
 		this.Ccredit = Ccredit;
 	}

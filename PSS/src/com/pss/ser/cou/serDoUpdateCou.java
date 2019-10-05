@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.pss.dao.DaoCou;
-import com.pss.user.Course;
+import com.pss.dao.DaoPro;
+import com.pss.user.Project;
 
 public class serDoUpdateCou extends HttpServlet {
 
@@ -64,8 +64,8 @@ public class serDoUpdateCou extends HttpServlet {
 		out.println("  <BODY><center>");
 		try{
 			request.setCharacterEncoding("utf-8");
-			Course cou = new Course(Integer.parseInt(request.getParameter("CNo")),request.getParameter("Cname"),request.getParameter("Ccredit"));
-			DaoCou update = new DaoCou();
+			Project cou = new Project(Integer.parseInt(request.getParameter("CNo")),request.getParameter("Cname"),request.getParameter("Ccredit"));
+			DaoPro update = new DaoPro();
 			int rs = update.updateCou(cou);
 			if(rs!=0){
 				out.println("�޸ĳɹ���"+cou.getCNo());

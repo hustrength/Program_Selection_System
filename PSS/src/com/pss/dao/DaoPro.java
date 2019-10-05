@@ -8,9 +8,9 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.pss.conn.Conn;
-import com.pss.user.Course;
+import com.pss.user.Project;
 
-public class DaoCou {
+public class DaoPro {
 	
 	public static final String sql_select = "select * from course;";//��ѯ���е�sql���
 	public static final String sql_selectfuz = "select * from course where CNo=? or....";//fuzzy queryģ����ѯ
@@ -23,15 +23,15 @@ public class DaoCou {
 	/*
 	 * ��ѯ���пγ���Ϣ
 	 * */
-	public List<Course> selectCou(){
-		List<Course> list = null;
+	public List<Project> selectCou(){
+		List<Project> list = null;
 		try{
 			Connection conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql_select);
 			ResultSet rs = pst.executeQuery();
-			list = new ArrayList<Course>();
+			list = new ArrayList<Project>();
 			while(rs.next()){				
-				Course cou = new Course(rs.getInt("CNo"),rs.getString("Cname"),rs.getString("Ccredit"));
+				Project cou = new Project(rs.getInt("CNo"),rs.getString("Cname"),rs.getString("Ccredit"));
 				list.add(cou);
 			}
 		}catch(Exception e){e.printStackTrace();}
@@ -40,15 +40,15 @@ public class DaoCou {
 	/*
 	 * ��ѯĳ���γ���Ϣ
 	 * */
-	public Course selectCou(int id){
-		Course cou = null;
+	public Project selectCou(int id){
+		Project cou = null;
 		try{
 			Connection conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql_selectone);
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
 			if(rs.next()){
-				cou = new Course(rs.getInt("CNo"),rs.getString("Cname"),rs.getString("Ccredit"));
+				cou = new Project(rs.getInt("CNo"),rs.getString("Cname"),rs.getString("Ccredit"));
 			}
 		}catch(Exception e){e.printStackTrace();}
 		return cou;
@@ -56,16 +56,16 @@ public class DaoCou {
 	/*
 	 * ��ѯĳ���γ���Ϣ��ģ����ѯ��
 	 * */
-	public Iterator<Course> selectCou(String aa){//aa��Ϊģ����ѯ�Ĺؼ���
-		List<Course> list = null;
-		Iterator<Course> listall = null;
+	public Iterator<Project> selectCou(String aa){//aa��Ϊģ����ѯ�Ĺؼ���
+		List<Project> list = null;
+		Iterator<Project> listall = null;
 		try{
 			Connection conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql_selectone);
 			ResultSet rs = pst.executeQuery();
-			list = new ArrayList<Course>();
+			list = new ArrayList<Project>();
 			while(rs.next()){
-				Course cou = new Course(rs.getInt("CNo"),rs.getString("Cname"),rs.getString("Ccredit"));
+				Project cou = new Project(rs.getInt("CNo"),rs.getString("Cname"),rs.getString("Ccredit"));
 				list.add(cou);
 			}
 			listall = list.iterator();
@@ -75,7 +75,7 @@ public class DaoCou {
 	/*
 	 * �޸�ĳ���γ���Ϣ
 	 * */
-	public int updateCou(Course cou){
+	public int updateCou(Project cou){
 		int rs = 0;
 		try{
 			Connection conn = new Conn().getConn();
@@ -109,7 +109,7 @@ public class DaoCou {
 	/*
 	 * ���һ���γ���Ϣ
 	 * */
-	public int insertCou(Course cou){
+	public int insertCou(Project cou){
 		int rs = 0;
 		try{
 			Connection conn = new Conn().getConn();

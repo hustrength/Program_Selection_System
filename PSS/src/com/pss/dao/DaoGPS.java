@@ -8,21 +8,21 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.pss.conn.Conn;
-import com.pss.user.SC;
-import com.pss.user.SedCou;
+import com.pss.user.GPS;
+import com.pss.user.SedPro;
 
-public class DaoSc {
+public class DaoGPS {
 	/*
 	 * ѡ�ι�ϵ����  	һ�β�������
 	 * */
 	@SuppressWarnings("null")
-	public int[] insertSc(SC sc[]){
+	public int[] insertSc(GPS sc[]){
 		int[] rs = null;
 		try{
 			String sql = "insert into sc(SNo,CNo,classroom) values(?,?,?);";
 			Connection conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql);
-			SC tem = null;
+			GPS tem = null;
 			rs = new int[sc.length];
 			for(int i = 0;i< sc.length;i++){
 				tem = sc[i];
@@ -54,18 +54,18 @@ public class DaoSc {
 	/*
 	 * ��ѯĳλѧ����ѡ�γ�
 	 * */
-	public Iterator<SedCou> selectSc(int sno){
-		Iterator<SedCou> listall = null;
-		SedCou cou = null;
+	public Iterator<SedPro> selectSc(int sno){
+		Iterator<SedPro> listall = null;
+		SedPro cou = null;
 		try{
-			List<SedCou> list  = new ArrayList<SedCou>();
+			List<SedPro> list  = new ArrayList<SedPro>();
 			String sql = "select sc.cno,cname,ccredit,classroom from course,sc where course.cno=sc.cno and sno=?;";
 			Connection conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setInt(1, sno);
 			ResultSet rs = pst.executeQuery();
 			while(rs.next()){
-				cou = new SedCou();
+				cou = new SedPro();
 				cou.setCNo(rs.getInt("CNo"));
 				cou.setCname(rs.getString("Cname"));
 				cou.setClassroom(rs.getString("classroom"));
@@ -80,9 +80,9 @@ public class DaoSc {
 	/*
 	 * ����ѧ�š��κ�Ψһ��ѯѡ�ι�ϵ
 	 * */
-	public SC selectone(int sno,int cno){
+	public GPS selectone(int sno, int cno){
 		ResultSet rs = null;
-		SC sc = null;
+		GPS sc = null;
 		try{
 			String sql = "select * from sc where sno=? and cno=?;";
 			Connection conn = new Conn().getConn();
@@ -92,7 +92,7 @@ public class DaoSc {
 			rs = pst.executeQuery();
 			if(rs.next()){
 				System.out.println("classroom select over!!");	
-				sc = new SC();
+				sc = new GPS();
 				sc.setSNo(rs.getInt("SNo"));
 				sc.setCNo(rs.getInt("CNo"));
 				sc.setClassroom(rs.getString("Classroom"));
@@ -103,7 +103,7 @@ public class DaoSc {
 	/*
 	 * ѡ�ι�ϵ�޸Ľ�ʦ
 	 * */
-	public int updateClass(SC sc){
+	public int updateClass(GPS sc){
 		int rs = 0;
 		try{
 			String sql = "update sc set classroom=? where sno=? and cno=?;";

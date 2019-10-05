@@ -56,8 +56,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="form_1">
 				<form action="servlet/serDoUpdateCou" method="post">
 				<%
-				DaoCou selectone = new DaoCou();
-				Course cou = selectone.selectCou(Integer.parseInt(request.getParameter("id")));
+				DaoPro selectone = new DaoPro();
+				Project cou = selectone.selectCou(Integer.parseInt(request.getParameter("id")));
 				if(cou!=null){
 				 %>
 				 

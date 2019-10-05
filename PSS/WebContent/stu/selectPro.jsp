@@ -51,10 +51,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="function"><p>[通知]选题系统已开放</p></div>
 			<div class="form">
 			<form action="servlet/serInsertSc" method="post">
-			<%Course cou = null;
-  				DaoCou selectcou = new DaoCou();
-  				List<Course> list = selectcou.selectCou();
-  				Iterator<Course> it = list.iterator(); 
+			<%
+                Project cou = null;
+  				DaoPro selectcou = new DaoPro();
+  				List<Project> list = selectcou.selectCou();
+  				Iterator<Project> it = list.iterator();
   			%>
 				<table>
   					<tr><td></td></tr>

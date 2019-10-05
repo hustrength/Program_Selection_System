@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,com.pss.user.SC,com.pss.user.Teacher,com.pss.user.QueryResult" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,com.pss.user.GPS,com.pss.user.Teacher,com.pss.user.QueryResult" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -47,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<p>亲爱的<%= tea.getTname() %>老师，下午好</p>
 		</div>
 		<%
-			SC sc = (SC)request.getAttribute("room");
+			GPS sc = (GPS)request.getAttribute("room");
 		 %>
 		<div class="box">
 			<div class="function"><p>[通知]选课系统已开放</p></div>

@@ -1,6 +1,6 @@
 package com.pss.user;
 
-public class SedCou {
+public class SedPro {
 	private int CNo;
 	private String Cname;
 	private String classroom;
