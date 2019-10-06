@@ -9,8 +9,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     <meta charset="UTF-8">
-    <title>学生选课信息管理系统</title>
-    <link href="style.css" type="text/css" rel="stylesheet"/>
+    <title>学生选题信息管理系统</title>
+    <link href="css/stulogin.css" type="text/css" rel="stylesheet"/>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -20,7 +20,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="./jquery-latest.js"></script>
 <script type ="text/javascript">
 function commitForm(r){  
-    
     
     if(r.username.value==""){
     	alert('请输入用户名');
@@ -62,7 +61,7 @@ function commitForm(r){
 				</div>
 				<div class="login_line"></div>
 				<div class="login_content">
-					<h2>学生选课信息管理系统</h2>
+					<h2>学生选题信息管理系统</h2>
 					<p>Student Selection Management System</p>
 					<form id="form_login" method='post' onsubmit='commitForm(this)' >
 						<div class="login_input">
@@ -75,14 +74,14 @@ function commitForm(r){
 						
 						<div class="">
 							<input id="login_button" class="login_btn sure" type="submit" value="登录"  >
-							
-							<input class="login_btn cancle" type="button" value="教师入口 " onclick="window.location.href='tea/teaLogin.jsp'">
+							<input id="register_button" class="login_btn sure" type="button" value="注册" onclick="window.location.href='stu/sturegister.jsp'" >
+							<input class="jump_btn cancle" type="button" value="教师入口 " onclick="window.location.href='tea/teaLogin.jsp'">
 						</div>
 						<div id="output1" ></div>
 					</form>
 				</div>
 			</div>
-			<div class="text"><p>版权所有 ©2017-2018 学生选课信息系统 保留所有权利</p></div>
+			<div class="copyright">版权所有 ©2019-2020 学生选题信息系统 保留所有权利</div>
 		</div>
 	</body>
 </html>

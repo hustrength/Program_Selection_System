@@ -52,7 +52,7 @@ function check(r) {
 						<div class="">
 							
 							<input class="login_btn sure" type="submit" value="登录">
-							<input class="login_btn cancle" type="button" value="学生入口 " onclick="window.location.href='/Ten/Login.jsp'">
+							<input class="login_btn cancle" type="button" value="学生入口 " onclick="window.location.href='/PSS/Login.jsp'">
 						</div>
 					</form>
 				</div>
