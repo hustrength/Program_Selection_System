@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta charset="UTF-8">
     <title>学生注册</title>
     <link href="css/sturegister.css" type="text/css" rel="stylesheet"/>
-	<script type="text/javascript" src="./sturegister.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/js/sturegister.js"></script>
 	<script type="text/javascript">
 
 </script>

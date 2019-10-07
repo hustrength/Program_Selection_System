@@ -17,7 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	
-<script type="text/javascript" src="../jquery-latest.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-latest.js"></script>
 <script type ="text/javascript">
 function commitForm(r){  
     
