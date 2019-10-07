@@ -17,38 +17,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	
-<script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-latest.js"></script>
-<script type ="text/javascript">
-function commitForm(r){  
-    
-    if(r.username.value==""){
-    	alert('请输入用户名');
-    	return false;
-    }
-    if(r.password.value==""){
-    	alert('请输入密码');
-    	return false;
-    }
-    $.ajax({
-        url:"servlet/serDoLogin?type=stu",
-        type:"post",
-        async:false,
-        data:$('#form_login').serialize(),  
-        dataType: "text",
-        success:function(text){
-       
-        	if(text=="0"){
-        		alert('用户名或密码错误');
-        	}
-        	else {
-        		$("#form_login").attr("action","stu/student.jsp");
-        	}
-            console.log(1);
-        },
-    })
-}  
-
-</script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-latest.js"></script>
+	<script type ="text/javascript">
+	function commitForm(r){  
+	    $.ajax({
+	        url:"servlet/serDoLogin?type=stu",
+	        type:"post",
+	        async:false,
+	        data:$('#form_login').serialize(),  
+	        dataType: "text",
+	        success:function(text){
+	       
+	        	if(text=="0"){
+	        		alert('用户名或密码错误');
+	        	}
+	        	else {
+	        		$("#form_login").attr("action","stu/student.jsp");
+	        	}
+	            console.log(1);
+	        },
+	    })
+	}  
+	
+	</script>
 <script type="text/javascript" src="/js/jquery/jquery.form.js"></script>   
 
   </head>
@@ -65,11 +56,13 @@ function commitForm(r){
 					<p>Student Selection Management System</p>
 					<form id="form_login" method='post' onsubmit='commitForm(this)' >
 						<div class="login_input">
-							<input type="text" placeholder="请输入学号" class="login_username" name="username">
+							<input type="text" placeholder="请输入学号" class="login_username" name="username" required="required"
+                			oninvalid="setCustomValidity('该项不可为空')" οninput="setCustomValidity('')">
 						</div>
 		
 						<div class="login_input">
-							<input type="password" placeholder="请输入密码" class="login_password"  name="password">
+							<input type="password" placeholder="请输入密码" class="login_password"  name="password" required="required"
+                			oninvalid="setCustomValidity('该项不可为空')" οninput="setCustomValidity('')">
 						</div>
 						
 						<div>

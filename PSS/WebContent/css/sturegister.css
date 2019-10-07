@@ -26,26 +26,25 @@ body{
 .register_box{
 	position: relative;
 	width: 600px;
-	height: 630px;
+	height: 615px;
 	background: rgba(255,255,255,0.7);
 	margin: 50px auto;
 	border-radius:10px ;
 }
 .register_box div{
-	margin-top:40px;
 	width: 600px;
 	height: 40px;
-	margin-left:70px;
+	margin-top:35px;
+	text-align: center;
 }
-
 h2{
-	font-size: 30px;
+	font-size: 33px;
 	letter-spacing: 20px;
 	color:#000;
-	margin-left: 150px;
+	margin-left: 160px;
 	width: 300px;
 	height: 50px;
-	font-family: "ΊΪΜε";
+	font-family: "εΎ®θ½―ι›…ι»‘";
 	text-align:center;
 }
 .span{
@@ -55,7 +54,6 @@ h2{
 	display: inline-block;
 	color: gray;
 	text-align:right;
-	
 }
 .span1{
 	width:200px;
@@ -71,12 +69,47 @@ h2{
 	font-size: 20px;
 	margin-left:40px;
 }
-
+.submit_bt{
+	position:relative;
+	left:180px;
+	top:20px;
+	width: 60px;
+	line-height: 38px;
+	border-radius: 5px;
+	font-size: 20px;
+	font-family: "εΎ®θ½―ι›…ι»‘";
+	text-align: center;
+	border: none;
+	color: #fff;
+	outline: none;
+}
+.back_menu{
+	position:relative;
+	left:250px;
+	top:20px;
+	width: 120px;
+	line-height: 38px;
+	border-radius: 5px;
+	font-size: 20px;
+	font-family: "εΎ®θ½―ι›…ι»‘";
+	text-align: center;
+	border: none;
+	color: #fff;
+	outline: none;
+}
+.sure{
+	background: #5CB85C;
+	margin-left: 10px;
+}
+.sure:hover{
+	background: #449D44;
+}
 .copyright{
 	font-size: 16px;
 	margin-bottom:400px;
-	width: 400px;
+	width: 450px;
 	height: 30px;
 	color:white ;
-	font-family: "ΊΪΜε";
+	font-family: "ε®‹δ½“";
+	margin:0 auto;
 }
