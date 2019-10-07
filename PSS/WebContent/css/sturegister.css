@@ -26,20 +26,28 @@ body{
 .register_box{
 	position: relative;
 	width: 600px;
-	height: 600px;
+	height: 630px;
 	background: rgba(255,255,255,0.7);
 	margin: 50px auto;
 	border-radius:10px ;
+}
+.register_box div{
+	margin-top:40px;
+	width: 500px;
+	height: 40px;
+	margin-left:70px;
+	
 }
 
 h2{
 	font-size: 30px;
 	letter-spacing: 20px;
 	color:#000;
-	margin: 0px auto;
-	width: 200px;
+	margin-left: 150px;
+	width: 300px;
 	height: 50px;
 	font-family: "ºÚÌå";
+	text-align:center;
 }
 .span{
 	width: 100px;
@@ -56,20 +64,13 @@ h2{
 	font-size: 20px;
 	margin-left:40px;
 }
-.register_box div{
-	margin-top:40px;
-	width: 500px;
-	height: 50px;
-	margin-left:70px;
-	
-}
-.login_bg .copyright{
-	position:absolute;
-	font-size:16px;
-	margin-top:40px;
-	color:white;
+
+.copyright{
+	font-size: 16px;
+	margin-bottom:400px;
+	width: 400px;
+	height: 30px;
+	color:white ;
 	font-family: "ºÚÌå";
 	
-    height: 25px;
-    width: 500px;
 }

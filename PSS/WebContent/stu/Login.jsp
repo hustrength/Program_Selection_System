@@ -17,7 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	
-<script type="text/javascript" src="./jquery-latest.js"></script>
+<script type="text/javascript" src="../jquery-latest.js"></script>
 <script type ="text/javascript">
 function commitForm(r){  
     
@@ -72,12 +72,11 @@ function commitForm(r){
 							<input type="password" placeholder="请输入密码" class="login_password"  name="password">
 						</div>
 						
-						<div class="">
+						<div>
 							<input id="login_button" class="login_btn sure" type="submit" value="登录"  >
 							<input id="register_button" class="login_btn sure" type="button" value="注册" onclick="window.location.href='stu/sturegister.jsp'" >
 							<input class="jump_btn cancle" type="button" value="教师入口 " onclick="window.location.href='tea/teaLogin.jsp'">
 						</div>
-						<div id="output1" ></div>
 					</form>
 				</div>
 			</div>

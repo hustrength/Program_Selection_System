@@ -10,8 +10,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta charset="UTF-8">
     <title>学生注册</title>
     <link href="css/sturegister.css" type="text/css" rel="stylesheet"/>
-	
-	
+	<script type="text/javascript" src="./sturegister.js"></script>
+	<script type="text/javascript">
+
+</script>
 </head>
 <body>
  <div class="login_bg">
@@ -21,8 +23,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 <form action="" method="post">
 			 <div>
 			 <span class="span">学号: </span>
-			 <input type="text" class="input_bt" name="username"
-			  id="username" placeholder="请输入学号" onblur="checkusername()" required>
+			 <input type="text" class="input_bt" name="userid"
+			  id="userid" placeholder="请输入学号" onblur="checkuserid()" required>
 			 <span id ="s1"></span>
 			 </div>
 			  <div>
@@ -37,6 +39,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  id="repassword" placeholder="请再次输入密码" onblur="recheckpassword()" required>
 			 <span id ="s3"></span>
 			 </div>
+			 <div>
+			 <span class="span">真实姓名: </span>
+			 <input type="text" class="input_bt" name="username"
+			  id="username" placeholder="请输入真实姓名" onblur="checkusername()" required>
+			 <span id ="s4"></span>
+			 </div>
 			  <div>
 			 <span class="span">性别:</span>
 			 <select class="input_bt" name="sex" onchange="checksex()" id="sex">
@@ -44,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 <option class="input_bt" value="1">男生</option>
 			 <option class="input_bt" value="2">女生</option>
 			 </select>
-			  <span id ="s4"></span>
+			  <span id ="s5"></span>
 			 </div>
 			  <div>
 			 <span class="span">班级:</span>
@@ -54,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 <option class="input_bt" value="2">CS1705</option>
 			 <option class="input_bt" value="3">CS1706</option>
 			 </select>
-			  <span id ="s5"></span>
+			  <span id ="s6"></span>
 			 </div>
 			 
 			 </form>

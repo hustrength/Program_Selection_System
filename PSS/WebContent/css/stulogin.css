@@ -10,7 +10,7 @@
 .login_box{
 	position: relative;
 	width: 600px;
-	height: 330px;
+	height: 320px;
 	background: rgba(255,255,255,0.7);
 	margin: 200px auto;
 	border-radius:10px ;
@@ -129,9 +129,10 @@
 }
 .copyright{
 	font-size: 16px;
-	margin-top: 10px;
-	margin-left: 1px;
+	margin-bottom:400px;
+	width: 400px;
+	height: 30px;
 	color:white ;
 	font-family: "ºÚÌå";
-	margin-bottom: 20px;
+	
 }
