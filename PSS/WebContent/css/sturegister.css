@@ -33,10 +33,9 @@ body{
 }
 .register_box div{
 	margin-top:40px;
-	width: 500px;
+	width: 600px;
 	height: 40px;
 	margin-left:70px;
-	
 }
 
 h2{
@@ -58,6 +57,14 @@ h2{
 	text-align:right;
 	
 }
+.span1{
+	width:200px;
+	height:50px;
+	font-size: 20px;
+	display: inline-block;
+	color: gray;
+	text-align:right;
+}
 .input_bt{
 	width: 240px;
 	height: 30px;
@@ -72,5 +79,4 @@ h2{
 	height: 30px;
 	color:white ;
 	font-family: "ºÚÌå";
-	
 }

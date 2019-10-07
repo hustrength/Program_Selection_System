@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 <span class="span">学号: </span>
 			 <input type="text" class="input_bt" name="userid"
 			  id="userid" placeholder="请输入学号" onblur="checkuserid()" required>
-			 <span id ="s1"></span>
+			 <span class="span1" id ="s1"></span>
 			 </div>
 			  <div>
 			 <span class="span">密码:</span>
