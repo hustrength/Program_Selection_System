@@ -65,14 +65,14 @@ body{
 	letter-spacing: 5px;
 	color:#000;
 	margin-top: 56px;
-	font-family: "ΊΪΜε";
+	font-family: "εΎ®θ½―ι›…ι»‘";
 }
 .login_box .login_content p{
 	font-size: 16px;
 	margin-top: 10px;
 	margin-left: 1px;
 	color:#b7937e ;
-	font-family: "ΊΪΜε";
+	font-family: "εΎ®θ½―ι›…ι»‘";
 	margin-bottom: 15px;
 }
 .login_box .login_content .login_input .login_username,.login_box .login_content .login_input .login_password{
@@ -90,14 +90,14 @@ body{
 	margin-bottom: 20px;
 }
 
-
-.login_box .login_content .login_btn{
+}
+.login_box .login_content .login_btn .jump_btn{
 	margin-top: 40px;
-	width: 103px;
+	width: 60px;
 	line-height: 30px;
 	border-radius: 5px;
 	font-size: 16px;
-	font-family: "ΊΪΜε";
+	font-family: "εΎ®θ½―ι›…ι»‘";
 	text-align: center;
 	border: none;
 	color: #fff;
@@ -105,7 +105,6 @@ body{
 }
 .login_box .login_content .sure{
 	background: #5CB85C;
-	margin-left: 10px;
 }
 .login_box .login_content .sure:hover{
 	background: #449D44;

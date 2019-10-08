@@ -15,18 +15,17 @@
 	function commitForm(r){  
 	    //未完成
 		$.ajax({
-	        url:"",
+	        url:"servlet/serDoRegister",
 	        type:"post",
 	        async:false,
-	        data:$('#form_login').serialize(),  
+	        data:$('#form_register').serialize(),  
 	        dataType: "text",
 	        success:function(text){
-	       
 	        	if(text=="0"){
 	        		alert('用户名或密码错误');
 	        	}
 	        	else {
-	        		$("#form_login").attr("action","stu/student.jsp");
+	        		$("#form_register").attr("action","stu/sturegister.jsp");
 	        	}
 	            console.log(1);
 	        },
@@ -90,8 +89,8 @@
                 </select>
                 <span id="s6"></span>
             </div>
-            	<input class="submit_bt sure" type="submit" value="注册">
-            	<input class="back_menu sure" type="button" value="返回主菜单">
+            	<input class="submit_bt sure" type="submit" value="提交">
+            	<input class="back_menu sure" type="button" value="返回主菜单" onclick="window.location.href='tea/teaLogin.jsp'">
 
         </form>
     </div>

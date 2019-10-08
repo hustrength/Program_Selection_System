@@ -1,11 +1,20 @@
+*{
+	margin:0;
+	padding: 0;
+}
+
+body{
+	width: 100%;
+	height: 100%;
+}
+
 .login_bg{
 	width: 100%;
 	height: 800px;
 	background-image: url("../img/login_bg.png");
 	background-size: cover;
 	background-position:left top;
-	position: fixed;
-	
+	position:fixed;
 }
 .login_box{
 	position: relative;
@@ -82,7 +91,7 @@
 
 
 .login_box .login_content .login_btn{
-	margin-top: 40px;
+	margin-top: 30px;
 	width: 60px;
 	line-height: 30px;
 	border-radius: 5px;
@@ -94,8 +103,9 @@
 	outline: none;
 }
 .login_box .login_content .jump_btn{
-	margin-top: 40px;
-	width: 100px;
+	margin-top: 30px;
+	margin-left:8px;
+	width: 90px;
 	line-height: 30px;
 	border-radius: 5px;
 	font-size: 16px;
@@ -114,8 +124,6 @@
 }
 .login_box .login_content .cancle{
 	background: #EC971F;
-	margin-left: 10px;
-	
 }
 .login_box .login_content .cancle:hover{
 	background: #D58512;
@@ -129,10 +137,12 @@
 }
 .copyright{
 	font-size: 16px;
-	margin-bottom:400px;
-	width: 400px;
+	margin-top:-60px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	width: 500px;
 	height: 30px;
 	color:white ;
 	font-family: "宋体";
-	margin:0 auto;
 }

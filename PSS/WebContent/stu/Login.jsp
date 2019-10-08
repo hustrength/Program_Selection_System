@@ -8,6 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
+    
     <meta charset="UTF-8">
     <title>学生选题信息管理系统</title>
     <link href="css/stulogin.css" type="text/css" rel="stylesheet"/>
@@ -18,6 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="description" content="This is my page">
 	
 	<script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-latest.js"></script>
+	<script type="text/javascript" src="/js/jquery/jquery.form.js"></script>  
 	<script type ="text/javascript">
 	function commitForm(r){  
 	    $.ajax({
@@ -27,7 +29,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        data:$('#form_login').serialize(),  
 	        dataType: "text",
 	        success:function(text){
-	       
 	        	if(text=="0"){
 	        		alert('用户名或密码错误');
 	        	}
@@ -38,11 +39,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        },
 	    })
 	}  
-	
 	</script>
-<script type="text/javascript" src="/js/jquery/jquery.form.js"></script>   
-
   </head>
+  
   <body>
   <div class="login_bg">
 			<div class="login_box">
@@ -68,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div>
 							<input id="login_button" class="login_btn sure" type="submit" value="登录"  >
 							<input id="register_button" class="login_btn sure" type="button" value="注册" onclick="window.location.href='stu/sturegister.jsp'" >
-							<input class="jump_btn cancle" type="button" value="教师入口 " onclick="window.location.href='tea/teaLogin.jsp'">
+							<input class="jump_btn cancle" type="button" value="教师入口" onclick="window.location.href='tea/teaLogin.jsp'">
 						</div>
 					</form>
 				</div>

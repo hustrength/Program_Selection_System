@@ -9,27 +9,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-   <meta charset="UTF-8">
-    <title>学生选课信息管理系统-教师入口</title>
-    <link href="style.css" type="text/css" rel="stylesheet"/>
+   	<meta charset="UTF-8">
+    <title>学生选题信息管理系统-教师入口</title>
+    <link href="css/stulogin.css" type="text/css" rel="stylesheet"/>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-<script type="text/javascript">
-function check(r) { 
-　　if (isNaN(r.username.value)) { 
-　　　　alert("请输入教师编号"); 
-　　　　r.username.focus();
-　　　　return false;
-　　} 
-}
-</script>
+	
+	<script type="text/javascript">
+	function check(r) { 
+	　　if (isNaN(r.username.value)) { 
+	　　　　alert("请输入教师编号"); 
+	　　　　r.username.focus();
+	　　　　return false;
+	　　} 
+	}
+	</script>
   </head>
+  
   <body>
   <div class="login_bg">
 			<div class="login_box">
@@ -39,7 +38,7 @@ function check(r) {
 				</div>
 				<div class="login_line"></div>
 				<div class="login_content">
-					<h2>学生选课信息管理系统</h2>
+					<h2>学生选题信息管理系统</h2>
 					<p>Student Selection Management System</p>
 					<form action="servlet/serDoLogin?type=tea" method="post" onSubmit="return check(this)">
 						<div class="login_input">
@@ -52,12 +51,12 @@ function check(r) {
 						<div class="">
 							
 							<input class="login_btn sure" type="submit" value="登录">
-							<input class="login_btn cancle" type="button" value="学生入口 " onclick="window.location.href='/PSS/Login.jsp'">
+							<input class="jump_btn cancle" type="button" value="学生入口" onclick="window.location.href='stu/Login.jsp'">
 						</div>
 					</form>
 				</div>
 			</div>
-			<div class="text"><p>版权所有 ©2017-2018 学生选课信息系统 保留所有权利</p></div>
+			<div class="copyright"><p>版权所有 ©2019-2020 学生选课信息系统 保留所有权利</p></div>
 		</div>
 	</body>
 
