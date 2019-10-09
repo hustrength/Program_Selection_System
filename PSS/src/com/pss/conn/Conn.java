@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 public class Conn {
 	Connection conn = null;
 	public static final String DBDRIVER="com.mysql.jdbc.Driver";
-	public static final String DBURL="jdbc:mysql://localhost:3306/db_select_course?useUnicode=true&characterEncoding=utf8";
+	public static final String DBURL="jdbc:mysql://localhost:3306/db_select_project?useUnicode=true&characterEncoding=utf8";
 	public static final String DBUSER="root";
 	public static final String DBPASS="123";
 	

@@ -27,6 +27,7 @@ public class serInsertStu extends HttpServlet {
 	public void destroy() {
 		super.destroy(); // Just puts "destroy" string in log
 		// Put your code here
+		
 	}
 
 	/**
@@ -42,6 +43,7 @@ public class serInsertStu extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {	
 		this.doPost(request, response);
+		
 		}
 
 	/**
@@ -57,6 +59,7 @@ public class serInsertStu extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		System.out.println("Insertstu");
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
@@ -74,7 +77,7 @@ public class serInsertStu extends HttpServlet {
 			}else{
 				out.println("ÃÌº” ß∞‹£∫"+stu.getSNo());
 			}
-			response.sendRedirect("/Ten/tea/selectStu.jsp");
+			response.sendRedirect("/PSS/tea/selectStu.jsp");
 		}catch(Exception e){e.printStackTrace();}
 		out.println("  </center></BODY>");
 		out.println("</HTML>");
