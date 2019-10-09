@@ -61,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 						<div class="login_input">
 							<input type="password" placeholder="请输入密码" class="login_password"  name="password" required="required"
-                			oninvalid="setCustomValidity('该项不可为空')" οninput="setCustomValidity('')">
+                			oninvalid="setCustomValidity('该项不可为空')" oninput="setCustomValidity('')">
 						</div>
 						
 						<div>
