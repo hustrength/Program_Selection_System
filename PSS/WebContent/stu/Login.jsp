@@ -56,7 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<form id="form_login" method='post' onsubmit='commitForm(this)' >
 						<div class="login_input">
 							<input type="text" placeholder="请输入学号" class="login_username" name="username" required="required"
-                			oninvalid="setCustomValidity('该项不可为空')" οninput="setCustomValidity('')">
+                			oninvalid="setCustomValidity('该项不可为空')" oninput="setCustomValidity('')">
 						</div>
 		
 						<div class="login_input">

@@ -44,34 +44,34 @@
                 <span class="span">学号: </span>
                 <input type="text" class="input_bt" name="userid"
                        id="userid" placeholder="请输入学号" required="required"
-                       oninvalid="setCustomValidity('该项不可为空')" οninput="setCustomValidity('')">
+                       oninvalid="setCustomValidity('该项不可为空')" oninput="setCustomValidity('')">
                 <span id="s1"></span>
             </div>
             <div>
                 <span class="span">密码:</span>
                 <input type="password" class="input_bt" name="password"
                        id="password" placeholder="请输入密码" required="required"
-                       oninvalid="setCustomValidity('该项不可为空')" οninput="setCustomValidity('')">
+                       oninvalid="setCustomValidity('该项不可为空')" oninput="setCustomValidity('')">
                 <span id="s2"></span>
             </div>
             <div>
                 <span class="span">确认密码:</span>
                 <input type="password" class="input_bt" name="repassword"
                        id="repassword" placeholder="请再次输入密码" required="required"
-                       oninvalid="setCustomValidity('该项不可为空')" οninput="setCustomValidity('')">
+                       oninvalid="setCustomValidity('该项不可为空')" oninput="setCustomValidity('')">
                 <span id="s3"></span>
             </div>
             <div>
                 <span class="span">真实姓名: </span>
                 <input type="text" class="input_bt" name="username"
                        id="username" placeholder="请输入真实姓名" required="required" 
-                       oninvalid="setCustomValidity('该项不可为空')" οninput="setCustomValidity('')">
+                       oninvalid="setCustomValidity('该项不可为空')" oninput="setCustomValidity('')">
                 <span id="s4"></span>
             </div>
             <div>
                 <span class="span">性别:</span>
                 <select class="input_bt" name="sex" onchange="checksex()" id="sex" required="required"
-                oninvalid="setCustomValidity('该项不可为空')" οninput="setCustomValidity('')">
+                		oninvalid="setCustomValidity('该项不可为空')" oninput="setCustomValidity('')">
                     <option class="input_bt" value="" selected>--请选择--</option>
                     <option class="input_bt" value="1">男生</option>
                     <option class="input_bt" value="2">女生</option>
@@ -81,7 +81,7 @@
             <div>
                 <span class="span">班级:</span>
                 <select class="input_bt" name="sex" onchange="checkclass()" id="sex" required="required"
-                oninvalid="setCustomValidity('该项不可为空')" οninput="setCustomValidity('')">
+                		oninvalid="setCustomValidity('该项不可为空')" oninput="setCustomValidity('')">
                     <option class="input_bt" value="" selected>--请选择--</option>
                     <option class="input_bt" value="1">CS1704</option>
                     <option class="input_bt" value="2">CS1705</option>
@@ -90,7 +90,7 @@
                 <span id="s6"></span>
             </div>
             	<input class="submit_bt sure" type="submit" value="提交">
-            	<input class="back_menu sure" type="button" value="返回主菜单" onclick="window.location.href='tea/teaLogin.jsp'">
+            	<input class="back_menu sure" type="button" value="返回主菜单" onclick="window.location.href='stu/Login.jsp'">
 
         </form>
     </div>
