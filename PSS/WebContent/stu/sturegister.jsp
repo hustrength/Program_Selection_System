@@ -47,6 +47,7 @@
                 <span class="span">学号: </span>
                 <input type="text" class="input_bt" name="userid"
                        id="userid" placeholder="请输入学号" onblur="checkuserid()" required="required"
+                       id="userid" placeholder="请输入学号" required="required"
                        oninvalid="setCustomValidity('该项不可为空')" oninput="setCustomValidity('')">
                 <span id="s1"></span>
             </div>
