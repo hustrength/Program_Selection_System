@@ -102,7 +102,7 @@
                     <div class="sign-up-htm">
                         <div class="group">
                             <label for="userid_signup" class="label">学号</label>
-                            <input id="userid_signup" name="userid_signup" type="text" class="input" pattern="^[A-Z][0-9]{1,15}$"
+                            <input id="userid_signup" name="userid_signup" type="text" class="input"
                                    required="required" oninput="checkUserid()">
                         </div>
                         <div class="group">
