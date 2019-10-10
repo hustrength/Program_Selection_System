@@ -3,6 +3,7 @@ package com.pss.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -13,7 +14,9 @@ import com.pss.user.Student;
 public class DaoStu {
 	/**
 	 * 学生登录
-	 * **/
+	 * @param stu
+	 * @return
+	 */
 	public Student loginStu(Student stu){
 		Student stu1 = null;
 		String sql_loginS="select * from student where SNo=? and Spassword=?;";
@@ -31,137 +34,12 @@ public class DaoStu {
 		return stu1;
 	}
 	
+	/**
+	 * 更新学生信息
+	 * @param stu
+	 * @return
+	 */
 	
-	
-	/*
-	 * 查询所有学生
-	 * */
-	public List<Student> selectStu1(){
-		List<Student> list = null;
-		try{
-			String sql_select = "select student.sno as SNo,Sname,Spassword,Sclass,Ssex,sum(course.ccredit) as Scredit from student,sc,course" +
-								"	where student.sno=sc.sno" +
-								"		and sc.cno=course.cno" +
-								"		 group by student.sno;";//锟斤拷询全锟斤拷学锟斤拷锟斤拷息+学锟斤拷学锟斤拷;//锟斤拷询锟斤拷锟叫碉拷sql锟斤拷锟�
-			Connection conn = new Conn().getConn();
-			PreparedStatement pst = conn.prepareStatement(sql_select);
-			ResultSet rs = pst.executeQuery();
-			list = new ArrayList<Student>();
-			while(rs.next()){				
-				Student stu = new Student(rs.getInt("SNo"),rs.getString("Sname"),rs.getString("Spassword"),rs.getString("Sclass")
-						,rs.getString("Ssex"),rs.getFloat("Scredit"));
-				list.add(stu);
-			}
-		}catch(Exception e){e.printStackTrace();}
-		return list;
-	}
-	/*
-	 * 锟斤拷询锟斤拷锟斤拷学锟斤拷
-	 * */
-	public List<Student> selectStu(){
-		List<Student> list = null;
-		try{
-			String sql_select = "select SNo,Sname,Spassword,Sclass,Ssex from student;";//锟斤拷询全锟斤拷学锟斤拷锟斤拷息+学锟斤拷学锟斤拷;//锟斤拷询锟斤拷锟叫碉拷sql锟斤拷锟�
-			Connection conn = new Conn().getConn();
-			PreparedStatement pst = conn.prepareStatement(sql_select);
-			ResultSet rs = pst.executeQuery();
-			list = new ArrayList<Student>();
-			DaoPro scredit = new DaoPro();
-			while(rs.next()){				
-				Student stu = new Student(rs.getInt("SNo"),rs.getString("Sname"),rs.getString("Spassword"),rs.getString("Sclass")
-						,rs.getString("Ssex"), scredit.selectScre(rs.getInt("SNo")));
-				list.add(stu);
-			}
-		}catch(Exception e){e.printStackTrace();}
-		return list;
-	}
-	/*
-	 * 锟斤拷询学锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟窖э拷锟�
-	 * */
-	public Iterator<Student> selectSum(){
-		List<Student> list = null;
-		Iterator<Student> listall = null;
-		try{
-			String sql_select = "select student.sno as SNo,Sname,Spassword,Sclass,Ssex,sum(course.ccredit) as Scredit from student,sc,course" +
-								"	where student.sno=sc.sno" +
-								"		and sc.cno=course.cno" +
-								"		 group by student.sno;";//锟斤拷询全锟斤拷学锟斤拷锟斤拷息+学锟斤拷学锟斤拷筛选锟斤拷锟斤拷学锟街诧拷锟斤拷锟�
-			Connection conn = new Conn().getConn();
-			PreparedStatement pst = conn.prepareStatement(sql_select);
-			ResultSet rs = pst.executeQuery();
-			list = new ArrayList<Student>();
-			while(rs.next()){				
-				Student stu = new Student(rs.getInt("SNo"),rs.getString("Sname"),rs.getString("Spassword"),rs.getString("Sclass")
-						,rs.getString("Ssex"),rs.getFloat("Scredit"));
-				list.add(stu);
-			}
-			listall = list.iterator();
-		}catch(Exception e){e.printStackTrace();}
-		return listall;
-	}
-	/*
-	 * 锟斤拷询学锟斤拷锟斤拷学锟斤拷_某位学锟斤拷
-	 * */
-	public Student selectScre(Student stu){
-		ResultSet rs = null;
-		try{
-			String sql_insert = "select student.sno as sno,sum(course.ccredit) as scredit from student,sc,course" +
-			"	where student.sno=sc.sno" +
-			"		and sc.cno=course.cno" +
-			"		 and student.sno=?";//锟斤拷询某位同学学锟斤拷
-			Connection conn = new Conn().getConn();
-			PreparedStatement pst = conn.prepareStatement(sql_insert);
-			pst.setInt(1,stu.getSNo());
-			rs = pst.executeQuery();
-			if(rs.next()){
-				System.out.println("Student_id"+stu.getSNo()+"select one over!");
-				stu = new Student(rs.getInt("sno"),null,null,null,null,rs.getFloat("scredit"));	
-			}
-		}catch(Exception e){e.printStackTrace();}
-		return stu;
-	}
-	/*
-	 * 锟斤拷询某锟斤拷锟斤拷学锟斤拷
-	 * */
-	public Student selectStu(int id){
-		Student Stu = null;
-		try{
-			String sql_selectone = "select * from student where SNo=?";//锟斤拷询某一锟斤拷锟轿筹拷
-			Connection conn = new Conn().getConn();
-			PreparedStatement pst = conn.prepareStatement(sql_selectone);
-			pst.setInt(1, id);
-			ResultSet rs = pst.executeQuery();
-			if(rs.next()){
-				Stu = new Student(rs.getInt("SNo"),rs.getString("Sname"),rs.getString("Spassword"),rs.getString("Sclass")
-						,rs.getString("Ssex"),0);
-			}
-		}catch(Exception e){e.printStackTrace();}
-		return Stu;
-	}
-	/*
-	 * 锟斤拷询某锟斤拷学锟斤拷锟斤拷息锟斤拷模锟斤拷锟斤拷询锟斤拷
-	 * */
-	public Iterator<Student> selectStu(String aa){//aa锟斤拷为模锟斤拷锟斤拷询锟侥关硷拷锟斤拷
-		List<Student> list = null;
-		Iterator<Student> listall = null;
-		try{
-			String sql_selectfuz = "select * from student where CNo=? or....";//fuzzy query模锟斤拷锟斤拷询
-			Connection conn = new Conn().getConn();
-			PreparedStatement pst = conn.prepareStatement(sql_selectfuz);
-			ResultSet rs = pst.executeQuery();
-			list = new ArrayList<Student>();
-			while(rs.next()){
-				Student stu = new Student(rs.getInt("SNo"),rs.getString("Sname"),rs.getString("Spassword"),rs.getString("Sclass")
-						,rs.getString("Ssex"),0);
-				list.add(stu);
-			}
-			listall = list.iterator();
-		}catch(Exception e){e.printStackTrace();}
-		return listall;
-	}
-	/*
-	 * 修改某个学生信息
-	 * */
 	public int updateStu(Student stu){
 		int rs = 0;
 		try{
@@ -182,9 +60,12 @@ public class DaoStu {
 		}catch(Exception e){e.printStackTrace();}
 		return rs;
 	}
-	/*
-	 * 删除某个学生信息
-	 * */
+	
+	/**
+	 * 删除某学生信息
+	 * @param id
+	 * @return
+	 */
 	public int deleteStu(String id){
 		int rs = 0;
 		try{
@@ -199,9 +80,12 @@ public class DaoStu {
 		}catch(Exception e){e.printStackTrace();}
 		return rs;
 	}
-	/*
-	 * 添加一位学生信息
-	 * */
+	
+	/**
+	 * 添加学生
+	 * @param stu
+	 * @return
+	 */
 	public int insertStu(Student stu){
 		int rs = 0;
 		try{
@@ -223,5 +107,33 @@ public class DaoStu {
 		return rs;
 	}
 	
+	/**
+	 * 根据id查询是否有此学生
+	 * @param id
+	 * @return
+	 */
+	public Student checkbyid(String id){
+		Student stu=null;
+		Connection conn = null;
+		try{
+			String sql_checkbyid = "select * from student where SNo=?";
+			conn=new Conn().getConn();
+			PreparedStatement pst = conn.prepareStatement(sql_checkbyid);
+			pst.setString(1, id);
+			ResultSet rs = pst.executeQuery();
+			if(rs.next()){
+				stu = new Student(rs.getString("SNo"),rs.getString("Sname"),rs.getString("Spassword"),rs.getString("Ssex"),rs.getString("Sclass"),
+						rs.getString("Sgroup"),rs.getString("Sposition"),rs.getInt("Sscore"));
+			}
+		}catch(Exception e){e.printStackTrace();}
+		finally{
+			try{
+				conn.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+		return stu;
+	}
 	
 }
