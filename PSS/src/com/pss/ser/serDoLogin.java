@@ -66,14 +66,14 @@ public class serDoLogin extends HttpServlet {
 		//response.setCharacterEncoding("utf-8");
 		//response.setHeader("content-type","text/html;charset=utf-8");
 		try{
-			System.out.println("ºóÌ¨");
+			System.out.println("ï¿½ï¿½Ì¨");
 			String username = request.getParameter("username");
 			
 			String password = request.getParameter("password");
 			String type  = null;
 			if(request.getParameter("type")!=null)
 				type = request.getParameter("type");
-			if(type.equals("tea")){//ÅÐ¶ÏÊÇÀÏÊ¦
+			if(type.equals("tea")){//ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½Ê¦
 				Teacher tea = new Teacher(username,null,password);
 				DaoTea logint = new DaoTea();
 				tea = logint.loginTea(tea);
