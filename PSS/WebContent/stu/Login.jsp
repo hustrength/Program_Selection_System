@@ -103,7 +103,7 @@
                         <div class="group">
                             <label for="userid_signup" class="label">学号</label>
                             <input id="userid_signup" name="userid_signup" type="text" class="input"
-                                   required="required" oninput="checkUserid()">
+                                   required="required" onblur="checkUserid()">
                         </div>
                         <div class="group">
                             <label for="password_signup" class="label">密码</label>

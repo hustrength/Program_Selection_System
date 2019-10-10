@@ -7,8 +7,9 @@ function checkIdrepeat(val, ele) {
         cache: false,
         success: function (text) {
             if (text === "true") {
-				ele.setCustomValidity("该学号可用");
+				
             } else {
+            	
 				ele.setCustomValidity("该学号已被注册");
 			}
             console.log(1);
@@ -20,10 +21,10 @@ function checkUserid() {
     var v = document.getElementById("userid_signup");
 	var val = v.value;
     var ptn = /^[A-Z][0-9]{1,15}$/;
-	alert("1");
+
 	console.log(1);
-	if (val == null || v.trim().length === 0 || val === "") {
-		alert("2");
+	if (val == null || val.trim().length === 0 || val === "") {
+		
 		console.log(2);
 		v.setCustomValidity("该项不可为空");
     } else if (!ptn.exec(val)) {
