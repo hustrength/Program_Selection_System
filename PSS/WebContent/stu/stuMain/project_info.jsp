@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dream</title>
+    <title>学生选题信息管理系统——学生界面</title>
 	<!-- Bootstrap Styles-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FontAwesome Styles-->
@@ -14,6 +14,18 @@
    <link href='http://fonts.useso.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 <body>
+	<!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <div>
+    </div>
+	<script src="<%=request.getContextPath() %>/assets/js/jquery-1.10.2.js"></script>
+    <!-- Bootstrap Js -->
+    <script src="<%=request.getContextPath() %>/assets/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="<%=request.getContextPath() %>/assets/js/jquery.metisMenu.js"></script>
+    <!-- Custom Js -->
+    <script src="<%=request.getContextPath() %>/assets/js/custom-scripts.js"></script>
     <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
             <div class="navbar-header">
@@ -424,16 +436,8 @@ index.html 查看已选课题
             </div>
          <!-- /. PAGE WRAPPER  -->
         </div>
-     <!-- /. WRAPPER  -->
-    <!-- JS Scripts-->
-    <!-- jQuery Js -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
-      <!-- Bootstrap Js -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <!-- Metis Menu Js -->
-    <script src="assets/js/jquery.metisMenu.js"></script>
-      <!-- Custom Js -->
-    <script src="assets/js/custom-scripts.js"></script>
+     
+    
     
    
 </body>

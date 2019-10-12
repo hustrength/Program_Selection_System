@@ -69,7 +69,7 @@ function commitForm_signin(r) {
         		alert("用户名不存在");
         	}
         	else if(text=="1"){
-        		alert('用户名或密码错误');
+        		alert('密码错误');
         	}
         	else {
         		

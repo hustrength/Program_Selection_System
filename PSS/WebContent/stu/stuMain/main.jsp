@@ -53,7 +53,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">学生选题信息管理系统</a>
+                <a class="navbar-brand" href="main.jsp">学生选题信息管理系统</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -140,20 +140,20 @@ form.html 创建队伍
 index.html 查看已选课题
  -->
                     <li>
-                        <a class="active-menu" href="index.html"><i class="fa fa-bell"></i> 选题通知</a>
+                        <a class="active-menu" href="main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
                     </li>
                     <li>
-                        <a href="tab-panel.html"><i class="fa fa-desktop"></i> 课题信息</a>
+                        <a href="project_info.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
                     </li>
 					<li>
-                        <a href="table.html"><i class="fa fa-users"></i> 队伍信息</a>
+                        <a href="group_info.jsp"><i class="fa fa-users"></i> 团队信息</a>
                     </li>
                     <li>
-                        <a href="tab-panel.html"><i class="fa fa-edit"></i> 我的课题</a>
+                        <a href="my_project.jsp"><i class="fa fa-edit"></i> 我的课题</a>
                     </li>
                     
                     <li>
-                        <a href="table.html"><i class="fa fa-user"></i> 我的信息</a>
+                        <a href="my_info.jsp"><i class="fa fa-user"></i> 我的信息</a>
                     </li>
                    <!--  <li>
                         <a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
@@ -183,7 +183,7 @@ index.html 查看已选课题
                         </ul>
                     </li> -->
                     <li>
-                        <a href="empty.html"><i class="fa fa-fw fa-file"></i> Empty Page</a>
+                        <a href="empty.html"><i class="fa fa-file"></i> Empty Page</a>
                     </li>
                 </ul>
 
@@ -198,7 +198,7 @@ index.html 查看已选课题
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Dashboard <small>Summary of your App</small>
+                            关于本学期校级任选课相关事宜安排的通知 <small>巴拉巴拉</small>
                         </h1>
                     </div>
                 </div>
@@ -209,26 +209,25 @@ index.html 查看已选课题
                     <div class="col-md-9 col-sm-12 col-xs-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Bar Chart Example
+								<div class="function"><p>[通知]选题系统已开放</p></div>
                             </div>
                             <!-- <div class="panel-body">
                                 <div id="morris-bar-chart"></div>
                             </div> -->
-                            <div class="info">
-								<p>亲爱的<%= stu.getSname() %>同学，下午好</p>
-							</div>
-                            <div class="box">
-								<div class="function"><p>[通知]选题系统已开放</p></div>
+                                                        <div class="box">
+								<div class="info">
+									<p>亲爱的<%= stu.getSname() %>同学，下午好</p>
+								</div>
 								<div class="form">
 								<table class="news">
-								<tr><td><h2>关于本学期校级任选课相关事宜安排的通知</h2></td></tr>
+								<tr><td><h2></h2></td></tr>
 								<tr><td>各学院及相关单位:</td></tr>
-								<tr><td>根据学校教学安排，本学期全校任选课定于6月20日（星期五） 正式开课，选课工作将从6月16日开始。现将有关事项通知如下：</td></tr>
-								<tr><td>一、选课时间：6月16日----6月20日</td></tr>
-								<tr><td>二、学生登录选课信息管理系统后进入学生选课进行选课。学生选课前请认真阅读选课公告，再进行“网上选课”。</td></tr>
-								<tr><td>三、教师可登陆选课信息管理系统后进入选课管理增删课程， 6月15日14:00之后各位教师及学生登录教务处网站查询自己申报的课程是否停开。</td> </tr>
-								<tr><td>四、选课退课均须在选课时间内完成，选课结束后不再进行补退选，请学生注意选课时间。</td></tr>
-								<tr><td>五、请各学院通知并组织学生进行选课，同时请各学院及相关单位通知任课教师按时上课。教务处将组织相关人员对上课情况进行不定期的检查。</td></tr>
+								<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根据学校教学安排，本学期全校任选课定于6月20日（星期五） 正式开课，选课工作将从6月16日开始。现将有关事项通知如下：</td></tr>
+								<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一、选课时间：6月16日----6月20日</td></tr>
+								<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;二、学生登录选课信息管理系统后进入学生选课进行选课。学生选课前请认真阅读选课公告，再进行“网上选课”。</td></tr>
+								<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;三、教师可登陆选课信息管理系统后进入选课管理增删课程， 6月15日14:00之后各位教师及学生登录教务处网站查询自己申报的课程是否停开。</td> </tr>
+								<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;四、选课退课均须在选课时间内完成，选课结束后不再进行补退选，请学生注意选课时间。</td></tr>
+								<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;五、请各学院通知并组织学生进行选课，同时请各学院及相关单位通知任课教师按时上课。教务处将组织相关人员对上课情况进行不定期的检查。</td></tr>
 								<tr><td align="right">2017-06-10</td></tr>
 								</table>
 								</div>
