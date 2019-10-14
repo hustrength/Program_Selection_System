@@ -1,7 +1,6 @@
 <%@ page language="java" import="java.util.*,com.pss.user.Student" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -12,13 +11,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>学生选题信息管理系统——学生界面</title>
     <!-- Bootstrap Styles-->
-    <link href="<%=basePath %>assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="<%=path %>/assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
-    <link href="<%=basePath %>assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="<%=path %>/assets/css/font-awesome.css" rel="stylesheet" />
     <!-- Morris Chart Styles-->
-    <link href="<%=basePath %>assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <link href="<%=path %>/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <!-- Custom Styles-->
-    <link href="<%=basePath %>assets/css/custom-styles.css" rel="stylesheet" />
+    <link href="<%=path %>/assets/css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     
     <link href="style_1.css" type="text/css" rel="stylesheet"/>
@@ -34,16 +33,18 @@
    <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
-    <script src="<%=basePath %>assets/js/jquery-1.10.2.js"></script>
+    <div>
+    </div>
+    <script src="<%=path%>/assets/js/jquery-1.10.2.js"></script>
     <!-- Bootstrap Js -->
-    <script src="<%=request.getContextPath() %>/assets/js/bootstrap.min.js"></script>
+    <script src="<%=path %>/assets/js/bootstrap.min.js"></script>
     <!-- Metis Menu Js -->
-    <script src="<%=request.getContextPath() %>/assets/js/jquery.metisMenu.js"></script>
+    <script src="<%=path %>/assets/js/jquery.metisMenu.js"></script>
     <!-- Morris Chart Js -->
-    <script src="<%=request.getContextPath() %>/assets/js/morris/raphael-2.1.0.min.js"></script>
-    <script src="<%=request.getContextPath() %>/assets/js/morris/morris.js"></script>
+    <script src="<%=path %>/assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="<%=path %>/assets/js/morris/morris.js"></script>
     <!-- Custom Js -->
-    <script src="<%=request.getContextPath() %>/assets/js/custom-scripts.js"></script>
+    <script src="<%=path %>/assets/js/custom-scripts.js"></script>
     <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
             <div class="navbar-header">
