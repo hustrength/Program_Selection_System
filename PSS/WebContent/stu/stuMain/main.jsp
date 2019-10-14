@@ -207,7 +207,7 @@ index.html 查看已选课题
                 <div class="row">
 
 
-                    <div class="col-md-9 col-sm-12 col-xs-12">
+                    <div class="col-sm-12 col-xs-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
 								<div class="function"><p>[通知]选题系统已开放</p></div>
