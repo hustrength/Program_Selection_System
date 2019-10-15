@@ -40,20 +40,20 @@ public class DaoGPS {
 				int gsnum = rs.getInt("Gsnum");
 				int gleftnum = rs.getInt("Gleftnum");
 				Student stu1,stu2,stu3;
-				DaoStu checkid = new DaoStu();
-				stu1 = checkid.checkbyid(sno1);
+				DaoStu querybyid = new DaoStu();
+				stu1 = querybyid.querybyid(sno1);
 				if(sno2!=null||sno2!=""){
-					stu2 = checkid.checkbyid(sno2);
+					stu2 = querybyid.querybyid(sno2);
 				}
 				else stu2=null;
 				if(sno3!=null||sno3!=""){
-					stu3 = checkid.checkbyid(sno3);
+					stu3 = querybyid.querybyid(sno3);
 				}
 				else stu3=null;
 				gps = new GPS(gno,pno,gname,pname,stu1,stu2,stu3,gsnum,gleftnum);
 				
 				list.add(gps);
-				System.out.println("selected course is over!!");
+				
 			}
 			
 		}catch(Exception e){e.printStackTrace();}

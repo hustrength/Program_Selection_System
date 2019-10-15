@@ -130,6 +130,15 @@ public class GPS {
 		this.Gsnum=gsnum;
 		this.Gleftnum=gsnum-1;
 	}
-	
+	public GPS(int pno,String gname,String pname,Student stu1,int gsnum){
+		this.PNo=pno;
+		this.Gname=gname;
+		this.Pname=pname;
+		this.Stu1=stu1;
+		this.Stu2=null;
+		this.Stu3=null;
+		this.Gsnum=gsnum;
+		this.Gleftnum=gsnum-1;
+	}
 
 }

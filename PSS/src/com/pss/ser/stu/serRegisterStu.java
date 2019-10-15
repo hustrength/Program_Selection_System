@@ -23,7 +23,7 @@ public class serRegisterStu extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		this.doPost(request, response);
 	}
 
@@ -31,18 +31,15 @@ public class serRegisterStu extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		System.out.println("HELLO");
-		String act=request.getParameter("action");
-		System.out.println(act);
 		
+		String act=request.getParameter("action");
 		String result="yes";
 		if("checkuserid".equals(act)){
 			//验证学号是否被注册
 			String id = request.getParameter("userid");
 			System.out.println(id);
 			DaoStu checkid = new DaoStu();
-			Student stu = checkid.checkbyid(id);
+			Student stu = checkid.querybyid(id);
 			if(stu==null){
 				result="true";
 			}

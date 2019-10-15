@@ -122,13 +122,13 @@ public class DaoStu {
 	 * @param id
 	 * @return
 	 */
-	public Student checkbyid(String id){
+	public Student querybyid(String id){
 		Student stu=null;
 		Connection conn = null;
 		try{
-			String sql_checkbyid = "select * from student where SNo=?";
+			String sql_querybyid = "select * from student where SNo=?";
 			conn=new Conn().getConn();
-			PreparedStatement pst = conn.prepareStatement(sql_checkbyid);
+			PreparedStatement pst = conn.prepareStatement(sql_querybyid);
 			pst.setString(1, id);
 			ResultSet rs = pst.executeQuery();
 			if(rs.next()){
