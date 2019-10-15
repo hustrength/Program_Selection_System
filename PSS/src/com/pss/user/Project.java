@@ -1,44 +1,59 @@
 package com.pss.user;
-
+/**
+ * 
+ * 课题
+ *
+ */
 public class Project {
-	private int CNo;
-	private String Cname;
-	private String Ccredit;
-	public int getCNo() {
-		return CNo;
-	}
-	public void setCNo(int cNo) {
-		CNo = cNo;
-	}
-	public String getCname() {
-		return Cname;
-	}
-	public void setCname(String cname) {
-		Cname = cname;
-	}
-	public String getCcredit() {
-		return Ccredit;
-	}
-	public void setClassroom(String Ccredit) {
-		this.Ccredit = Ccredit;
-	}
-
+	private int PNo;  //课题编号
+	private String  Pname; //课题名字
+	private int Pmaxnum;  //课题可选上限组数
+	private int Pselected;  //课题已被选组数
+	private int Pavailable;  //课题剩余可选组数
 	
-	/**
-	 * @param cNo
-	 * @param cname
-	 * @param classroom
-	 */
-	public Project(int cNo, String cname, String Ccredit) {
-		this.CNo = cNo;
-		this.Cname = cname;
-		this.Ccredit = Ccredit;
+	public int getPNo(){
+		return PNo;
 	}
-	public Project(String cname, String Ccredit) {
-		this.Cname = cname;
-		this.Ccredit = Ccredit;
+	public void setPNo(int pno){
+		PNo=pno;
 	}
 	
+	public String getPname(){
+		return Pname;
+	}
+	public void setPName(String pname){
+		Pname=pname;
+	}
 	
-
+	public int getPmaxnum(){
+		return Pmaxnum;
+	}
+	public void setPmaxnum(int pmaxnum){
+		Pmaxnum=pmaxnum;
+		Pavailable=pmaxnum-Pselected;
+	}
+	
+	public int getPselected(){
+		return Pselected;
+	}
+	public void setPselected(int pselected){
+		Pselected=pselected;
+		Pavailable=Pmaxnum-pselected;
+	}
+	
+	public int getPavailable(){
+		return Pavailable;
+	}
+	public void setPavailable(int pavailable){
+		Pavailable=pavailable;
+		Pselected=Pmaxnum-pavailable;
+	}
+    
+	public Project(int pno,String pname,int pmaxnum,int pselected,int pavailable){
+		this.PNo=pno;
+		this.Pname=pname;
+		this.Pmaxnum=pmaxnum;
+		this.Pselected=pselected;
+		this.Pavailable=pavailable;
+	}
 }
