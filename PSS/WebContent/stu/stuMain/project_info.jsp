@@ -126,10 +126,10 @@ form.html 创建队伍
 index.html 查看已选课题
  -->
                     <li>
-                        <a class="active-menu" href="main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
+                        <a href="main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
                     </li>
                     <li>
-                        <a href="project_info.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
+                        <a href="project_info.jsp" class="active-menu"><i class="fa fa-desktop"></i> 课题信息</a>
                     </li>
 					<li>
                         <a href="group_info.jsp"><i class="fa fa-users"></i> 团队信息</a>
@@ -141,33 +141,6 @@ index.html 查看已选课题
                     <li>
                         <a href="my_info.jsp"><i class="fa fa-user"></i> 我的信息</a>
                     </li>
-                   <!--  <li>
-                        <a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Link<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-
-                                </ul>
-
-                            </li>
-                        </ul>
-                    </li> -->
                     <li>
                         <a href="empty.html"><i class="fa fa-file"></i> Empty Page</a>
                     </li>
