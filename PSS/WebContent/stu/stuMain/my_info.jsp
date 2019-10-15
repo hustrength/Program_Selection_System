@@ -16,6 +16,7 @@
     <link href="<%=path %>/assets/css/custom-styles.css" rel="stylesheet"/>
     <!-- Google Fonts-->
     <link href='http://fonts.useso.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <link href="<%=path %>/assets/css/main.css" rel="stylesheet"/>
 </head>
 <body>
 <!-- JS Scripts-->
@@ -220,7 +221,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-6">
 
                 </div>
             </div>
