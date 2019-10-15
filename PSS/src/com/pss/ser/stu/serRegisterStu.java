@@ -31,7 +31,7 @@ public class serRegisterStu extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println("register");
 		String act=request.getParameter("action");
 		String result="yes";
 		if("checkuserid".equals(act)){

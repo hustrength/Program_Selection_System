@@ -1,10 +1,14 @@
 <%@ page language="java" import="java.util.*,com.pss.user.*,com.pss.dao.*" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+    String stuMainPath = path+"/stu/stuMain/";
 %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <base href="<%=basePath%>">
+
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>建立团队</title>
@@ -30,7 +34,7 @@
 <!-- Jquery Js -->
 <script type="text/javascript" src="<%=path %>/js/jquery-latest.js"></script>
 <!-- CreateGroup Js -->
-<script src="<%=path %>/js/createGroup.js"></script>
+<script type="text/javascript" src="<%=basePath %>/js/createGroup.js"></script>
 <div id="wrapper">
     <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
@@ -130,23 +134,23 @@
                     index.html 查看已选课题
                      -->
                     <li>
-                        <a class="active-menu" href="main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
+                        <a class="active-menu" href="<%=stuMainPath %>main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
                     </li>
                     <li>
-                        <a href="project_info.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
+                        <a href="<%=stuMainPath %>project_info.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
                     </li>
                     <li>
-                        <a href="group_info.jsp"><i class="fa fa-users"></i> 团队信息</a>
+                        <a href="<%=stuMainPath %>group_info.jsp"><i class="fa fa-users"></i> 团队信息</a>
                     </li>
                     <li>
-                        <a href="my_project.jsp"><i class="fa fa-edit"></i> 我的课题</a>
+                        <a href="<%=stuMainPath %>my_project.jsp"><i class="fa fa-edit"></i> 我的课题</a>
                     </li>
 
                     <li>
-                        <a href="my_info.jsp"><i class="fa fa-user"></i> 我的信息</a>
+                        <a href="<%=stuMainPath %>my_info.jsp"><i class="fa fa-user"></i> 我的信息</a>
                     </li>
                     <li>
-                        <a href="empty.html"><i class="fa fa-file"></i> Empty Page</a>
+                        <a href="<%=stuMainPath %>empty.html"><i class="fa fa-file"></i> Empty Page</a>
                     </li>
                 </ul>
 
@@ -176,7 +180,7 @@
                                         <form role="form" id="form_create" name="form_create" method="post" onsubmit='create_group()'>
                                             <div class="form-group">
                                                 <label>团队名称</label>
-                                                <input class="form-control" id="Gname" name="Gname">
+                                                <input class="form-control" id="Gname" name="Gname" oninput="checkGnamerepeat()">
                                             </div>
                                             <div class="form-group">
                                                 <label>选择课题</label>

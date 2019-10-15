@@ -56,8 +56,8 @@ public class serInsertGPS extends HttpServlet {
 			DaoPro querybypno=new DaoPro();
 			Project pro=querybypno.querybypno(pno);
 			String pname = pro.getPname();
-			Student stu = (Student)session.getAttribute("student");
-			String sno1 = stu.getSNo();
+			//Student stu = (Student)session.getAttribute("student");
+			Student stu=new Student("U1", "学生1号", "0","男", "CS1705", "","",0);
 			int gsnum = Integer.parseInt(request.getParameter("Gsnum"));
 			gps=new GPS(pno,gname,pname,stu,gsnum);
 			rs=insert.insertGPS(gps);

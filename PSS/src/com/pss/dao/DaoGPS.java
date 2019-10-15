@@ -89,7 +89,7 @@ public class DaoGPS {
 			else{
 				sno3=gps.getStu3().getSNo();
 			}
-			String sql_insert = "insert into gps(Gname,PNo,Pname,SNo1,SNo2,SNo2,Gsnum,Gleftnum) values(?,?,?,?,?,?,?,?);";
+			String sql_insert = "insert into gps(Gname,PNo,Pname,SNo1,SNo2,SNo3,Gsnum,Gleftnum) values(?,?,?,?,?,?,?,?);";
 			conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql_insert);
 			pst.setString(1, gps.getGname());

@@ -2,9 +2,9 @@ var flag=false;
 function checkGnamerepeat() {
 	var ele = document.getElementById("Gname");
 	var val = v.value;
-	checkGnamerepeat(val, v);
+	
     $.ajax({
-        url: "servlet/serRegisterStu?action=checkGname&Gname=" + val,
+        url: "servlet/serQueryGPS?action=checkGname&Gname=" + val,
         type: "GET",
         async: false,
         dataType: "text",
@@ -16,7 +16,7 @@ function checkGnamerepeat() {
             	flag=false;
 				ele.setCustomValidity("团队名已被注册");
 			}
-            console.log(1);
+           
         }
     })
 }
@@ -25,7 +25,7 @@ function create_group() {
 //	if(flag==false) return false;
 	
     $.ajax({
-    	url: "servlet/serInsertGPS?action=create",
+    	url: "servlet/serInsertGPS?action=create&",
         type: "post",
         async: false,
         data: $('#form_create').serialize(),
@@ -40,3 +40,4 @@ function create_group() {
         }
     })
 }
+
