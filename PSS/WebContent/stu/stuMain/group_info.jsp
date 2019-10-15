@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,com.pss.user.Student" pageEncoding="utf-8" %>
+<%@ page language="java" import="java.util.*,com.pss.dao.*,com.pss.user.*" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
 %>
@@ -179,6 +179,12 @@ index.html 查看已选课题
                         <div class="panel-body">
                             <div class="table-responsive">
 								<form name="join_group_form" action="" method="post">
+								<%
+                                   GPS gps =null;
+  				                   DaoGPS listall = new DaoGPS();
+  				                   List<GPS> list = listall.listAllGPS();
+  				                   Iterator<GPS> it = list.iterator();
+  			                    %>
 	                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
 	                                    <thead>
 	                                        <tr>
@@ -189,12 +195,19 @@ index.html 查看已选课题
 	                                            <th>剩余成员数</th>
 	                                            <th>选择</th>
 	                                        </tr>
+	                                          <% 
+  						                      while(it.hasNext()){
+  							                  gps = it.next();
+  							                  }
+  						                      %>
 	                                    </thead>
+	                                  
 	                                    <tbody>
+	                                        
 	                                        <tr class="odd gradeX">
-	                                            <td>Trident</td>
-	                                            <td>Internet Explorer 4.0</td>
-	                                            <td>Win 95+</td>
+	                                            <td>队编号</td>
+	                                            <td>队名</td>
+	                                            <td>课题</td>
 	                                            <td class="center">4</td>
 	                                            <td class="center">X</td>
 	                                            <td><input type="button" value="加入" id="join" name="join"></td>
