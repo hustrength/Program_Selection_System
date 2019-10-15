@@ -142,7 +142,7 @@
                 index.html 查看已选课题
                  -->
                 <li>
-                    <a class="active-menu" href="main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
+                    <a href="main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
                 </li>
                 <li>
                     <a href="project_info.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
@@ -151,7 +151,7 @@
                     <a href="group_info.jsp"><i class="fa fa-users"></i> 团队信息</a>
                 </li>
                 <li>
-                    <a href="my_project.jsp"><i class="fa fa-edit"></i> 我的课题</a>
+                    <a href="my_project.jsp" class="active-menu"><i class="fa fa-edit"></i> 我的课题</a>
                 </li>
 
                 <li>
@@ -169,7 +169,7 @@
     <div id="page-wrapper">
         <div id="page-inner">
             <%
-                if (false) {
+                if (true) {
             %>
 
             <div class="row">
@@ -179,8 +179,8 @@
                         <p>请选择加入队伍或创建队伍</p>
                         <hr>
                         <p>
-                            <a class="btn btn-primary btn-lg" role="button" style="margin-right:50px">加入队伍</a>
-                            <a class="btn btn-primary btn-lg" role="button">创建队伍</a>
+                            <a href="group_info.jsp" class="btn btn-primary btn-lg" role="button" style="margin-right:50px">加入队伍</a>
+                            <a href="create_group.jsp" class="btn btn-primary btn-lg" role="button">创建队伍</a>
                         </p>
                     </div>
                 </div>
