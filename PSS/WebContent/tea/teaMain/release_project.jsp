@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,com.pss.dao.*,com.pss.user.*" pageEncoding="utf-8" %>
+<%@ page language="java" import="java.util.*,com.pss.user.Student" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
 %>
@@ -12,34 +12,23 @@
     <link href="<%=path %>/assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FontAwesome Styles-->
     <link href="<%=path %>/assets/css/font-awesome.css" rel="stylesheet" />
-     <!-- Morris Chart Styles-->
-   
         <!-- Custom Styles-->
     <link href="<%=path %>/assets/css/custom-styles.css" rel="stylesheet" />
      <!-- Google Fonts-->
    <link href='http://fonts.useso.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-     <!-- TABLE STYLES-->
-    <link href="<%=path %>/assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-	<!-- JS Scripts-->
+    <!-- JS Scripts-->
     <!-- jQuery Js -->
     <script src="<%=path %>/assets/js/jquery-1.10.2.js"></script>
       <!-- Bootstrap Js -->
     <script src="<%=path %>/assets/js/bootstrap.min.js"></script>
     <!-- Metis Menu Js -->
     <script src="<%=path %>/assets/js/jquery.metisMenu.js"></script>
-     <!-- DATA TABLE SCRIPTS -->
-    <script src="<%=path %>/assets/js/dataTables/jquery.dataTables.js"></script>
-    <script src="<%=path %>/assets/js/dataTables/dataTables.bootstrap.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('#dataTables-example').dataTable();
-            });
-    </script>
-         <!-- Custom Js -->
+      <!-- Custom Js -->
     <script src="<%=path %>/assets/js/custom-scripts.js"></script>
     <div id="wrapper">
+        <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
@@ -156,6 +145,7 @@ index.html 查看已选课题
                 </ul>
 
             </div>
+
         </nav>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
@@ -163,78 +153,71 @@ index.html 查看已选课题
 			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Tables Page <small>Responsive tables</small>
+                            Forms Page <small>Best form elements.</small>
                         </h1>
                     </div>
                 </div> 
                  <!-- /. ROW  -->
-               
-            <div class="row">
-                <div class="col-md-12">
-                    <!-- Advanced Tables -->
+              <div class="row">
+                <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                             可选团队
+                            Basic Form Elements
                         </div>
                         <div class="panel-body">
-                            <div class="table-responsive">
-								<form name="join_group_form" action="" method="post">
-								<%
-                                   GPS gps =null;
-  				                   DaoGPS listall = new DaoGPS();
-  				                   List<GPS> list = listall.listAllGPS();
-  				                   Iterator<GPS> it = list.iterator();
-  			                    %>
-	                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-	                                    <thead>
-	                                        <tr>
-	                                            <th>团队编号</th>
-	                                            <th>团队名</th>
-	                                            <th>所选课题</th>
-	                                            <th>队长</th>
-	                                            <th>剩余成员数</th>
-	                                            <th>选择</th>
-	                                        </tr>
-	                                          
-	                                    </thead>
-	                                  
-	                                    <tbody>
-	                                        <% 
-  						                      while(it.hasNext()){
-  							                  gps = it.next();
-  							                 
-  						                      %>
-	                                        <tr class="odd gradeX">
-	                                            <td><%= gps.getGNo() %></td>
-	                                            <td><%= gps.getGname() %></td>
-	                                            <td><%= gps.getPname() %></td>
-	                                            <td class="center"><%= gps.getStu1().getSname() %></td>
-	                                            <td class="center"><%=gps.getGleftnum() %></td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <%
-  							                  }
-  						                      %>
-	                                     </tbody>
-	                                </table>
-                                </form>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <!--End Advanced Tables -->
-                </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>课题名称</label>
+                                            <input class="form-control">
+                                            
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>课题简介</label>
+                                            <textarea class="form-control" rows="3"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>课题背景</label>
+                                            <textarea class="form-control" rows="3"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>其他要求</label>
+                                            <textarea class="form-control" rows="3"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                        	<p class="help-block">上传附加资料</p>
+                                            <label>上传文件</label>
+                                            <input type="file">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Selects</label>
+                                            <select class="form-control">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                        </div>
+                                       	<hr>
+                                        <button type="submit" class="btn btn-primary">提交</button>
+                                        <button type="reset" class="btn btn-default">重新填写</button>
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                                
             </div>
-                <!-- /. ROW  -->
-            
-                <!-- /. ROW  -->
-        </div>
-               <footer><p>Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://www.freemoban.com/">www.freemoban.com</a></p></footer>
-    </div>
+			<footer><p>Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://www.freemoban.com/">www.freemoban.com</a></p></footer>
+			</div>
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->
+        </div>
      <!-- /. WRAPPER  -->
 
+    
+   
 </body>
 </html>
