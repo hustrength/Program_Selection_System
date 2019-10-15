@@ -9,31 +9,31 @@
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>serSelectCou</servlet-name>
-    <servlet-class>com.pss.ser.pro.serSelectCou</servlet-class>
+    <servlet-name>serSelectPro</servlet-name>
+    <servlet-class>com.pss.ser.pro.serSelectPro</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>serDeleteCou</servlet-name>
+    <servlet-name>serDeletePro</servlet-name>
     <servlet-class>com.pss.ser.pro.serDeletePro</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>serUpdateCou</servlet-name>
-    <servlet-class>com.pss.ser.pro.serUpdateCou</servlet-class>
+    <servlet-name>serUpdatePro</servlet-name>
+    <servlet-class>com.pss.ser.pro.serUpdatePro</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>serDoUpdateCou</servlet-name>
+    <servlet-name>serDoUpdatePro</servlet-name>
     <servlet-class>com.pss.ser.pro.serDoUpdatePro</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>serDoInsertCou</servlet-name>
+    <servlet-name>serDoInsertPro</servlet-name>
     <servlet-class>com.pss.ser.pro.serDoInsertPro</servlet-class>
   </servlet>
   <servlet>
@@ -69,13 +69,13 @@
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>serInsertSc</servlet-name>
+    <servlet-name>serInsertGPS</servlet-name>
     <servlet-class>com.pss.ser.gps.serInsertGPS</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>serDeleteSc</servlet-name>
+    <servlet-name>serDeleteGPS</servlet-name>
     <servlet-class>com.pss.ser.gps.serDeleteGPS</servlet-class>
   </servlet>
   <servlet>
@@ -87,7 +87,7 @@
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>serQuerySc</servlet-name>
+    <servlet-name>serQueryGPS</servlet-name>
     <servlet-class>com.pss.ser.gps.serQueryGPS</servlet-class>
   </servlet>
   <servlet>
@@ -113,24 +113,24 @@
     <url-pattern>/servlet/serDoLogin</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>serSelectCou</servlet-name>
-    <url-pattern>/servlet/serSelectCou</url-pattern>
+    <servlet-name>serSelectPro</servlet-name>
+    <url-pattern>/servlet/serSelectPro</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>serDeleteCou</servlet-name>
-    <url-pattern>/servlet/serDeleteCou</url-pattern>
+    <servlet-name>serDeletePro</servlet-name>
+    <url-pattern>/servlet/serDeletePro</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>serUpdateCou</servlet-name>
-    <url-pattern>/servlet/serUpdateCou</url-pattern>
+    <servlet-name>serUpdatePro</servlet-name>
+    <url-pattern>/servlet/serUpdatePro</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>serDoUpdateCou</servlet-name>
-    <url-pattern>/servlet/serDoUpdateCou</url-pattern>
+    <servlet-name>serDoUpdatePro</servlet-name>
+    <url-pattern>/servlet/serDoUpdatePro</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>serDoInsertCou</servlet-name>
-    <url-pattern>/servlet/serDoInsertCou</url-pattern>
+    <servlet-name>serDoInsertPro</servlet-name>
+    <url-pattern>/servlet/serDoInsertPro</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>serSelectStu</servlet-name>
@@ -153,20 +153,20 @@
     <url-pattern>/servlet/serDoUpdateStu</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>serInsertSc</servlet-name>
-    <url-pattern>/servlet/serInsertSc</url-pattern>
+    <servlet-name>serInsertGPS</servlet-name>
+    <url-pattern>/servlet/serInsertGPS</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>serDeleteSc</servlet-name>
-    <url-pattern>/servlet/serDeleteSc</url-pattern>
+    <servlet-name>serDeleteGPS</servlet-name>
+    <url-pattern>/servlet/serDeleteGPS</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>serDoLogout</servlet-name>
     <url-pattern>/servlet/serDoLogout</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>serQuerySc</servlet-name>
-    <url-pattern>/servlet/serQuerySc</url-pattern>
+    <servlet-name>serQueryGPS</servlet-name>
+    <url-pattern>/servlet/serQueryGPS</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>serUpdateClass</servlet-name>

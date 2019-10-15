@@ -61,7 +61,7 @@ public class DaoPro {
 			while(rs.next()){
 				pro=new Project(rs.getInt("PNo"),rs.getString("Pname"),rs.getInt("Pmaxnum"),rs.getInt("Pselected"),rs.getInt("Pavailable"));
 				list.add(pro);
-				System.out.println("list is added!!");
+				
 			}
 			
 		}catch(Exception e){e.printStackTrace();}

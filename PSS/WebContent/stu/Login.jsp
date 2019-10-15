@@ -19,8 +19,8 @@
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
     <meta http-equiv="description" content="This is my page">
 
-    <script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-latest.js"></script>
-    <script type="text/javascript" src="<%=request.getContextPath() %>/js/sturegister.js"></script>
+    <script type="text/javascript" src="<%=path %>/js/jquery-latest.js"></script>
+    <script type="text/javascript" src="<%=path %>/js/sturegister.js"></script>
 </head>
 
 <body>

@@ -202,7 +202,7 @@ index.html 查看已选课题
 	                                        <% 
   						                      while(it.hasNext()){
   							                  gps = it.next();
-  							                 
+  							                  if(gps.getGleftnum()>0){
   						                      %>
 	                                        <tr class="odd gradeX">
 	                                            <td><%= gps.getGNo() %></td>
@@ -213,6 +213,7 @@ index.html 查看已选课题
 	                                            <td><input type="button" value="加入" id="join" name="join"></td>
 	                                        </tr>
 	                                        <%
+  							                  }
   							                  }
   						                      %>
 	                                     </tbody>

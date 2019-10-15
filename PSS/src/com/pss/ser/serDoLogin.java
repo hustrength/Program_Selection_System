@@ -87,9 +87,9 @@ public class serDoLogin extends HttpServlet {
 			}else if(status.equals("stu")){	//Ñ§ÉúµÇÂ¼
 				
 				Student stu = null;
-				DaoStu checkByid  = new DaoStu();
+				DaoStu querybyid  = new DaoStu();
 				String result="-1";
-				stu = checkByid.checkbyid(username);
+				stu = querybyid.querybyid(username);
 				
 				if(stu==null){
 					result="0";
