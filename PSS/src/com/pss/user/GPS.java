@@ -116,7 +116,6 @@ public class GPS {
 		this.Pname=pname;
 		this.Stu1=stu1;
 		this.Stu2=stu2;
-		
 		this.Gsnum=2;
 		this.Gleftnum=0;
 	}

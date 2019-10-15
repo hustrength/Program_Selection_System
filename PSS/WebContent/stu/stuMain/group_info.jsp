@@ -196,215 +196,26 @@ index.html 查看已选课题
 	                                            <th>剩余成员数</th>
 	                                            <th>选择</th>
 	                                        </tr>
-	                                          <% 
-  						                      while(it.hasNext()){
-  							                  gps = it.next();
-  							                  }
-  						                      %>
+	                                          
 	                                    </thead>
 	                                  
 	                                    <tbody>
-	                                        
+	                                        <% 
+  						                      while(it.hasNext()){
+  							                  gps = it.next();
+  							                 
+  						                      %>
 	                                        <tr class="odd gradeX">
-	                                            <td>队编号</td>
-	                                            <td>队名</td>
-	                                            <td>课题</td>
-	                                            <td class="center">4</td>
-	                                            <td class="center">X</td>
+	                                            <td><%= gps.getGNo() %></td>
+	                                            <td><%= gps.getGname() %></td>
+	                                            <td><%= gps.getPname() %></td>
+	                                            <td class="center"><%= gps.getStu1().getSname() %></td>
+	                                            <td class="center"><%=gps.getGleftnum() %></td>
 	                                            <td><input type="button" value="加入" id="join" name="join"></td>
 	                                        </tr>
-	                                        <tr class="even gradeC">
-	                                            <td>Trident</td>
-	                                            <td>Internet Explorer 5.0</td>
-	                                            <td>Win 95+</td>
-	                                            <td class="center">5</td>
-	                                            <td class="center">C</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="odd gradeA">
-	                                            <td>Trident</td>
-	                                            <td>Internet Explorer 5.5</td>
-	                                            <td>Win 95+</td>
-	                                            <td class="center">5.5</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="even gradeA">
-	                                            <td>Trident</td>
-	                                            <td>Internet Explorer 6</td>
-	                                            <td>Win 98+</td>
-	                                            <td class="center">6</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="odd gradeA">
-	                                            <td>Trident</td>
-	                                            <td>Internet Explorer 7</td>
-	                                            <td>Win XP SP2+</td>
-	                                            <td class="center">7</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="even gradeA">
-	                                            <td>Trident</td>
-	                                            <td>AOL browser (AOL desktop)</td>
-	                                            <td>Win XP</td>
-	                                            <td class="center">6</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="gradeA">
-	                                            <td>Gecko</td>
-	                                            <td>Firefox 1.0</td>
-	                                            <td>Win 98+ / OSX.2+</td>
-	                                            <td class="center">1.7</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="gradeA">
-	                                            <td>Gecko</td>
-	                                            <td>Firefox 1.5</td>
-	                                            <td>Win 98+ / OSX.2+</td>
-	                                            <td class="center">1.8</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="gradeA">
-	                                            <td>Gecko</td>
-	                                            <td>Firefox 2.0</td>
-	                                            <td>Win 98+ / OSX.2+</td>
-	                                            <td class="center">1.8</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="gradeA">
-	                                            <td>Gecko</td>
-	                                            <td>Firefox 3.0</td>
-	                                            <td>Win 2k+ / OSX.3+</td>
-	                                            <td class="center">1.9</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="gradeA">
-	                                            <td>Gecko</td>
-	                                            <td>Camino 1.0</td>
-	                                            <td>OSX.2+</td>
-	                                            <td class="center">1.8</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="gradeA">
-	                                            <td>Gecko</td>
-	                                            <td>Camino 1.5</td>
-	                                            <td>OSX.3+</td>
-	                                            <td class="center">1.8</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="gradeA">
-	                                            <td>Gecko</td>
-	                                            <td>Netscape 7.2</td>
-	                                            <td>Win 95+ / Mac OS 8.6-9.2</td>
-	                                            <td class="center">1.7</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="gradeA">
-	                                            <td>Gecko</td>
-	                                            <td>Netscape Browser 8</td>
-	                                            <td>Win 98SE+</td>
-	                                            <td class="center">1.7</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="gradeA">
-	                                            <td>Gecko</td>
-	                                            <td>Netscape Navigator 9</td>
-	                                            <td>Win 98+ / OSX.2+</td>
-	                                            <td class="center">1.8</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="gradeA">
-	                                            <td>Gecko</td>
-	                                            <td>Mozilla 1.0</td>
-	                                            <td>Win 95+ / OSX.1+</td>
-	                                            <td class="center">1</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="gradeA">
-	                                            <td>Gecko</td>
-	                                            <td>Mozilla 1.1</td>
-	                                            <td>Win 95+ / OSX.1+</td>
-	                                            <td class="center">1.1</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="gradeA">
-	                                            <td>Gecko</td>
-	                                            <td>Mozilla 1.2</td>
-	                                            <td>Win 95+ / OSX.1+</td>
-	                                            <td class="center">1.2</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="gradeA">
-	                                            <td>Gecko</td>
-	                                            <td>Mozilla 1.3</td>
-	                                            <td>Win 95+ / OSX.1+</td>
-	                                            <td class="center">1.3</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="gradeA">
-	                                            <td>Gecko</td>
-	                                            <td>Mozilla 1.4</td>
-	                                            <td>Win 95+ / OSX.1+</td>
-	                                            <td class="center">1.4</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="gradeA">
-	                                            <td>Gecko</td>
-	                                            <td>Mozilla 1.5</td>
-	                                            <td>Win 95+ / OSX.1+</td>
-	                                            <td class="center">1.5</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="gradeA">
-	                                            <td>Gecko</td>
-	                                            <td>Mozilla 1.6</td>
-	                                            <td>Win 95+ / OSX.1+</td>
-	                                            <td class="center">1.6</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="gradeA">
-	                                            <td>Gecko</td>
-	                                            <td>Mozilla 1.7</td>
-	                                            <td>Win 98+ / OSX.1+</td>
-	                                            <td class="center">1.7</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="gradeA">
-	                                            <td>Gecko</td>
-	                                            <td>Mozilla 1.8</td>
-	                                            <td>Win 98+ / OSX.1+</td>
-	                                            <td class="center">1.8</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
-	                                        <tr class="gradeA">
-	                                            <td>Gecko</td>
-	                                            <td>Seamonkey 1.1</td>
-	                                            <td>Win 98+ / OSX.2+</td>
-	                                            <td class="center">1.8</td>
-	                                            <td class="center">A</td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
-	                                        </tr>
+	                                        <%
+  							                  }
+  						                      %>
 	                                     </tbody>
 	                                </table>
                                 </form>

@@ -67,5 +67,52 @@ public class DaoGPS {
 		return list;
 	}
 	
+	/**
+	 * 插入一个队伍课题学生信息（GPS）
+	 * @param gps
+	 * @return
+	 */
+	public int insertGPS(GPS gps){
+		int rs = 0;
+		Connection conn=null;
+		try{
+			String sno2,sno3;
+			if(gps.getStu2()==null){
+				sno2="";
+			}
+			else{
+				sno2=gps.getStu2().getSNo();
+			}
+			if(gps.getStu3()==null){
+				sno3="";
+			}
+			else{
+				sno3=gps.getStu3().getSNo();
+			}
+			String sql_insert = "insert into gps(Gname,PNo,Pname,SNo1,SNo2,SNo2,Gsnum,Gleftnum) values(?,?,?,?,?,?,?,?);";
+			conn = new Conn().getConn();
+			PreparedStatement pst = conn.prepareStatement(sql_insert);
+			pst.setString(1, gps.getGname());
+			pst.setInt(2, gps.getPNo());
+			pst.setString(3, gps.getPname());
+			pst.setString(4, gps.getStu1().getSNo());
+			pst.setString(5, sno2);
+			pst.setString(6, sno3);
+			pst.setInt(7, gps.getGsnum());
+			pst.setInt(8, gps.getGleftnum());
+			rs = pst.executeUpdate();
+			if(rs!=0){
+				System.out.println("GPS_Gname:"+gps.getGname()+"insert over!");
+			}
+		}catch(Exception e){e.printStackTrace();}
+		finally{
+			try{
+				conn.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+		return rs;
+	}
 	
 }
