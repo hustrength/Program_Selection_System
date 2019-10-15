@@ -192,9 +192,27 @@
                                                     %>
                                                 </select>
                                             </div>
+                                            <div class="form-group">
+                                            <label>团队人数</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">1 人
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">2 人
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">3 人
+                                                </label>
+                                            </div>
+                                        </div>
                                             <hr>
-                                            <button type="submit" class="btn btn-primary">提交</button>
-                                            <button type="reset" class="btn btn-default">重新填写</button>
+                                            <button type="submit" class="btn btn-primary">创建</button>
+                                           
                                         </form>
 
                                     </div>
