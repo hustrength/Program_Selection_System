@@ -1,6 +1,8 @@
 <%@ page language="java" import="java.util.*,com.pss.user.Student" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+	String stuMainPath = path+"/stu/stuMain/";
 %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -106,9 +108,10 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
+                        <li><a href="<%=basePath%>stu/Login.jsp"><i class="fa fa-sign-out fa-fw"
+                                                    onclick="<%session.removeAttribute("student"); %>
+                                                            "></i> Sign out</a>
+                    </li>
                     <!-- /.dropdown-user -->
                 </li>
                 <!-- /.dropdown -->
@@ -126,23 +129,23 @@ form.html 创建队伍
 index.html 查看已选课题
  -->
                     <li>
-                        <a href="main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
+                        <a href="<%=stuMainPath %>main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
                     </li>
                     <li>
-                        <a href="project_info.jsp" class="active-menu"><i class="fa fa-desktop"></i> 课题信息</a>
+                        <a href="<%=stuMainPath %>project_info.jsp" class="active-menu"><i class="fa fa-desktop"></i> 课题信息</a>
                     </li>
 					<li>
-                        <a href="group_info.jsp"><i class="fa fa-users"></i> 团队信息</a>
+                        <a href="<%=stuMainPath %>group_info.jsp"><i class="fa fa-users"></i> 团队信息</a>
                     </li>
                     <li>
-                        <a href="my_project.jsp"><i class="fa fa-edit"></i> 我的课题</a>
+                        <a href="<%=stuMainPath %>my_project.jsp"><i class="fa fa-edit"></i> 我的课题</a>
                     </li>
                     
                     <li>
-                        <a href="my_info.jsp"><i class="fa fa-user"></i> 我的信息</a>
+                        <a href="<%=stuMainPath %>my_info.jsp"><i class="fa fa-user"></i> 我的信息</a>
                     </li>
                     <li>
-                        <a href="empty.html"><i class="fa fa-file"></i> Empty Page</a>
+                        <a href="<%=stuMainPath %>empty.html"><i class="fa fa-file"></i> Empty Page</a>
                     </li>
                 </ul>
 
@@ -172,30 +175,30 @@ index.html 查看已选课题
                         </div>
                         <div class="panel-body">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#home" data-toggle="tab">简介</a>
+                                <li class="active"><a href="#home1" data-toggle="tab">简介</a>
                                 </li>
-                                <li class=""><a href="#profile" data-toggle="tab">背景</a>
+                                <li class=""><a href="#profile1" data-toggle="tab">背景</a>
                                 </li>
-                                <li class=""><a href="#messages" data-toggle="tab">详情</a>
+                                <li class=""><a href="#messages1" data-toggle="tab">详情</a>
                                 </li>
-                                <li class=""><a href="#settings" data-toggle="tab">其他要求</a>
+                                <li class=""><a href="#settings1" data-toggle="tab">其他要求</a>
                                 </li>
                             </ul>
 
                             <div class="tab-content">
-                                <div class="tab-pane fade active in" id="home">
+                                <div class="tab-pane fade active in" id="home1">
                                     <h4>Home Tab</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
-                                <div class="tab-pane fade" id="profile">
+                                <div class="tab-pane fade" id="profile1">
                                     <h4>Profile Tab</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
-                                <div class="tab-pane fade" id="messages">
+                                <div class="tab-pane fade" id="messages1">
                                     <h4>Messages Tab</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
-                                <div class="tab-pane fade" id="settings">
+                                <div class="tab-pane fade" id="settings1">
                                     <h4>Settings Tab</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
@@ -210,30 +213,30 @@ index.html 查看已选课题
                         </div>
                         <div class="panel-body">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#home" data-toggle="tab">简介</a>
+                                <li class="active"><a href="#home2" data-toggle="tab">简介</a>
                                 </li>
-                                <li class=""><a href="#profile" data-toggle="tab">背景</a>
+                                <li class=""><a href="#profile2" data-toggle="tab">背景</a>
                                 </li>
-                                <li class=""><a href="#messages" data-toggle="tab">详情</a>
+                                <li class=""><a href="#messages2" data-toggle="tab">详情</a>
                                 </li>
-                                <li class=""><a href="#settings" data-toggle="tab">其他要求</a>
+                                <li class=""><a href="#settings2" data-toggle="tab">其他要求</a>
                                 </li>
                             </ul>
 
                             <div class="tab-content">
-                                <div class="tab-pane fade" id="home-pills">
+                                <div class="tab-pane fade" id="home2">
                                     <h4>Home Tab</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
-                                <div class="tab-pane fade" id="profile-pills">
+                                <div class="tab-pane fade" id="profile2">
                                     <h4>Profile Tab</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
-                                <div class="tab-pane fade" id="messages-pills">
+                                <div class="tab-pane fade" id="messages2">
                                     <h4>Messages Tab</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
-                                <div class="tab-pane fade active in" id="settings-pills">
+                                <div class="tab-pane fade active in" id="settings2">
                                     <h4>Settings Tab</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
@@ -250,30 +253,30 @@ index.html 查看已选课题
                         </div>
                         <div class="panel-body">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#home" data-toggle="tab">简介</a>
+                                <li class="active"><a href="#home3" data-toggle="tab">简介</a>
                                 </li>
-                                <li class=""><a href="#profile" data-toggle="tab">背景</a>
+                                <li class=""><a href="#profile3" data-toggle="tab">背景</a>
                                 </li>
-                                <li class=""><a href="#messages" data-toggle="tab">详情</a>
+                                <li class=""><a href="#messages3" data-toggle="tab">详情</a>
                                 </li>
-                                <li class=""><a href="#settings" data-toggle="tab">其他要求</a>
+                                <li class=""><a href="#settings3" data-toggle="tab">其他要求</a>
                                 </li>
                             </ul>
 
                             <div class="tab-content">
-                                <div class="tab-pane fade active in" id="home">
+                                <div class="tab-pane fade active in" id="home3">
                                     <h4>Home Tab</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
-                                <div class="tab-pane fade" id="profile">
+                                <div class="tab-pane fade" id="profile3">
                                     <h4>Profile Tab</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
-                                <div class="tab-pane fade" id="messages">
+                                <div class="tab-pane fade" id="messages3">
                                     <h4>Messages Tab</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
-                                <div class="tab-pane fade" id="settings">
+                                <div class="tab-pane fade" id="settings3">
                                     <h4>Settings Tab</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
@@ -288,30 +291,30 @@ index.html 查看已选课题
                         </div>
                         <div class="panel-body">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#home" data-toggle="tab">简介</a>
+                                <li class="active"><a href="#home4" data-toggle="tab">简介</a>
                                 </li>
-                                <li class=""><a href="#profile" data-toggle="tab">背景</a>
+                                <li class=""><a href="#profile4" data-toggle="tab">背景</a>
                                 </li>
-                                <li class=""><a href="#messages" data-toggle="tab">详情</a>
+                                <li class=""><a href="#messages4" data-toggle="tab">详情</a>
                                 </li>
-                                <li class=""><a href="#settings" data-toggle="tab">其他要求</a>
+                                <li class=""><a href="#settings4" data-toggle="tab">其他要求</a>
                                 </li>
                             </ul>
 
                             <div class="tab-content">
-                                <div class="tab-pane fade" id="home-pills">
+                                <div class="tab-pane fade" id="home4">
                                     <h4>Home Tab</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
-                                <div class="tab-pane fade" id="profile-pills">
+                                <div class="tab-pane fade" id="profile4">
                                     <h4>Profile Tab</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
-                                <div class="tab-pane fade" id="messages-pills">
+                                <div class="tab-pane fade" id="messages4">
                                     <h4>Messages Tab</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
-                                <div class="tab-pane fade active in" id="settings-pills">
+                                <div class="tab-pane fade active in" id="settings4">
                                     <h4>Settings Tab</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>

@@ -1,6 +1,8 @@
 <%@ page language="java" import="java.util.*,com.pss.user.Student" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+	String stuMainPath = path+"/stu/stuMain/";
 %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -104,9 +106,10 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
+                        <li><a href="<%=basePath%>stu/Login.jsp"><i class="fa fa-sign-out fa-fw"
+                                                    onclick="<%session.removeAttribute("teacher"); %>
+                                                            "></i> Sign out</a>
+                    </li>
                     <!-- /.dropdown-user -->
                 </li>
                 <!-- /.dropdown -->
@@ -124,23 +127,23 @@ form.html 创建队伍
 index.html 查看已选课题
  -->
                     <li>
-                        <a class="active-menu" href="main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
+                        <a class="<%=stuMainPath %>active-menu" href="main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
                     </li>
                     <li>
-                        <a href="project_info.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
+                        <a href="<%=stuMainPath %>project_info.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
                     </li>
 					<li>
-                        <a href="group_info.jsp"><i class="fa fa-users"></i> 团队信息</a>
+                        <a href="<%=stuMainPath %>group_info.jsp"><i class="fa fa-users"></i> 团队信息</a>
                     </li>
                     <li>
-                        <a href="my_project.jsp"><i class="fa fa-edit"></i> 我的课题</a>
+                        <a href="<%=stuMainPath %>my_project.jsp"><i class="fa fa-edit"></i> 我的课题</a>
                     </li>
                     
                     <li>
-                        <a href="my_info.jsp"><i class="fa fa-user"></i> 我的信息</a>
+                        <a href="<%=stuMainPath %>my_info.jsp"><i class="fa fa-user"></i> 我的信息</a>
                     </li>
                     <li>
-                        <a href="empty.html"><i class="fa fa-file"></i> Empty Page</a>
+                        <a href="<%=stuMainPath %>empty.html"><i class="fa fa-file"></i> Empty Page</a>
                     </li>
                 </ul>
 
