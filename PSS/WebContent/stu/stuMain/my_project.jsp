@@ -1,8 +1,8 @@
-<%@ page language="java" import="java.util.*,com.pss.user.Student" pageEncoding="utf-8" %>
+<%@ page language="java" import="java.util.*,com.pss.user.Student,com.pss.user.GPS" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-	String stuMainPath = path+"/stu/stuMain/";
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+    String stuMainPath = path + "/stu/stuMain/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -32,6 +32,8 @@
     } else {
         stu = (Student) session.getAttribute("student");
     }
+
+
 %>
 <!-- /. WRAPPER  -->
 <!-- JS Scripts-->
@@ -125,8 +127,8 @@
                     </li>
                     <li class="divider"></li>
                     <li><a href="<%=basePath%>stu/Login.jsp"><i class="fa fa-sign-out fa-fw"
-                                                    onclick="<%session.removeAttribute("student"); %>
-                                                            "></i> Sign out</a>
+                                                                onclick="<%session.removeAttribute("student"); %>
+                                                                        "></i> Sign out</a>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
@@ -173,7 +175,7 @@
     <div id="page-wrapper">
         <div id="page-inner">
             <%
-                if (stu.getSgroup()==null) {
+                if (stu.getSgroup() == null) {
             %>
 
             <div class="row">
@@ -183,7 +185,8 @@
                         <p>请选择加入队伍或创建队伍</p>
                         <hr>
                         <p>
-                            <a href="group_info.jsp" class="btn btn-primary btn-lg" role="button" style="margin-right:50px">加入队伍</a>
+                            <a href="group_info.jsp" class="btn btn-primary btn-lg" role="button"
+                               style="margin-right:50px">加入队伍</a>
                             <a href="create_group.jsp" class="btn btn-primary btn-lg" role="button">创建队伍</a>
                         </p>
                     </div>
@@ -222,103 +225,249 @@
                             <div class="tab-content">
                                 <div class="tab-pane fade active in" id="home">
                                     <h4>Home Tab</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                        culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
                                 <div class="tab-pane fade" id="profile">
                                     <h4>Profile Tab</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                        culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
                                 <div class="tab-pane fade" id="messages">
                                     <h4>Messages Tab</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                        culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
                                 <div class="tab-pane fade" id="settings">
                                     <h4>Settings Tab</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                        culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     团队信息
                 </div>
                 <div class="panel-body">
-                	<div class="row" style="margin-left:0px">
-                	<div class="col-md-3">
-                	<img src="<%=path%>/img/profile.png" style="max-width:80%; max-height:80%">
-                	</div>
-                	
-                    <div class="col-md-5">
-                        
-                            
-                            <div >
+
+                    <div class="row" style="margin-left:0px">
+                        <div class="col-md-3">
+                            <img src="<%=path%>/img/profile.png" style="max-width:80%; max-height:80%">
+                        </div>
+
+                        <div class="col-md-5">
+
+
+                            <div>
                                 <h3>队长</h3>
-                              
+
                                 <div style="margin-top:10px">
                                     <p><span>姓名：<% %></span></p>
-                                        <p><span>班级：<% %></span></p>
-                                        <p><span>学号：<% %></span> </p>
+                                    <p><span>班级：<% %></span></p>
+                                    <p><span>学号：<% %></span></p>
                                 </div>
                             </div>
-                      
-                    </div>
-                    <div class="col-md-3">
-                    <a class="btn btn-primary btn-lg" role="button" style="margin-top:100px; margin-left:30px;">按钮1</a>
-                    <a class="btn btn-primary btn-lg" role="button" style="margin-top:100px; margin-left:30px">按钮2</a>
-                    </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <button class="btn btn-primary btn-lg" style="margin-top:100px;" data-toggle="modal"
+                                        data-target="#dismiss">解散团队
+                                </button>
+                                <div class="modal fade" id="dismiss" tabindex="-1" role="dialog"
+                                     aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-hidden="true">
+                                                    &times;
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">提示</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                确认解散？
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                                                </button>
+                                                <button type="button" class="btn btn-primary">确认</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <hr>
                     <div class="row" style="margin-left:0px">
-                    <div class="col-md-3">
-                	<img src="<%=path%>/img/profile.png" style="max-width:80%; max-height:80%">
-                	</div>
-                	
-                    <div class="col-md-5">
-                        
-                            
-                            <div >
+                        <div class="col-md-3">
+                            <img src="<%=path%>/img/profile.png" style="max-width:80%; max-height:80%">
+                        </div>
+                        <div class="col-md-5">
+                            <div>
                                 <h3>队员</h3>
-                              
+
                                 <div style="margin-top:10px">
                                     <p><span>姓名：<% %></span></p>
-                                        <p><span>班级：<% %></span></p>
-                                        <p><span>学号：<% %></span> </p>
+                                    <p><span>班级：<% %></span></p>
+                                    <p><span>学号：<% %></span></p>
                                 </div>
                             </div>
-                      
-                    </div>
-                    <div class="col-md-3">
-                    <a class="btn btn-primary btn-lg" role="button" style="margin-top:100px; margin-left:30px;">按钮1</a>
-                    <a class="btn btn-primary btn-lg" role="button" style="margin-top:100px; margin-left:30px">按钮2</a>
-                    </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <button class="btn btn-primary btn-lg" style="margin-top:50px;" data-toggle="modal"
+                                        data-target="#remove">踢出团队
+                                </button>
+                                <div class="modal fade" id="remove" tabindex="-1" role="dialog"
+                                     aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-hidden="true">
+                                                    &times;
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">提示</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                确认踢出？
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                                                </button>
+                                                <button type="button" class="btn btn-primary">确认</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button class="btn btn-primary btn-lg" style="margin-top:20px;" data-toggle="modal"
+                                        data-target="#transfer">转让队长
+                                </button>
+                                <div class="modal fade" id="transfer" tabindex="-1" role="dialog"
+                                     aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-hidden="true">
+                                                    &times;
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">提示</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                确认转让？
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                                                </button>
+                                                <button type="button" class="btn btn-primary">确认</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <hr>
                     <div class="row" style="margin-left:0px">
-                    <div class="col-md-3">
-                	<img src="<%=path%>/img/profile.png" style="max-width:80%; max-height:80%">
-                	</div>
-                	
-                    <div class="col-md-5">
-                        
-                            
-                            <div >
+                        <div class="col-md-3">
+                            <img src="<%=path%>/img/profile.png" style="max-width:80%; max-height:80%">
+                        </div>
+
+                        <div class="col-md-5">
+
+
+                            <div>
                                 <h3>队员</h3>
-                              
+
                                 <div style="margin-top:10px">
                                     <p><span>姓名：<% %></span></p>
-                                        <p><span>班级：<% %></span></p>
-                                        <p><span>学号：<% %></span> </p>
+                                    <p><span>班级：<% %></span></p>
+                                    <p><span>学号：<% %></span></p>
                                 </div>
                             </div>
-                      
-                    </div>
-                    <div class="col-md-3">
-                    <a class="btn btn-primary btn-lg" role="button" style="margin-top:100px; margin-left:30px;">按钮1</a>
-                    <a class="btn btn-primary btn-lg" role="button" style="margin-top:100px; margin-left:30px">按钮2</a>
-                    </div>
+
+                        </div>
+                        <div class="col-md-3">
+                           <div class="row">
+                                <button class="btn btn-primary btn-lg" style="margin-top:50px;" data-toggle="modal"
+                                        data-target="#remove">踢出团队
+                                </button>
+                                <div class="modal fade" id="remove" tabindex="-1" role="dialog"
+                                     aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-hidden="true">
+                                                    &times;
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">提示</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                确认踢出？
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                                                </button>
+                                                <button type="button" class="btn btn-primary">确认</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button class="btn btn-primary btn-lg" style="margin-top:20px;" data-toggle="modal"
+                                        data-target="#transfer">转让队长
+                                </button>
+                                <div class="modal fade" id="transfer" tabindex="-1" role="dialog"
+                                     aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-hidden="true">
+                                                    &times;
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">提示</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                确认转让？
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                                                </button>
+                                                <button type="button" class="btn btn-primary">确认</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
