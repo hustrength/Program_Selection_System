@@ -98,12 +98,14 @@ public class serDoLogin extends HttpServlet {
 				else if(stu!=null){
 				    if(password.equals(stu.getSpassword())){
 				    	result="2";
+				    	if(session.getAttribute("student")!=null)
+				    	   session.removeAttribute("student");
+						session.setAttribute("student",stu);
 						
 				    }
 				    else{
 				    result="1";
-				   
-					session.setAttribute("student", stu);
+				    
 				    }
 				}
 				response.getWriter().print(result); 

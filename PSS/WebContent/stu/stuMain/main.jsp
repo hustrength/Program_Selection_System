@@ -217,7 +217,7 @@ index.html 查看已选课题
                             </div> -->
                                                         <div class="box">
 								<div class="info">
-									<p>亲爱的<%= stu.getSname() %>同学，下午好</p>
+									<p>亲爱的<%=stu.getSname() %>同学，下午好</p>
 								</div>
 								<div class="form">
 								<table class="news">
