@@ -114,9 +114,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="<%=basePath%>stu/Login.jsp"><i class="fa fa-sign-out fa-fw"
-                                                    onclick="
-                                                            "></i> Sign out</a>
+                        <li><a href="<%=basePath%>stu/Login.jsp"><i class="fa fa-sign-out fa-fw"></i> Sign out</a>
                     </li>
                     </ul>
                     <!-- /.dropdown-user -->
