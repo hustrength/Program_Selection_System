@@ -1,10 +1,13 @@
 <%@ page language="java" import="java.util.*,com.pss.dao.*,com.pss.user.*" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+    String stuMainPath = path+"/stu/stuMain/";
 %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+      <base href="<%=basePath%>">
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>团队信息</title>
@@ -32,6 +35,10 @@
      <!-- DATA TABLE SCRIPTS -->
     <script src="<%=path %>/assets/js/dataTables/jquery.dataTables.js"></script>
     <script src="<%=path %>/assets/js/dataTables/dataTables.bootstrap.js"></script>
+    <!-- Jquery Js -->
+    <script type="text/javascript" src="<%=path %>/js/jquery-latest.js"></script>
+     <!-- CreateGroup Js -->
+     <script type="text/javascript" src="<%=path %>/js/group_info.js"></script>
         <script>
             $(document).ready(function () {
                 $('#dataTables-example').dataTable();
@@ -135,23 +142,23 @@ form.html 创建队伍
 index.html 查看已选课题
  -->
                     <li>
-                        <a href="main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
+                        <a class="active-menu" href="<%=stuMainPath %>main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
                     </li>
                     <li>
-                        <a href="project_info.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
-                    </li>
-					<li>
-                        <a href="group_info.jsp" class="active-menu"><i class="fa fa-users"></i> 团队信息</a>
+                        <a href="<%=stuMainPath %>project_info.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
                     </li>
                     <li>
-                        <a href="my_project.jsp"><i class="fa fa-edit"></i> 我的课题</a>
-                    </li>
-                    
-                    <li>
-                        <a href="my_info.jsp"><i class="fa fa-user"></i> 我的信息</a>
+                        <a href="<%=stuMainPath %>group_info.jsp"><i class="fa fa-users"></i> 团队信息</a>
                     </li>
                     <li>
-                        <a href="empty.html"><i class="fa fa-file"></i> Empty Page</a>
+                        <a href="<%=stuMainPath %>my_project.jsp"><i class="fa fa-edit"></i> 我的课题</a>
+                    </li>
+
+                    <li>
+                        <a href="<%=stuMainPath %>my_info.jsp"><i class="fa fa-user"></i> 我的信息</a>
+                    </li>
+                    <li>
+                        <a href="<%=stuMainPath %>empty.html"><i class="fa fa-file"></i> Empty Page</a>
                     </li>
                 </ul>
 
@@ -185,7 +192,7 @@ index.html 查看已选课题
   				                   List<GPS> list = listall.listAllGPS();
   				                   Iterator<GPS> it = list.iterator();
   			                    %>
-	                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+	                                <table class="table table-striped table-bordered table-hover" id="list_group" name="list_group">
 	                                    <thead>
 	                                        <tr>
 	                                            <th>团队编号</th>
@@ -200,6 +207,7 @@ index.html 查看已选课题
 	                                  
 	                                    <tbody>
 	                                        <% 
+	                                          int i=0;
   						                      while(it.hasNext()){
   							                  gps = it.next();
   							                  if(gps.getGleftnum()>0){
@@ -210,10 +218,10 @@ index.html 查看已选课题
 	                                            <td><%= gps.getPname() %></td>
 	                                            <td class="center"><%= gps.getStu1().getSname() %></td>
 	                                            <td class="center"><%=gps.getGleftnum() %></td>
-	                                            <td><input type="button" value="加入" id="join" name="join"></td>
+	                                            <td><input type="button" value="加入" id="join" name="join" onclick="apply(<%=i%>)"></td>
 	                                        </tr>
 	                                        <%
-  							                  }
+  							                   i++;}
   							                  }
   						                      %>
 	                                     </tbody>
