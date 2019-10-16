@@ -242,7 +242,7 @@
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                                                 &times;
                                             </button>
-                                            <h4 class="modal-title" id="myModalLabel">Modal title Here</h4>
+                                            <h4 class="modal-title" id="myModalLabel">提示</h4>
                                         </div>
                                         <div class="modal-body">
                                             确认更改？
