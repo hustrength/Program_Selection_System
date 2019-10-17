@@ -11,15 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.pss.dao.DaoGPS;
-import com.pss.dao.DaoPro;
+import com.pss.dao.DaoApply;
 import com.pss.user.GPS;
 import com.pss.user.Project;
 import com.pss.user.Student;
+import com.pss.user.Apply;
 
 /**
  * Servlet implementation class serInsertApply
  */
-@WebServlet("/serInsertApply")
+//@WebServlet("/serInsertApply")
 public class serInsertApply extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -40,22 +41,18 @@ public class serInsertApply extends HttpServlet {
 		HttpSession session = request.getSession(); 
 		PrintWriter out = response.getWriter();
 		int rs;
-		DaoGPS insert = new DaoGPS();
-		GPS gps=null;
+		DaoApply insert = new DaoApply();
+		Student applicant = (Student) session.getAttribute("student");
 		String act=request.getParameter("action");
-		if("create".equals(act)){
-			//创建队伍
-			String gname = request.getParameter("Gname");
-			System.out.println(gname);
-			int pno = Integer.parseInt(request.getParameter("PNo"));
-			DaoPro querybypno=new DaoPro();
-			Project pro=querybypno.querybypno(pno);
-			String pname = pro.getPname();
-			//Student stu = (Student)session.getAttribute("student");
-			Student stu=new Student("U1", "学生1号", "0","男", "CS1705", "","",0);
-			int gsnum = Integer.parseInt(request.getParameter("Gsnum"));
-			gps=new GPS(pno,gname,pname,stu,gsnum);
-			rs=insert.insertGPS(gps);
+		if("apply".equals(act)){
+			//创建申请单
+			String sno = request.getParameter("SNo");
+			System.out.println(sno);
+			int gno = Integer.parseInt(request.getParameter("GNo"));
+			System.out.println(gno);
+			System.out.println(applicant.getSNo());
+			rs=insert.insertApply(gno,applicant.getSNo(),sno);
+			System.out.println(rs);
 			if(rs==0){
 				response.getWriter().print("fail");
 			}

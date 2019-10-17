@@ -17,6 +17,8 @@
     <link href="<%=path %>/assets/css/font-awesome.css" rel="stylesheet"/>
     <!-- Custom Styles-->
     <link href="<%=path %>/assets/css/custom-styles.css" rel="stylesheet"/>
+    <!-- Google Fonts-->
+    <link href='http://fonts.useso.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
     <!-- TABLE STYLES-->
     <link href="<%=path %>/assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet"/>
 </head>
@@ -34,9 +36,16 @@
 <!-- Jquery Js -->
 <script type="text/javascript" src="<%=path %>/js/jquery-latest.js"></script>
 <!-- CreateGroup Js -->
-<script type="text/javascript" src="<%=path %>/js/group_info.js"></script>
+<script type="text/javascript" src="<%=path%>/js/group_info.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#dataTables-example').dataTable();
+    });
+</script>
 <!-- Custom Js -->
 <script src="<%=path %>/assets/js/custom-scripts.js"></script>
+
+
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
@@ -54,36 +63,8 @@
                     <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-messages">
-                    <li>
-                        <a href="#">
-                            <div>
-                                <strong>张三</strong>
-                                <span class="pull-right text-muted">
-                                        <em>今天</em>
-                                    </span>
-                            </div>
-                            <div style="display:flex; margin-top:3px">
-                                <div style="margin-top:5px">申请加入你的团队</div>
-                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <strong>李四</strong>
-                                <span class="pull-right text-muted">
-                                        <em>今天</em>
-                                    </span>
-                            </div>
-                            <div style="display:flex; margin-top:3px">
-                                <div style="margin-top:5px">申请加入你的团队</div>
-                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
+                    
+                    
                     <li>
                         <a href="#">
                             <div>
@@ -136,6 +117,7 @@
                 </li>
                 <li>
                     <a href="<%=stuMainPath %>group_info.jsp" class="active-menu"><i class="fa fa-users"></i> 团队信息</a>
+                </li>
                 <li>
                     <a href="<%=stuMainPath %>my_project.jsp"><i class="fa fa-edit"></i> 我的课题</a>
                 </li>
@@ -154,7 +136,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        可选团队 <small>巴拉巴拉</small>
+                        可选团队 <small></small>
                     </h1>
                 </div>
             </div>
@@ -175,8 +157,9 @@
                                         List<GPS> list = listall.listAllGPS();
                                         Iterator<GPS> it = list.iterator();
                                     %>
-                                    <table class="table table-striped table-bordered table-hover" id="list_group"
-                                           name="list_group">
+                                    <table class="table table-striped table-bordered table-hover"
+                                           id="dataTables-example"
+                                           name="dataTables-example">
                                         <thead>
                                         <tr>
                                             <th>团队编号</th>
@@ -189,9 +172,10 @@
                                         </thead>
                                         <tbody>
                                         <%
-                                            int i = 0;
+                                            
                                             while (it.hasNext()) {
                                                 gps = it.next();
+                                                int gno = gps.getGNo();
                                                 String sno = gps.getStu1().getSNo();
                                                 if (gps.getGleftnum() > 0) {
                                         %>
@@ -207,10 +191,10 @@
                                             <td class="center"><%=gps.getGleftnum() %>
                                             </td>
                                             <td><input type="button" value="加入" id="join" name="join"
-                                                       onclick="apply(<%=i%>, '<%=sno%>')"></td>
+                                                       onclick="apply(<%=gno%>, '<%=sno%>')"></td>
                                         </tr>
                                         <%
-                                                    i++;
+                                                   
                                                 }
                                             }
                                         %>

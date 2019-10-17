@@ -9,7 +9,8 @@ public class Apply {
    private int GNo;  //队伍编号
    private Student Applicant; //申请人
    private Student Leader;  //被申请的队长
-  
+   private int Status; //申请单状态，0代表待处理，1表示同意，2表示拒绝
+   
    public int getANo(){
 	   return ANo;
    }
@@ -38,15 +39,24 @@ public class Apply {
 	   Leader=leader;
    }
    
-   public Apply(int gno,Student applicant,Student leader){
+   public int getStatus(){
+	   return Status;
+   }
+   public void setStatus(int status){
+	  Status=status;
+   }
+   
+   public Apply(int gno,Student applicant,Student leader,int status){
 	   this.GNo=gno;
 	   this.Applicant=applicant;
 	   this.Leader=leader;
+	   this.Status=status;
    }
-   public Apply(int ano,int gno,Student applicant,Student leader){
+   public Apply(int ano,int gno,Student applicant,Student leader,int status){
 	   this.ANo=ano;
 	   this.GNo=gno;
 	   this.Applicant=applicant;
 	   this.Leader=leader;
+	   this.Status=status;
    }
 }

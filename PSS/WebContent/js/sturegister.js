@@ -13,7 +13,7 @@ function checkIdrepeat(val, ele) {
             	flag1=false;
 				ele.setCustomValidity("该学号已被注册");
 			}
-            console.log(1);
+            
         }
     })
 }
