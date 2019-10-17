@@ -10,7 +10,7 @@
     <base href="<%=basePath%>">
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>团队信息</title>
+    <title>学生选题信息管理系统——学生界面</title>
     <!-- Bootstrap Styles-->
     <link href="<%=path %>/assets/css/bootstrap.css" rel="stylesheet"/>
     <!-- FontAwesome Styles-->
@@ -21,6 +21,11 @@
     <link href="<%=path %>/assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet"/>
 </head>
 <body>
+    <script>
+            $(document).ready(function () {
+                $('#dataTables-example').dataTable();
+            });
+    </script>
 <!-- JS Scripts-->
 <!-- jQuery Js -->
 <script src="<%=path %>/assets/js/jquery-1.10.2.js"></script>
@@ -136,6 +141,7 @@
                 </li>
                 <li>
                     <a href="<%=stuMainPath %>group_info.jsp" class="active-menu"><i class="fa fa-users"></i> 团队信息</a>
+                </li>
                 <li>
                     <a href="<%=stuMainPath %>my_project.jsp"><i class="fa fa-edit"></i> 我的课题</a>
                 </li>
@@ -154,7 +160,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        Tables Page <small>Responsive tables</small>
+                        可选团队 <small>巴拉巴拉</small>
                     </h1>
                 </div>
             </div>
@@ -175,8 +181,8 @@
                                         List<GPS> list = listall.listAllGPS();
                                         Iterator<GPS> it = list.iterator();
                                     %>
-                                    <table class="table table-striped table-bordered table-hover" id="list_group"
-                                           name="list_group">
+                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example"
+                                           name="dataTables-example">
                                         <thead>
                                         <tr>
                                             <th>团队编号</th>

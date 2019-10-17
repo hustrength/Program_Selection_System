@@ -124,13 +124,6 @@
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
-
-                <!-- tab-panel.html 选择课题
-                ui-elements.html 个人信息
-                table.html 查看可选队伍
-                form.html 创建队伍
-                index.html 查看已选课题
-                 -->
                 <li>
                     <a href="<%=stuMainPath %>main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
                 </li>
@@ -162,7 +155,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        Tabs & Panels <small>Nice tabs and panels</small>
+                        可选课题 <small>巴拉巴拉</small>
                     </h1>
                 </div>
             </div>
@@ -223,23 +216,22 @@
                                 <li class=""><a href="#settings2" data-toggle="tab">其他要求</a>
                                 </li>
                             </ul>
-
                             <div class="tab-content">
-                                <div class="tab-pane fade" id="home2">
+                                <div class="tab-pane fade active in" id="home2">
                                     <h4>标题</h4>
                                     <p>数独（shù dú）是源自18世纪瑞士的一种数学游戏。是一种运用纸、笔进行演算的逻辑游戏。
                                         玩家需要根据9×9盘面上的已知数字，推理出所有剩余空格的数字，
                                         并满足每一行、每一列、每一个粗线宫（3*3）内的数字均含1-9，不重复</p>
                                 </div>
                                 <div class="tab-pane fade" id="profile2">
-                                    <h4>...</h4>
+                                    <h4>标题</h4>
                                     <p>...</p>
                                 </div>
                                 <div class="tab-pane fade" id="messages2">
                                     <h4>...</h4>
-                                    <p>..</p>
+                                    <p>...</p>
                                 </div>
-                                <div class="tab-pane fade active in" id="settings2">
+                                <div class="tab-pane fade" id="settings2">
                                     <h4>...</h4>
                                     <p>...</p>
                                 </div>
@@ -292,7 +284,7 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            课题四
+                            课题三
                         </div>
                         <div class="panel-body">
                             <ul class="nav nav-tabs">
@@ -305,8 +297,9 @@
                                 <li class=""><a href="#settings4" data-toggle="tab">其他要求</a>
                                 </li>
                             </ul>
+
                             <div class="tab-content">
-                                <div class="tab-pane fade" id="home4">
+                                <div class="tab-pane fade active in" id="home4">
                                     <h4>标题</h4>
                                     <p>数独（shù dú）是源自18世纪瑞士的一种数学游戏。是一种运用纸、笔进行演算的逻辑游戏。
                                         玩家需要根据9×9盘面上的已知数字，推理出所有剩余空格的数字，
@@ -320,7 +313,7 @@
                                     <h4>...</h4>
                                     <p>...</p>
                                 </div>
-                                <div class="tab-pane fade active in" id="settings4">
+                                <div class="tab-pane fade" id="settings4">
                                     <h4>...</h4>
                                     <p>...</p>
                                 </div>

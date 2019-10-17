@@ -164,7 +164,7 @@
                 <div class="col-md-12">
                     <div class="jumbotron">
                         <h1>你还未选课题！</h1>
-                        <p>请选择加入队伍或创建队伍</p>
+                        <p>请选择加入团队或创建团队</p>
                         <hr>
                         <p>
                             <a href="group_info.jsp" class="btn btn-primary btn-lg" role="button"

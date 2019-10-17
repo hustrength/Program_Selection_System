@@ -11,7 +11,7 @@
 
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>建立团队</title>
+    <title>学生选题信息管理系统——学生界面</title>
     <!-- Bootstrap Styles-->
     <link href="<%=path %>/assets/css/bootstrap.css" rel="stylesheet"/>
     <!-- FontAwesome Styles-->
@@ -140,7 +140,6 @@
                     <li>
                         <a href="<%=stuMainPath %>my_project.jsp"><i class="fa fa-edit"></i> 我的课题</a>
                     </li>
-
                     <li>
                         <a href="<%=stuMainPath %>my_info.jsp"><i class="fa fa-user"></i> 我的信息</a>
                     </li>
@@ -156,7 +155,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            建立团队 <small>Best form elements.</small>
+                            创建团队 <small>巴拉巴拉</small>
                         </h1>
                     </div>
                 </div>
@@ -174,8 +173,7 @@
                                               onsubmit='create_group()'>
                                             <div class="form-group">
                                                 <label>团队名称</label>
-                                                <input class="form-control" id="Gname" name="Gname"
-                                                       oninput="checkGnamerepeat()">
+                                                <input class="form-control" id="Gname" name="Gname" required="required" oninput="checkGnamerepeat()">
                                             </div>
                                             <div class="form-group">
                                                 <label>选择课题</label>

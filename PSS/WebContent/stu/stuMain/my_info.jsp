@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Dream</title>
+    <title>学生选题信息管理系统——学生界面</title>
     <!-- Bootstrap Styles-->
     <link href="<%=path %>/assets/css/bootstrap.css" rel="stylesheet"/>
     <!-- FontAwesome Styles-->
@@ -156,7 +156,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        UI Elements <small>This is your UI elements section</small>
+                        我的信息 <small>巴拉巴拉</small>
                     </h1>
                 </div>
             </div>
@@ -213,15 +213,15 @@
                         </div>
                         <div class="form-group" style="margin-left:16px; margin-right:20px; margin-top:20px">
                             <label>请输入初始密码</label>
-                            <input class="form-control" type="password">
+                            <input class="form-control" type="password" required="required" oninput="checkPassword()">
                         </div>
                         <div class="form-group" style="margin-left:16px; margin-right:20px; margin-top:20px">
                             <label>请输入新密码</label>
-                            <input class="form-control" type="password">
+                            <input class="form-control" type="password" required="required">
                         </div>
                         <div class="form-group" style="margin-left:16px; margin-right:20px; margin-top:20px">
                             <label>请再次输入新密码</label>
-                            <input class="form-control" type="password">
+                            <input class="form-control" type="password" required="required" oninput="checkPassword()">
                         </div>
                         <div class="panel-body">
                             <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
