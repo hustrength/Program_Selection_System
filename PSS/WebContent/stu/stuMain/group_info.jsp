@@ -17,15 +17,12 @@
     <link href="<%=path %>/assets/css/font-awesome.css" rel="stylesheet"/>
     <!-- Custom Styles-->
     <link href="<%=path %>/assets/css/custom-styles.css" rel="stylesheet"/>
+    <!-- Google Fonts-->
+    <link href='http://fonts.useso.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
     <!-- TABLE STYLES-->
     <link href="<%=path %>/assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet"/>
 </head>
 <body>
-    <script>
-            $(document).ready(function () {
-                $('#dataTables-example').dataTable();
-            });
-    </script>
 <!-- JS Scripts-->
 <!-- jQuery Js -->
 <script src="<%=path %>/assets/js/jquery-1.10.2.js"></script>
@@ -36,12 +33,15 @@
 <!-- DATA TABLE SCRIPTS -->
 <script src="<%=path %>/assets/js/dataTables/jquery.dataTables.js"></script>
 <script src="<%=path %>/assets/js/dataTables/dataTables.bootstrap.js"></script>
-<!-- Jquery Js -->
-<script type="text/javascript" src="<%=path %>/js/jquery-latest.js"></script>
-<!-- CreateGroup Js -->
-<script type="text/javascript" src="<%=path %>/js/group_info.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#dataTables-example').dataTable();
+    });
+</script>
 <!-- Custom Js -->
 <script src="<%=path %>/assets/js/custom-scripts.js"></script>
+
+
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
@@ -181,7 +181,8 @@
                                         List<GPS> list = listall.listAllGPS();
                                         Iterator<GPS> it = list.iterator();
                                     %>
-                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example"
+                                    <table class="table table-striped table-bordered table-hover"
+                                           id="dataTables-example"
                                            name="dataTables-example">
                                         <thead>
                                         <tr>
