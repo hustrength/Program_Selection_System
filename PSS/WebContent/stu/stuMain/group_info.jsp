@@ -33,10 +33,6 @@
 <!-- DATA TABLE SCRIPTS -->
 <script src="<%=path %>/assets/js/dataTables/jquery.dataTables.js"></script>
 <script src="<%=path %>/assets/js/dataTables/dataTables.bootstrap.js"></script>
-<!-- Jquery Js -->
-<script type="text/javascript" src="<%=path %>/js/jquery-latest.js"></script>
-<!-- CreateGroup Js -->
-<script type="text/javascript" src="<%=path %>/js/group_info.js"></script>
 <script>
     $(document).ready(function () {
         $('#dataTables-example').dataTable();
@@ -44,7 +40,6 @@
 </script>
 <!-- Custom Js -->
 <script src="<%=path %>/assets/js/custom-scripts.js"></script>
-
 
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
