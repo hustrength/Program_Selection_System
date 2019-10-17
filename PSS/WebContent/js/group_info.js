@@ -16,3 +16,22 @@ function apply(gno, sno){
 	        }
   })
 }
+
+function agree(applicant_sno){
+	alert(applicant_sno);
+	 $.ajax({
+	        url: "servlet/serUpdateApply?action=agree&SNo="+applicant_sno,
+	        type: "GET",
+	        async: false,
+	        dataType: "text",
+	        cache: false,
+	        success: function (text) {
+	            if (text === "success") {
+					alert("已同意");
+	            } else {
+	            	alert("操作失败");
+				}
+	            
+	        }
+ })
+}
