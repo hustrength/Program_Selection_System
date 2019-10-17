@@ -178,8 +178,8 @@
                                         List<GPS> list = listall.listAllGPS();
                                         Iterator<GPS> it = list.iterator();
                                     %>
-                                    <table class="table table-striped table-bordered table-hover" id="list_group"
-                                           name="list_group">
+                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example"
+                                           name="dataTables-example">
                                         <thead>
                                         <tr>
                                             <th>团队编号</th>
