@@ -161,7 +161,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        关于本学期校级任选课相关事宜安排的通知 <small>巴拉巴拉</small>
+                        关于本学期软件工程选题相关事宜安排的通知 <small>巴拉巴拉</small>
                     </h1>
                 </div>
             </div>
@@ -174,7 +174,7 @@
                         </div>
                         <div class="box">
                             <div class="info">
-                                <p>亲爱的<%=stu.getSname() %>同学，下午好</p>
+                                <p>亲爱的<%=stu.getSname() %>同学，你好！</p>
                             </div>
                             <div class="form">
                                 <table class="news">
@@ -218,9 +218,7 @@
                 </div>
             </div>
             <!-- /. ROW  -->
-            <footer><p>Copyright &copy; 2016.Company name All rights reserved.<a target="_blank"
-                                                                                 href="http://www.freemoban.com/">www.freemoban.com</a>
-            </p></footer>
+            <footer><p>版权所有 ©2019-2020 学生选题信息系统 保留所有权利</p></footer>
         </div>
         <!-- /. PAGE INNER  -->
     </div>

@@ -36,7 +36,7 @@
 <!-- Jquery Js -->
 <script type="text/javascript" src="<%=path %>/js/jquery-latest.js"></script>
 <!-- CreateGroup Js -->
-<script type="text/javascript" src="<%=path%>/js/group_info.js"></script>
+<script type="text/javascript" src="<%=path %>/js/group_info.js"></script>
 <script>
     $(document).ready(function () {
         $('#dataTables-example').dataTable();
@@ -63,8 +63,36 @@
                     <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-messages">
-                    
-                    
+                    <li>
+                        <a href="#">
+                            <div>
+                                <strong>张三</strong>
+                                <span class="pull-right text-muted">
+                                        <em>今天</em>
+                                    </span>
+                            </div>
+                            <div style="display:flex; margin-top:3px">
+                                <div style="margin-top:5px">申请加入你的团队</div>
+                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <strong>李四</strong>
+                                <span class="pull-right text-muted">
+                                        <em>今天</em>
+                                    </span>
+                            </div>
+                            <div style="display:flex; margin-top:3px">
+                                <div style="margin-top:5px">申请加入你的团队</div>
+                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
                     <li>
                         <a href="#">
                             <div>
@@ -136,7 +164,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        可选团队 <small></small>
+                        可选团队 <small>巴拉巴拉</small>
                     </h1>
                 </div>
             </div>
