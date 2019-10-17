@@ -46,6 +46,12 @@
     </script>
          <!-- Custom Js -->
     <script src="<%=path %>/assets/js/custom-scripts.js"></script>
+    <% 	Student stu = null;
+  		if(session.getAttribute("student")==null){
+  			stu=new Student("U1", "学生1号", "0","男", "CS1705", "组1","组长",0);
+  		}else{
+  			stu = (Student)session.getAttribute("student");}
+  %>
     <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
             <div class="navbar-header">
@@ -206,6 +212,7 @@ index.html 查看已选课题
 	                                  
 	                                    <tbody>
 	                                        <% 
+	                                          
 	                                          int i=0;
   						                      while(it.hasNext()){
   							                  gps = it.next();
@@ -217,7 +224,8 @@ index.html 查看已选课题
 	                                            <td><%= gps.getPname() %></td>
 	                                            <td class="center"><%= gps.getStu1().getSname() %></td>
 	                                            <td class="center"><%=gps.getGleftnum() %></td>
-	                                            <td><input type="button" value="加入" id="join" name="join" onclick="apply(<%=i%>)"></td>
+	                                            <td><input type="button" value="加入" id="join" name="join" 
+	                                               onclick="apply('<%=stu.getSNo() %>>')"></td>
 	                                        </tr>
 	                                        <%
   							                   i++;}
