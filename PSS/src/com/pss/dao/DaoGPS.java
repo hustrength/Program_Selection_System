@@ -159,6 +159,35 @@ public class DaoGPS {
 		return gps;
 	}
 	
+	public int updateGPS(GPS gps){
+		int rs=0;
+		Connection conn = null;
+		try{
+			String sql_update = "update gps set PNo=?,Pname=?,SNo1=?,SNo2=?,SNo3=?,Gsnum=?,Gleftnum=? where Gname=?;";//修改一条学生信息
+			 conn = new Conn().getConn();
+			PreparedStatement pst = conn.prepareStatement(sql_update);
+			pst.setInt(1, gps.getPNo());
+			pst.setString(2, gps.getPname());
+			pst.setString(3, gps.getStu1().getSNo());
+			pst.setString(4, gps.getStu2().getSNo());
+			pst.setString(5, gps.getStu3().getSNo());
+			pst.setInt(6, gps.getGsnum());
+			pst.setInt(7, gps.getGleftnum());
+			pst.setString(8, gps.getGname());
+			rs = pst.executeUpdate();
+			if(rs!=0){
+				System.out.println("update over!");
+			}
+		}catch(Exception e){e.printStackTrace();}
+		finally{
+			try{
+				conn.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+		return rs;
+	}
 	public int get_lastID(){
 		int lastid = 0;
 		

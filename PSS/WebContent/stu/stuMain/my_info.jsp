@@ -64,7 +64,7 @@
                             </div>
                             <div style="display:flex; margin-top:3px">
                                 <div style="margin-top:5px">申请加入你的团队</div>
-                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
+                                <input type="button" value="同意" class="btn btn-info btn-sm" style="margin-left:40px">
                             </div>
                         </a>
                     </li>

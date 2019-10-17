@@ -70,6 +70,7 @@
                 	   stu = new Student("U1", "学生1号", "0", "男", "CS1705", "组1", "组长", 0);
                    }
                    String leader_sno=stu.getSNo();
+                   String applicant=null;
                    Apply apply = null;
                    DaoApply list_all_apply = new DaoApply();
                    List<Apply> list_apply = list_all_apply.listApplybySNo(leader_sno);
@@ -78,9 +79,10 @@
                        apply = it_apply.next();
                        int status = apply.getStatus();
                        if (status== 0) {
+                    	   applicant=apply.getApplicant().getSNo();
                    %>
                     <li>
-                        <a href="#">
+                        
                             <div>
                                 <strong><%=apply.getApplicant().getSname() %></strong>
                                 <span class="pull-right text-muted">
@@ -89,9 +91,9 @@
                             </div>
                             <div style="display:flex; margin-top:3px">
                                 <div style="margin-top:5px">申请加入你的团队</div>
-                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
+                               <input type="button" value="同意" class="btn btn-info btn-sm" style="margin-left:40px" onclick="agree('<%=applicant%>')">
                             </div>
-                        </a>
+                       
                     </li>
                     <li class="divider"></li>
                     <%
