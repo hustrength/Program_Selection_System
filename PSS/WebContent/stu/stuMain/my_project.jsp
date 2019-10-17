@@ -294,7 +294,7 @@
                         <div class="col-md-3">
                             <div class="row">
                                 <button class="btn btn-primary btn-lg" style="margin-top:50px;" data-toggle="modal"
-                                        data-target="#remove">踢出团队
+                                        data-target="#remove1">踢出团队
                                 </button>
                                 <div class="modal fade" id="remove1" tabindex="-1" role="dialog"
                                      aria-labelledby="myModalLabel" aria-hidden="true">
@@ -321,7 +321,7 @@
                             </div>
                             <div class="row">
                                 <button class="btn btn-primary btn-lg" style="margin-top:20px;" data-toggle="modal"
-                                        data-target="#transfer">转让队长
+                                        data-target="#transfer1">转让队长
                                 </button>
                                 <div class="modal fade" id="transfer1" tabindex="-1" role="dialog"
                                      aria-labelledby="myModalLabel" aria-hidden="true">
@@ -367,7 +367,7 @@
                         <div class="col-md-3">
                             <div class="row">
                                 <button class="btn btn-primary btn-lg" style="margin-top:50px;" data-toggle="modal"
-                                        data-target="#remove">踢出团队
+                                        data-target="#remove2">踢出团队
                                 </button>
                                 <div class="modal fade" id="remove2" tabindex="-1" role="dialog"
                                      aria-labelledby="myModalLabel" aria-hidden="true">
@@ -394,7 +394,7 @@
                             </div>
                             <div class="row">
                                 <button class="btn btn-primary btn-lg" style="margin-top:20px;" data-toggle="modal"
-                                        data-target="#transfer">转让队长
+                                        data-target="#transfer2">转让队长
                                 </button>
                                 <div class="modal fade" id="transfer2" tabindex="-1" role="dialog"
                                      aria-labelledby="myModalLabel" aria-hidden="true">
