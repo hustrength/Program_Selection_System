@@ -59,44 +59,6 @@ public class serUpdateGPS extends HttpServlet {
 
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
-/**************************************************************/
-		HttpSession session = request.getSession();
-		if(session.getAttribute("teacher")==null){
-			response.sendRedirect("../Login.jsp");
-		}else{
-/**************************************************************/
-			out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
-			out.println("<HTML>");
-			out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
-			out.println("  <BODY>");
-			try{
-				int sno = Integer.parseInt(request.getParameter("sno"));
-				int cno = Integer.parseInt(request.getParameter("cno"));
-				
-				DaoGPS update = new DaoGPS();
-				GPS sc = update.selectone(sno,cno);
-				if(sc!=null){
-					request.setAttribute("room", sc);
-					request.getRequestDispatcher("/tea/updateRoom.jsp?type="+request.getParameter("type")+"&key="+request.getParameter("key")+"").forward(request, response);
-				}else{
-					out.println("<h2>��ѯʧ�ܣ����Ժ�����</h2>");
-					response.setHeader("refresh",  "2;url=serQuerySc");
-				}
-			}catch(Exception e){e.printStackTrace();}
-			out.println("  </BODY>");
-			out.println("</HTML>");
-		}
-		out.flush();
-		out.close();
-	}
-
-	/**
-	 * Initialization of the servlet. <br>
-	 *
-	 * @throws ServletException if an error occurs
-	 */
-	public void init() throws ServletException {
-		// Put your code here
 	}
 
 }

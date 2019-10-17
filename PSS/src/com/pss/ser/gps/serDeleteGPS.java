@@ -57,48 +57,6 @@ public class serDeleteGPS extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setContentType("text/html;charset=utf-8");
-/***************************************************************/
-		HttpSession session = request.getSession();
-		PrintWriter out = response.getWriter();
-		Student stu = null;
-		if(session.getAttribute("student")==null){
-			response.sendRedirect("../Login.jsp");
-		}else{
-			stu = (Student) session.getAttribute("student");
-			out.println("Welcome SNO:"+stu.getSNo());
-/***************************************************************/
-			response.setContentType("text/html;charset=utf-8");		
-			out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
-			out.println("<HTML>");
-			out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
-			out.println("  <BODY>");
-			try{
-				int sno = stu.getSNo();
-				int cno = Integer.parseInt(request.getParameter("cno"));
-				DaoGPS delete = new DaoGPS();
-				int rs = delete.deleteSc(sno, cno);
-				if(rs!=0) {
-					System.out.println("Sc one delete over!!");
-					out.println("<h2><center>�ɹ�ȡ��ѡ��</center></h2>");
-				}else out.println("<h2><center>������ϣ� �����ԣ�</center></h2>");
-				//response.setHeader("refresh", "2;url=../stu/showCou.jsp");
-				response.sendRedirect("../stu/showCou.jsp");
-			}catch(Exception e){e.printStackTrace();}
-		}
-		out.println("  </BODY>");
-		out.println("</HTML>");
-		out.flush();
-		out.close();
-	}
-
-	/**
-	 * Initialization of the servlet. <br>
-	 *
-	 * @throws ServletException if an error occurs
-	 */
-	public void init() throws ServletException {
-		// Put your code here
 	}
 
 }

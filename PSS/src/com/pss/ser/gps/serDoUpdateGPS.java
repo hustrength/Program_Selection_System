@@ -59,48 +59,6 @@ public class serDoUpdateGPS extends HttpServlet {
 
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
-/**************************************************************/
-		HttpSession session = request.getSession();
-		if(session.getAttribute("teacher")==null){
-			response.sendRedirect("../Login.jsp");
-		}else{
-/**************************************************************/
-			out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
-			out.println("<HTML>");
-			out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
-			out.println("  <BODY>");
-			try{
-				int sno = Integer.parseInt(request.getParameter("sno"));
-				int cno = Integer.parseInt(request.getParameter("cno"));
-				String classroom = request.getParameter("classroom");
-				DaoGPS update = new DaoGPS();
-				GPS sc = new GPS();
-				sc.setSNo(sno);
-				sc.setCNo(cno);
-				sc.setClassroom(classroom);
-				int rs = update.updateClass(sc);
-				if(rs!=0) {
-					System.out.println("classroom update over!!");
-					out.println("<center><h2>�����޸ĳɹ�</h2></center>");
-				}else{
-					out.println("<center><h2>�����޸�ʧ��</h2></center>");
-				}
-				response.setHeader("refresh","2;url=/Ten/tea/Query.jsp?type="+request.getParameter("type")+"&query="+request.getParameter("key")+"");
-			}catch(Exception e){e.printStackTrace();}
-			out.println("  </BODY>");
-			out.println("</HTML>");
-		}
-		out.flush();
-		out.close();
-	}
-
-	/**
-	 * Initialization of the servlet. <br>
-	 *
-	 * @throws ServletException if an error occurs
-	 */
-	public void init() throws ServletException {
-		// Put your code here
 	}
 
 }

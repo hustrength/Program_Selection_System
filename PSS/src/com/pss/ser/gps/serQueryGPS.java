@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.pss.dao.DaoQuery;
 import com.pss.dao.DaoGPS;
 import com.pss.dao.DaoStu;
 import com.pss.user.Student;

@@ -56,38 +56,6 @@ public class serDoInsertPro extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setContentType("text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
-		out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
-		out.println("<HTML>");
-		out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
-		out.println("  <BODY><center>");
-		try{
-			request.setCharacterEncoding("utf-8");
-			Project cou = new Project(request.getParameter("Cname"),request.getParameter("Ccredit"));
-			DaoPro insert = new DaoPro();
-			int rs = insert.insertCou(cou);
-			if(rs!=0){
-				out.println("��ӳɹ���"+cou.getCNo());
-			}else{
-				out.println("���ʧ��"+cou.getCNo());
-				
-			}
-			response.sendRedirect("/Ten/tea/selectCou.jsp");
-		}catch(Exception e){e.printStackTrace();}
-		out.println("  </center></BODY>");
-		out.println("</HTML>");
-		out.flush();
-		out.close();
-	}
-
-	/**
-	 * Initialization of the servlet. <br>
-	 *
-	 * @throws ServletException if an error occurs
-	 */
-	public void init() throws ServletException {
-		// Put your code here
 	}
 
 }
