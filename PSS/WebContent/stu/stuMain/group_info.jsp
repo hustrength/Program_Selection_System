@@ -63,12 +63,28 @@
                     <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-messages">
+                    <%
+                   Student stu=null;
+                   stu = (Student) session.getAttribute("student");
+                   if(stu==null){
+                	   stu = new Student("U1", "学生1号", "0", "男", "CS1705", "组1", "组长", 0);
+                   }
+                   String leader_sno=stu.getSNo();
+                   Apply apply = null;
+                   DaoApply list_all_apply = new DaoApply();
+                   List<Apply> list_apply = list_all_apply.listApplybySNo(leader_sno);
+                   Iterator<Apply> it_apply = list_apply.iterator();
+                   while (it_apply.hasNext()) {
+                       apply = it_apply.next();
+                       int status = apply.getStatus();
+                       if (status== 0) {
+                   %>
                     <li>
                         <a href="#">
                             <div>
-                                <strong>张三</strong>
+                                <strong><%=apply.getApplicant().getSname() %></strong>
                                 <span class="pull-right text-muted">
-                                        <em>今天</em>
+                                        <em></em>
                                     </span>
                             </div>
                             <div style="display:flex; margin-top:3px">
@@ -78,36 +94,10 @@
                         </a>
                     </li>
                     <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <strong>李四</strong>
-                                <span class="pull-right text-muted">
-                                        <em>今天</em>
-                                    </span>
-                            </div>
-                            <div style="display:flex; margin-top:3px">
-                                <div style="margin-top:5px">申请加入你的团队</div>
-                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <strong>王五</strong>
-                                <span class="pull-right text-muted">
-                                        <em>今天</em>
-                                    </span>
-                            </div>
-                            <div style="display:flex; margin-top:3px">
-                                <div style="margin-top:5px">申请加入你的团队</div>
-                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
+                    <%
+                       }
+                   }
+                    %>
                     <li>
                         <a class="text-center" href="#">
                             <strong>读取全部消息</strong>

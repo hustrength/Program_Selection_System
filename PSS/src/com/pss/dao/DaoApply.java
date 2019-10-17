@@ -125,16 +125,20 @@ public class DaoApply {
 		try{
 			String sql = "select* from apply where Leader=?";
 			conn = new Conn().getConn();
+			
 			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setString(1, sno);
 			ResultSet rs = pst.executeQuery();
 			Student applicant,leader;
 			DaoStu querybyid = new DaoStu();
 			leader = querybyid.querybyid(sno);
+			System.out.println(sno);
 			while(rs.next()){
 				int ano=rs.getInt("ANo");
 				int gno = rs.getInt("GNo");
 				int status = rs.getInt("Status");
 				String applicant_no = rs.getString("Applicant");
+				System.out.println(applicant_no);
 				applicant=querybyid.querybyid(applicant_no);
 				apply=new Apply(ano,gno,applicant,leader,status);
 				list.add(apply);
