@@ -64,25 +64,26 @@
                 </a>
                 <ul class="dropdown-menu dropdown-messages">
                     <%
-                   Student stu=null;
-                   stu = (Student) session.getAttribute("student");
-                   if(stu==null){
-                	   stu = new Student("U1", "学生1号", "0", "男", "CS1705", "组1", "组长", 0);
-                   }
-                   String leader_sno=stu.getSNo();
-                   Apply apply = null;
-                   DaoApply list_all_apply = new DaoApply();
-                   List<Apply> list_apply = list_all_apply.listApplybySNo(leader_sno);
-                   Iterator<Apply> it_apply = list_apply.iterator();
-                   while (it_apply.hasNext()) {
-                       apply = it_apply.next();
-                       int status = apply.getStatus();
-                       if (status== 0) {
-                   %>
+                        Student stu = null;
+                        stu = (Student) session.getAttribute("student");
+                        if (stu == null) {
+                            stu = new Student("U1", "学生1号", "0", "男", "CS1705", "组1", "组长", 0);
+                        }
+                        String leader_sno = stu.getSNo();
+                        Apply apply = null;
+                        DaoApply list_all_apply = new DaoApply();
+                        List<Apply> list_apply = list_all_apply.listApplybySNo(leader_sno);
+                        Iterator<Apply> it_apply = list_apply.iterator();
+                        while (it_apply.hasNext()) {
+                            apply = it_apply.next();
+                            int status = apply.getStatus();
+                            if (status == 0) {
+                    %>
                     <li>
                         <a href="#">
                             <div>
-                                <strong><%=apply.getApplicant().getSname() %></strong>
+                                <strong><%=apply.getApplicant().getSname() %>
+                                </strong>
                                 <span class="pull-right text-muted">
                                         <em></em>
                                     </span>
@@ -95,8 +96,8 @@
                     </li>
                     <li class="divider"></li>
                     <%
-                       }
-                   }
+                            }
+                        }
                     %>
                     <li>
                         <a class="text-center" href="#">
@@ -168,7 +169,6 @@
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <form name="join_group_form" action="" method="post">
                                     <%
                                         GPS gps = null;
                                         DaoGPS listall = new DaoGPS();
@@ -176,8 +176,7 @@
                                         Iterator<GPS> it = list.iterator();
                                     %>
                                     <table class="table table-striped table-bordered table-hover"
-                                           id="dataTables-example"
-                                           name="dataTables-example">
+                                           id="dataTables-example" name="dataTables-example">
                                         <thead>
                                         <tr>
                                             <th>团队编号</th>
@@ -190,7 +189,6 @@
                                         </thead>
                                         <tbody>
                                         <%
-                                            
                                             while (it.hasNext()) {
                                                 gps = it.next();
                                                 int gno = gps.getGNo();
@@ -212,13 +210,11 @@
                                                        onclick="apply(<%=gno%>, '<%=sno%>')"></td>
                                         </tr>
                                         <%
-                                                   
                                                 }
                                             }
                                         %>
                                         </tbody>
                                     </table>
-                                </form>
                             </div>
                         </div>
                     </div>
