@@ -4,10 +4,8 @@
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
     String stuMainPath = path + "/stu/stuMain/";
 %>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -20,9 +18,6 @@
     <link href="<%=path %>/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet"/>
     <!-- Custom Styles-->
     <link href="<%=path %>/assets/css/custom-styles.css" rel="stylesheet"/>
-    <!-- Google Fonts-->
-
-    <link href="style_1.css" type="text/css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -32,8 +27,6 @@
     } else {
         stu = (Student) session.getAttribute("student");
     }
-
-
 %>
 <!-- /. WRAPPER  -->
 <!-- JS Scripts-->
@@ -61,7 +54,6 @@
             </button>
             <a class="navbar-brand" href="main.jsp">学生选题信息管理系统</a>
         </div>
-
         <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
@@ -71,42 +63,51 @@
                     <li>
                         <a href="#">
                             <div>
-                                <strong>John Doe</strong>
+                                <strong>张三</strong>
                                 <span class="pull-right text-muted">
-                                        <em>Today</em>
+                                        <em>今天</em>
                                     </span>
                             </div>
-                            <div>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</div>
+                            <div style="display:flex; margin-top:3px">
+                                <div style="margin-top:5px">申请加入你的团队</div>
+                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
+                            </div>
                         </a>
                     </li>
                     <li class="divider"></li>
                     <li>
                         <a href="#">
                             <div>
-                                <strong>John Smith</strong>
+                                <strong>李四</strong>
                                 <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
+                                        <em>今天</em>
                                     </span>
                             </div>
-                            <div>Lorem Ipsum has been the industry's standard dummy text ever since an kwilnw...</div>
+                            <div style="display:flex; margin-top:3px">
+                                <div style="margin-top:5px">申请加入你的团队</div>
+                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
+                            </div>
                         </a>
                     </li>
                     <li class="divider"></li>
                     <li>
                         <a href="#">
                             <div>
-                                <strong>John Smith</strong>
+                                <strong>王五</strong>
                                 <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
+                                        <em>今天</em>
                                     </span>
                             </div>
-                            <div>Lorem Ipsum has been the industry's standard dummy text ever since the...</div>
+                            <div style="display:flex; margin-top:3px">
+                                <div style="margin-top:5px">申请加入你的团队</div>
+                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
+                            </div>
                         </a>
                     </li>
                     <li class="divider"></li>
                     <li>
                         <a class="text-center" href="#">
-                            <strong>Read All Messages</strong>
+                            <strong>读取全部消息</strong>
                             <i class="fa fa-angle-right"></i>
                         </a>
                     </li>
@@ -114,38 +115,24 @@
                 <!-- /.dropdown-messages -->
             </li>
             <!-- /.dropdown -->
-            <!-- /.dropdown -->
-            <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                    </li>
+                    <li><a href="<%=stuMainPath %>my_info.jsp"><i class="fa fa-user fa-fw"></i> 个人信息</a>
                     <li class="divider"></li>
-                    <li><a href="<%=basePath%>stu/Login.jsp"><i class="fa fa-sign-out fa-fw"
-                                                                ></i> Sign out</a>
+                    <li><a href="<%=basePath%>stu/Login.jsp"><i class="fa fa-sign-out fa-fw"></i> 注销</a>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
             </li>
             <!-- /.dropdown -->
-        </ul>
-    </nav>
+        </ul>    </nav>
     <!--/. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
-
-                <!-- tab-panel.html 选择课题
-                ui-elements.html 个人信息
-                table.html 查看可选队伍
-                form.html 创建队伍
-                index.html 查看已选课题
-                 -->
                 <li>
                     <a href="<%=stuMainPath %>main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
                 </li>
@@ -158,7 +145,6 @@
                 <li>
                     <a href="<%=stuMainPath %>my_project.jsp" class="active-menu"><i class="fa fa-edit"></i> 我的课题</a>
                 </li>
-
                 <li>
                     <a href="<%=stuMainPath %>my_info.jsp"><i class="fa fa-user"></i> 我的信息</a>
                 </li>
@@ -166,9 +152,7 @@
                     <a href="<%=stuMainPath %>empty.html"><i class="fa fa-file"></i> Empty Page</a>
                 </li>
             </ul>
-
         </div>
-
     </nav>
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper">
@@ -176,7 +160,6 @@
             <%
                 if (stu.getSgroup() == null) {
             %>
-
             <div class="row">
                 <div class="col-md-12">
                     <div class="jumbotron">
@@ -194,7 +177,6 @@
             <%
             } else {
             %>
-
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
@@ -208,7 +190,7 @@
                         <div class="panel-heading">
                             课题信息
                         </div>
-                        <div style="margin-left:20px"><h4>课题一</h4></div>
+                        <div style="margin-left:20px"><h4>数独</h4></div>
                         <div class="panel-body">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#home" data-toggle="tab">简介</a>
@@ -220,43 +202,24 @@
                                 <li class=""><a href="#settings" data-toggle="tab">其他要求</a>
                                 </li>
                             </ul>
-
                             <div class="tab-content">
                                 <div class="tab-pane fade active in" id="home">
-                                    <h4>Home Tab</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <h4>标题</h4>
+                                    <p>数独（shù dú）是源自18世纪瑞士的一种数学游戏。是一种运用纸、笔进行演算的逻辑游戏。
+                                        玩家需要根据9×9盘面上的已知数字，推理出所有剩余空格的数字，
+                                        并满足每一行、每一列、每一个粗线宫（3*3）内的数字均含1-9，不重复</p>
                                 </div>
                                 <div class="tab-pane fade" id="profile">
-                                    <h4>Profile Tab</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <h4>标题</h4>
+                                    <p>。。。</p>
                                 </div>
                                 <div class="tab-pane fade" id="messages">
-                                    <h4>Messages Tab</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <h4>标题</h4>
+                                    <p>。。。</p>
                                 </div>
                                 <div class="tab-pane fade" id="settings">
-                                    <h4>Settings Tab</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <h4>标题</h4>
+                                    <p>。。。</p>
                                 </div>
                             </div>
                         </div>
@@ -268,25 +231,19 @@
                     团队信息
                 </div>
                 <div class="panel-body">
-
                     <div class="row" style="margin-left:0px">
                         <div class="col-md-3">
                             <img src="<%=path%>/img/profile.png" style="max-width:80%; max-height:80%">
                         </div>
-
                         <div class="col-md-5">
-
-
                             <div>
                                 <h3>队长</h3>
-
                                 <div style="margin-top:10px">
                                     <p><span>姓名：<% %></span></p>
                                     <p><span>班级：<% %></span></p>
                                     <p><span>学号：<% %></span></p>
                                 </div>
                             </div>
-
                         </div>
                         <div class="col-md-3">
                             <div class="row">
@@ -302,7 +259,7 @@
                                                         aria-hidden="true">
                                                     &times;
                                                 </button>
-                                                <h4 class="modal-title" id="myModalLabel">提示</h4>
+                                                <h4 class="modal-title" id="tips">提示</h4>
                                             </div>
                                             <div class="modal-body">
                                                 确认解散？
@@ -339,7 +296,7 @@
                                 <button class="btn btn-primary btn-lg" style="margin-top:50px;" data-toggle="modal"
                                         data-target="#remove">踢出团队
                                 </button>
-                                <div class="modal fade" id="remove" tabindex="-1" role="dialog"
+                                <div class="modal fade" id="remove1" tabindex="-1" role="dialog"
                                      aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -348,7 +305,7 @@
                                                         aria-hidden="true">
                                                     &times;
                                                 </button>
-                                                <h4 class="modal-title" id="myModalLabel">提示</h4>
+                                                <h4 class="modal-title" id="tips1">提示</h4>
                                             </div>
                                             <div class="modal-body">
                                                 确认踢出？
@@ -366,7 +323,7 @@
                                 <button class="btn btn-primary btn-lg" style="margin-top:20px;" data-toggle="modal"
                                         data-target="#transfer">转让队长
                                 </button>
-                                <div class="modal fade" id="transfer" tabindex="-1" role="dialog"
+                                <div class="modal fade" id="transfer1" tabindex="-1" role="dialog"
                                      aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -375,7 +332,7 @@
                                                         aria-hidden="true">
                                                     &times;
                                                 </button>
-                                                <h4 class="modal-title" id="myModalLabel">提示</h4>
+                                                <h4 class="modal-title" id="tips2">提示</h4>
                                             </div>
                                             <div class="modal-body">
                                                 确认转让？
@@ -396,10 +353,7 @@
                         <div class="col-md-3">
                             <img src="<%=path%>/img/profile.png" style="max-width:80%; max-height:80%">
                         </div>
-
                         <div class="col-md-5">
-
-
                             <div>
                                 <h3>队员</h3>
 
@@ -409,14 +363,13 @@
                                     <p><span>学号：<% %></span></p>
                                 </div>
                             </div>
-
                         </div>
                         <div class="col-md-3">
-                           <div class="row">
+                            <div class="row">
                                 <button class="btn btn-primary btn-lg" style="margin-top:50px;" data-toggle="modal"
                                         data-target="#remove">踢出团队
                                 </button>
-                                <div class="modal fade" id="remove" tabindex="-1" role="dialog"
+                                <div class="modal fade" id="remove2" tabindex="-1" role="dialog"
                                      aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -425,7 +378,7 @@
                                                         aria-hidden="true">
                                                     &times;
                                                 </button>
-                                                <h4 class="modal-title" id="myModalLabel">提示</h4>
+                                                <h4 class="modal-title" id="tips3">提示</h4>
                                             </div>
                                             <div class="modal-body">
                                                 确认踢出？
@@ -443,7 +396,7 @@
                                 <button class="btn btn-primary btn-lg" style="margin-top:20px;" data-toggle="modal"
                                         data-target="#transfer">转让队长
                                 </button>
-                                <div class="modal fade" id="transfer" tabindex="-1" role="dialog"
+                                <div class="modal fade" id="transfer2" tabindex="-1" role="dialog"
                                      aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -452,7 +405,7 @@
                                                         aria-hidden="true">
                                                     &times;
                                                 </button>
-                                                <h4 class="modal-title" id="myModalLabel">提示</h4>
+                                                <h4 class="modal-title" id="tips4">提示</h4>
                                             </div>
                                             <div class="modal-body">
                                                 确认转让？
@@ -470,22 +423,16 @@
                     </div>
                 </div>
             </div>
-
             <!-- /. ROW  -->
             <%
                 }
             %>
             <!-- /. ROW  -->
-            <footer><p>Copyright &copy; 2016.Company name All rights reserved.<a target="_blank"
-                                                                                 href="http://www.freemoban.com/">www.freemoban.com</a>
-            </p></footer>
+            <footer><p>版权所有 ©2019-2020 学生选题信息系统 保留所有权利</p></footer>
         </div>
         <!-- /. PAGE INNER  -->
     </div>
     <!-- /. PAGE WRAPPER  -->
 </div>
-
-
 </body>
-
 </html>

@@ -21,6 +21,13 @@
     <link href="<%=path %>/assets/css/main.css" rel="stylesheet"/>
 </head>
 <body>
+<% Student stu = null;
+    if (session.getAttribute("student") == null) {
+        stu = new Student("U1", "学生1号", "0", "男", "CS1705", "组1", "组长", 0);
+    } else {
+        stu = (Student) session.getAttribute("student");
+    }
+%>
 <!-- JS Scripts-->
 <!-- jQuery Js -->
 <script src="<%=path %>/assets/js/jquery-1.10.2.js"></script>
@@ -30,7 +37,6 @@
 <script src="<%=path %>/assets/js/jquery.metisMenu.js"></script>
 <!-- Custom Js -->
 <script src="<%=path %>/assets/js/custom-scripts.js"></script>
-
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
@@ -42,7 +48,6 @@
             </button>
             <a class="navbar-brand" href="main.jsp">学生选题信息管理系统</a>
         </div>
-
         <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
@@ -52,42 +57,51 @@
                     <li>
                         <a href="#">
                             <div>
-                                <strong>John Doe</strong>
+                                <strong>张三</strong>
                                 <span class="pull-right text-muted">
-                                        <em>Today</em>
+                                        <em>今天</em>
                                     </span>
                             </div>
-                            <div>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</div>
+                            <div style="display:flex; margin-top:3px">
+                                <div style="margin-top:5px">申请加入你的团队</div>
+                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
+                            </div>
                         </a>
                     </li>
                     <li class="divider"></li>
                     <li>
                         <a href="#">
                             <div>
-                                <strong>John Smith</strong>
+                                <strong>李四</strong>
                                 <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
+                                        <em>今天</em>
                                     </span>
                             </div>
-                            <div>Lorem Ipsum has been the industry's standard dummy text ever since an kwilnw...</div>
+                            <div style="display:flex; margin-top:3px">
+                                <div style="margin-top:5px">申请加入你的团队</div>
+                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
+                            </div>
                         </a>
                     </li>
                     <li class="divider"></li>
                     <li>
                         <a href="#">
                             <div>
-                                <strong>John Smith</strong>
+                                <strong>王五</strong>
                                 <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
+                                        <em>今天</em>
                                     </span>
                             </div>
-                            <div>Lorem Ipsum has been the industry's standard dummy text ever since the...</div>
+                            <div style="display:flex; margin-top:3px">
+                                <div style="margin-top:5px">申请加入你的团队</div>
+                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
+                            </div>
                         </a>
                     </li>
                     <li class="divider"></li>
                     <li>
                         <a class="text-center" href="#">
-                            <strong>Read All Messages</strong>
+                            <strong>读取全部消息</strong>
                             <i class="fa fa-angle-right"></i>
                         </a>
                     </li>
@@ -95,21 +109,14 @@
                 <!-- /.dropdown-messages -->
             </li>
             <!-- /.dropdown -->
-            <!-- /.dropdown -->
-            <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                    </li>
+                    <li><a href="<%=stuMainPath %>my_info.jsp"><i class="fa fa-user fa-fw"></i> 个人信息</a>
                     <li class="divider"></li>
-                    <li><a href="<%=basePath%>stu/Login.jsp"><i class="fa fa-sign-out fa-fw"
-                                                    onclick="<%session.removeAttribute("student"); %>
-                                                            "></i> Sign out</a>
+                    <li><a href="<%=basePath%>stu/Login.jsp"><i class="fa fa-sign-out fa-fw"></i> 注销</a>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
@@ -121,13 +128,6 @@
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
-
-                <!-- tab-panel.html 选择课题
-                ui-elements.html 个人信息
-                table.html 查看可选队伍
-                form.html 创建队伍
-                index.html 查看已选课题
-                 -->
                 <li>
                     <a href="<%=stuMainPath %>main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
                 </li>
@@ -148,9 +148,7 @@
                     <a href="<%=stuMainPath %>empty.html"><i class="fa fa-file"></i> Empty Page</a>
                 </li>
             </ul>
-
         </div>
-
     </nav>
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper">
@@ -163,7 +161,6 @@
                 </div>
             </div>
             <!-- /. ROW  -->
-
             <div class="row">
                 <div class="col-md-8">
                     <div class="panel panel-default">
@@ -172,29 +169,27 @@
                         </div>
                         <div class="panel-body">
                             <div class="alert alert-success">
-                                <div style="width:60px; align:right"><strong>学号：</strong>U1</div>
+                                <div style="width:60px; align:right">
+                                <strong>学号：</strong><%=stu.getSNo() %></div>
                             </div>
                             <div class="alert alert-info">
-                                <strong>姓名：</strong> 小呆呆
+                                <strong>姓名：</strong><%=stu.getSname() %>
                             </div>
                             <div class="alert alert-warning">
-                                <strong>性别：</strong> 男
+                                <strong>性别：</strong><%=stu.getSsex()%>
                             </div>
                             <div class="alert alert-danger">
-                                <strong>班级：</strong> CS1705
+                                <strong>班级：</strong><%=stu.getSclass()%>
                             </div>
                             <div class="alert alert-success">
-                                <strong>所属团队：</strong> Group1
+                                <strong>所属团队：</strong><%=stu.getSgroup()%>
                             </div>
                             <div class="alert alert-info">
-                                <strong>团队职位：</strong> 队长
+                                <strong>团队职位：</strong><%=stu.getSposition()%>
                             </div>
                             <div class="alert alert-warning">
-                                <strong>课题得分：</strong> 100
+                                <strong>课题得分：</strong><%=stu.getSscore()%>
                             </div>
-                            <!-- <div class="alert alert-danger">
-                                <strong>班级</strong> Change a few things up and try submitting again.
-                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -205,14 +200,12 @@
                         </div>
                         <img src="<%=path%>/img/profile.png" style="max-width:80%; max-height:80%; margin-left:25px">
                         <div class="panel-footer">
-
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-8">
-
                     <!--  Modals-->
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -258,19 +251,15 @@
                         </div>
                     </div>
                     <!-- End Modals-->
-
                 </div>
             </div>
             <!-- /. ROW  -->
-            <footer><p>Copyright &copy; 2016.Company name All rights reserved.<a target="_blank"
-                                                                                 href="http://www.freemoban.com/">www.freemoban.com</a>
-            </p></footer>
+            <footer><p>版权所有 ©2019-2020 学生选题信息系统 保留所有权利</p></footer>
         </div>
         <!-- /. PAGE INNER  -->
     </div>
     <!-- /. PAGE WRAPPER  -->
 </div>
 <!-- /. WRAPPER  -->
-
 </body>
 </html>

@@ -2,7 +2,7 @@
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-    String stuMainPath = path+"/stu/stuMain/";
+    String stuMainPath = path + "/stu/stuMain/";
 %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -57,12 +57,14 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <strong>John Doe</strong>
+                                    <strong>张三</strong>
                                     <span class="pull-right text-muted">
-                                        <em>Today</em>
+                                        <em>今天</em>
                                     </span>
                                 </div>
-                                <div>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...
+                                <div style="display:flex; margin-top:3px">
+                                    <div style="margin-top:5px">申请加入你的团队</div>
+                                    <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
                                 </div>
                             </a>
                         </li>
@@ -70,12 +72,14 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <strong>John Smith</strong>
+                                    <strong>李四</strong>
                                     <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
+                                        <em>今天</em>
                                     </span>
                                 </div>
-                                <div>Lorem Ipsum has been the industry's standard dummy text ever since an kwilnw...
+                                <div style="display:flex; margin-top:3px">
+                                    <div style="margin-top:5px">申请加入你的团队</div>
+                                    <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
                                 </div>
                             </a>
                         </li>
@@ -83,18 +87,21 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <strong>John Smith</strong>
+                                    <strong>王五</strong>
                                     <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
+                                        <em>今天</em>
                                     </span>
                                 </div>
-                                <div>Lorem Ipsum has been the industry's standard dummy text ever since the...</div>
+                                <div style="display:flex; margin-top:3px">
+                                    <div style="margin-top:5px">申请加入你的团队</div>
+                                    <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
+                                </div>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
                             <a class="text-center" href="#">
-                                <strong>Read All Messages</strong>
+                                <strong>读取全部消息</strong>
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </li>
@@ -102,19 +109,14 @@
                     <!-- /.dropdown-messages -->
                 </li>
                 <!-- /.dropdown -->
-                <!-- /.dropdown -->
-                <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="<%=basePath%>stu/Login.jsp"><i class="fa fa-sign-out fa-fw"></i> Sign out</a>
+                    <li><a href="<%=stuMainPath %>my_info.jsp"><i class="fa fa-user fa-fw"></i> 个人信息</a>
+                    <li class="divider"></li>
+                    <li><a href="<%=basePath%>stu/Login.jsp"><i class="fa fa-sign-out fa-fw"></i> 注销</a>
                     </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -126,13 +128,6 @@
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-
-                    <!-- tab-panel.html 选择课题
-                    ui-elements.html 个人信息
-                    table.html 查看可选队伍
-                    form.html 创建队伍
-                    index.html 查看已选课题
-                     -->
                     <li>
                         <a class="active-menu" href="<%=stuMainPath %>main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
                     </li>
@@ -153,9 +148,7 @@
                         <a href="<%=stuMainPath %>empty.html"><i class="fa fa-file"></i> Empty Page</a>
                     </li>
                 </ul>
-
             </div>
-
         </nav>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
@@ -177,67 +170,64 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <form role="form" id="form_create" name="form_create" method="post" onsubmit='create_group()'>
+                                        <form role="form" id="form_create" name="form_create" method="post"
+                                              onsubmit='create_group()'>
                                             <div class="form-group">
                                                 <label>团队名称</label>
-                                                <input class="form-control" id="Gname" name="Gname" oninput="checkGnamerepeat()">
+                                                <input class="form-control" id="Gname" name="Gname"
+                                                       oninput="checkGnamerepeat()">
                                             </div>
                                             <div class="form-group">
                                                 <label>选择课题</label>
                                                 <select id="PNo" name="PNo" class="form-control">
-                                                    
                                                     <%
-                                                       Project pro =null;
-                   				                       DaoPro listpro = new DaoPro();
-                   				                       List<Project> list = listpro.listAllProject();
-                   				                       Iterator<Project> it = list.iterator();
-                                                       while(it.hasNext()){
-                                                       pro=it.next();
+                                                        Project pro = null;
+                                                        DaoPro listpro = new DaoPro();
+                                                        List<Project> list = listpro.listAllProject();
+                                                        Iterator<Project> it = list.iterator();
+                                                        while (it.hasNext()) {
+                                                            pro = it.next();
                                                     %>
-                                                    <option  value="<%=pro.getPNo() %>"><%=pro.getPname() %></option>
-                                                   
+                                                    <option value="<%=pro.getPNo() %>"><%=pro.getPname() %>
+                                                    </option>
                                                     <%
-                                                       }
+                                                        }
                                                     %>
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                            <label>团队人数</label>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="Gsnum" id="optionsRadios1" value="1" checked="">1 人
-                                                </label>
+                                                <label>团队人数</label>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="Gsnum" id="optionsRadios1" value="1"
+                                                               checked="">1 人
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="Gsnum" id="optionsRadios2" value="2">2
+                                                        人
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="Gsnum" id="optionsRadios3" value="3">3
+                                                        人
+                                                    </label>
+                                                </div>
                                             </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="Gsnum" id="optionsRadios2" value="2">2 人
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="Gsnum" id="optionsRadios3" value="3">3 人
-                                                </label>
-                                            </div>
-                                        </div>
                                             <hr>
-                                            <button type="submit" class="btn btn-primary" >创建</button>
-                                           
+                                            <button type="submit" class="btn btn-primary">创建</button>
                                         </form>
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <footer><p>Copyright &copy; 2016.Company name All rights reserved.<a target="_blank"
-                                                                                     href="http://www.freemoban.com/">www.freemoban.com</a>
-                </p></footer>
+                <footer><p>版权所有 ©2019-2020 学生选题信息系统 保留所有权利</p></footer>
                 <!-- /. PAGE INNER  -->
             </div>
-
-
             <!-- /. PAGE WRAPPER  -->
         </div>
 </body>
