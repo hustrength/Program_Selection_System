@@ -57,37 +57,6 @@ public class serDeletePro extends HttpServlet {
 
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
-		out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
-		out.println("<HTML>");
-		out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
-		out.println("  <BODY>");
-		try{
-			
-			DaoPro delete = new DaoPro();
-			int rs = delete.deleteCou(Integer.parseInt(request.getParameter("id")));
-			if(rs==0){
-				out.println("<center>ɾ��ʧ�ܣ�</center>");
-				response.sendRedirect("/Ten/tea/selectCou.jsp");
-			}else {
-				out.println("<center>ɾ���ɹ���</center>");
-				response.sendRedirect("/Ten/tea/selectCou.jsp");
-			}
-
-			
-		}catch(Exception e){e.printStackTrace();}
-		out.println("</BODY>");
-		out.println("</HTML>");
-		out.flush();
-		out.close();
-	}
-
-	/**
-	 * Initialization of the servlet. <br>
-	 *
-	 * @throws ServletException if an error occurs
-	 */
-	public void init() throws ServletException {
-		// Put your code here
 	}
 
 }

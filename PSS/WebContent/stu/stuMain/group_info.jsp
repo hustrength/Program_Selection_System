@@ -40,8 +40,6 @@
 </script>
 <!-- Custom Js -->
 <script src="<%=path %>/assets/js/custom-scripts.js"></script>
-
-
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
@@ -141,7 +139,6 @@
                 </li>
                 <li>
                     <a href="<%=stuMainPath %>group_info.jsp" class="active-menu"><i class="fa fa-users"></i> 团队信息</a>
-                </li>
                 <li>
                     <a href="<%=stuMainPath %>my_project.jsp"><i class="fa fa-edit"></i> 我的课题</a>
                 </li>
@@ -181,9 +178,8 @@
                                         List<GPS> list = listall.listAllGPS();
                                         Iterator<GPS> it = list.iterator();
                                     %>
-                                    <table class="table table-striped table-bordered table-hover"
-                                           id="dataTables-example"
-                                           name="dataTables-example">
+                                    <table class="table table-striped table-bordered table-hover" id="list_group"
+                                           name="list_group">
                                         <thead>
                                         <tr>
                                             <th>团队编号</th>
