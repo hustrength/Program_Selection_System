@@ -1,14 +1,14 @@
 package com.pss.user;
 
 public class Student {
-	private String SNo;
-	private String Sname;
-	private String Spassword;
-	private String Ssex;
-	private String Sclass;
-	private String Sgroup;
-	private String Sposition;
-	private int Sscore;
+	private String SNo;//学号
+	private String Sname;//姓名
+	private String Spassword;//密码
+	private String Ssex;//性别
+	private String Sclass;//班级
+	private String Sgroup;//组名
+	private String Sposition;//组长/组员
+	private int Sscore;//得分
 	
 
 	public String getSNo() {

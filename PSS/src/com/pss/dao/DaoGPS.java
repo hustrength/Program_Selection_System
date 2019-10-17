@@ -74,6 +74,7 @@ public class DaoGPS {
 	 */
 	public int insertGPS(GPS gps){
 		int rs = 0;
+		
 		Connection conn=null;
 		try{
 			String sno2,sno3;
@@ -114,6 +115,7 @@ public class DaoGPS {
 		}
 		return rs;
 	}
+	
 	public GPS querybyName(String Gname){
 		GPS gps=null;
 		Connection conn = null;
@@ -155,5 +157,29 @@ public class DaoGPS {
 			}
 		}
 		return gps;
+	}
+	
+	public int get_lastID(){
+		int lastid = 0;
+		
+		Connection conn=null;
+		try{
+			
+			String sql = "SELECT LAST_INSERT_ID();";
+			conn = new Conn().getConn();
+			PreparedStatement pst = conn.prepareStatement(sql);
+		
+			lastid = pst.executeUpdate();
+			System.out.println(lastid);
+			
+		}catch(Exception e){e.printStackTrace();}
+		finally{
+			try{
+				conn.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+		return lastid;
 	}
 }

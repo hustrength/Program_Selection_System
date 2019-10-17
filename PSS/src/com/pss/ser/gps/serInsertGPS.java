@@ -59,6 +59,10 @@ public class serInsertGPS extends HttpServlet {
 			int gsnum = Integer.parseInt(request.getParameter("Gsnum"));
 			gps=new GPS(pno,gname,pname,stu,gsnum);
 			rs=insert.insertGPS(gps);
+			DaoStu update = new DaoStu();
+			stu.setSgroup(gname);
+			stu.setSposition("组长");
+			update.updateStu(stu);
 			if(rs==0){
 				response.getWriter().print("fail");
 			}
