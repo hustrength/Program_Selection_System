@@ -134,7 +134,7 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
-                    <a class="<%=stuMainPath %>active-menu" href="main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
+                    <a class="active-menu" href="<%=stuMainPath %>main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
                 </li>
                 <li>
                     <a href="<%=stuMainPath %>project_info.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
