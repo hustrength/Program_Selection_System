@@ -156,7 +156,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        可选团队 <small>巴拉巴拉</small>
+                        可选团队 <small></small>
                     </h1>
                 </div>
             </div>

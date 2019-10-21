@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.pss.dao.DaoStu;
 import com.pss.user.Student;
@@ -58,38 +59,55 @@ public class serDoUpdateStu extends HttpServlet {
 			throws ServletException, IOException {
 
 		response.setContentType("text/html;charset=utf-8");
+		HttpSession session = request.getSession();
 		PrintWriter out = response.getWriter();
-		out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
-		out.println("<HTML>");
-		out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
-		out.println("  <BODY><center>");
-		try{
-			request.setCharacterEncoding("utf-8");
-			Student stu = new Student(request.getParameter("SNo"),request.getParameter("Sname"),request.getParameter("Spassword"),
-					request.getParameter("Ssex"),request.getParameter("Sclass"),request.getParameter("Sgroup"),request.getParameter("Sposition"),0);
+		String act=request.getParameter("action");
+		String result="yes";
+		if("change_password".equals(act)){
+			//验证学号是否被注册
+			String pw_new = request.getParameter("pw_new");
+			System.out.println(pw_new);
 			DaoStu update = new DaoStu();
-			int rs = update.updateStu(stu);
+			Student stu = (Student) session.getAttribute("student");
+			stu.setSpassword(pw_new);
+			int rs=update.updateStu(stu);
 			if(rs!=0){
-				out.println("修改成功:"+stu.getSNo());
-			}else{
-				out.println("修改失败:"+stu.getSNo());
+				result="success";
 			}
-			response.sendRedirect("/PSS/tea/selectStu.jsp");
-		}catch(Exception e){e.printStackTrace();}
+			else{
+				result="fail";
+			}
+			response.getWriter().print(result);
+		}
+		else if("register".equals(act)){
+			System.out.println("注册：");
+			String sid = request.getParameter("userid_signup");
+			
+			String spassword = request.getParameter("password_signup");
+			String susername = request.getParameter("username");
+			System.out.println(sid);
+			System.out.println(spassword);
+			System.out.println(susername);
+			String ssex = request.getParameter("sex");
+			
+			String sclass = request.getParameter("class");
 		
-		out.println("</center></BODY>");
-		out.println("</HTML>");
-		out.flush();
-		out.close();
+			String sgroup = null;
+			String sposition = null;
+			Student newstu = new Student(sid, susername, spassword, ssex, sclass, sgroup,sposition);
+			DaoStu insertstu = new DaoStu();
+			int rs=insertstu.insertStu(newstu);
+			if(rs==0){
+				response.getWriter().print("fail");
+			}
+			else{
+				response.getWriter().print("success");
+			}
+		}
+		System.out.println(result);
+		
 	}
 
-	/**
-	 * Initialization of the servlet. <br>
-	 *
-	 * @throws ServletException if an error occurs
-	 */
-	public void init() throws ServletException {
-		// Put your code here
-	}
+	
 
 }

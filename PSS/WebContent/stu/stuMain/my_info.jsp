@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <base href="<%=basePath%>">
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>学生选题信息管理系统——学生界面</title>
@@ -37,6 +38,10 @@
 <script src="<%=path %>/assets/js/jquery.metisMenu.js"></script>
 <!-- Custom Js -->
 <script src="<%=path %>/assets/js/custom-scripts.js"></script>
+<!-- Jquery Js -->
+<script type="text/javascript" src="<%=path %>/js/jquery-latest.js"></script>
+<!-- CreateGroup Js -->
+<script type="text/javascript" src="<%=path %>/js/my_info.js"></script>
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
@@ -156,7 +161,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        我的信息 <small>巴拉巴拉</small>
+                        我的信息 <small></small>
                     </h1>
                 </div>
             </div>
@@ -182,10 +187,10 @@
                                 <strong>班级：</strong><%=stu.getSclass()%>
                             </div>
                             <div class="alert alert-success">
-                                <strong>所属团队：</strong><%=stu.getSgroup()%>
+                                <strong>所属团队：</strong><%=stu.getSgroup()==null?"":stu.getSgroup()%>
                             </div>
                             <div class="alert alert-info">
-                                <strong>团队职位：</strong><%=stu.getSposition()%>
+                                <strong>团队职位：</strong><%=stu.getSposition()==null?"":stu.getSposition()%>
                             </div>
                             <div class="alert alert-warning">
                                 <strong>课题得分：</strong><%=stu.getSscore()%>
@@ -213,15 +218,16 @@
                         </div>
                         <div class="form-group" style="margin-left:16px; margin-right:20px; margin-top:20px">
                             <label>请输入初始密码</label>
-                            <input class="form-control" type="password" required="required" oninput="checkPassword()">
+                            <input class="form-control" type="password" id="password_origin" name="password_origin" 
+                            required="required" oninput="checkOriginPassword('<%=stu.getSpassword() %>')">
                         </div>
                         <div class="form-group" style="margin-left:16px; margin-right:20px; margin-top:20px">
                             <label>请输入新密码</label>
-                            <input class="form-control" type="password" required="required">
+                            <input class="form-control" type="password" id="password_new" name="password_new" required="required">
                         </div>
                         <div class="form-group" style="margin-left:16px; margin-right:20px; margin-top:20px">
                             <label>请再次输入新密码</label>
-                            <input class="form-control" type="password" required="required" oninput="checkPassword()">
+                            <input class="form-control" type="password" id="repassword_new" name="repassword_new" required="required" oninput="checkPassword()">
                         </div>
                         <div class="panel-body">
                             <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
@@ -243,7 +249,7 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">取消
                                             </button>
-                                            <button type="button" class="btn btn-primary">更改</button>
+                                            <input type="button" class="btn btn-primary" value="更改" onclick="changePassword()">
                                         </div>
                                     </div>
                                 </div>
