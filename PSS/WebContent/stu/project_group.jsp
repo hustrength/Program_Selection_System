@@ -279,6 +279,11 @@
                           }
                         %>
                     </div>
+                    
+                    <%
+                      if(gps.getStu2()!=null){
+                    	  
+                    %>
                     <hr>
                     <div class="row" style="margin-left:0px">
                         <div class="col-md-3">
@@ -289,12 +294,15 @@
                                 <h3>队员</h3>
 
                                 <div style="margin-top:10px">
-                                    <p><span>姓名：<% %></span></p>
-                                    <p><span>班级：<% %></span></p>
-                                    <p><span>学号：<% %></span></p>
+                                    <p><span>姓名：<%=gps.getStu2().getSname() %></span></p>
+                                    <p><span>性别：<%=gps.getStu2().getSsex() %></span></p>
+                                    <p><span>班级：<%=gps.getStu2().getSclass() %></span></p>
                                 </div>
                             </div>
                         </div>
+                        <%
+                        if(pos==1){
+                        %>
                         <div class="col-md-3">
                             <div class="row">
                                 <button class="btn btn-primary btn-lg" style="margin-top:50px;" data-toggle="modal"
@@ -351,7 +359,15 @@
                                 </div>
                             </div>
                         </div>
+                        <%
+                        }
+                        %>
                     </div>
+                    <%
+                      }
+                    %>
+                    
+                    
                     <hr>
                     <div class="row" style="margin-left:0px">
                         <div class="col-md-3">
