@@ -20,7 +20,7 @@
     <meta http-equiv="description" content="This is my page">
 
     <script type="text/javascript" src="<%=path %>/js/jquery-latest.js"></script>
-    <script type="text/javascript" src="<%=path %>/js/sturegister.js"></script>
+    <script type="text/javascript" src="<%=path %>/js/login_register.js"></script>
 </head>
 
 <body>

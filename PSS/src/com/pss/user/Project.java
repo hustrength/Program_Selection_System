@@ -10,6 +10,11 @@ public class Project {
 	private int Pmaxnum;  //课题可选上限组数
 	private int Pselected;  //课题已被选组数
 	private int Pavailable;  //课题剩余可选组数
+	private String introduction;
+	private String background;
+	private String info;
+	private String other;
+	
 	
 	public int getPNo(){
 		return PNo;

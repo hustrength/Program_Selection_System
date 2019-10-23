@@ -22,7 +22,7 @@ function checkGnamerepeat() {
 }
 
 function create_group() {
-	//if(flag==false) return false;
+	if(flag==false) return false;
     $.ajax({
     	url: "servlet/serInsertGPS?action=create&",
         type: "post",

@@ -2,7 +2,7 @@
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-    String stuMainPath = path + "/stu/stuMain/";
+    String stuMainPath = path + "/stu/";
 %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -129,23 +129,21 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     <li>
-                        <a class="active-menu" href="<%=stuMainPath %>main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
-                    </li>
-                    <li>
-                        <a href="<%=stuMainPath %>project_info.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
-                    </li>
-                    <li>
-                        <a href="<%=stuMainPath %>group_info.jsp"><i class="fa fa-users"></i> 团队信息</a>
-                    </li>
-                    <li>
-                        <a href="<%=stuMainPath %>my_project.jsp"><i class="fa fa-edit"></i> 我的课题</a>
-                    </li>
-                    <li>
-                        <a href="<%=stuMainPath %>my_info.jsp"><i class="fa fa-user"></i> 我的信息</a>
-                    </li>
-                    <li>
-                        <a href="<%=stuMainPath %>empty.html"><i class="fa fa-file"></i> Empty Page</a>
-                    </li>
+                    <a class="active-menu" href="<%=stuMainPath %>main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
+                </li>
+                <li>
+                    <a href="<%=stuMainPath %>project_info.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
+                </li>
+                <li>
+                    <a href="<%=stuMainPath %>all_group.jsp"><i class="fa fa-users"></i> 所有团队</a>
+                </li>
+                <li>
+                    <a href="<%=stuMainPath %>project_group.jsp"><i class="fa fa-edit"></i> 课题与团队</a>
+                </li>
+
+                <li>
+                    <a href="<%=stuMainPath %>my_info.jsp"><i class="fa fa-user"></i> 我的信息</a>
+                </li>
                 </ul>
             </div>
         </nav>

@@ -2,7 +2,7 @@
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-    String stuMainPath = path + "/stu/stuMain/";
+    String stuMainPath = path + "/stu/";
 %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -33,6 +33,7 @@
 <!-- DATA TABLE SCRIPTS -->
 <script src="<%=path %>/assets/js/dataTables/jquery.dataTables.js"></script>
 <script src="<%=path %>/assets/js/dataTables/dataTables.bootstrap.js"></script>
+
 <script>
     $(document).ready(function () {
         $('#dataTables-example').dataTable();
@@ -41,6 +42,8 @@
 <!-- Custom Js -->
 <script src="<%=path %>/assets/js/custom-scripts.js"></script>
 
+<!-- CreateGroup Js -->
+<script type="text/javascript" src="<%=path %>/js/all_group.js"></script>
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
@@ -59,23 +62,7 @@
                 </a>
                 <ul class="dropdown-menu dropdown-messages">
                     <%
-<<<<<<< HEAD
-                        Student stu = null;
-                        stu = (Student) session.getAttribute("student");
-                        if (stu == null) {
-                            stu = new Student("U1", "学生1号", "0", "男", "CS1705", "组1", "组长", 0);
-                        }
-                        String leader_sno = stu.getSNo();
-                        Apply apply = null;
-                        DaoApply list_all_apply = new DaoApply();
-                        List<Apply> list_apply = list_all_apply.listApplybySNo(leader_sno);
-                        Iterator<Apply> it_apply = list_apply.iterator();
-                        while (it_apply.hasNext()) {
-                            apply = it_apply.next();
-                            int status = apply.getStatus();
-                            if (status == 0) {
-                    %>
-=======
+
                    Student stu=null;
                    stu = (Student) session.getAttribute("student");
                    if(stu==null){
@@ -93,7 +80,7 @@
                        if (status== 0) {
                     	   applicant=apply.getApplicant().getSNo();
                    %>
->>>>>>> 42c57dddd3b1357c5a19f0ab287816aa102d9bac
+
                     <li>
                         
                             <div>
@@ -144,22 +131,20 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
-                    <a href="<%=stuMainPath %>main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
+                    <a  href="<%=stuMainPath %>main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
                 </li>
                 <li>
                     <a href="<%=stuMainPath %>project_info.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
                 </li>
                 <li>
-                    <a href="<%=stuMainPath %>group_info.jsp" class="active-menu"><i class="fa fa-users"></i> 团队信息</a>
+                    <a class="active-menu" href="<%=stuMainPath %>all_group.jsp"><i class="fa fa-users"></i> 所有团队</a>
                 </li>
                 <li>
-                    <a href="<%=stuMainPath %>my_project.jsp"><i class="fa fa-edit"></i> 我的课题</a>
+                    <a href="<%=stuMainPath %>project_group.jsp"><i class="fa fa-edit"></i> 课题与团队</a>
                 </li>
+
                 <li>
                     <a href="<%=stuMainPath %>my_info.jsp"><i class="fa fa-user"></i> 我的信息</a>
-                </li>
-                <li>
-                    <a href="<%=stuMainPath %>empty.html"><i class="fa fa-file"></i> Empty Page</a>
                 </li>
             </ul>
         </div>
@@ -170,7 +155,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        可选团队 <small>巴拉巴拉</small>
+                        所有团队 <small></small>
                     </h1>
                 </div>
             </div>
@@ -180,7 +165,7 @@
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            可选团队
+                            所有团队
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -199,16 +184,18 @@
                                             <th>所选课题</th>
                                             <th>队长</th>
                                             <th>剩余成员数</th>
+                                             
                                             <th>选择</th>
+                                            
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <%
+                                         <%
                                             while (it.hasNext()) {
                                                 gps = it.next();
                                                 int gno = gps.getGNo();
                                                 String sno = gps.getStu1().getSNo();
-                                                if (gps.getGleftnum() > 0) {
+                                               
                                         %>
                                         <tr class="odd gradeX">
                                             <td><%= gps.getGNo() %>
@@ -221,13 +208,24 @@
                                             </td>
                                             <td class="center"><%=gps.getGleftnum() %>
                                             </td>
-                                            <td><input type="button" value="加入" id="join" name="join"
-                                                       onclick="apply(<%=gno%>, '<%=sno%>')"></td>
-                                        </tr>
-                                        <%
-                                                }
-                                            }
+                                           
+                                            
+                                           
+                                            <td>
+                                             <%
+                                            if(gps.getGleftnum()>0&&(stu.getSgroup()==null||stu.getSgroup()=="")){
+                                            %>  
+                                          
+                                          <input type="button" value="加入" id="join" name="join"
+                                                       onclick="apply(<%=gno%>, '<%=sno%>')">
+                                        <%   
+                                           }
+                                         }
                                         %>
+                                                       </td>
+                                             
+                                        </tr>
+                                      
                                         </tbody>
                                     </table>
                             </div>

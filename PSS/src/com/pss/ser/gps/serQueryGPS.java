@@ -55,7 +55,7 @@ public class serQueryGPS extends HttpServlet {
 		String result="yes";
 		GPS gps=null;
 		if("checkGname".equals(act)){
-			//验证学号是否被注册
+			//验证队名是否被注册
 			String gname = request.getParameter("Gname");
 			System.out.println(gname);
 			DaoGPS querybyname = new DaoGPS();

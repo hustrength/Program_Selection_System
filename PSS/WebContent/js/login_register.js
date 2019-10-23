@@ -73,7 +73,7 @@ function commitForm_signin(r) {
         	}
         	else {
         		
-        		$("#form_login").attr("action","stu/stuMain/main.jsp");
+        		$("#form_login").attr("action","stu/main.jsp");
         	}
             console.log(1);
         }

@@ -1,13 +1,15 @@
-<%@ page language="java" import="java.util.*,com.pss.user.Student,com.pss.user.GPS" pageEncoding="utf-8" %>
+<%@ page language="java" import="java.util.*,com.pss.user.*,com.pss.dao.*" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-    String stuMainPath = path + "/stu/stuMain/";
+    String stuMainPath = path + "/stu/";
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+
     <meta charset="utf-8"/>
+    <base href="<%=basePath%>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>学生选题信息管理系统——学生界面</title>
     <!-- Bootstrap Styles-->
@@ -21,13 +23,6 @@
 </head>
 
 <body>
-<% Student stu = null;
-    if (session.getAttribute("student") == null) {
-        stu = new Student("U1", "学生1号", "0", "男", "CS1705", "组1", "组长", 0);
-    } else {
-        stu = (Student) session.getAttribute("student");
-    }
-%>
 <!-- /. WRAPPER  -->
 <!-- JS Scripts-->
 <!-- jQuery Js -->
@@ -43,6 +38,8 @@
 <script src="<%=path %>/assets/js/morris/morris.js"></script>
 <!-- Custom Js -->
 <script src="<%=path %>/assets/js/custom-scripts.js"></script>
+
+<script type="text/javascript" src="<%=path %>/js/project_group.js"></script>
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
@@ -60,51 +57,44 @@
                     <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-messages">
+                  <%
+
+                   Student stu=null;
+                   stu = (Student) session.getAttribute("student");
+                   if(stu==null){
+                	   stu = new Student("U1", "学生1号", "0", "男", "CS1705", "组1", "组长", 0);
+                   }
+                   String leader_sno=stu.getSNo();
+                   String applicant=null;
+                   Apply apply = null;
+                   DaoApply list_all_apply = new DaoApply();
+                   List<Apply> list_apply = list_all_apply.listApplybySNo(leader_sno);
+                   Iterator<Apply> it_apply = list_apply.iterator();
+                   while (it_apply.hasNext()) {
+                       apply = it_apply.next();
+                       int status = apply.getStatus();
+                       if (status== 0) {
+                    	   applicant=apply.getApplicant().getSNo();
+                   %>
                     <li>
-                        <a href="#">
-                            <div>
-                                <strong>张三</strong>
+                         <div>
+                                <strong><%=apply.getApplicant().getSname() %>
+                                </strong>
                                 <span class="pull-right text-muted">
-                                        <em>今天</em>
+                                        <em></em>
                                     </span>
                             </div>
                             <div style="display:flex; margin-top:3px">
                                 <div style="margin-top:5px">申请加入你的团队</div>
-                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
+                               <input type="button" value="同意" class="btn btn-info btn-sm" style="margin-left:40px" onclick="agree('<%=applicant%>')">
                             </div>
-                        </a>
+                       
                     </li>
                     <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <strong>李四</strong>
-                                <span class="pull-right text-muted">
-                                        <em>今天</em>
-                                    </span>
-                            </div>
-                            <div style="display:flex; margin-top:3px">
-                                <div style="margin-top:5px">申请加入你的团队</div>
-                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <strong>王五</strong>
-                                <span class="pull-right text-muted">
-                                        <em>今天</em>
-                                    </span>
-                            </div>
-                            <div style="display:flex; margin-top:3px">
-                                <div style="margin-top:5px">申请加入你的团队</div>
-                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
+                    <%
+                            }
+                        }
+                    %>
                     <li>
                         <a class="text-center" href="#">
                             <strong>读取全部消息</strong>
@@ -134,22 +124,20 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
-                    <a href="<%=stuMainPath %>main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
+                    <a  href="<%=stuMainPath %>main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
                 </li>
                 <li>
                     <a href="<%=stuMainPath %>project_info.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
                 </li>
                 <li>
-                    <a href="<%=stuMainPath %>group_info.jsp"><i class="fa fa-users"></i> 团队信息</a>
+                    <a href="<%=stuMainPath %>all_group.jsp"><i class="fa fa-users"></i> 所有团队</a>
                 </li>
                 <li>
-                    <a href="<%=stuMainPath %>my_project.jsp" class="active-menu"><i class="fa fa-edit"></i> 我的课题</a>
+                    <a class="active-menu" href="<%=stuMainPath %>project_group.jsp"><i class="fa fa-edit"></i> 课题与团队</a>
                 </li>
+
                 <li>
                     <a href="<%=stuMainPath %>my_info.jsp"><i class="fa fa-user"></i> 我的信息</a>
-                </li>
-                <li>
-                    <a href="<%=stuMainPath %>empty.html"><i class="fa fa-file"></i> Empty Page</a>
                 </li>
             </ul>
         </div>
@@ -158,7 +146,7 @@
     <div id="page-wrapper">
         <div id="page-inner">
             <%
-                if (stu.getSgroup() == null) {
+                if (stu.getSgroup() == null||stu.getSgroup()=="") {
             %>
             <div class="row">
                 <div class="col-md-12">
@@ -180,7 +168,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        我的课题 <small>巴拉巴拉</small>
+                        我的课题与团队 <small></small>
                     </h1>
                 </div>
             </div>
@@ -190,7 +178,12 @@
                         <div class="panel-heading">
                             课题信息
                         </div>
-                        <div style="margin-left:20px"><h4>数独</h4></div>
+                        <%
+                        GPS gps;
+                        DaoGPS querygps=new DaoGPS();
+                        gps=querygps.querybyName(stu.getSgroup());
+                        %>
+                        <div style="margin-left:20px"><h4><%=gps.getPname() %></h4></div>
                         <div class="panel-body">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#home" data-toggle="tab">简介</a>
@@ -230,6 +223,7 @@
                 <div class="panel-heading">
                     团队信息
                 </div>
+                 <h3><%=gps.getGname() %></h3>
                 <div class="panel-body">
                     <div class="row" style="margin-left:0px">
                         <div class="col-md-3">
@@ -239,12 +233,19 @@
                             <div>
                                 <h3>队长</h3>
                                 <div style="margin-top:10px">
-                                    <p><span>姓名：<% %></span></p>
-                                    <p><span>班级：<% %></span></p>
-                                    <p><span>学号：<% %></span></p>
+                                    <p><span>姓名：<%=gps.getStu1().getSname() %></span></p>
+                                    <p><span>性别：<%=gps.getStu1().getSsex() %></span></p>
+                                    <p><span>班级：<%=gps.getStu1().getSclass() %></span></p>
                                 </div>
                             </div>
                         </div>
+                       
+                        <%
+                         int pos=0;
+                         if(stu.getSNo().equals(gps.getStu1().getSNo())){
+                        	 pos=1;
+                         
+                        %>
                         <div class="col-md-3">
                             <div class="row">
                                 <button class="btn btn-primary btn-lg" style="margin-top:100px;" data-toggle="modal"
@@ -267,13 +268,16 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">取消
                                                 </button>
-                                                <button type="button" class="btn btn-primary">确认</button>
+                                                <input type="button" class="btn btn-primary" value="确认" onclick="break_group(<%=gps.getGNo()%>)">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <%
+                          }
+                        %>
                     </div>
                     <hr>
                     <div class="row" style="margin-left:0px">

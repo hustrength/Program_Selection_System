@@ -18,7 +18,7 @@ function apply(gno, sno){
 }
 
 function agree(applicant_sno){
-	alert(applicant_sno);
+	
 	 $.ajax({
 	        url: "servlet/serUpdateApply?action=agree&SNo="+applicant_sno,
 	        type: "GET",
