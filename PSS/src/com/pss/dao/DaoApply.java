@@ -54,13 +54,14 @@ public class DaoApply {
 		int rs = 0;
 		Connection conn=null;
 		try{
-			String sql = "update apply set Status=? where GNo=? and Gname=? Applicant=?;";
+			String sql = "update apply set Status=? where GNo=? and Gname=? and Applicant=? and Status=?;";
 			conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql);
-			pst.setInt(1, gno);
-			pst.setString(2, gname);
-			pst.setString(3, applicant);
-			pst.setInt(4, 0);
+			pst.setInt(1, new_s);
+			pst.setInt(2, gno);
+			pst.setString(3, gname);
+			pst.setString(4, applicant);
+			pst.setInt(5, new_s);
 			rs = pst.executeUpdate();
 			if(rs!=0){
 				System.out.println("insert over!");

@@ -79,9 +79,9 @@ public class serUpdateApply extends HttpServlet {
 					rs2=updateGPS.updateGPS(gps);
 					
 					//¸üÐÂapply
-					
-					
-					if(rs1==0||rs2==0){
+					int rs3=0;
+					rs3=updateApply.updatetApplyStatus(gps.getGNo(), gps.getGname(), sno, 0, 1);
+					if(rs1==0||rs2==0||rs3==0){
 						response.getWriter().print("fail");
 					}
 					else{
