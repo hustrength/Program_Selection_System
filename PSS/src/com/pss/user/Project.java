@@ -10,10 +10,10 @@ public class Project {
 	private int Pmaxnum;  //课题可选上限组数
 	private int Pselected;  //课题已被选组数
 	private int Pavailable;  //课题剩余可选组数
-	private String introduction;
-	private String background;
-	private String info;
-	private String other;
+	private String Introduction;
+	private String Background;
+	private String Info;
+	private String Other;
 	
 	
 	public int getPNo(){
@@ -53,7 +53,35 @@ public class Project {
 		Pavailable=pavailable;
 		Pselected=Pmaxnum-pavailable;
 	}
-    
+	
+	public String getIntroduction(){
+		return Introduction;
+	}
+	public void setIntroduction(String introduction){
+		Introduction=introduction;
+	}
+	
+	public String getBackground(){
+		return Background;
+	}
+	public void setBackground(String background){
+		Background=background;
+	}
+	
+	public String getInfo(){
+		return Info;
+	}
+	public void setInfo(String info){
+		Info=info;
+	}
+	
+	public String getOther(){
+		return Other;
+	}
+	public void setOther(String other){
+		Other=other;
+	}
+	
 	public Project(int pno,String pname,int pmaxnum,int pselected,int pavailable){
 		this.PNo=pno;
 		this.Pname=pname;

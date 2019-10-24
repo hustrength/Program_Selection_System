@@ -1,7 +1,7 @@
 
-function apply(gno, sno){
+function apply(gno,gname,sno){
 	 $.ajax({
-	        url: "servlet/serInsertApply?action=apply&GNo="+gno+"&SNo="+sno,
+	        url: "servlet/serInsertApply?action=apply&GNo="+gno+"&Gname="+gname,
 	        type: "GET",
 	        async: false,
 	        dataType: "text",

@@ -46,12 +46,9 @@ public class serInsertApply extends HttpServlet {
 		String act=request.getParameter("action");
 		if("apply".equals(act)){
 			//¥¥Ω®…Í«Îµ•
-			String sno = request.getParameter("SNo");
-			System.out.println(sno);
 			int gno = Integer.parseInt(request.getParameter("GNo"));
-			System.out.println(gno);
-			System.out.println(applicant.getSNo());
-			rs=insert.insertApply(gno,applicant.getSNo(),sno);
+			String gname=request.getParameter("Gname");
+			rs=insert.insertApply(gno,gname,applicant.getSNo());
 			System.out.println(rs);
 			if(rs==0){
 				response.getWriter().print("fail");

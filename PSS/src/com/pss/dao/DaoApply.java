@@ -25,16 +25,15 @@ public class DaoApply {
 		int rs = 0;
 		Connection conn=null;
 		try{
-			String applicant,leader;
+			String applicant,gname;
 			applicant=apply.getApplicant().getSNo();
-			leader=apply.getLeader().getSNo();
-			String sql_insert = "insert into apply(GNo,Applicant,Leader,Status) values(?,?,?,?);";
+			gname=apply.getGname();
+			String sql_insert = "insert into apply(GNo,Gname,Applicant,Status) values(?,?,?,?);";
 			conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql_insert);
-			
 			pst.setInt(1, apply.getGNo());
-			pst.setString(2, applicant);
-			pst.setString(3, leader);
+			pst.setString(2, gname);
+			pst.setString(3, applicant);
 			pst.setInt(4, 0);
 			rs = pst.executeUpdate();
 			if(rs!=0){
@@ -50,13 +49,21 @@ public class DaoApply {
 		}
 		return rs;
 	}
+	
+	/**
+	 * 插入一个申请单
+	 * @param gno
+	 * @param applicant
+	 * @param leader
+	 * @return
+	 */
 	public int insertApply(int gno,String applicant,String leader){
 		int rs = 0;
 		Connection conn=null;
 		try{
-			String sql_insert = "insert into apply(GNo,Applicant,Leader,Status) values(?,?,?,?);";
+			String sql = "insert into apply(GNo,Applicant,Leader,Status) values(?,?,?,?);";
 			conn = new Conn().getConn();
-			PreparedStatement pst = conn.prepareStatement(sql_insert);
+			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setInt(1, gno);
 			pst.setString(2, applicant);
 			pst.setString(3, leader);
@@ -75,39 +82,22 @@ public class DaoApply {
 		}
 		return rs;
 	}
-	/*
-	public Apply queryApply(int gno,String applicant,String leader){
-		GPS gps=null;
+	
+	/**
+	 * 查询申请单
+	 * @param applicant
+	 * @param leader
+	 * @return
+	 */
+	public Apply queryApply(String gname,String applicant,int status){
+		Apply apply=null;
 		Connection conn = null;
 		try{
-			String sql_querybyid = "select * from gps where Gname=?";
+			String sql = "select * from apply where Gname=? and Applicant=? and Status=?";
 			conn=new Conn().getConn();
-			PreparedStatement pst = conn.prepareStatement(sql_querybyid);
-			pst.setString(1, Gname);
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setString(1, gname);
 			ResultSet rs = pst.executeQuery();
-			if(rs.next()){
-				int gno=rs.getInt("GNo");
-				int pno = rs.getInt("PNo");
-				String gname = rs.getString("Gname");
-				String pname = rs.getString("Pname");
-				String sno1 = rs.getString("SNo1");
-				String sno2 = rs.getString("SNo1");
-				String sno3 = rs.getString("SNo1");
-				int gsnum = rs.getInt("Gsnum");
-				int gleftnum = rs.getInt("Gleftnum");
-				Student stu1,stu2,stu3;
-				DaoStu querybyid = new DaoStu();
-				stu1 = querybyid.querybyid(sno1);
-				if(sno2!=null||sno2!=""){
-					stu2 = querybyid.querybyid(sno2);
-				}
-				else stu2=null;
-				if(sno3!=null||sno3!=""){
-					stu3 = querybyid.querybyid(sno3);
-				}
-				else stu3=null;
-				gps = new GPS(gno,pno,gname,pname,stu1,stu2,stu3,gsnum,gleftnum);
-			}
 		}catch(Exception e){e.printStackTrace();}
 		finally{
 			try{
@@ -116,23 +106,28 @@ public class DaoApply {
 				e.printStackTrace();
 			}
 		}
-		return gps;
-	}*/
-	public List<Apply> listApplybySNo(String sno){
+		return apply;
+	}
+	
+	
+	/**
+	 * 遍历申请单
+	 * @param sno
+	 * @return
+	 */
+	public List<Apply> listApplybyGname(String gname){
 		Connection conn = null;
 		Apply apply=null;
 		List<Apply> list  = new ArrayList<Apply>();
 		try{
-			String sql = "select* from apply where Leader=?";
+			String sql = "select* from apply where Gname=?";
 			conn = new Conn().getConn();
-			
 			PreparedStatement pst = conn.prepareStatement(sql);
-			pst.setString(1, sno);
+			pst.setString(1, gname);
 			ResultSet rs = pst.executeQuery();
-			Student applicant,leader;
+			Student applicant;
 			DaoStu querybyid = new DaoStu();
-			leader = querybyid.querybyid(sno);
-			System.out.println(sno);
+			System.out.println(gname);
 			while(rs.next()){
 				int ano=rs.getInt("ANo");
 				int gno = rs.getInt("GNo");
@@ -140,7 +135,7 @@ public class DaoApply {
 				String applicant_no = rs.getString("Applicant");
 				System.out.println(applicant_no);
 				applicant=querybyid.querybyid(applicant_no);
-				apply=new Apply(ano,gno,applicant,leader,status);
+				apply=new Apply(ano,gno,gname,applicant,status);
 				list.add(apply);
 			}
 			

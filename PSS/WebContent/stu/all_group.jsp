@@ -69,11 +69,13 @@
                 	   stu = new Student("U1", "学生1号", "0", "男", "CS1705", "组1", "组长", 0);
                    }
                    String leader_sno=stu.getSNo();
+                   if("队长".equals(stu.getSposition())){
                    String applicant=null;
                    Apply apply = null;
                    DaoApply list_all_apply = new DaoApply();
-                   List<Apply> list_apply = list_all_apply.listApplybySNo(leader_sno);
+                   List<Apply> list_apply = list_all_apply.listApplybyGname(stu.getSgroup());
                    Iterator<Apply> it_apply = list_apply.iterator();
+                   
                    while (it_apply.hasNext()) {
                        apply = it_apply.next();
                        int status = apply.getStatus();
@@ -100,6 +102,7 @@
                     <%
                             }
                         }
+                   }
                     %>
                     <li>
                         <a class="text-center" href="#">
@@ -195,7 +198,7 @@
                                                 gps = it.next();
                                                 int gno = gps.getGNo();
                                                 String sno = gps.getStu1().getSNo();
-                                               
+                                                String gname = gps.getGname();
                                         %>
                                         <tr class="odd gradeX">
                                             <td><%= gps.getGNo() %>
@@ -208,16 +211,14 @@
                                             </td>
                                             <td class="center"><%=gps.getGleftnum() %>
                                             </td>
-                                           
                                             
-                                           
                                             <td>
                                              <%
                                             if(gps.getGleftnum()>0&&(stu.getSgroup()==null||stu.getSgroup()=="")){
                                             %>  
                                           
                                           <input type="button" value="加入" id="join" name="join"
-                                                       onclick="apply(<%=gno%>, '<%=sno%>')">
+                                                       onclick="apply(<%=gno%>,'<%=gname%>', '<%=sno%>')">
                                         <%   
                                            }
                                          }
