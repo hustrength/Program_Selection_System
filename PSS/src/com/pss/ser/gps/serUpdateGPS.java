@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.pss.dao.DaoGPS;
+import com.pss.dao.DaoStu;
 import com.pss.user.GPS;
+import com.pss.user.Student;
 
 public class serUpdateGPS extends HttpServlet {
 
@@ -59,6 +61,80 @@ public class serUpdateGPS extends HttpServlet {
 
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
+		HttpSession session = request.getSession();
+		String act=request.getParameter("action");
+		System.out.println(act);
+		String result="yes";
+		GPS gps=null;
+		DaoGPS updateGPS = new DaoGPS();
+		DaoStu updateStu = new DaoStu();
+		int gno = Integer.parseInt(request.getParameter("GNo"));
+		String sno = request.getParameter("SNo");
+		System.out.println(gno);
+		DaoGPS querybygno = new DaoGPS();
+		gps = querybygno.querybyGNo(gno);
+		
+		if("remove".equals(act)){
+			//踢出队员
+			Student stu_removed = null;
+			if(sno.equals(gps.getStu2().getSNo())){
+				stu_removed=gps.getStu2();
+				gps.setStu2(gps.getStu3());
+			}
+			else if(sno.equals(gps.getStu3().getSNo())){
+				stu_removed=gps.getStu3();
+			}
+			else {
+				response.getWriter().print("fail");
+			}
+				gps.setStu3(null);
+				int rs=0;
+				rs=updateGPS.updateGPS(gps);
+				if(rs!=0){
+					result="success";
+					stu_removed.setSgroup(null);
+					stu_removed.setSposition(null);
+					int rs_updatestu=0;
+					rs_updatestu=updateStu.updateStu(stu_removed);
+					if(rs_updatestu!=0){
+						result="success";
+					}
+					else result="fail";
+				}
+				else result="fail";
+		}
+		else if("transfer".equals(act)){
+			//转让队长
+			Student stu=(Student)session.getAttribute("student");
+			Student new_leader=null;
+			if(sno.equals(gps.getStu2().getSNo())){
+				new_leader=gps.getStu2();
+				stu.setSposition("组员");
+				gps.setStu2(stu);
+			}
+			else if(sno.equals(gps.getStu3().getSNo())){
+				new_leader=gps.getStu3();
+				stu.setSposition("组员");
+				gps.setStu3(stu);
+			}
+			new_leader.setSposition("组长");
+			gps.setStu1(new_leader);
+			int rs=0;
+			rs=updateGPS.updateGPS(gps);
+			if(rs!=0){
+				result="success";
+				int rs1,rs2;
+				rs1=updateStu.updateStu(new_leader);
+				rs2=updateStu.updateStu(stu);
+				if(rs1!=0&&rs2!=0){
+					result="success";
+					session.setAttribute("student",stu);
+				}
+				else result="fail";
+			}
+			else result="fail";
+		}
+        response.getWriter().print(result);
 	}
 
 }

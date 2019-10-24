@@ -59,8 +59,8 @@ public class serDeleteGPS extends HttpServlet {
 			//Ω‚…¢∂”ŒÈ
 			int gno = Integer.parseInt(request.getParameter("GNo"));
 			System.out.println(gno);
-			DaoGPS querybyname = new DaoGPS();
-			gps = querybyname.querybyGNo(gno);
+			DaoGPS querybygno = new DaoGPS();
+			gps = querybygno.querybyGNo(gno);
 			DaoGPS deleteGPS = new DaoGPS();
 			int rs=0;
 			rs=deleteGPS.deleteGPSbyGNo(gno);

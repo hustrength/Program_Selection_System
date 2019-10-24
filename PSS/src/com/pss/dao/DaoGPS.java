@@ -176,8 +176,8 @@ public class DaoGPS {
 				String gname = rs.getString("Gname");
 				String pname = rs.getString("Pname");
 				String sno1 = rs.getString("SNo1");
-				String sno2 = rs.getString("SNo1");
-				String sno3 = rs.getString("SNo1");
+				String sno2 = rs.getString("SNo2");
+				String sno3 = rs.getString("SNo3");
 				int gsnum = rs.getInt("Gsnum");
 				int gleftnum = rs.getInt("Gleftnum");
 				Student stu1,stu2,stu3;
@@ -224,8 +224,8 @@ public class DaoGPS {
 				String gname = rs.getString("Gname");
 				String pname = rs.getString("Pname");
 				String sno1 = rs.getString("SNo1");
-				String sno2 = rs.getString("SNo1");
-				String sno3 = rs.getString("SNo1");
+				String sno2 = rs.getString("SNo2");
+				String sno3 = rs.getString("SNo3");
 				int gsnum = rs.getInt("Gsnum");
 				int gleftnum = rs.getInt("Gleftnum");
 				Student stu1,stu2,stu3;
