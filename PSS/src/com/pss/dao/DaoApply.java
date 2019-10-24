@@ -16,22 +16,22 @@ import com.pss.user.Apply;
 import com.pss.user.Student;
 
 public class DaoApply {
+	
 	/**
 	 * 插入一个申请单
-	 * @param gps
+	 * @param gno
+	 * @param applicant
+	 * @param leader
 	 * @return
 	 */
-	public int insertApply(Apply apply){
+	public int insertApply(int gno,String gname,String applicant){
 		int rs = 0;
 		Connection conn=null;
 		try{
-			String applicant,gname;
-			applicant=apply.getApplicant().getSNo();
-			gname=apply.getGname();
-			String sql_insert = "insert into apply(GNo,Gname,Applicant,Status) values(?,?,?,?);";
+			String sql = "insert into apply(GNo,Gname,Applicant,Status) values(?,?,?,?);";
 			conn = new Conn().getConn();
-			PreparedStatement pst = conn.prepareStatement(sql_insert);
-			pst.setInt(1, apply.getGNo());
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setInt(1, gno);
 			pst.setString(2, gname);
 			pst.setString(3, applicant);
 			pst.setInt(4, 0);
@@ -50,23 +50,16 @@ public class DaoApply {
 		return rs;
 	}
 	
-	/**
-	 * 插入一个申请单
-	 * @param gno
-	 * @param applicant
-	 * @param leader
-	 * @return
-	 */
-	public int insertApply(int gno,String applicant,String leader){
+	public int updatetApplyStatus(int gno,String gname,String applicant,int old_s,int new_s){
 		int rs = 0;
 		Connection conn=null;
 		try{
-			String sql = "insert into apply(GNo,Applicant,Leader,Status) values(?,?,?,?);";
+			String sql = "update apply set Status=? where GNo=? and Gname=? Applicant=?;";
 			conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setInt(1, gno);
-			pst.setString(2, applicant);
-			pst.setString(3, leader);
+			pst.setString(2, gname);
+			pst.setString(3, applicant);
 			pst.setInt(4, 0);
 			rs = pst.executeUpdate();
 			if(rs!=0){
@@ -82,14 +75,13 @@ public class DaoApply {
 		}
 		return rs;
 	}
-	
 	/**
 	 * 查询申请单
 	 * @param applicant
 	 * @param leader
 	 * @return
 	 */
-	public Apply queryApply(String gname,String applicant,int status){
+	public Apply queryApply(String gname,String applicant_sno,int status){
 		Apply apply=null;
 		Connection conn = null;
 		try{
@@ -98,6 +90,14 @@ public class DaoApply {
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setString(1, gname);
 			ResultSet rs = pst.executeQuery();
+			Student applicant=null;
+			if(rs.next()){
+				int ano=rs.getInt("ANo");
+				int gno = rs.getInt("GNo");
+				DaoStu querybyid = new DaoStu();
+				applicant = querybyid.querybyid(applicant_sno);
+				apply=new Apply(ano,gno,gname,applicant,status);
+			}
 		}catch(Exception e){e.printStackTrace();}
 		finally{
 			try{

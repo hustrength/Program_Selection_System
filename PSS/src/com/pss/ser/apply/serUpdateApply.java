@@ -44,23 +44,29 @@ public class serUpdateApply extends HttpServlet {
 				response.setContentType("text/html;charset=utf-8");	
 				HttpSession session = request.getSession(); 
 				PrintWriter out = response.getWriter();
-				int rs;
-				DaoApply insert = new DaoApply();
+				
+				DaoApply updateApply = new DaoApply();
+				DaoGPS updateGPS=new DaoGPS();
+				DaoStu updateStu=new DaoStu();
 				Student leader = (Student) session.getAttribute("student");
 				Student applicant=null;
 				String act=request.getParameter("action");
 				if("agree".equals(act)){
 					//同意加入
 					
+					//查询申请学生，并设置该学生的组和组中身份
 					String sno = request.getParameter("SNo");
 					DaoStu querybyid=new DaoStu();
 					applicant=querybyid.querybyid(sno);
 					applicant.setSgroup(leader.getSgroup());
 					applicant.setSposition("组员");
-					DaoStu update=new DaoStu();
-					update.updateStu(applicant);
-					System.out.println(sno);
-					DaoGPS updateGPS=new DaoGPS();
+					
+					//更新sql中申请学生的信息
+					int rs1=0;
+					rs1=updateStu.updateStu(applicant);
+					
+					//更新gps
+					
 					GPS gps=null;
 					gps=updateGPS.querybyName(leader.getSgroup());
 					if(gps.getStu2()!=null){
@@ -69,11 +75,13 @@ public class serUpdateApply extends HttpServlet {
 					else{
 						gps.setStu2(applicant);
 					}
+					int rs2=0;
+					rs2=updateGPS.updateGPS(gps);
 					
-					System.out.println(applicant.getSNo());
-					rs=updateGPS.updateGPS(gps);
-					System.out.println(rs);
-					if(rs==0){
+					//更新apply
+					
+					
+					if(rs1==0||rs2==0){
 						response.getWriter().print("fail");
 					}
 					else{
