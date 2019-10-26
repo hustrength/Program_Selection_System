@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>serDoLogin</servlet-name>
+    <servlet-class>com.pss.ser.serDoLogin</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>serSelectPro</servlet-name>
+    <servlet-class>com.pss.ser.pro.serSelectPro</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>serDeletePro</servlet-name>
+    <servlet-class>com.pss.ser.pro.serDeletePro</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>serUpdatePro</servlet-name>
+    <servlet-class>com.pss.ser.pro.serUpdatePro</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>serDoUpdatePro</servlet-name>
+    <servlet-class>com.pss.ser.pro.serDoUpdatePro</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>serDoInsertPro</servlet-name>
+    <servlet-class>com.pss.ser.pro.serDoInsertPro</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>serSelectStu</servlet-name>
+    <servlet-class>com.pss.ser.stu.serSelectStu</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>serInsertStu</servlet-name>
+    <servlet-class>com.pss.ser.stu.serInsertStu</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>serDeleteStu</servlet-name>
+    <servlet-class>com.pss.ser.stu.serDeleteStu</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>serUpdateStu</servlet-name>
+    <servlet-class>com.pss.ser.stu.serUpdateStu</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>serDoUpdateStu</servlet-name>
+    <servlet-class>com.pss.ser.stu.serDoUpdateStu</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>serDeleteGPS</servlet-name>
+    <servlet-class>com.pss.ser.gps.serDeleteGPS</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>serDoLogout</servlet-name>
+    <servlet-class>com.pss.ser.serDoLogout</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>serQueryGPS</servlet-name>
+    <servlet-class>com.pss.ser.gps.serQueryGPS</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>serUpdateGPS</servlet-name>
+    <servlet-class>com.pss.ser.gps.serUpdateGPS</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>serRegisterStu</servlet-name>
+    <servlet-class>com.pss.ser.stu.serRegisterStu</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>serInsertGPS</servlet-name>
+    <servlet-class>com.pss.ser.gps.serInsertGPS</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>serInsertApply</servlet-name>
+    <servlet-class>com.pss.ser.apply.serInsertApply</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>serUpdateApply</servlet-name>
+    <servlet-class>com.pss.ser.apply.serUpdateApply</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>serDoLogin</servlet-name>
+    <url-pattern>/servlet/serDoLogin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>serSelectPro</servlet-name>
+    <url-pattern>/servlet/serSelectPro</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>serDeletePro</servlet-name>
+    <url-pattern>/servlet/serDeletePro</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>serUpdatePro</servlet-name>
+    <url-pattern>/servlet/serUpdatePro</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>serDoUpdatePro</servlet-name>
+    <url-pattern>/servlet/serDoUpdatePro</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>serDoInsertPro</servlet-name>
+    <url-pattern>/servlet/serDoInsertPro</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>serSelectStu</servlet-name>
+    <url-pattern>/servlet/serSelectStu</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>serInsertStu</servlet-name>
+    <url-pattern>/servlet/serInsertStu</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>serDeleteStu</servlet-name>
+    <url-pattern>/servlet/serDeleteStu</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>serUpdateStu</servlet-name>
+    <url-pattern>/servlet/serUpdateStu</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>serDoUpdateStu</servlet-name>
+    <url-pattern>/servlet/serDoUpdateStu</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>serDeleteGPS</servlet-name>
+    <url-pattern>/servlet/serDeleteGPS</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>serDoLogout</servlet-name>
+    <url-pattern>/servlet/serDoLogout</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>serQueryGPS</servlet-name>
+    <url-pattern>/servlet/serQueryGPS</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>serUpdateGPS</servlet-name>
+    <url-pattern>/servlet/serUpdateGPS</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>serRegisterStu</servlet-name>
+    <url-pattern>/servlet/serRegisterStu</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>serInsertGPS</servlet-name>
+    <url-pattern>/servlet/serInsertGPS</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>serInsertApply</servlet-name>
+    <url-pattern>/servlet/serInsertApply</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>serUpdateApply</servlet-name>
+    <url-pattern>/servlet/serUpdateApply</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>stu/Login.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
