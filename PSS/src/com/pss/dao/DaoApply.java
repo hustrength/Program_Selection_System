@@ -49,7 +49,43 @@ public class DaoApply {
 		}
 		return rs;
 	}
-	
+	/**
+	 * 删除某学生所有apply
+	 * @param applicant
+	 * @return
+	 */
+	public int deleteApply(String applicant){
+		int rs = 0;
+		Connection conn=null;
+		try{
+			String sql = "delete from apply where Applicant=?;";
+			conn = new Conn().getConn();
+			PreparedStatement pst = conn.prepareStatement(sql);
+			
+			pst.setString(1, applicant);
+			rs = pst.executeUpdate();
+			if(rs!=0){
+				System.out.println("delete over!");
+			}
+		}catch(Exception e){e.printStackTrace();}
+		finally{
+			try{
+				conn.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+		return rs;
+	}
+	/**
+	 * 更新apply
+	 * @param gno
+	 * @param gname
+	 * @param applicant
+	 * @param old_s
+	 * @param new_s
+	 * @return
+	 */
 	public int updatetApplyStatus(int gno,String gname,String applicant,int old_s,int new_s){
 		int rs = 0;
 		Connection conn=null;

@@ -51,13 +51,19 @@ public class serUpdateApply extends HttpServlet {
 				Student leader = (Student) session.getAttribute("student");
 				Student applicant=null;
 				String act=request.getParameter("action");
+				//查询申请学生
+				String sno = request.getParameter("SNo");
+				DaoStu querybyid=new DaoStu();
+				applicant=querybyid.querybyid(sno);
+				//学生已加入其他组
+				if(applicant.getSgroup()!=null&&applicant.getSgroup()!=""){
+					response.getWriter().print("ismember");
+					return;
+				}
 				if("agree".equals(act)){
 					//同意加入
 					
-					//查询申请学生，并设置该学生的组和组中身份
-					String sno = request.getParameter("SNo");
-					DaoStu querybyid=new DaoStu();
-					applicant=querybyid.querybyid(sno);
+					//设置学生身份
 					applicant.setSgroup(leader.getSgroup());
 					applicant.setSposition("组员");
 					
@@ -77,11 +83,26 @@ public class serUpdateApply extends HttpServlet {
 					}
 					int rs2=0;
 					rs2=updateGPS.updateGPS(gps);
+					//删除apply
+					int rs3=0;
+					DaoApply delete = new DaoApply();
+					rs3 = delete.deleteApply(applicant.getSNo());
+					if(rs1==0||rs2==0||rs3==0){
+						response.getWriter().print("fail");
+					}
+					else{
+						response.getWriter().print("success");
+					}
 					
+				}
+				else if("refuse".equals(act)){
+					//拒绝
+					GPS gps=null;
+					gps=updateGPS.querybyName(leader.getSgroup());
 					//更新apply
 					int rs3=0;
-					rs3=updateApply.updatetApplyStatus(gps.getGNo(), gps.getGname(), sno, 0, 1);
-					if(rs1==0||rs2==0||rs3==0){
+					rs3=updateApply.updatetApplyStatus(gps.getGNo(), gps.getGname(), sno, 0, 2);
+					if(rs3==0){
 						response.getWriter().print("fail");
 					}
 					else{

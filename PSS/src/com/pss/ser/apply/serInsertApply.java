@@ -42,12 +42,20 @@ public class serInsertApply extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		int rs;
 		DaoApply insert = new DaoApply();
+		DaoApply query = new DaoApply();
 		Student applicant = (Student) session.getAttribute("student");
 		String act=request.getParameter("action");
 		if("apply".equals(act)){
 			//¥¥Ω®…Í«Îµ•
+			Apply apply;
+			
 			int gno = Integer.parseInt(request.getParameter("GNo"));
 			String gname=request.getParameter("Gname");
+			apply=query.queryApply(gname, applicant.getSNo(), 0);
+			if(apply!=null){
+				response.getWriter().print("applied");
+				return;
+			}
 			rs=insert.insertApply(gno,gname,applicant.getSNo());
 			System.out.println(rs);
 			if(rs==0){

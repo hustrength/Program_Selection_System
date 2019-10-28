@@ -66,7 +66,7 @@
                    Student stu=null;
                    stu = (Student) session.getAttribute("student");
                    if(stu==null){
-                	   stu = new Student("U1", "学生1号", "0", "男", "CS1705", "组1", "组长", 0);
+                	   response.sendRedirect(basePath+"stu/Login.jsp");
                    }
                    String leader_sno=stu.getSNo();
                    if("队长".equals(stu.getSposition())){
@@ -102,7 +102,7 @@
                     <%
                             }
                         }
-                   }
+                   
                     %>
                     <li>
                         <a class="text-center" href="#">
@@ -110,7 +110,11 @@
                             <i class="fa fa-angle-right"></i>
                         </a>
                     </li>
+                     <%
+                   }
+                %>
                 </ul>
+               
                 <!-- /.dropdown-messages -->
             </li>
             <!-- /.dropdown -->
