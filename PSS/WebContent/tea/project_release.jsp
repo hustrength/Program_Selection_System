@@ -1,15 +1,15 @@
 <%@ page language="java" import="java.util.*,com.pss.user.Student" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-	String stuMainPath = path+"/stu/stuMain/";
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+    String teaMainPath = path + "/tea/";
 %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dream</title>
+    <title>学生选题信息管理系统——教师界面</title>
 	<!-- Bootstrap Styles-->
     <link href="<%=path %>/assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FontAwesome Styles-->
@@ -39,7 +39,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="main.jsp">学生选题信息管理系统</a>
+                <a class="navbar-brand" href="tea_main.jsp">学生选题信息管理系统--教师客户端</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -117,39 +117,27 @@
         </nav>
         <!--/. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu">
-
-<!-- tab-panel.html 选择课题
-ui-elements.html 个人信息
-table.html 查看可选队伍
-form.html 创建队伍
-index.html 查看已选课题
- -->
-                    <li>
-                        <a class="<%=stuMainPath %>active-menu" href="main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
-                    </li>
-                    <li>
-                        <a href="<%=stuMainPath %>project_info.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
-                    </li>
-					<li>
-                        <a href="<%=stuMainPath %>group_info.jsp"><i class="fa fa-users"></i> 团队信息</a>
-                    </li>
-                    <li>
-                        <a href="<%=stuMainPath %>my_project.jsp"><i class="fa fa-edit"></i> 我的课题</a>
-                    </li>
-                    
-                    <li>
-                        <a href="<%=stuMainPath %>my_info.jsp"><i class="fa fa-user"></i> 我的信息</a>
-                    </li>
-                    <li>
-                        <a href="<%=stuMainPath %>empty.html"><i class="fa fa-file"></i> Empty Page</a>
-                    </li>
-                </ul>
-
-            </div>
-
-        </nav>
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+                <li>
+                    <a href="<%=teaMainPath %>tea_main.jsp"><i class="fa fa-desktop"></i> 选题通知</a>
+                </li>
+              
+                <li>
+                    <a href="<%=teaMainPath %>project_info_tea.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
+                </li>
+                <li>
+                    <a href="<%=teaMainPath %>group_info.jsp"><i class="fa fa-users"></i> 学生组队信息</a>
+                </li>
+                <li>
+                    <a href="<%=teaMainPath %>tea_info.jsp"><i class="fa fa-user"></i> 教师个人信息</a>
+                </li>
+                <li>
+                    <a href="empty.html"><i class="fa fa-file"></i> Empty Page</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">
