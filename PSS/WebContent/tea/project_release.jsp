@@ -200,7 +200,11 @@
                                 <!-- /.col-lg-6 (nested) -->
                                 
             </div>
+<<<<<<< HEAD
 			<footer><p>Copyright &copy; 2019.Company name All rights reserved.<a target="_blank" href="http://www.freemoban.com/">www.freemoban.com</a></p></footer>
+=======
+		
+>>>>>>> refs/remotes/origin/dev
 			</div>
              <!-- /. PAGE INNER  -->
             </div>
