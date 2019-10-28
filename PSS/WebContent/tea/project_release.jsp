@@ -200,7 +200,7 @@
                                 <!-- /.col-lg-6 (nested) -->
                                 
             </div>
-			<footer><p>Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://www.freemoban.com/">www.freemoban.com</a></p></footer>
+		
 			</div>
              <!-- /. PAGE INNER  -->
             </div>
