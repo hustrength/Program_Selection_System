@@ -1,2 +1,7 @@
-/.metadata/
-/Servers/
+.gitignore
+RemoteSystemsTempFiles/
+database/
+PSS/.idea
+PSS/PSS.iml
+.metadata/
+Servers/
