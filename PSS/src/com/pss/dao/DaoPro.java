@@ -31,7 +31,9 @@ public class DaoPro {
 			pst.setInt(1, pno);
 			ResultSet rs = pst.executeQuery();
 			if(rs.next()){
-				pro=new Project(rs.getInt("PNo"),rs.getString("Pname"),rs.getInt("Pmaxnum"),rs.getInt("Pselected"),rs.getInt("Pavailable"));
+				pro=new Project(rs.getInt("PNo"),rs.getString("Pname"),rs.getInt("Pmaxnum"),rs.getInt("Pselected"),rs.getInt("Pavailable"),
+						rs.getString("Introduction"),rs.getString("Background"),rs.getString("Info"),rs.getString("Other")
+					);
 			}
 		}catch(Exception e){e.printStackTrace();}
 		finally{
@@ -73,5 +75,31 @@ public class DaoPro {
 			}
 		}
 		return list;
+	}
+	
+	public int updateProject(Project pro){
+		
+		int rs = 0;
+		try{
+			String sql_update = "update Project set Pname=?,Pmaxnum=?,Pselected=?,Pavailable=?,Introduction=?,Background=?,"
+					+ "Info=?,Other=? where PNo=?;";//修改一条学生信息
+			Connection conn = new Conn().getConn();
+			PreparedStatement pst = conn.prepareStatement(sql_update);
+			pst.setString(1, pro.getPname());
+			pst.setInt(2,pro.getPmaxnum());
+			pst.setInt(3,pro.getPselected());
+			pst.setInt(4,pro.getPavailable());
+			pst.setString(5, pro.getIntroduction());
+			pst.setString(6, pro.getBackground());
+			pst.setString(7, pro.getInfo());
+			pst.setString(8, pro.getOther());
+			pst.setInt(9,pro.getPNo());
+			rs = pst.executeUpdate();
+			if(rs!=0){
+				System.out.println("update over!");
+			}
+		}catch(Exception e){e.printStackTrace();}
+		return rs;
+		
 	}
 }
