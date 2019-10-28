@@ -62,14 +62,16 @@
                    Student stu=null;
                    stu = (Student) session.getAttribute("student");
                    if(stu==null){
-                	   stu = new Student("U1", "学生1号", "0", "男", "CS1705", "组1", "组长", 0);
+                	   response.sendRedirect(basePath+"stu/Login.jsp");
                    }
                    String leader_sno=stu.getSNo();
+                   if("队长".equals(stu.getSposition())){
                    String applicant=null;
                    Apply apply = null;
                    DaoApply list_all_apply = new DaoApply();
-                   List<Apply> list_apply = list_all_apply.listApplybySNo(leader_sno);
+                   List<Apply> list_apply = list_all_apply.listApplybyGname(stu.getSgroup());
                    Iterator<Apply> it_apply = list_apply.iterator();
+                   
                    while (it_apply.hasNext()) {
                        apply = it_apply.next();
                        int status = apply.getStatus();
