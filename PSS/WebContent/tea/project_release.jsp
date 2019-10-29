@@ -4,6 +4,7 @@
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
     String teaMainPath = path + "/tea/";
 %>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -178,11 +179,6 @@
                                             <textarea class="form-control" rows="3"></textarea>
                                         </div>
                                         <div class="form-group">
-                                        	<p class="help-block">上传附加资料</p>
-                                            <label>上传文件</label>
-                                            <input type="file">
-                                        </div>
-                                        <div class="form-group">
                                             <label>Selects</label>
                                             <select class="form-control">
                                                 <option>1</option>
@@ -193,18 +189,14 @@
                                             </select>
                                         </div>
                                        	<hr>
-                                        <button type="submit" class="btn btn-primary">提交</button>
+                                        <button type="submit" class="btn btn-primary">提交</button><!-- 点击提交按钮之后，需要给学生端所有人发送一条通知  -->
                                         <button type="reset" class="btn btn-default">重新填写</button>
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                                 
             </div>
-<<<<<<< HEAD
-			<footer><p>Copyright &copy; 2019.Company name All rights reserved.<a target="_blank" href="http://www.freemoban.com/">www.freemoban.com</a></p></footer>
-=======
-		
->>>>>>> refs/remotes/origin/dev
+			<footer><p>Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://www.freemoban.com/">www.freemoban.com</a></p></footer>
 			</div>
              <!-- /. PAGE INNER  -->
             </div>
