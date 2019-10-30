@@ -56,49 +56,50 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                     <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
-                 <ul class="dropdown-menu dropdown-messages">
+                <ul class="dropdown-menu dropdown-messages">
                     <%
 
-                   Student stu=null;
-                   stu = (Student) session.getAttribute("student");
-                   if(stu==null){
-                	   response.sendRedirect(basePath+"stu/Login.jsp");
-                   }
-                   String leader_sno=stu.getSNo();
-                   if("队长".equals(stu.getSposition())){
-                   String applicant=null;
-                   Apply apply = null;
-                   DaoApply list_all_apply = new DaoApply();
-                   List<Apply> list_apply = list_all_apply.listApplybyGname(stu.getSgroup());
-                   Iterator<Apply> it_apply = list_apply.iterator();
-                   
-                   while (it_apply.hasNext()) {
-                       apply = it_apply.next();
-                       int status = apply.getStatus();
-                       if (status== 0) {
-                    	   applicant=apply.getApplicant().getSNo();
-                   %>
+                        Student stu = null;
+                        stu = (Student) session.getAttribute("student");
+                        if (stu == null) {
+                            response.sendRedirect(basePath + "stu/Login.jsp");
+                        }
+                        String leader_sno = stu.getSNo();
+                        if ("队长".equals(stu.getSposition())) {
+                            String applicant = null;
+                            Apply apply = null;
+                            DaoApply list_all_apply = new DaoApply();
+                            List<Apply> list_apply = list_all_apply.listApplybyGname(stu.getSgroup());
+                            Iterator<Apply> it_apply = list_apply.iterator();
+
+                            while (it_apply.hasNext()) {
+                                apply = it_apply.next();
+                                int status = apply.getStatus();
+                                if (status == 0) {
+                                    applicant = apply.getApplicant().getSNo();
+                    %>
 
                     <li>
-                        
-                            <div>
-                                <strong><%=apply.getApplicant().getSname() %>
-                                </strong>
-                                <span class="pull-right text-muted">
+
+                        <div>
+                            <strong><%=apply.getApplicant().getSname() %>
+                            </strong>
+                            <span class="pull-right text-muted">
                                         <em></em>
                                     </span>
-                            </div>
-                            <div style="display:flex; margin-top:3px">
-                                <div style="margin-top:5px">申请加入你的团队</div>
-                               <input type="button" value="同意" class="btn btn-info btn-sm" style="margin-left:40px" onclick="agree('<%=applicant%>')">
-                            </div>
-                       
+                        </div>
+                        <div style="display:flex; margin-top:3px">
+                            <div style="margin-top:5px">申请加入你的团队</div>
+                            <input type="button" value="同意" class="btn btn-info btn-sm" style="margin-left:40px"
+                                   onclick="agree('<%=applicant%>')">
+                        </div>
+
                     </li>
                     <li class="divider"></li>
                     <%
                             }
                         }
-                   
+
                     %>
                     <li>
                         <a class="text-center" href="#">
@@ -106,9 +107,9 @@
                             <i class="fa fa-angle-right"></i>
                         </a>
                     </li>
-                     <%
-                   }
-                %>
+                    <%
+                        }
+                    %>
                 </ul>
                 <!-- /.dropdown-messages -->
             </li>
@@ -126,13 +127,14 @@
                 <!-- /.dropdown-user -->
             </li>
             <!-- /.dropdown -->
-        </ul>    </nav>
+        </ul>
+    </nav>
     <!--/. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
-                    <a  href="<%=stuMainPath %>main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
+                    <a href="<%=stuMainPath %>main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
                 </li>
                 <li>
                     <a href="<%=stuMainPath %>project_info.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
@@ -141,12 +143,14 @@
                     <a href="<%=stuMainPath %>all_group.jsp"><i class="fa fa-users"></i> 所有团队</a>
                 </li>
                 <li>
-                    <a class="active-menu" href="<%=stuMainPath %>project_group.jsp"><i class="fa fa-edit"></i> 课题与团队</a>
+                    <a class="active-menu" href="<%=stuMainPath %>project_group.jsp"><i class="fa fa-edit"></i>
+                        课题与团队</a>
                 </li>
 
                 <li>
                     <a href="<%=stuMainPath %>my_info.jsp"><i class="fa fa-user"></i> 我的信息</a>
                 </li>
+
             </ul>
         </div>
     </nav>
@@ -154,7 +158,7 @@
     <div id="page-wrapper">
         <div id="page-inner">
             <%
-                if (stu.getSgroup() == null||stu.getSgroup()=="") {
+                if (stu.getSgroup() == null || stu.getSgroup() == "") {
             %>
             <div class="row">
                 <div class="col-md-12">
@@ -163,9 +167,9 @@
                         <p>请选择加入团队或创建团队</p>
                         <hr>
                         <p>
-                            <a href="group_info.jsp" class="btn btn-primary btn-lg" role="button"
+                            <a href="<%=stuMainPath %>all_group.jsp" class="btn btn-primary btn-lg" role="button"
                                style="margin-right:50px">加入队伍</a>
-                            <a href="create_group.jsp" class="btn btn-primary btn-lg" role="button">创建队伍</a>
+                            <a href="<%=stuMainPath %>create_group.jsp" class="btn btn-primary btn-lg" role="button">创建队伍</a>
                         </p>
                     </div>
                 </div>
@@ -187,11 +191,12 @@
                             课题信息
                         </div>
                         <%
-                        GPS gps;
-                        DaoGPS querygps=new DaoGPS();
-                        gps=querygps.querybyName(stu.getSgroup());
+                            GPS gps;
+                            DaoGPS querygps = new DaoGPS();
+                            gps = querygps.querybyName(stu.getSgroup());
                         %>
-                        <div style="margin-left:20px"><h4><%=gps.getPname() %></h4></div>
+                        <div style="margin-left:20px"><h4><%=gps.getPname() %>
+                        </h4></div>
                         <div class="panel-body">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#home" data-toggle="tab">简介</a>
@@ -231,7 +236,8 @@
                 <div class="panel-heading">
                     团队信息
                 </div>
-                 <h3><%=gps.getGname() %></h3>
+                <h3><%=gps.getGname() %>
+                </h3>
                 <div class="panel-body">
                     <div class="row" style="margin-left:0px">
                         <div class="col-md-3">
@@ -247,12 +253,12 @@
                                 </div>
                             </div>
                         </div>
-                       
+
                         <%
-                         int pos=0;
-                         if(stu.getSNo().equals(gps.getStu1().getSNo())){
-                        	 pos=1;
-                         
+                            int pos = 0;
+                            if (stu.getSNo().equals(gps.getStu1().getSNo())) {
+                                pos = 1;
+
                         %>
                         <div class="col-md-3">
                             <div class="row">
@@ -276,7 +282,8 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">取消
                                                 </button>
-                                                <input type="button" class="btn btn-primary" value="确认" onclick="break_group(<%=gps.getGNo()%>)">
+                                                <input type="button" class="btn btn-primary" value="确认"
+                                                       onclick="break_group(<%=gps.getGNo()%>)">
                                             </div>
                                         </div>
                                     </div>
@@ -284,13 +291,13 @@
                             </div>
                         </div>
                         <%
-                          }
+                            }
                         %>
                     </div>
-                    
+
                     <%
-                      if(gps.getStu2()!=null){
-                    	  
+                        if (gps.getStu2() != null) {
+
                     %>
                     <hr>
                     <div class="row" style="margin-left:0px">
@@ -309,7 +316,7 @@
                             </div>
                         </div>
                         <%
-                        if(pos==1){
+                            if (pos == 1) {
                         %>
                         <div class="col-md-3">
                             <div class="row">
@@ -368,14 +375,14 @@
                             </div>
                         </div>
                         <%
-                        }
+                            }
                         %>
                     </div>
                     <%
-                      }
+                        }
                     %>
-                    
-                    
+
+
                     <hr>
                     <div class="row" style="margin-left:0px">
                         <div class="col-md-3">

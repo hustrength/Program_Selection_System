@@ -36,6 +36,33 @@
 <script src="<%=path %>/assets/js/morris/morris.js"></script>
 <!-- Custom Js -->
 <script src="<%=path %>/assets/js/custom-scripts.js"></script>
+
+<script type="text/javascript">
+    function edit_input() {
+        var btn = document.getElementById("edit");
+        var title = document.getElementById("title");
+        var content = document.getElementById("content");
+        var string = "sds";
+        if (btn.getAttribute('value') === "编辑") {
+            btn.setAttribute("value", "复原");
+            title.removeAttribute("readOnly");
+            title.style.border = "0.5px solid #808080";
+            content.removeAttribute("readOnly");
+            content.style.border = "0.5px solid #808080";
+           
+        } else {
+            title.value = "title";
+            content.value = "content";
+            content.setAttribute("value", "content");
+            btn.setAttribute("value", "编辑");
+            title.setAttribute("readOnly", 'true');
+            title.style.border = "0.5px solid #ffffff";
+            content.setAttribute("readOnly", 'true');
+            content.style.border = "0.5px solid #ffffff";
+        }
+    }
+</script>
+
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
@@ -73,20 +100,20 @@
                 <li>
                     <a><i class="fa fa-sitemap"></i> 课题信息<span class="fa arrow"></a>
                     <ul class="nav nav-second-level">
-                            <li>
-                                <a href="<%=teaPath %>project_release.jsp">发布题目信息</a><!--连接到发布题目信息jsp，自动创建一个新的题目信息数据结构  -->
-                            </li>
-                            <li>
-                                <a href="<%=teaPath %>project_info_tea.jsp">查看题目信息</a><!--连接到发布题目信息jsp，自动创建一个新的题目信息数据结构  -->
-                            </li>
-                        </ul>
+                        <li>
+                            <a href="<%=teaPath %>project_release.jsp">发布题目</a><!--连接到发布题目信息jsp，自动创建一个新的题目信息数据结构  -->
+                        </li>
+                        <li>
+                            <a href="<%=teaPath %>project_info_tea.jsp">查看题目</a><!--连接到发布题目信息jsp，自动创建一个新的题目信息数据结构  -->
+                        </li>
+                    </ul>
                 <li>
                     <a href="<%=teaPath %>tea_group.jsp"><i class="fa fa-users"></i> 学生组队信息</a>
                 </li>
                 <li>
                     <a href="<%=teaPath %>tea_info.jsp"><i class="fa fa-user"></i> 教师个人信息</a>
                 </li>
-               
+
             </ul>
         </div>
     </nav>
@@ -100,18 +127,52 @@
                     </h1>
                 </div>
             </div>
-           <div class="row">
+            <div class="row">
                 <div class="col-sm-12 col-xs-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="function"><p>title</p></div>
-                        </div>
-                        <div class="box">
-							content
-                        </div>
+                        <form>
+                            <div class="panel-heading">
+                                <input id="title" type="text" value="title" readonly="readonly"
+                                       style="border:0.5px solid #ffffff;font-size:16px;font-weight:700;padding:15px 10px 15px 10px;margin-bottom:-20px">
+                            </div>
+                            <hr>
+                            <div>
+                                <input id="content" value="content" readonly="readonly" style="border:0.5px solid #ffffff;padding:15px 10px 15px 10px;margin-left:10px">
+                            </div>
+                            <hr>
+                            <div style="display:flex">
+                                <input id="edit" type="button" value="编辑" class="btn btn-default"
+                                       style="margin-left:18px;" onclick="edit_input()">
+                                <input type="button" value="提交" class="btn btn-primary" style="margin-left:18px;"
+                                       data-toggle="modal" data-target="#dismiss">
+                                <div class="modal fade" id="dismiss" tabindex="-1" role="dialog"
+                                     aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-hidden="true">
+                                                    &times;
+                                                </button>
+                                                <h4 class="modal-title" id="tips">提示</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                确认修改？
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                                                </button>
+                                                <input type="button" class="btn btn-primary" value="确认" onclick="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
+
             <!-- /. 这里需要获取文本输入框的接口  -->
             <footer><p>版权所有 ©2019-2020 学生选题信息系统 保留所有权利</p></footer>
         </div>

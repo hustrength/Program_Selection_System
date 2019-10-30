@@ -36,6 +36,32 @@
 <script type="text/javascript" src="<%=path %>/js/jquery-latest.js"></script>
 <!-- CreateGroup Js -->
 <script type="text/javascript" src="<%=path %>/js/my_info.js"></script>
+<script type="text/javascript">
+    function edit_input() {
+        var btn = document.getElementById("edit");
+        var title = document.getElementById("title");
+        var content = document.getElementById("content");
+        var string = "sds";
+        if (btn.getAttribute('value') === "编辑") {
+            btn.setAttribute("value", "复原");
+            title.removeAttribute("readOnly");
+            title.style.border = "0.5px solid #808080";
+            content.removeAttribute("readOnly");
+            content.style.border = "0.5px solid #808080";
+           
+        } else {
+            title.value = "title";
+            content.value = "content";
+            content.setAttribute("value", "content");
+            btn.setAttribute("value", "编辑");
+            title.setAttribute("readOnly", 'true');
+            title.style.border = "0.5px solid #ffffff";
+            content.setAttribute("readOnly", 'true');
+            content.style.border = "0.5px solid #ffffff";
+        }
+    }
+</script>
+
 <% Teacher tea = null;
     if (session.getAttribute("teacher") == null) {
     	response.sendRedirect(basePath+"stu/Login.jsp");
