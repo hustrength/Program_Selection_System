@@ -55,6 +55,14 @@
             tab.style.border = "0.5px solid #ffffff";
         }
     }
+    
+    function ResetBtn() {
+    	var btn = document.getElementById("edit");
+    	var tab = GetTabEle();
+    	btn.setAttribute("value", "编辑");
+    	tab.setAttribute("readOnly", 'true');
+        tab.style.border = "0.5px solid #ffffff";
+    }
 </script>
 
 <div id="wrapper">
@@ -138,13 +146,13 @@
                                         </div>
                                         <div class="panel-body">
                                             <ul class="nav nav-tabs">
-                                                <li class="active"><a href="#home1" data-toggle="tab">简介</a>
+                                                <li class="active"><a href="#home1" data-toggle="tab" onclick="ResetBtn()">简介</a>
                                                 </li>
-                                                <li class=""><a href="#profile1" data-toggle="tab">背景</a>
+                                                <li class=""><a href="#profile1" data-toggle="tab" onclick="ResetBtn()">背景</a>
                                                 </li>
-                                                <li class=""><a href="#messages1" data-toggle="tab">详情</a>
+                                                <li class=""><a href="#messages1" data-toggle="tab" onclick="ResetBtn()">详情</a>
                                                 </li>
-                                                <li class=""><a href="#settings1" data-toggle="tab">其他要求</a>
+                                                <li class=""><a href="#settings1" data-toggle="tab" onclick="ResetBtn()">其他要求</a>
                                                 </li>
                                             </ul>
                                             <div class="tab-content">
