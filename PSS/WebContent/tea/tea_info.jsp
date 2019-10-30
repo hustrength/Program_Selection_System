@@ -118,7 +118,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="alert alert-success">
-                                <div style="width:60px; align:right">
+                                <div style="width:240px; align:right">
                                 <strong>姓名：</strong><%=tea.getTname() %></div>
                             </div>
                         </div>
@@ -142,7 +142,7 @@
                         <div class="panel-heading">
                             登录密码修改
                         </div>
-                        <div class="form-group" style="margin-left:16px; margin-right:20px; margin-top:20px">
+                        <div class="form-group" style="margin-left:16px; margin-right:20px; margin-top:0px">
                             <label>请输入初始密码</label>
                             <input class="form-control" type="password" id="password_origin" name="password_origin" 
                             required="required" oninput="checkOriginPassword('')"><!--  这里和学生端一样-->

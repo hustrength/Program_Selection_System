@@ -70,6 +70,7 @@
                 <li>
                     <a class="active-menu" href="<%=teaPath %>tea_main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
                 </li>
+<<<<<<< HEAD
                 <li>
                     <a><i class="fa fa-sitemap"></i> 课题信息<span class="fa arrow"></a>
                     <ul class="nav nav-second-level">
@@ -80,6 +81,11 @@
                                 <a href="<%=teaPath %>project_info_tea.jsp">查看题目信息</a><!--连接到发布题目信息jsp，自动创建一个新的题目信息数据结构  -->
                             </li>
                         </ul>
+=======
+               
+                <li>
+                    <a href="<%=teaPath %>project_info_tea.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
+>>>>>>> 996d9c688413e1ea30a1a81455af0e7f36d1b27d
                 </li>
                 <li>
                     <a href="<%=teaPath %>tea_group.jsp"><i class="fa fa-users"></i> 学生组队信息</a>
