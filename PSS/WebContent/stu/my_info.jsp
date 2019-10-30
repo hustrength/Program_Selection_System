@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,com.pss.user.Student" pageEncoding="utf-8" %>
+<%@ page language="java" import="java.util.*,com.pss.user.*,com.pss.dao.*" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -22,13 +22,7 @@
     <link href="<%=path %>/assets/css/main.css" rel="stylesheet"/>
 </head>
 <body>
-<% Student stu = null;
-    if (session.getAttribute("student") == null) {
-        stu = new Student("U1", "学生1号", "0", "男", "CS1705", "组1", "组长", 0);
-    } else {
-        stu = (Student) session.getAttribute("student");
-    }
-%>
+
 <!-- JS Scripts-->
 <!-- jQuery Js -->
 <script src="<%=path %>/assets/js/jquery-1.10.2.js"></script>
@@ -58,58 +52,59 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                     <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
-                <ul class="dropdown-menu dropdown-messages">
+               <ul class="dropdown-menu dropdown-messages">
+                    <%
+
+                   Student stu=null;
+                   stu = (Student) session.getAttribute("student");
+                   if(stu==null){
+                	   response.sendRedirect(basePath+"stu/Login.jsp");
+                   }
+                   String leader_sno=stu.getSNo();
+                   if("队长".equals(stu.getSposition())){
+                   String applicant=null;
+                   Apply apply = null;
+                   DaoApply list_all_apply = new DaoApply();
+                   List<Apply> list_apply = list_all_apply.listApplybyGname(stu.getSgroup());
+                   Iterator<Apply> it_apply = list_apply.iterator();
+                   
+                   while (it_apply.hasNext()) {
+                       apply = it_apply.next();
+                       int status = apply.getStatus();
+                       if (status== 0) {
+                    	   applicant=apply.getApplicant().getSNo();
+                   %>
+
                     <li>
-                        <a href="#">
+                        
                             <div>
-                                <strong>张三</strong>
+                                <strong><%=apply.getApplicant().getSname() %>
+                                </strong>
                                 <span class="pull-right text-muted">
-                                        <em>今天</em>
+                                        <em></em>
                                     </span>
                             </div>
                             <div style="display:flex; margin-top:3px">
                                 <div style="margin-top:5px">申请加入你的团队</div>
-                                <input type="button" value="同意" class="btn btn-info btn-sm" style="margin-left:40px">
+                               <input type="button" value="同意" class="btn btn-info btn-sm" style="margin-left:40px" onclick="agree('<%=applicant%>')">
                             </div>
-                        </a>
+                       
                     </li>
                     <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <strong>李四</strong>
-                                <span class="pull-right text-muted">
-                                        <em>今天</em>
-                                    </span>
-                            </div>
-                            <div style="display:flex; margin-top:3px">
-                                <div style="margin-top:5px">申请加入你的团队</div>
-                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <strong>王五</strong>
-                                <span class="pull-right text-muted">
-                                        <em>今天</em>
-                                    </span>
-                            </div>
-                            <div style="display:flex; margin-top:3px">
-                                <div style="margin-top:5px">申请加入你的团队</div>
-                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
+                    <%
+                            }
+                        }
+                   
+                    %>
                     <li>
                         <a class="text-center" href="#">
                             <strong>读取全部消息</strong>
                             <i class="fa fa-angle-right"></i>
                         </a>
                     </li>
+                     <%
+                   }
+                %>
                 </ul>
                 <!-- /.dropdown-messages -->
             </li>

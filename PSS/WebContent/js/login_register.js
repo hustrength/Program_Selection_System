@@ -55,6 +55,8 @@ function checkPassword() {
 
 function commitForm_signin(r) {
 	var status = document.getElementById("status").value;
+	var login="stu/main.jsp";
+	if("tea"==status) login="tea/tea_main.jsp";
 	$.ajax({
 		 url: "servlet/serDoLogin?status="+status,
         type:"post",
@@ -72,10 +74,10 @@ function commitForm_signin(r) {
         		alert('密码错误');
         	}
         	else {
-        		
-        		$("#form_login").attr("action","stu/main.jsp");
+        		    $("#form_login").attr("action",login);
+        	
         	}
-            console.log(1);
+           
         }
     })
 }

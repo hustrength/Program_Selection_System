@@ -56,8 +56,8 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                     <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
-                <ul class="dropdown-menu dropdown-messages">
-                  <%
+                 <ul class="dropdown-menu dropdown-messages">
+                    <%
 
                    Student stu=null;
                    stu = (Student) session.getAttribute("student");
@@ -78,8 +78,10 @@
                        if (status== 0) {
                     	   applicant=apply.getApplicant().getSNo();
                    %>
+
                     <li>
-                         <div>
+                        
+                            <div>
                                 <strong><%=apply.getApplicant().getSname() %>
                                 </strong>
                                 <span class="pull-right text-muted">
@@ -96,6 +98,7 @@
                     <%
                             }
                         }
+                   
                     %>
                     <li>
                         <a class="text-center" href="#">
@@ -103,6 +106,9 @@
                             <i class="fa fa-angle-right"></i>
                         </a>
                     </li>
+                     <%
+                   }
+                %>
                 </ul>
                 <!-- /.dropdown-messages -->
             </li>

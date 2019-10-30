@@ -47,67 +47,62 @@
                 </button>
                 <a class="navbar-brand" href="main.jsp">学生选题信息管理系统</a>
             </div>
+             <ul class="dropdown-menu dropdown-messages">
+             <%
 
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-messages">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>张三</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>今天</em>
+                   Student stu=null;
+                   stu = (Student) session.getAttribute("student");
+                   if(stu==null){
+                	   response.sendRedirect(basePath+"stu/Login.jsp");
+                   }
+                   String leader_sno=stu.getSNo();
+                   if("队长".equals(stu.getSposition())){
+                   String applicant=null;
+                   Apply apply = null;
+                   DaoApply list_all_apply = new DaoApply();
+                   List<Apply> list_apply = list_all_apply.listApplybyGname(stu.getSgroup());
+                   Iterator<Apply> it_apply = list_apply.iterator();
+                   
+                   while (it_apply.hasNext()) {
+                       apply = it_apply.next();
+                       int status = apply.getStatus();
+                       if (status== 0) {
+                    	   applicant=apply.getApplicant().getSNo();
+                   %>
+
+                    <li>
+                        
+                            <div>
+                                <strong><%=apply.getApplicant().getSname() %>
+                                </strong>
+                                <span class="pull-right text-muted">
+                                        <em></em>
                                     </span>
-                                </div>
-                                <div style="display:flex; margin-top:3px">
-                                    <div style="margin-top:5px">申请加入你的团队</div>
-                                    <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>李四</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>今天</em>
-                                    </span>
-                                </div>
-                                <div style="display:flex; margin-top:3px">
-                                    <div style="margin-top:5px">申请加入你的团队</div>
-                                    <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>王五</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>今天</em>
-                                    </span>
-                                </div>
-                                <div style="display:flex; margin-top:3px">
-                                    <div style="margin-top:5px">申请加入你的团队</div>
-                                    <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>读取全部消息</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-messages -->
-                </li>
+                            </div>
+                            <div style="display:flex; margin-top:3px">
+                                <div style="margin-top:5px">申请加入你的团队</div>
+                               <input type="button" value="同意" class="btn btn-info btn-sm" style="margin-left:40px" onclick="agree('<%=applicant%>')">
+                            </div>
+                       
+                    </li>
+                    <li class="divider"></li>
+                    <%
+                            }
+                        }
+                   
+                    %>
+                    <li>
+                        <a class="text-center" href="#">
+                            <strong>读取全部消息</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                     <%
+                   }
+                %>
+                </ul>
+               
+                  
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
@@ -122,7 +117,7 @@
                     <!-- /.dropdown-user -->
                 </li>
                 <!-- /.dropdown -->
-            </ul>
+          
         </nav>
         <!--/. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
@@ -153,7 +148,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            创建团队 <small>巴拉巴拉</small>
+                            创建团队 <small></small>
                         </h1>
                     </div>
                 </div>

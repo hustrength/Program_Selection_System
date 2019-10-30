@@ -70,20 +70,26 @@ public class serDoLogin extends HttpServlet {
 			if(request.getParameter("status")!=null)
 				status = request.getParameter("status");
 			if(status.equals("tea")){//老师登录
-				Teacher tea = new Teacher(username,null,password);
-				DaoTea logint = new DaoTea();
-				tea = logint.loginTea(tea);
-				if(tea!=null){
-					session.setAttribute("teacher", tea);
-                    String text="1";
-					response.getWriter().print(text); 
-				//	response.sendRedirect("/PSS/tea/teacher.jsp");
+				Teacher tea = null;
+				DaoTea daotea = new DaoTea();
+				String result="-1";
+				tea = daotea.querybyid(username);
+				if(tea==null){
+					result="0";
 				}else{
-                    String text="0";
-					
-					response.getWriter().print(text); 
-				//	response.setHeader("refresh","2;url=/Ten/tea/teaLogin.jsp");
+                    if(password.equals(tea.getTpassword())){
+                    	result="2";
+                    	if(session.getAttribute("teacher")!=null){
+				    		session.removeAttribute("teacher");
+				    	}
+						session.setAttribute("teacher",tea);
+                    }
+                    else{
+    				    result="1";
+    				    
+    				    }
 				}
+				response.getWriter().print(result); 
 			}else if(status.equals("stu")){	//学生登录
 				
 				Student stu = null;

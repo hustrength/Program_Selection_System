@@ -2,7 +2,7 @@
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-    String teaMainPath = path + "/tea/";
+    String teaPath = path + "/tea/";
 %>
 
 <!DOCTYPE html>
@@ -94,9 +94,7 @@
                     </ul>
                     <!-- /.dropdown-messages -->
                 </li>
-                <!-- /.dropdown -->
-                <!-- /.dropdown -->
-                <!-- /.dropdown -->
+               
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -121,17 +119,17 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
-                    <a href="<%=teaMainPath %>tea_main.jsp"><i class="fa fa-desktop"></i> 选题通知</a>
+                    <a href="<%=teaPath %>tea_main.jsp"><i class="fa fa-desktop"></i> 选题通知</a>
                 </li>
               
                 <li>
-                    <a href="<%=teaMainPath %>project_info_tea.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
+                    <a href="<%=teaPath %>project_info_tea.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
                 </li>
                 <li>
-                    <a href="<%=teaMainPath %>group_info.jsp"><i class="fa fa-users"></i> 学生组队信息</a>
+                    <a href="<%=teaPath %>tea_group.jsp.jsp"><i class="fa fa-users"></i> 学生组队信息</a>
                 </li>
                 <li>
-                    <a href="<%=teaMainPath %>tea_info.jsp"><i class="fa fa-user"></i> 教师个人信息</a>
+                    <a href="<%=teaPath %>tea_info.jsp"><i class="fa fa-user"></i> 教师个人信息</a>
                 </li>
                 <li>
                     <a href="empty.html"><i class="fa fa-file"></i> Empty Page</a>

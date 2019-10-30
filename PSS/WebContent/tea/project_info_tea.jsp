@@ -2,7 +2,7 @@
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-    String teaMainPath = path + "/tea/";
+    String teaPath = path + "/tea/";
 %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -45,68 +45,20 @@
         </div>
 
         <ul class="nav navbar-top-links navbar-right">
+            
+            <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
-                <ul class="dropdown-menu dropdown-messages">
-                    <li>
-                        <a href="#">
-                            <div>
-                                <strong>张三</strong>
-                                <span class="pull-right text-muted">
-                                        <em>今天</em>
-                                    </span>
-                            </div>
-                            <div style="display:flex; margin-top:3px">
-                                <div style="margin-top:5px">申请加入你的团队</div>
-                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
-                            </div>
-                        </a>
-                    </li>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="<%=teaPath %>tea_info.jsp"><i class="fa fa-user fa-fw"></i> 个人信息</a>
                     <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <strong>李四</strong>
-                                <span class="pull-right text-muted">
-                                        <em>今天</em>
-                                    </span>
-                            </div>
-                            <div style="display:flex; margin-top:3px">
-                                <div style="margin-top:5px">申请加入你的团队</div>
-                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <strong>王五</strong>
-                                <span class="pull-right text-muted">
-                                        <em>今天</em>
-                                    </span>
-                            </div>
-                            <div style="display:flex; margin-top:3px">
-                                <div style="margin-top:5px">申请加入你的团队</div>
-                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a class="text-center" href="#">
-                            <strong>读取全部消息</strong>
-                            <i class="fa fa-angle-right"></i>
-                        </a>
+                    <li><a href="<%=basePath%>stu/Login.jsp"><i class="fa fa-sign-out fa-fw"></i> 注销</a>
                     </li>
                 </ul>
-                <!-- /.dropdown-messages -->
+                <!-- /.dropdown-user -->
             </li>
-            
-            </li>
-            <!-- /.dropdown -->
         </ul>
     </nav>
     <!--/. NAV TOP  -->
@@ -114,22 +66,22 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
-                    <a href="<%=teaMainPath %>tea_main.jsp"><i class="fa fa-desktop"></i> 选题通知</a>
+                    <a href="<%=teaPath %>tea_main.jsp"><i class="fa fa-desktop"></i> 选题通知</a>
                 </li>
               
                 <li>
-                    <a class="active-menu" href="<%=teaMainPath %>project_info_tea.jsp"><i class="fa fa-sitemap"></i> 课题信息<span class="fa arrow"></a>
+                    <a class="active-menu" href="<%=teaPath %>project_info_tea.jsp"><i class="fa fa-sitemap"></i> 课题信息<span class="fa arrow"></a>
                     <ul class="nav nav-second-level">
                             <li>
-                                <a href="<%=teaMainPath %>project_release.jsp">发布题目信息</a><!--连接到发布题目信息jsp，自动创建一个新的题目信息数据结构  -->
+                                <a href="<%=teaPath %>project_release.jsp">发布题目信息</a><!--连接到发布题目信息jsp，自动创建一个新的题目信息数据结构  -->
                             </li>
                         </ul>
                 </li>
                 <li>
-                    <a href="<%=teaMainPath %>group_info.jsp"><i class="fa fa-users"></i> 学生组队信息</a>
+                    <a href="<%=teaPath %>tea_group.jsp"><i class="fa fa-users"></i> 学生组队信息</a>
                 </li>
                 <li>
-                    <a href="<%=teaMainPath %>tea_info.jsp"><i class="fa fa-user"></i> 教师个人信息</a>
+                    <a href="<%=teaPath %>tea_info.jsp"><i class="fa fa-user"></i> 教师个人信息</a>
                 </li>
                 <li>
                     <a href="empty.html"><i class="fa fa-file"></i> Empty Page</a>

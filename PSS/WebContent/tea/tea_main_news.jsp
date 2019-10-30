@@ -1,8 +1,8 @@
-<%@ page language="java" import="java.util.*,com.pss.user.Student" pageEncoding="utf-8" %>
+<%@ page language="java" import="java.util.*,com.pss.user.*,com.pss.dao.*" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-    String teaMainPath = path + "/tea/";
+    String teaPath = path + "/tea/";
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -49,13 +49,13 @@
 
 </head>
 <body>
-<% Student stu = null;
-    if (session.getAttribute("student") == null) {
-        stu = new Student("U1", "学生1号", "0", "男", "CS1705", "组1", "组长", 0);
+<% Teacher tea = null;
+    if (session.getAttribute("teacher") == null) {
+    	response.sendRedirect(basePath+"stu/Login.jsp");
     } else {
-        stu = (Student) session.getAttribute("student");
+        tea = (Teacher) session.getAttribute("teacher");
     }
-%><!-- 不太行，老师不能登陆了进去发现没有给个新的 -->
+%>
 <!-- /. WRAPPER  -->
 <!-- JS Scripts-->
 <!-- jQuery Js -->
@@ -92,74 +92,22 @@ $(document).ready(function(){
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                     <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
-                <ul class="dropdown-menu dropdown-messages">
-                    <li>
-                        <a href="#">
-                            <div>
-                                <strong>张三</strong>
-                                <span class="pull-right text-muted">
-                                        <em>今天</em>
-                                    </span>
-                            </div>
-                            <div style="display:flex; margin-top:3px">
-                                <div style="margin-top:5px">申请加入你的团队</div>
-                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <strong>李四</strong>
-                                <span class="pull-right text-muted">
-                                        <em>今天</em>
-                                    </span>
-                            </div>
-                            <div style="display:flex; margin-top:3px">
-                                <div style="margin-top:5px">申请加入你的团队</div>
-                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <strong>王五</strong>
-                                <span class="pull-right text-muted">
-                                        <em>今天</em>
-                                    </span>
-                            </div>
-                            <div style="display:flex; margin-top:3px">
-                                <div style="margin-top:5px">申请加入你的团队</div>
-                                <button class="btn btn-info btn-sm" style="margin-left:40px">同意</button>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a class="text-center" href="#">
-                            <strong>读取全部消息</strong>
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.dropdown-messages -->
-            </li>
+                 <ul class="nav navbar-top-links navbar-right">
             
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
-                
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="<%=teaMainPath %>tea_info.jsp"><i class="fa fa-user fa-fw"></i> 个人信息</a>
+                    <li><a href="<%=teaPath %>tea_info.jsp"><i class="fa fa-user fa-fw"></i> 个人信息</a>
                     <li class="divider"></li>
                     <li><a href="<%=basePath%>stu/Login.jsp"><i class="fa fa-sign-out fa-fw"></i> 注销</a>
                     </li>
                 </ul>
+                <!-- /.dropdown-user -->
+            </li>
+        </ul>
                 <!-- /.dropdown-user -->
             </li>
             <!-- /.dropdown -->
@@ -171,7 +119,7 @@ $(document).ready(function(){
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
-                    <a href="<%=teaMainPath %>tea_main.jsp"><i class="fa fa-desktop"></i> 选题通知<span class="fa arrow"></a>
+                    <a href="<%=teaPath %>tea_main.jsp"><i class="fa fa-desktop"></i> 选题通知<span class="fa arrow"></a>
                     
                 </li>
                 <!--二级页面  
@@ -203,17 +151,15 @@ $(document).ready(function(){
                         </ul>
                     </li>-->
                 <li>
-                    <a href="<%=teaMainPath %>project_info_tea.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
+                    <a href="<%=teaPath %>project_info_tea.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
                 </li>
                 <li>
-                    <a href="<%=teaMainPath %>group_info.jsp"><i class="fa fa-users"></i> 学生组队信息</a>
+                    <a href="<%=teaPath %>tea_group.jsp"><i class="fa fa-users"></i> 学生组队信息</a>
                 </li>
                 <li>
-                    <a href="<%=teaMainPath %>tea_info.jsp"><i class="fa fa-user"></i> 教师个人信息</a>
+                    <a href="<%=teaPath %>tea_info.jsp"><i class="fa fa-user"></i> 教师个人信息</a>
                 </li>
-                <li>
-                    <a href="empty.html"><i class="fa fa-file"></i> Empty Page</a>
-                </li>
+               
             </ul>
         </div>
     </nav>
@@ -237,7 +183,7 @@ $(document).ready(function(){
         <button id="showtext">确认提交并返回</button>
         
         <!-- /.放弃修改直接返回tea_main.jsp-->
-        <a href="<%=teaMainPath %>tea_main.jsp">
+        <a href="<%=teaPath %>tea_main.jsp">
         <button>放弃修改直接返回</button></a>
 
         <!-- /.其他操作视为放弃修改-->
