@@ -121,7 +121,6 @@ $(document).ready(function(){
                 <li>
                     <a href="<%=teaPath %>tea_main.jsp"><i class="fa fa-desktop"></i> 选题通知</a>
                 </li>
-              
                 <li>
                     <a class="active-menu"><i class="fa fa-sitemap"></i> 课题信息<span class="fa arrow"></a>
                     <ul class="nav nav-second-level">
