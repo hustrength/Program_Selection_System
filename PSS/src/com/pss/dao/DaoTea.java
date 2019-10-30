@@ -20,7 +20,7 @@ public class DaoTea {
 		Teacher tea=null;
 		Connection conn = null;
 		try{
-			String sql = "select * from teacher where TNo=?";
+			String sql = "select * from teacher where TNo=?;";
 			conn=new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setString(1, id);
