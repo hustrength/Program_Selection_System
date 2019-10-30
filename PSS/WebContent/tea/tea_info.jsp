@@ -55,13 +55,7 @@
             <a class="navbar-brand" href="main.jsp">学生选题信息管理系统</a>
         </div>
         <ul class="nav navbar-top-links navbar-right">
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
-                </a>
-                 <ul class="nav navbar-top-links navbar-right">
-            
-            <!-- /.dropdown -->
+           
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -81,7 +75,7 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
-                    <a class="active-menu" href="<%=teaPath %>tea_main.jsp"><i class="fa fa-sitemap"></i> 选题通知<span class="fa arrow"></a>
+                    <a  href="<%=teaPath %>tea_main.jsp"><i class="fa fa-sitemap"></i> 选题通知<span class="fa arrow"></a>
                     
                 </li>
                 
@@ -92,7 +86,7 @@
                     <a href="<%=teaPath %>tea_group.jsp"><i class="fa fa-users"></i> 学生组队信息</a>
                 </li>
                 <li>
-                    <a href="<%=teaPath %>tea_info.jsp"><i class="fa fa-user"></i> 教师个人信息</a>
+                    <a class="active-menu" href="<%=teaPath %>tea_info.jsp"><i class="fa fa-user"></i> 教师个人信息</a>
                 </li>
                
             </ul>

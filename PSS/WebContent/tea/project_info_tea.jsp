@@ -83,9 +83,7 @@
                 <li>
                     <a href="<%=teaPath %>tea_info.jsp"><i class="fa fa-user"></i> 教师个人信息</a>
                 </li>
-                <li>
-                    <a href="empty.html"><i class="fa fa-file"></i> Empty Page</a>
-                </li>
+               
             </ul>
         </div>
     </nav>
@@ -95,7 +93,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        可选课题 <small>巴拉巴拉</small>
+                        可选课题 <small></small>
                     </h1>
                 </div>
             </div>
