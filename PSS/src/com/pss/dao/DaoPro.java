@@ -102,4 +102,29 @@ public class DaoPro {
 		return rs;
 		
 	}
+public int insertProject(Project pro){
+		
+		int rs = 0;
+		try{
+			String sql = "insert into project(Pname,Pmaxnum,Pselected,Pavailable,Introduction,"
+					+ "Background,Info,Other) values(?,?,?,?,?,?,?);";
+			Connection conn = new Conn().getConn();
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setString(1, pro.getPname());
+			pst.setInt(2,pro.getPmaxnum());
+			pst.setInt(3,pro.getPselected());
+			pst.setInt(4,pro.getPavailable());
+			pst.setString(5, pro.getIntroduction());
+			pst.setString(6, pro.getBackground());
+			pst.setString(7, pro.getInfo());
+			pst.setString(8, pro.getOther());
+			
+			rs = pst.executeUpdate();
+			if(rs!=0){
+				System.out.println("insert over!");
+			}
+		}catch(Exception e){e.printStackTrace();}
+		return rs;
+		
+	}
 }

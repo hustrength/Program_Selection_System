@@ -93,6 +93,16 @@ public class Project {
 		this.Info=info;
 		this.Other=other;
 	}
+	public Project(String pname,int pmaxnum,int pselected,int pavailable,String intro,String bg,String info,String other){
+		this.Pname=pname;
+		this.Pmaxnum=pmaxnum;
+		this.Pselected=pselected;
+		this.Pavailable=pavailable;
+		this.Introduction=intro;
+		this.Background=bg;
+		this.Info=info;
+		this.Other=other;
+	}
 	public Project(int pno,String pname,int pmaxnum,int pselected,int pavailable){
 		this.PNo=pno;
 		this.Pname=pname;

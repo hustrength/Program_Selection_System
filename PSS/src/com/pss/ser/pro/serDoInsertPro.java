@@ -7,9 +7,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.pss.dao.DaoGPS;
 import com.pss.dao.DaoPro;
+import com.pss.dao.DaoStu;
+import com.pss.user.GPS;
 import com.pss.user.Project;
+import com.pss.user.Student;
 
 public class serDoInsertPro extends HttpServlet {
 
@@ -55,7 +60,31 @@ public class serDoInsertPro extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		response.setContentType("text/html;charset=utf-8");	
+		HttpSession session = request.getSession(); 
+		PrintWriter out = response.getWriter();
+		int rs;
+		DaoPro insert = new DaoPro();
+		Project pro=null;
+		String act=request.getParameter("action");
+		if("create".equals(act)){
+			//´´½¨¿ÎÌâ
+			String pname = request.getParameter("Pname");
+			
+			int pmaxnum = Integer.parseInt(request.getParameter("Pmaxnum"));
+			String intro = request.getParameter("Intro");
+			String bg = request.getParameter("Bg");
+			String info = request.getParameter("Info");
+			String other = request.getParameter("Other");
+			pro = new Project(pname,pmaxnum,0,pmaxnum,intro,bg,info,other);
+			rs=insert.insertProject(pro);
+			if(rs==0){
+				response.getWriter().print("fail");
+			}
+			else{
+				response.getWriter().print("success");
+			}
+		}
 	}
 
 }
