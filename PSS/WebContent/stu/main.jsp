@@ -162,8 +162,14 @@
             <div class="row">
                 <div class="col-sm-12 col-xs-12">
                     <div class="panel panel-default">
+                    <%
+                      Notification noti=null;
+                      DaoNoti daonoti = new DaoNoti();
+                      noti=daonoti.query();
+                     
+                    %>
                         <div class="panel-heading">
-                            <div class="function"><p>[通知]选题系统已开放</p></div>
+                            <div class="function"><p><%=noti.getTitle() %></p></div>
                         </div>
                         <div class="box">
                             <div class="info">
@@ -175,35 +181,10 @@
                                         <td><h2></h2></td>
                                     </tr>
                                     <tr>
-                                        <td>各学院及相关单位:</td>
-                                    </tr>
-                                    <tr>
-                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根据学校教学安排，本学期全校任选课定于6月20日（星期五）
-                                            正式开课，选课工作将从6月16日开始。现将有关事项通知如下：
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一、选课时间：6月16日----6月20日</td>
-                                    </tr>
-                                    <tr>
-                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;二、学生登录选课信息管理系统后进入学生选课进行选课。学生选课前请认真阅读选课公告，再进行“网上选课”。</td>
-                                    </tr>
-                                    <tr>
-                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;三、教师可登陆选课信息管理系统后进入选课管理增删课程，
-                                            6月15日14:00之后各位教师及学生登录教务处网站查询自己申报的课程是否停开。
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;四、选课退课均须在选课时间内完成，选课结束后不再进行补退选，请学生注意选课时间。
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;五、请各学院通知并组织学生进行选课，同时请各学院及相关单位通知任课教师按时上课。教务处将组织相关人员对上课情况进行不定期的检查。</td>
-                                    </tr>
-                                    <tr>
-                                        <td align="right">2017-06-10</td>
-                                    </tr>
+                                    <td>
+                                    <%=noti.getContent() %>
+                                    </td>   
+                                     
                                 </table>
                             </div>
                         </div>

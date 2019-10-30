@@ -14,20 +14,7 @@ import com.pss.user.Project;
 
 public class serDoUpdatePro extends HttpServlet {
 
-	/**
-	 * Constructor of the object.
-	 */
-	public serDoUpdatePro() {
-		super();
-	}
-
-	/**
-	 * Destruction of the servlet. <br>
-	 */
-	public void destroy() {
-		super.destroy(); // Just puts "destroy" string in log
-		// Put your code here
-	}
+	
 
 	/**
 	 * The doGet method of the servlet. <br>
@@ -65,7 +52,7 @@ public class serDoUpdatePro extends HttpServlet {
 		Project pro=null;
 		String act=request.getParameter("action");
 		if("update".equals(act)){
-			//创建课题
+			//更新课题
 			int pno = Integer.parseInt(request.getParameter("PNo"));
 			String pname = request.getParameter("Pname");
 			int pmaxnum = Integer.parseInt(request.getParameter("Pmaxnum"));

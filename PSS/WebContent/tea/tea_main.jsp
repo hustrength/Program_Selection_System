@@ -7,6 +7,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <base href="<%=basePath%>">
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>学生选题信息管理系统——教师界面</title>
@@ -36,7 +37,7 @@
 <script src="<%=path %>/assets/js/morris/morris.js"></script>
 <!-- Custom Js -->
 <script src="<%=path %>/assets/js/custom-scripts.js"></script>
-
+<script type="text/javascript" src="<%=path %>/js/tea_main.js"></script>
 <script type="text/javascript">
     function edit_input() {
         var btn = document.getElementById("edit");
@@ -123,21 +124,21 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        关于本学期软件工程选题相关事宜安排的通知 <small>巴拉巴拉</small>
+                        关于本学期软件工程选题相关事宜安排的通知 <small></small>
                     </h1>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12 col-xs-12">
                     <div class="panel panel-default">
-                        <form>
+                        <form id="form_noti">
                             <div class="panel-heading">
-                                <input id="title" type="text" value="title" readonly="readonly"
+                                <input id="title" name="title" type="text" value="title" readonly="readonly"
                                        style="border:0.5px solid #ffffff;font-size:16px;font-weight:700;padding:15px 10px 15px 10px;margin-bottom:-20px">
                             </div>
                             <hr>
                             <div>
-                                <input id="content" value="content" readonly="readonly" style="border:0.5px solid #ffffff;padding:15px 10px 15px 10px;margin-left:10px">
+                                <input id="content" name="content" value="content" readonly="readonly" style="border:0.5px solid #ffffff;padding:15px 10px 15px 10px;margin-left:10px">
                             </div>
                             <hr>
                             <div style="display:flex">
@@ -162,7 +163,7 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">取消
                                                 </button>
-                                                <input type="button" class="btn btn-primary" value="确认" onclick="">
+                                                <input type="button" class="btn btn-primary" value="确认" onclick="update_noti()">
                                             </div>
                                         </div>
                                     </div>
