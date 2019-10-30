@@ -70,10 +70,13 @@
                 </li>
               
                 <li>
-                    <a class="active-menu" href="<%=teaPath %>project_info_tea.jsp"><i class="fa fa-sitemap"></i> 课题信息<span class="fa arrow"></a>
+                    <a class="active-menu"><i class="fa fa-sitemap"></i> 课题信息<span class="fa arrow"></a>
                     <ul class="nav nav-second-level">
                             <li>
-                                <a href="<%=teaPath %>project_release.jsp">发布题目信息</a><!--连接到发布题目信息jsp，自动创建一个新的题目信息数据结构  -->
+                                <a href="<%=teaPath %>project_release.jsp">发布课题</a><!--连接到发布题目信息jsp，自动创建一个新的题目信息数据结构  -->
+                            </li>
+                            <li>
+                                <a href="<%=teaPath %>project_info_tea.jsp">查看课题</a><!--连接到查看题目信息jsp，自动创建一个新的题目信息数据结构  -->
                             </li>
                         </ul>
                 </li>
@@ -83,7 +86,6 @@
                 <li>
                     <a href="<%=teaPath %>tea_info.jsp"><i class="fa fa-user"></i> 教师个人信息</a>
                 </li>
-               
             </ul>
         </div>
     </nav>
@@ -119,37 +121,38 @@
                                 </li>
                                 <li class=""><a href="#settings1" data-toggle="tab">其他要求</a>
                                 </li>
-                                <div class="btn-group" style="float:right;">
-											  <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">修改操作 <span class="caret"></span></button>
-											  <ul class="dropdown-menu">
-												<li><a href="#">修改课题信息</a></li><!-- 点击这个链接的同时你需要跳转至project_release.jsp，在project_release.jsp 中获取该题目的所有信息，同时填充相应的空格-->
-												<li><a href="#">重置课题信息</a></li><!-- 点击这个链接的同时你需要删除这个题目的除课题名字之外的所有信息，同时转到project_release.jsp获取该题目的题目信息 ，同时填充相应的空格（已经被删除的信息可以不填充）-->
-												<li><a href="#">删除课题</a></li><!-- 点击这个链接的同时你需要删除这个题目的所有信息，其余题目在数据库中自动向前移动，同时刷新当前页面-->						
-											  </ul>
-											</div>
                             </ul>
                             
                             <div class="tab-content">
-                                <div class="tab-pane fade active in" id="home1">
+                                <div class="tab-pane fade active in" id="home1" style="overflow:scroll; height:240px">
                                     
                                     <p>数独（shù dú）是源自18世纪瑞士的一种数学游戏。是一种运用纸、笔进行演算的逻辑游戏。
                                         玩家需要根据9×9盘面上的已知数字，推理出所有剩余空格的数字，
                                         并满足每一行、每一列、每一个粗线宫（3*3）内的数字均含1-9，不重复</p>
                                 </div>
-                                <div class="tab-pane fade" id="profile1">
+                                <div class="tab-pane fade" id="profile1" style="overflow:scroll; height:240px">
                                     
                                     <p>...</p>
                                 </div>
-                                <div class="tab-pane fade" id="messages1">
+                                <div class="tab-pane fade" id="messages1" style="overflow:scroll; height:240px">
                                     
                                     <p>...</p>
                                 </div>
-                                <div class="tab-pane fade" id="settings1">
+                                <div class="tab-pane fade" id="settings1" style="overflow:scroll; height:240px">
                                     
                                     <p>...</p>
                                 </div>
                             </div>
                         </div>
+                        <div class="btn-group" style="float:right; margin-top:20px">
+                                                     <button class="btn btn-primary">修改操作</button>
+									<button data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span class="caret"></span></button>
+									<ul class="dropdown-menu">
+										<li><a href="#">修改课题信息</a></li><!-- 点击这个链接的同时你需要跳转至project_release.jsp，在project_release.jsp 中获取该题目的所有信息，同时填充相应的空格-->
+										<li><a href="#">重置课题信息</a></li><!-- 点击这个链接的同时你需要删除这个题目的除课题名字之外的所有信息，同时转到project_release.jsp获取该题目的题目信息 ，同时填充相应的空格（已经被删除的信息可以不填充）-->
+										<li><a href="#">删除课题</a></li><!-- 点击这个链接的同时你需要删除这个题目的所有信息，其余题目在数据库中自动向前移动，同时刷新当前页面-->						
+									</ul>
+								</div>
                     </div>
                 </div>
                    
@@ -171,36 +174,38 @@
                                 </li>
                                 <li class=""><a href="#settings2" data-toggle="tab">其他要求</a>
                                 </li>
-                                <div class="btn-group" style="float:right;">
-											  <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">修改操作 <span class="caret"></span></button>
-											  <ul class="dropdown-menu">
-												<li><a href="#">修改课题信息</a></li><!-- 点击这个链接的同时你需要跳转至project_release.jsp，在project_release.jsp 中获取该题目的所有信息，同时填充相应的空格-->
-												<li><a href="#">重置课题信息</a></li><!-- 点击这个链接的同时你需要删除这个题目的除课题名字之外的所有信息，同时转到project_release.jsp获取该题目的题目信息 ，同时填充相应的空格（已经被删除的信息可以不填充）-->
-												<li><a href="#">删除课题</a></li><!-- 点击这个链接的同时你需要删除这个题目的所有信息，其余题目在数据库中自动向前移动，同时刷新当前页面-->						
-											  </ul>
-											</div>
+       
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane fade active in" id="home2">
+                                <div class="tab-pane fade active in" id="home2" style="overflow:scroll; height:240px">
                                     <h4>标题</h4>
                                     <p>数独（shù dú）是源自18世纪瑞士的一种数学游戏。是一种运用纸、笔进行演算的逻辑游戏。
                                         玩家需要根据9×9盘面上的已知数字，推理出所有剩余空格的数字，
                                         并满足每一行、每一列、每一个粗线宫（3*3）内的数字均含1-9，不重复</p>
                                 </div>
-                                <div class="tab-pane fade" id="profile2">
+                                <div class="tab-pane fade" id="profile2" style="overflow:scroll; height:240px">
                                     <h4>标题</h4>
                                     <p>...</p>
                                 </div>
-                                <div class="tab-pane fade" id="messages2">
+                                <div class="tab-pane fade" id="messages2" style="overflow:scroll; height:240px">
                                     <h4>...</h4>
                                     <p>...</p>
                                 </div>
-                                <div class="tab-pane fade" id="settings2">
+                                <div class="tab-pane fade" id="settings2" style="overflow:scroll; height:240px">
                                     <h4>...</h4>
                                     <p>...</p>
                                 </div>
                             </div>
                         </div>
+                        <div class="btn-group" style="float:right; margin-top:20px">
+                                                     <button class="btn btn-primary">修改操作</button>
+									<button data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span class="caret"></span></button>
+									<ul class="dropdown-menu">
+										<li><a href="#">修改课题信息</a></li><!-- 点击这个链接的同时你需要跳转至project_release.jsp，在project_release.jsp 中获取该题目的所有信息，同时填充相应的空格-->
+										<li><a href="#">重置课题信息</a></li><!-- 点击这个链接的同时你需要删除这个题目的除课题名字之外的所有信息，同时转到project_release.jsp获取该题目的题目信息 ，同时填充相应的空格（已经被删除的信息可以不填充）-->
+										<li><a href="#">删除课题</a></li><!-- 点击这个链接的同时你需要删除这个题目的所有信息，其余题目在数据库中自动向前移动，同时刷新当前页面-->						
+									</ul>
+								</div>
                     </div>
                 </div>
             </div>
@@ -226,37 +231,39 @@
                                 </li>
                                 <li class=""><a href="#settings3" data-toggle="tab">其他要求</a>
                                 </li>
-                                <div class="btn-group" style="float:right;">
-											  <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">修改操作 <span class="caret"></span></button>
-											  <ul class="dropdown-menu">
-												<li><a href="#">修改课题信息</a></li><!-- 点击这个链接的同时你需要跳转至project_release.jsp，在project_release.jsp 中获取该题目的所有信息，同时填充相应的空格-->
-												<li><a href="#">重置课题信息</a></li><!-- 点击这个链接的同时你需要删除这个题目的除课题名字之外的所有信息，同时转到project_release.jsp获取该题目的题目信息 ，同时填充相应的空格（已经被删除的信息可以不填充）-->
-												<li><a href="#">删除课题</a></li><!-- 点击这个链接的同时你需要删除这个题目的所有信息，其余题目在数据库中自动向前移动，同时刷新当前页面-->						
-											  </ul>
-											</div>
+                               
                             </ul>
-
                             <div class="tab-content">
-                                <div class="tab-pane fade active in" id="home3">
+
+                                <div class="tab-pane fade active in" id="home3" style="overflow:scroll; height:240px">
                                     <h4>标题</h4>
                                     <p>数独（shù dú）是源自18世纪瑞士的一种数学游戏。是一种运用纸、笔进行演算的逻辑游戏。
                                         玩家需要根据9×9盘面上的已知数字，推理出所有剩余空格的数字，
                                         并满足每一行、每一列、每一个粗线宫（3*3）内的数字均含1-9，不重复</p>
                                 </div>
-                                <div class="tab-pane fade" id="profile3">
+                                <div class="tab-pane fade" id="profile3" style="overflow:scroll; height:240px">
                                     <h4>...</h4>
                                     <p>...</p>
                                 </div>
-                                <div class="tab-pane fade" id="messages3">
+                                <div class="tab-pane fade" id="messages3" style="overflow:scroll; height:240px">
                                     <h4>...</h4>
                                     <p>...</p>
                                 </div>
-                                <div class="tab-pane fade" id="settings3">
+                                <div class="tab-pane fade" id="settings3" style="overflow:scroll; height:240px">
                                     <h4>...</h4>
                                     <p>...</p>
                                 </div>
                             </div>
                         </div>
+                                                     <div class="btn-group" style="float:right; margin-top:20px">
+                                                     <button class="btn btn-primary">修改操作</button>
+									<button data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span class="caret"></span></button>
+									<ul class="dropdown-menu">
+										<li><a href="#">修改课题信息</a></li><!-- 点击这个链接的同时你需要跳转至project_release.jsp，在project_release.jsp 中获取该题目的所有信息，同时填充相应的空格-->
+										<li><a href="#">重置课题信息</a></li><!-- 点击这个链接的同时你需要删除这个题目的除课题名字之外的所有信息，同时转到project_release.jsp获取该题目的题目信息 ，同时填充相应的空格（已经被删除的信息可以不填充）-->
+										<li><a href="#">删除课题</a></li><!-- 点击这个链接的同时你需要删除这个题目的所有信息，其余题目在数据库中自动向前移动，同时刷新当前页面-->						
+									</ul>
+								</div>
                     </div>
                 </div>
                 

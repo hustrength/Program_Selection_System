@@ -123,16 +123,21 @@
                 </li>
               
                 <li>
-                    <a href="<%=teaPath %>project_info_tea.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
+                    <a class="active-menu"><i class="fa fa-sitemap"></i> 课题信息<span class="fa arrow"></a>
+                    <ul class="nav nav-second-level">
+                            <li>
+                                <a href="<%=teaPath %>project_release.jsp">发布课题</a><!--连接到发布题目信息jsp，自动创建一个新的题目信息数据结构  -->
+                            </li>
+                            <li>
+                                <a href="<%=teaPath %>project_info_tea.jsp">查看课题</a><!--连接到查看题目信息jsp，自动创建一个新的题目信息数据结构  -->
+                            </li>
+                        </ul>
                 </li>
                 <li>
-                    <a href="<%=teaPath %>tea_group.jsp.jsp"><i class="fa fa-users"></i> 学生组队信息</a>
+                    <a href="<%=teaPath %>tea_group.jsp"><i class="fa fa-users"></i> 学生组队信息</a>
                 </li>
                 <li>
                     <a href="<%=teaPath %>tea_info.jsp"><i class="fa fa-user"></i> 教师个人信息</a>
-                </li>
-                <li>
-                    <a href="empty.html"><i class="fa fa-file"></i> Empty Page</a>
                 </li>
             </ul>
         </div>

@@ -68,43 +68,18 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
-                    <a class="active-menu" href="<%=teaPath %>tea_main.jsp"><i class="fa fa-sitemap"></i> 选题通知<span class="fa arrow"></a>
+                    <a class="active-menu" href="<%=teaPath %>tea_main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
+                </li>
+                <li>
+                    <a><i class="fa fa-sitemap"></i> 课题信息<span class="fa arrow"></a>
                     <ul class="nav nav-second-level">
                             <li>
-                                <a href="<%=teaPath %>tea_main_news.jsp">修改公告</a><!--连接到修改公告jsp  -->
+                                <a href="<%=teaPath %>project_release.jsp">发布题目信息</a><!--连接到发布题目信息jsp，自动创建一个新的题目信息数据结构  -->
+                            </li>
+                            <li>
+                                <a href="<%=teaPath %>project_info_tea.jsp">查看题目信息</a><!--连接到发布题目信息jsp，自动创建一个新的题目信息数据结构  -->
                             </li>
                         </ul>
-                </li>
-                <!--二级页面  
-                <li>
-                        <a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Link<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-
-                                </ul>
-
-                            </li>
-                        </ul>
-                    </li>-->
-                <li>
-                    <a href="<%=teaPath %>project_info_tea.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
                 </li>
                 <li>
                     <a href="<%=teaPath %>tea_group.jsp"><i class="fa fa-users"></i> 学生组队信息</a>
