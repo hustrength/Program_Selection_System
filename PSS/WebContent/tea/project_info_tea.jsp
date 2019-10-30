@@ -34,29 +34,25 @@
 <script src="<%=path %>/assets/js/custom-scripts.js"></script>
 
 <script type="text/javascript">
-    function edit_input() {
-    	var t = $('.nav-tabs .active').text();
-    	alert(t);
-        var btn = document.getElementById("edit");
-        var title = document.getElementById("title");
-        var content = document.getElementById("content");
-        var string = "sds";
-        if (btn.getAttribute('value') === "编辑") {
-            btn.setAttribute("value", "复原");
-            title.removeAttribute("readOnly");
-            title.style.border = "0.5px solid #808080";
-            content.removeAttribute("readOnly");
-            content.style.border = "0.5px solid #808080";
+    function GetTabEle() {
+        var t = $('.nav-tabs li.active');
+        var id = t.children('a').attr('href').substring(1);
+        var div = document.getElementById(id);
+        return div.getElementsByTagName("textarea")[0];
+    }
 
+    function edit_input() {
+        var tab = GetTabEle();
+        var btn = document.getElementById("edit");
+        if (btn.value === "编辑") {
+            btn.value = "复原";
+            tab.removeAttribute("readOnly");
+            tab.style.border = "0.5px solid #808080";
         } else {
-            title.value = "title";
-            content.value = "content";
-            content.setAttribute("value", "content");
+            tab.value = "数独（shù dú）是源自18世纪瑞士的一种数学游戏。是一种运用纸、笔进行演算的逻辑游戏。玩家需要根据9×9盘面上的已知数字，推理出所有剩余空格的数字，并满足每一行、每一列、每一个粗线宫（3*3）内的数字均含1-9，不重复";
             btn.setAttribute("value", "编辑");
-            title.setAttribute("readOnly", 'true');
-            title.style.border = "0.5px solid #ffffff";
-            content.setAttribute("readOnly", 'true');
-            content.style.border = "0.5px solid #ffffff";
+            tab.setAttribute("readOnly", 'true');
+            tab.style.border = "0.5px solid #ffffff";
         }
     }
 </script>
@@ -152,11 +148,13 @@
                                                 </li>
                                             </ul>
                                             <div class="tab-content">
-                                                <div class="tab-pane fade active in" id="home1"
-                                                     style="overflow:scroll; height:240px">
-                                                    <p>数独（shù dú）是源自18世纪瑞士的一种数学游戏。是一种运用纸、笔进行演算的逻辑游戏。
+                                                <div class="tab-pane fade active in" id="home1">
+                                                    <textarea class="col-sm-12" readonly="readonly"
+                                                              style="border:0.5px solid #ffffff;overflow:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
+                                                    数独（shù dú）是源自18世纪瑞士的一种数学游戏。是一种运用纸、笔进行演算的逻辑游戏。
                                                         玩家需要根据9×9盘面上的已知数字，推理出所有剩余空格的数字，
-                                                        并满足每一行、每一列、每一个粗线宫（3*3）内的数字均含1-9，不重复</p>
+                                                        并满足每一行、每一列、每一个粗线宫（3*3）内的数字均含1-9，不重复"
+                                                    </textarea>
                                                 </div>
                                                 <div class="tab-pane fade" id="profile1"
                                                      style="overflow:scroll; height:240px">

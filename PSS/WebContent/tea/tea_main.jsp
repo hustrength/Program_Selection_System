@@ -42,19 +42,16 @@
         var btn = document.getElementById("edit");
         var title = document.getElementById("title");
         var content = document.getElementById("content");
-        var string = "sds";
-        if (btn.getAttribute('value') === "编辑") {
-            btn.setAttribute("value", "复原");
+        if (btn.value === "编辑") {
+            btn.value = "复原";
             title.removeAttribute("readOnly");
             title.style.border = "0.5px solid #808080";
             content.removeAttribute("readOnly");
             content.style.border = "0.5px solid #808080";
-           
         } else {
             title.value = "title";
             content.value = "content";
-            content.setAttribute("value", "content");
-            btn.setAttribute("value", "编辑");
+            btn.value = "编辑";
             title.setAttribute("readOnly", 'true');
             title.style.border = "0.5px solid #ffffff";
             content.setAttribute("readOnly", 'true');
