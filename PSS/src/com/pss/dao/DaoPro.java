@@ -107,7 +107,7 @@ public int insertProject(Project pro){
 		int rs = 0;
 		try{
 			String sql = "insert into project(Pname,Pmaxnum,Pselected,Pavailable,Introduction,"
-					+ "Background,Info,Other) values(?,?,?,?,?,?,?);";
+					+ "Background,Info,Other) values(?,?,?,?,?,?,?,?);";
 			Connection conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setString(1, pro.getPname());
