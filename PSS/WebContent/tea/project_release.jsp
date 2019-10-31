@@ -8,7 +8,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-      <meta charset="utf-8" />
+    <base href="<%=basePath%>">
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>学生选题信息管理系统——教师界面</title>
 	<!-- Bootstrap Styles-->
@@ -30,6 +31,7 @@
     <script src="<%=path %>/assets/js/jquery.metisMenu.js"></script>
       <!-- Custom Js -->
     <script src="<%=path %>/assets/js/custom-scripts.js"></script>
+    <script type="text/javascript" src="<%=path %>/js/project_release.js"></script>
     <div id="wrapper">
         <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
@@ -162,37 +164,35 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form">
+                                    <form role="form" id="form_pro" name="form_pro" method="post">
                                         <div class="form-group">
                                             <label>课题名称</label>
-                                            <input class="form-control">
+                                            <input class="form-control" id="Pname" name ="Pname" >
                                             
                                         </div>
                                         
                                         <div class="form-group">
                                             <label>课题简介</label>
-                                            <textarea class="form-control" rows="3"></textarea>
+                                            <textarea class="form-control" rows="3" id="Intro" name="Intro"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>课题背景</label>
-                                            <textarea class="form-control" rows="3"></textarea>
+                                            <textarea class="form-control" rows="3" id="Bg" name="Bg"></textarea>
+                                        </div>
+                                         <div class="form-group">
+                                            <label>课题信息</label>
+                                            <textarea class="form-control" rows="3" id="Info" name="Info"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>其他要求</label>
-                                            <textarea class="form-control" rows="3"></textarea>
+                                            <textarea class="form-control" rows="3" id="Other" name="Other"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label>Selects</label>
-                                            <select class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
+                                            <label>最多组数</label>
+                                            <input class="form-control" id="Pmaxnum" name="Pmaxnum">
                                         </div>
                                        	<hr>
-                                        <button type="submit" class="btn btn-primary">提交</button><!-- 点击提交按钮之后，需要给学生端所有人发送一条通知  -->
+                                        <button type="submit" class="btn btn-primary" onclick="pro_release()">提交</button>
                                         <button type="reset" class="btn btn-default">重新填写</button>
                                     </form>
                                 </div>
