@@ -135,11 +135,6 @@
                                 </textarea>
                             </div>
                             <hr>
-                            <script>
-                                $.each($("textarea"), function (i, n) {
-                                    $(n).css("height", n.scrollHeight + "px");
-                                })
-                            </script>
                             <div style="width:100%;height:400px" class="textarea" contenteditable="true">
                                 <textarea id="content" name="content" readonly="readonly"
                                           style="border:0.5px solid #ffffff;padding:0px 10px 0px 10px;margin-left:15px;margin-right:10px;width:97.3%;height:400px">content

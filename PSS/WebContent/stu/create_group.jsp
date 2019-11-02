@@ -35,6 +35,15 @@
 <script type="text/javascript" src="<%=path %>/js/jquery-latest.js"></script>
 <!-- CreateGroup Js -->
 <script type="text/javascript" src="<%=basePath %>/js/createGroup.js"></script>
+
+<script>
+function show_remains(){
+	var e = document.getElementById("remained_group");
+	var n = 1;
+	e.innerText="剩余可选组数：" + n.toString();
+}
+</script>
+
 <div id="wrapper">
     <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
@@ -175,7 +184,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>选择课题</label>
-                                                <select id="PNo" name="PNo" class="form-control">
+                                                <select id="PNo" name="PNo" class="form-control"  onchange="show_remains()">
+                                                <option class="input_bt" value="""selected>--请选择--</option>
                                                     <%
                                                         Project pro = null;
                                                         DaoPro listpro = new DaoPro();
@@ -190,6 +200,10 @@
                                                         }
                                                     %>
                                                 </select>
+                                            </div>
+                                            <div style="margin-top:-10px;margin-bottom:10px;font-size:10px">
+                                            <i id="remained_group">&nbsp;
+                                            </i>
                                             </div>
                                             <div class="form-group">
                                                 <label>团队人数</label>

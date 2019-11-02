@@ -49,8 +49,7 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                     <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
-                <%
-
+                    <%
                    Student stu=null;
                    stu = (Student) session.getAttribute("student");
                    if(stu==null){
@@ -70,52 +69,50 @@
                        if (status== 0) {
                     	   applicant=apply.getApplicant().getSNo();
                    %>
-
-                    <li>
-                        
-                            <div>
-                                <strong><%=apply.getApplicant().getSname() %>
-                                </strong>
-                                <span class="pull-right text-muted">
+            <li>
+                <div>
+                    <strong><%=apply.getApplicant().getSname() %>
+                    </strong>
+                    <span class="pull-right text-muted">
                                         <em></em>
                                     </span>
-                            </div>
-                            <div style="display:flex; margin-top:3px">
-                                <div style="margin-top:5px">申请加入你的团队</div>
-                               <input type="button" value="同意" class="btn btn-info btn-sm" style="margin-left:40px" onclick="agree('<%=applicant%>')">
-                            </div>
-                       
-                    </li>
-                    <li class="divider"></li>
-                    <%
-                            }
-                        }
-                   
-                    %>
-                    <li>
-                        <a class="text-center" href="#">
-                            <strong>读取全部消息</strong>
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </li>
-                     <%
-                   }
-                %>
-                </ul>
-                <!-- /.dropdown-user -->
+                </div>
+                <div style="display:flex; margin-top:3px">
+                    <div style="margin-top:5px">申请加入你的团队</div>
+                    <input type="button" value="同意" class="btn btn-info btn-sm" style="margin-left:40px"
+                           onclick="agree('<%=applicant%>')">
+                </div>
             </li>
-            <!-- /.dropdown -->
+            <li class="divider"></li>
+            <%
+                    }
+                }
+            %>
+            <li>
+                <a class="text-center" href="#">
+                    <strong>读取全部消息</strong>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+            <%
+                }
+            %>
+        </ul>
+        <!-- /.dropdown-user -->
+        </li>
+        <!-- /.dropdown -->
         </ul>
     </nav>
     <!--/. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
-                 <li>
-                    <a  href="<%=stuMainPath %>main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
+                <li>
+                    <a href="<%=stuMainPath %>main.jsp"><i class="fa fa-bell"></i> 选题通知</a>
                 </li>
                 <li>
-                    <a class="active-menu" href="<%=stuMainPath %>project_info.jsp"><i class="fa fa-desktop"></i> 课题信息</a>
+                    <a class="active-menu" href="<%=stuMainPath %>project_info.jsp"><i class="fa fa-desktop"></i>
+                        课题信息</a>
                 </li>
                 <li>
                     <a href="<%=stuMainPath %>all_group.jsp"><i class="fa fa-users"></i> 所有团队</a>
@@ -128,9 +125,7 @@
                     <a href="<%=stuMainPath %>my_info.jsp"><i class="fa fa-user"></i> 我的信息</a>
                 </li>
             </ul>
-
         </div>
-
     </nav>
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper">
@@ -144,169 +139,76 @@
             </div>
             <!-- /. ROW  -->
             <div class="row">
-                <div class="col-md-6 col-sm-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            课题一
-                        </div>
-                        <div class="panel-body">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a href="#home1" data-toggle="tab">简介</a>
-                                </li>
-                                <li class=""><a href="#profile1" data-toggle="tab">背景</a>
-                                </li>
-                                <li class=""><a href="#messages1" data-toggle="tab">详情</a>
-                                </li>
-                                <li class=""><a href="#settings1" data-toggle="tab">其他要求</a>
-                                </li>
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane fade active in" id="home1">
-                                    <h4>标题</h4>
-                                    <p>数独（shù dú）是源自18世纪瑞士的一种数学游戏。是一种运用纸、笔进行演算的逻辑游戏。
-                                        玩家需要根据9×9盘面上的已知数字，推理出所有剩余空格的数字，
-                                        并满足每一行、每一列、每一个粗线宫（3*3）内的数字均含1-9，不重复</p>
-                                </div>
-                                <div class="tab-pane fade" id="profile1">
-                                    <h4>标题</h4>
-                                    <p>...</p>
-                                </div>
-                                <div class="tab-pane fade" id="messages1">
-                                    <h4>...</h4>
-                                    <p>...</p>
-                                </div>
-                                <div class="tab-pane fade" id="settings1">
-                                    <h4>...</h4>
-                                    <p>...</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            课题二
-                        </div>
-                        <div class="panel-body">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a href="#home2" data-toggle="tab">简介</a>
-                                </li>
-                                <li class=""><a href="#profile2" data-toggle="tab">背景</a>
-                                </li>
-                                <li class=""><a href="#messages2" data-toggle="tab">详情</a>
-                                </li>
-                                <li class=""><a href="#settings2" data-toggle="tab">其他要求</a>
-                                </li>
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane fade active in" id="home2">
-                                    <h4>标题</h4>
-                                    <p>数独（shù dú）是源自18世纪瑞士的一种数学游戏。是一种运用纸、笔进行演算的逻辑游戏。
-                                        玩家需要根据9×9盘面上的已知数字，推理出所有剩余空格的数字，
-                                        并满足每一行、每一列、每一个粗线宫（3*3）内的数字均含1-9，不重复</p>
-                                </div>
-                                <div class="tab-pane fade" id="profile2">
-                                    <h4>标题</h4>
-                                    <p>...</p>
-                                </div>
-                                <div class="tab-pane fade" id="messages2">
-                                    <h4>...</h4>
-                                    <p>...</p>
-                                </div>
-                                <div class="tab-pane fade" id="settings2">
-                                    <h4>...</h4>
-                                    <p>...</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-sm-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            课题三
-                        </div>
-                        <div class="panel-body">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a href="#home3" data-toggle="tab">简介</a>
-                                </li>
-                                <li class=""><a href="#profile3" data-toggle="tab">背景</a>
-                                </li>
-                                <li class=""><a href="#messages3" data-toggle="tab">详情</a>
-                                </li>
-                                <li class=""><a href="#settings3" data-toggle="tab">其他要求</a>
-                                </li>
-                            </ul>
+                <%
+                    Project pro = null;
+                    DaoPro daopro = new DaoPro();
+                    List<Project> list_pro = daopro.listAllProject();
+                    Iterator<Project> it_pro = list_pro.iterator();
+                    int i = 0;
 
-                            <div class="tab-content">
-                                <div class="tab-pane fade active in" id="home3">
-                                    <h4>标题</h4>
-                                    <p>数独（shù dú）是源自18世纪瑞士的一种数学游戏。是一种运用纸、笔进行演算的逻辑游戏。
-                                        玩家需要根据9×9盘面上的已知数字，推理出所有剩余空格的数字，
-                                        并满足每一行、每一列、每一个粗线宫（3*3）内的数字均含1-9，不重复</p>
-                                </div>
-                                <div class="tab-pane fade" id="profile3">
-                                    <h4>...</h4>
-                                    <p>...</p>
-                                </div>
-                                <div class="tab-pane fade" id="messages3">
-                                    <h4>...</h4>
-                                    <p>...</p>
-                                </div>
-                                <div class="tab-pane fade" id="settings3">
-                                    <h4>...</h4>
-                                    <p>...</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    while (it_pro.hasNext()) {
+                        ++i;
+                        pro = it_pro.next();
+                %>
                 <div class="col-md-6 col-sm-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            课题三
-                        </div>
-                        <div class="panel-body">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a href="#home4" data-toggle="tab">简介</a>
-                                </li>
-                                <li class=""><a href="#profile4" data-toggle="tab">背景</a>
-                                </li>
-                                <li class=""><a href="#messages4" data-toggle="tab">详情</a>
-                                </li>
-                                <li class=""><a href="#settings4" data-toggle="tab">其他要求</a>
-                                </li>
-                            </ul>
-
-                            <div class="tab-content">
-                                <div class="tab-pane fade active in" id="home4">
-                                    <h4>标题</h4>
-                                    <p>数独（shù dú）是源自18世纪瑞士的一种数学游戏。是一种运用纸、笔进行演算的逻辑游戏。
-                                        玩家需要根据9×9盘面上的已知数字，推理出所有剩余空格的数字，
-                                        并满足每一行、每一列、每一个粗线宫（3*3）内的数字均含1-9，不重复</p>
-                                </div>
-                                <div class="tab-pane fade" id="profile4">
-                                    <h4>...</h4>
-                                    <p>...</p>
-                                </div>
-                                <div class="tab-pane fade" id="messages4">
-                                    <h4>...</h4>
-                                    <p>...</p>
-                                </div>
-                                <div class="tab-pane fade" id="settings4">
-                                    <h4>...</h4>
-                                    <p>...</p>
+                    <form>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                课题<%=pro.getPNo()%>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#home1" data-toggle="tab">简介</a>
+                                    </li>
+                                    <li class=""><a href="#profile1" data-toggle="tab">背景</a>
+                                    </li>
+                                    <li class=""><a href="#messages1" data-toggle="tab">详情</a>
+                                    </li>
+                                    <li class=""><a href="#settings1" data-toggle="tab">其他要求</a>
+                                    </li>
+                                    <div>
+                                    	<p style="float:right;margin-top:-12px;font-size:13px">剩余可选组数：</p>
+                                    </div>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade active in" id="home1" style="height:240px">
+                                        <p class="col-sm-12"
+                                           style="overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
+                                            <%=pro.getIntroduction() %>
+                                        </p>
+                                    </div>
+                                    <div class="tab-pane fade" id="profile1" style="height:240px">
+                                        <p class="col-sm-12"
+                                           style="overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
+                                            <%=pro.getBackground() %>
+                                        </p>
+                                    </div>
+                                    <div class="tab-pane fade" id="messages1" style="height:240px">
+                                        <p class="col-sm-12"
+                                           style="overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
+                                            <%=pro.getInfo() %>
+                                        </p>
+                                    </div>
+                                    <div class="tab-pane fade" id="settings1" style="height:240px">
+                                        <p class="col-sm-12" readonly="readonly"
+                                           style="overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
+                                            <%=pro.getOther() %>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
+                <%
+                    if (i % 2 == 0) {
+                %>
+                <hr style="border:1px solid  #e5ebf2">
+                <%
+                        }
+                    }
+                %>
             </div>
-            <!-- /. ROW  -->
-            <!-- /. ROW  -->
             <!-- /. ROW  -->
             <footer><p>版权所有 ©2019-2020 学生选题信息系统 保留所有权利</p></footer>
         </div>

@@ -34,7 +34,7 @@
 <script src="<%=path %>/assets/js/custom-scripts.js"></script>
 
 <script type="text/javascript">
-    function GetTabEle() {
+    function GetActiveTab() {
         var t = $('.nav-tabs li.active');
         var id = t.children('a').attr('href').substring(1);
         var div = document.getElementById(id);
@@ -42,7 +42,7 @@
     }
 
     function edit_input() {
-        var tab = GetTabEle();
+        var tab = GetActiveTab();
         var btn = document.getElementById("edit");
         if (btn.value === "编辑") {
             btn.value = "复原";
@@ -55,12 +55,12 @@
             tab.style.border = "0.5px solid #ffffff";
         }
     }
-    
+
     function ResetBtn() {
-    	var btn = document.getElementById("edit");
-    	var tab = GetTabEle();
-    	btn.setAttribute("value", "编辑");
-    	tab.setAttribute("readOnly", 'true');
+        var btn = document.getElementById("edit");
+        var tab = GetActiveTab();
+        btn.setAttribute("value", "编辑");
+        tab.setAttribute("readOnly", 'true');
         tab.style.border = "0.5px solid #ffffff";
     }
 </script>
@@ -131,113 +131,124 @@
                     </h1>
                 </div>
             </div>
-           
-          
-
             <div class="row">
-                <div class="col-md-12">
-                    <div class="jumbotron">
-                        <div class="row">
-                         <%
-           
-                           Project pro=null;
-                           DaoPro daopro=new DaoPro();
-                           List<Project> list_pro = daopro.listAllProject();
-                           Iterator<Project> it_pro = list_pro.iterator();
-           
-                           while (it_pro.hasNext()) {
-                           pro=it_pro.next();
-                           %>
-                            <div class="col-md-6 col-sm-6">
-                                <form>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            课题<%=pro.getPNo()%>
-                                        </div>
-                                        <div class="panel-body">
-                                            <ul class="nav nav-tabs">
-                                                <li class="active"><a href="#home1" data-toggle="tab" onclick="ResetBtn()">简介</a>
-                                                </li>
-                                                <li class=""><a href="#profile1" data-toggle="tab" onclick="ResetBtn()">背景</a>
-                                                </li>
-                                                <li class=""><a href="#messages1" data-toggle="tab" onclick="ResetBtn()">详情</a>
-                                                </li>
-                                                <li class=""><a href="#settings1" data-toggle="tab" onclick="ResetBtn()">其他要求</a>
-                                                </li>
-                                            </ul>
-                                            <div class="tab-content">
-                                                <div class="tab-pane fade active in" id="home1" style="height:240px">
+                <%
+
+                    Project pro = null;
+                    DaoPro daopro = new DaoPro();
+                    List<Project> list_pro = daopro.listAllProject();
+                    Iterator<Project> it_pro = list_pro.iterator();
+                    int i = 0;
+
+                    while (it_pro.hasNext()) {
+                        ++i;
+                        pro = it_pro.next();
+                %>
+                <div class="col-md-6 col-sm-6">
+                    <form>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                课题<%=pro.getPNo()%>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#home1" data-toggle="tab"
+                                                          onclick="ResetBtn()">简介</a>
+                                    </li>
+                                    <li class=""><a href="#profile1" data-toggle="tab" onclick="ResetBtn()">背景</a>
+                                    </li>
+                                    <li class=""><a href="#messages1" data-toggle="tab" onclick="ResetBtn()">详情</a>
+                                    </li>
+                                    <li class=""><a href="#settings1" data-toggle="tab"
+                                                    onclick="ResetBtn()">其他要求</a>
+                                    </li>
+                                    <div>
+                                    	<p style="float:right;margin-top:-12px;font-size:13px">剩余可选组数：</p>
+                                    </div>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade active in" id="home1" style="height:240px">
                                                     <textarea class="col-sm-12" readonly="readonly"
                                                               style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
                                                     <%=pro.getIntroduction() %>
                                                     </textarea>
-                                                </div>
-                                                <div class="tab-pane fade" id="profile1" style="height:240px">
+                                    </div>
+                                    <div class="tab-pane fade" id="profile1" style="height:240px">
 													<textarea class="col-sm-12" readonly="readonly"
-         											 style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
+                                                              style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
                                                    <%=pro.getBackground() %>
                                                     </textarea>
-                                                </div>
-                                                <div class="tab-pane fade" id="messages1" style="height:240px">
+                                    </div>
+                                    <div class="tab-pane fade" id="messages1" style="height:240px">
 													<textarea class="col-sm-12" readonly="readonly"
-         											 style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
+                                                              style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
                                                    <%=pro.getInfo() %>
                                                     </textarea>
-                                                </div>
-                                                <div class="tab-pane fade" id="settings1" style="height:240px">
+                                    </div>
+                                    <div class="tab-pane fade" id="settings1" style="height:240px">
                                                     <textarea class="col-sm-12" readonly="readonly"
                                                               style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
                                                   <%=pro.getOther() %>
                                                     </textarea>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
-                                    <div>
-                                        <input type="button" value="提交" class="btn btn-primary"
-                                               style="margin-right:18px;float:right"
-                                               data-toggle="modal" data-target="#dismiss">
-                                        <input id="edit" type="button" value="编辑" class="btn btn-default"
-                                               style="margin-right:18px;float:right" onclick="edit_input()">
-                                        <div class="modal fade" id="dismiss" tabindex="-1" role="dialog"
-                                             aria-labelledby="myModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                                aria-hidden="true">
-                                                            &times;
-                                                        </button>
-                                                        <h4 class="modal-title" id="tips">提示</h4>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        确认修改？
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default"
-                                                                data-dismiss="modal">取消
-                                                        </button>
-                                                        <input type="button" class="btn btn-primary" value="确认"
-                                                               onclick="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+                                </div>
                             </div>
-                            <%
-                           }
-                            %>
-
-                          
-
                         </div>
-                    </div>
+                        <div style="display:inline">
+                        <label for="status" class="label1">最大可选组数</label>
+                        <select id="group_num_select<%=i%>"></select>
+                        <script>
+                            var select = document.getElementById("group_num_select<%=i%>");
+                            for (var i = 1; i <= 20; i++) {
+                                var opt = document.createElement("option");
+                                opt.value = i;
+                                opt.innerHTML = i;
+                                select.appendChild(opt);
+                            }
+                        </script>
+                        </div>
+                        <div style="display:inline">
+                            <input type="button" value="提交" class="btn btn-primary"
+                                   style="margin-right:18px;float:right"
+                                   data-toggle="modal" data-target="#dismiss">
+                            <input id="edit" type="button" value="编辑" class="btn btn-default"
+                                   style="margin-right:18px;float:right" onclick="edit_input()">
+                            <div class="modal fade" id="dismiss" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                    aria-hidden="true">
+                                                &times;
+                                            </button>
+                                            <h4 class="modal-title" id="tips">提示</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            确认修改？
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default"
+                                                    data-dismiss="modal">取消
+                                            </button>
+                                            <input type="button" class="btn btn-primary" value="确认"
+                                                   onclick="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
+                <%
+                    if (i % 2 == 0) {
+                %>
+                <hr style="border:1px solid  #e5ebf2">
+                <%
+                        }
+                    }
+                %>
             </div>
-            <!-- /. ROW  -->
-            <!-- /. ROW  -->
             <!-- /. ROW  -->
             <footer><p>版权所有 ©2019-2020 学生选题信息系统 保留所有权利</p></footer>
         </div>
