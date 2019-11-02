@@ -127,7 +127,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        可选课题 <small></small>
+                        已发布课题 <small></small>
                     </h1>
                 </div>
             </div>
@@ -150,6 +150,34 @@
                             <div class="panel-heading">
                                 课题<%=pro.getPNo()%>
                             </div>
+                            <div style="float:right;margin:-38px 10px">
+                            <button type="button" class="close panel-heading" data-toggle="modal" data-target="#remove">&times;
+                            </button>
+                            <div class="modal fade" id="remove" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                    aria-hidden="true">
+                                                &times;
+                                            </button>
+                                            <h4 class="modal-title" id="tips">提示</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            确认删除课题？
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default"
+                                                    data-dismiss="modal">取消
+                                            </button>
+                                            <input type="button" class="btn btn-primary" value="确认"
+                                                   onclick="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div> 
                             <div class="panel-body">
                                 <ul class="nav nav-tabs">
                                     <li class="active"><a href="#home1" data-toggle="tab"
@@ -162,50 +190,37 @@
                                     <li class=""><a href="#settings1" data-toggle="tab"
                                                     onclick="ResetBtn()">其他要求</a>
                                     </li>
-                                    <div>
-                                    	<p style="float:right;margin-top:-12px;font-size:13px">剩余可选组数：</p>
-                                    </div>
+                                    <div style="float:right">
+                                    	<p style="margin-top:-14px;font-size:13px">剩余可选组数：</p>
+                                    </div> 
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane fade active in" id="home1" style="height:240px">
                                                     <textarea class="col-sm-12" readonly="readonly"
-                                                              style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
-                                                    <%=pro.getIntroduction() %>
+                                                              style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px"><%=pro.getIntroduction() %>
                                                     </textarea>
                                     </div>
                                     <div class="tab-pane fade" id="profile1" style="height:240px">
 													<textarea class="col-sm-12" readonly="readonly"
-                                                              style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
-                                                   <%=pro.getBackground() %>
+                                                              style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px"><%=pro.getBackground() %>
                                                     </textarea>
                                     </div>
                                     <div class="tab-pane fade" id="messages1" style="height:240px">
 													<textarea class="col-sm-12" readonly="readonly"
-                                                              style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
-                                                   <%=pro.getInfo() %>
+                                                              style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px"><%=pro.getInfo() %>
                                                     </textarea>
                                     </div>
                                     <div class="tab-pane fade" id="settings1" style="height:240px">
                                                     <textarea class="col-sm-12" readonly="readonly"
-                                                              style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
-                                                  <%=pro.getOther() %>
+                                                              style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px"><%=pro.getOther() %>
                                                     </textarea>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div style="display:inline">
-                        <label for="status" class="label1">最大可选组数</label>
-                        <select id="group_num_select<%=i%>"></select>
-                        <script>
-                            var select = document.getElementById("group_num_select<%=i%>");
-                            for (var i = 1; i <= 20; i++) {
-                                var opt = document.createElement("option");
-                                opt.value = i;
-                                opt.innerHTML = i;
-                                select.appendChild(opt);
-                            }
-                        </script>
+                        <label for="status" class="label1" style="display:inline">最大可选组数：</label>
+                        <input class="form-control" id="Pmaxnum" name="Pmaxnum" style="width:50px;display:inline">
                         </div>
                         <div style="display:inline">
                             <input type="button" value="提交" class="btn btn-primary"
