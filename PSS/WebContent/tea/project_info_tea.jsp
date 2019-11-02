@@ -41,15 +41,20 @@
         return div.getElementsByTagName("textarea")[0];
     }
 
-    function edit_input() {
+    function edit_input(intro,bg,info,other) {
         var tab = GetActiveTab();
+        var content_old = tab.value;
         var btn = document.getElementById("edit");
         if (btn.value === "编辑") {
             btn.value = "复原";
             tab.removeAttribute("readOnly");
             tab.style.border = "0.5px solid #808080";
         } else {
-            tab.value = "数独（shù dú）是源自18世纪瑞士的一种数学游戏。是一种运用纸、笔进行演算的逻辑游戏。玩家需要根据9×9盘面上的已知数字，推理出所有剩余空格的数字，并满足每一行、每一列、每一个粗线宫（3*3）内的数字均含1-9，不重复";
+        	
+        	if(tab.id=="Intro") tab.value = intro;
+        	else if(tab.id=="Bg") tab.value = bg;
+        	else if(tab.id=="Info") tab.value = info;
+        	else if(tab.id=="Other") tab.value = other;
             btn.setAttribute("value", "编辑");
             tab.setAttribute("readOnly", 'true');
             tab.style.border = "0.5px solid #ffffff";
@@ -163,33 +168,29 @@
                                                     onclick="ResetBtn()">其他要求</a>
                                     </li>
                                     <div>
-                                    	<p style="float:right;margin-top:-12px;font-size:13px">剩余可选组数：</p>
+                                    	<p style="float:right;margin-top:-12px;font-size:13px">最大可选组数：<%=pro.getPmaxnum() %></p>
                                     </div>
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane fade active in" id="home1" style="height:240px">
-                                                    <textarea class="col-sm-12" readonly="readonly"
-                                                              style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
-                                                    <%=pro.getIntroduction() %>
-                                                    </textarea>
+                                                    <textarea class="col-sm-12" readonly="readonly" id="Intro" name ="Intro"
+                                                              style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;
+                                                              font-weight:200;line-height:25px;margin-top:15px"> <%=pro.getIntroduction() %></textarea>
                                     </div>
                                     <div class="tab-pane fade" id="profile1" style="height:240px">
-													<textarea class="col-sm-12" readonly="readonly"
-                                                              style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
-                                                   <%=pro.getBackground() %>
-                                                    </textarea>
+													<textarea class="col-sm-12" readonly="readonly" id="Bg" name="Bg"
+                                                              style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;
+                                                              font-weight:200;line-height:25px;margin-top:15px"><%=pro.getBackground() %></textarea>
                                     </div>
                                     <div class="tab-pane fade" id="messages1" style="height:240px">
-													<textarea class="col-sm-12" readonly="readonly"
-                                                              style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
-                                                   <%=pro.getInfo() %>
-                                                    </textarea>
+													<textarea class="col-sm-12" readonly="readonly" id="Info" name="Info"
+                                                              style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;
+                                                              font-weight:200;line-height:25px;margin-top:15px"><%=pro.getInfo() %></textarea>
                                     </div>
                                     <div class="tab-pane fade" id="settings1" style="height:240px">
-                                                    <textarea class="col-sm-12" readonly="readonly"
-                                                              style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
-                                                  <%=pro.getOther() %>
-                                                    </textarea>
+                                                    <textarea class="col-sm-12" readonly="readonly" id="Other" name="Other"
+                                                              style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;
+                                                              font-weight:200;line-height:25px;margin-top:15px"><%=pro.getOther() %></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -212,7 +213,8 @@
                                    style="margin-right:18px;float:right"
                                    data-toggle="modal" data-target="#dismiss">
                             <input id="edit" type="button" value="编辑" class="btn btn-default"
-                                   style="margin-right:18px;float:right" onclick="edit_input()">
+                                   style="margin-right:18px;float:right" 
+                                   onclick="edit_input('<%=pro.getIntroduction()%>','<%=pro.getBackground()%>','<%=pro.getInfo()%>','<%=pro.getOther()%>')">
                             <div class="modal fade" id="dismiss" tabindex="-1" role="dialog"
                                  aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">

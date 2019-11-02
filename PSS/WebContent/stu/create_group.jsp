@@ -37,11 +37,7 @@
 <script type="text/javascript" src="<%=basePath %>/js/createGroup.js"></script>
 
 <script>
-function show_remains(){
-	var e = document.getElementById("remained_group");
-	var n = 1;
-	e.innerText="剩余可选组数：" + n.toString();
-}
+
 </script>
 
 <div id="wrapper">
@@ -184,8 +180,9 @@ function show_remains(){
                                             </div>
                                             <div class="form-group">
                                                 <label>选择课题</label>
+                                                
                                                 <select id="PNo" name="PNo" class="form-control"  onchange="show_remains()">
-                                                <option class="input_bt" value="""selected>--请选择--</option>
+                                                <option class="input_bt" value=""selected>--请选择--</option>
                                                     <%
                                                         Project pro = null;
                                                         DaoPro listpro = new DaoPro();
@@ -193,8 +190,9 @@ function show_remains(){
                                                         Iterator<Project> it = list.iterator();
                                                         while (it.hasNext()) {
                                                             pro = it.next();
+                                                            
                                                     %>
-                                                    <option value="<%=pro.getPNo() %>"><%=pro.getPname() %>
+                                                    <option value="<%=pro.getPNo() %>"><%=pro.getPname() %>  
                                                     </option>
                                                     <%
                                                         }
@@ -209,20 +207,17 @@ function show_remains(){
                                                 <label>团队人数</label>
                                                 <div class="radio">
                                                     <label>
-                                                        <input type="radio" name="Gsnum" id="optionsRadios1" value="1"
-                                                               checked="">1 人
+                                                        <input type="radio" name="Gsnum" id="optionsRadios1" value="1" >1 人
                                                     </label>
                                                 </div>
                                                 <div class="radio">
                                                     <label>
-                                                        <input type="radio" name="Gsnum" id="optionsRadios2" value="2">2
-                                                        人
+                                                        <input type="radio" name="Gsnum" id="optionsRadios2" value="2">2人
                                                     </label>
                                                 </div>
                                                 <div class="radio">
                                                     <label>
-                                                        <input type="radio" name="Gsnum" id="optionsRadios3" value="3">3
-                                                        人
+                                                        <input type="radio" name="Gsnum" id="optionsRadios3" value="3">3 人
                                                     </label>
                                                 </div>
                                             </div>

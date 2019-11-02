@@ -133,7 +133,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        可选课题 <small>巴拉巴拉</small>
+                        可选课题 <small></small>
                     </h1>
                 </div>
             </div>
@@ -167,7 +167,7 @@
                                     <li class=""><a href="#settings1" data-toggle="tab">其他要求</a>
                                     </li>
                                     <div>
-                                    	<p style="float:right;margin-top:-12px;font-size:13px">剩余可选组数：</p>
+                                    	<p style="float:right;margin-top:-12px;font-size:13px">剩余可选组数：<%=pro.getPavailable() %></p>
                                     </div>
                                 </ul>
                                 <div class="tab-content">

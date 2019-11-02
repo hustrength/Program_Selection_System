@@ -38,5 +38,26 @@ public class DaoTea {
 		}
 		return tea;
 	}
-
+	/**
+	 * 更新老师信息
+	 * @param stu
+	 * @return
+	 */
+	public int updateTea(Teacher tea){
+		int rs = 0;
+		try{
+			String sql_update = "update Teacher set Tname=?,Tpassword=? where TNo=?;";//修改一条学生信息
+			Connection conn = new Conn().getConn();
+			PreparedStatement pst = conn.prepareStatement(sql_update);
+			pst.setString(1, tea.getTname());
+			pst.setString(2, tea.getTpassword());
+			pst.setString(3, tea.getTNo());
+			
+			rs = pst.executeUpdate();
+			if(rs!=0){
+				System.out.println("update over!");
+			}
+		}catch(Exception e){e.printStackTrace();}
+		return rs;
+	}
 }

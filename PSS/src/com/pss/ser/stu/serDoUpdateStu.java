@@ -64,7 +64,7 @@ public class serDoUpdateStu extends HttpServlet {
 		String act=request.getParameter("action");
 		String result="yes";
 		if("change_password".equals(act)){
-			//验证学号是否被注册
+			//改密码
 			String pw_new = request.getParameter("pw_new");
 			System.out.println(pw_new);
 			DaoStu update = new DaoStu();

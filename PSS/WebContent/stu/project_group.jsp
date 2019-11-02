@@ -383,6 +383,10 @@
                     %>
 
 
+                     <%
+                        if (gps.getStu3() != null) {
+
+                    %>
                     <hr>
                     <div class="row" style="margin-left:0px">
                         <div class="col-md-3">
@@ -393,18 +397,21 @@
                                 <h3>队员</h3>
 
                                 <div style="margin-top:10px">
-                                    <p><span>姓名：<% %></span></p>
-                                    <p><span>班级：<% %></span></p>
-                                    <p><span>学号：<% %></span></p>
+                                    <p><span>姓名：<%=gps.getStu3().getSname() %></span></p>
+                                    <p><span>性别：<%=gps.getStu3().getSsex() %></span></p>
+                                    <p><span>班级：<%=gps.getStu3().getSclass() %></span></p>
                                 </div>
                             </div>
                         </div>
+                        <%
+                            if (pos == 1) {
+                        %>
                         <div class="col-md-3">
                             <div class="row">
                                 <button class="btn btn-primary btn-lg" style="margin-top:50px;" data-toggle="modal"
-                                        data-target="#remove2">踢出团队
+                                        data-target="#remove1">踢出团队
                                 </button>
-                                <div class="modal fade" id="remove2" tabindex="-1" role="dialog"
+                                <div class="modal fade" id="remove1" tabindex="-1" role="dialog"
                                      aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -413,7 +420,7 @@
                                                         aria-hidden="true">
                                                     &times;
                                                 </button>
-                                                <h4 class="modal-title" id="tips3">提示</h4>
+                                                <h4 class="modal-title" id="tips1">提示</h4>
                                             </div>
                                             <div class="modal-body">
                                                 确认踢出？
@@ -429,9 +436,9 @@
                             </div>
                             <div class="row">
                                 <button class="btn btn-primary btn-lg" style="margin-top:20px;" data-toggle="modal"
-                                        data-target="#transfer2">转让队长
+                                        data-target="#transfer1">转让队长
                                 </button>
-                                <div class="modal fade" id="transfer2" tabindex="-1" role="dialog"
+                                <div class="modal fade" id="transfer1" tabindex="-1" role="dialog"
                                      aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -440,7 +447,7 @@
                                                         aria-hidden="true">
                                                     &times;
                                                 </button>
-                                                <h4 class="modal-title" id="tips4">提示</h4>
+                                                <h4 class="modal-title" id="tips2">提示</h4>
                                             </div>
                                             <div class="modal-body">
                                                 确认转让？
@@ -455,7 +462,13 @@
                                 </div>
                             </div>
                         </div>
+                        <%
+                            }
+                        %>
                     </div>
+                    <%
+                        }
+                    %>
                 </div>
             </div>
             <!-- /. ROW  -->

@@ -38,8 +38,13 @@
 <!-- Custom Js -->
 <script src="<%=path %>/assets/js/custom-scripts.js"></script>
 <script type="text/javascript" src="<%=path %>/js/tea_main.js"></script>
+ <%
+            Notification noti=null;
+            DaoNoti daonoti = new DaoNoti();
+            noti=daonoti.query();
+%>
 <script type="text/javascript">
-    function edit_input() {
+    function edit_input(title_old,content_old) {
         var btn = document.getElementById("edit");
         var title = document.getElementById("title");
         var content = document.getElementById("content");
@@ -50,8 +55,8 @@
             content.removeAttribute("readOnly");
             content.style.border = "0.5px solid #808080";
         } else {
-            title.value = "title";
-            content.value = "content";
+            title.value = title_old;
+            content.value = content_old;
             btn.value = "编辑";
             title.setAttribute("readOnly", 'true');
             title.style.border = "0.5px solid #ffffff";
@@ -125,25 +130,26 @@
                     </h1>
                 </div>
             </div>
+           
             <div class="row">
                 <div class="col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <form id="form_noti">
                             <div class="panel-heading">
-                                <textarea id="title" name="title" readonly="readonly"
-                                          style="border:0.5px solid #ffffff;font-size:16px;font-weight:700;padding:15px 10px 0px 10px;margin-bottom:-30px;margin-top:5px">title
-                                </textarea>
+                                <input id="title" name="title" type="text" readonly="readonly" style="border:0.5px solid #ffffff;font-size:16px;
+                                font-weight:700;padding:15px 10px 0px 10px;margin-bottom:-30px;margin-top:5px" value="<%=noti.getTitle() %>">
+                               
                             </div>
                             <hr>
                             <div style="width:100%;height:400px" class="textarea" contenteditable="true">
-                                <textarea id="content" name="content" readonly="readonly"
-                                          style="border:0.5px solid #ffffff;padding:0px 10px 0px 10px;margin-left:15px;margin-right:10px;width:97.3%;height:400px">content
+                                <textarea id="content" name="content" readonly="readonly"style="border:0.5px solid #ffffff;
+                                padding:0px 10px 0px 10px;margin-left:15px;margin-right:10px;width:97.3%;height:400px"><%=noti.getContent() %>
                                 </textarea>
                             </div>
                             <hr>
                             <div style="display:flex">
                                 <input id="edit" type="button" value="编辑" class="btn btn-default"
-                                       style="margin-left:18px;" onclick="edit_input()">
+                                       style="margin-left:18px;" onclick="edit_input('<%=noti.getTitle()%>','<%=noti.getContent()%>')">
                                 <input type="button" value="提交" class="btn btn-primary" style="margin-left:18px;"
                                        data-toggle="modal" data-target="#dismiss">
                                 <div class="modal fade" id="dismiss" tabindex="-1" role="dialog"
@@ -175,7 +181,6 @@
                 </div>
             </div>
 
-            <!-- /. 这里需要获取文本输入框的接口  -->
             <footer><p>版权所有 ©2019-2020 学生选题信息系统 保留所有权利</p></footer>
         </div>
         <!-- /. PAGE INNER  -->

@@ -63,6 +63,7 @@ public class serDoInsertPro extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");	
 		HttpSession session = request.getSession(); 
 		PrintWriter out = response.getWriter();
+		String result="fail";
 		int rs;
 		DaoPro insert = new DaoPro();
 		Project pro=null;
@@ -84,6 +85,23 @@ public class serDoInsertPro extends HttpServlet {
 			else{
 				response.getWriter().print("success");
 			}
+		}
+		if("getremain".equals(act)){
+			//获取剩余组数
+			int pno = Integer.parseInt(request.getParameter("PNo"));
+			int remain=0;
+			DaoPro daopro = new DaoPro();
+			pro=daopro.querybypno(pno);
+			if(pro==null){
+				result="can't find";
+			}
+			else{
+				remain=pro.getPavailable();
+				result=String.valueOf(remain);
+				
+			}
+			System.out.println(result);
+			response.getWriter().print(remain);
 		}
 	}
 

@@ -35,7 +35,7 @@
 <!-- Jquery Js -->
 <script type="text/javascript" src="<%=path %>/js/jquery-latest.js"></script>
 <!-- CreateGroup Js -->
-<script type="text/javascript" src="<%=path %>/js/my_info.js"></script>
+<script type="text/javascript" src="<%=path %>/js/tea_info.js"></script>
 <script type="text/javascript">
     function edit_input() {
         var btn = document.getElementById("edit");
@@ -175,11 +175,11 @@
                         <div class="form-group" style="margin-left:16px; margin-right:20px; margin-top:10px">
                             <label>请输入初始密码</label>
                             <input class="form-control" type="password" id="password_origin" name="password_origin" 
-                            required="required" oninput="checkOriginPassword('')"><!--  这里和学生端一样-->
+                            required="required" oninput="checkOriginPassword('<%=tea.getTpassword() %>')">
                         </div>
                         <div class="form-group" style="margin-left:16px; margin-right:20px; margin-top:20px">
                             <label>请输入新密码</label>
-                            <input class="form-control" type="password" id="password_new" name="password_new" required="required">
+                            <input class="form-control" type="password" id="password_new" name="password_new" required="required" oninput="checkPassword()">
                         </div>
                         <div class="form-group" style="margin-left:16px; margin-right:20px; margin-top:20px">
                             <label>请再次输入新密码</label>

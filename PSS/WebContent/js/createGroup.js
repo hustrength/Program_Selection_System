@@ -1,7 +1,7 @@
 var flag=false;
 function checkGnamerepeat() {
 	var ele = document.getElementById("Gname");
-	var val = v.value;
+	var val = ele.value;
 	
     $.ajax({
         url: "servlet/serQueryGPS?action=checkGname&Gname=" + val,
@@ -22,9 +22,11 @@ function checkGnamerepeat() {
 }
 
 function create_group() {
+	
 	if(flag==false) return false;
+	
     $.ajax({
-    	url: "servlet/serInsertGPS?action=create&",
+    	url: "servlet/serInsertGPS?action=create",
         type: "post",
         async: false,
         data: $('#form_create').serialize(),
@@ -39,4 +41,20 @@ function create_group() {
         }
     })
 }
-
+function show_remains(){
+	var e = document.getElementById("remained_group");
+	var pno = document.getElementById("PNo").value;
+	
+	$.ajax({
+        url: "servlet/serDoQueryPro?action=getremain&PNo=" + pno,
+        type: "GET",
+        async: false,
+        dataType: "text",
+        cache: false,
+        success: function (text) {
+        	
+            	e.innerText="剩余可选组数：" + text;
+        }
+    })
+	
+}

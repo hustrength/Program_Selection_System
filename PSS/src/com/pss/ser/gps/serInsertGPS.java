@@ -45,6 +45,7 @@ public class serInsertGPS extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		int rs;
 		DaoGPS insert = new DaoGPS();
+		DaoPro daopro = new DaoPro();
 		GPS gps=null;
 		String act=request.getParameter("action");
 		if("create".equals(act)){
@@ -54,6 +55,13 @@ public class serInsertGPS extends HttpServlet {
 			int pno = Integer.parseInt(request.getParameter("PNo"));
 			DaoPro querybypno=new DaoPro();
 			Project pro=querybypno.querybypno(pno);
+			if(pro.getPavailable()<=0){
+				response.getWriter().print("fail");
+			}
+			else {
+				pro.setPavailable(pro.getPavailable()-1);
+				daopro.updateProject(pro);
+			}
 			String pname = pro.getPname();
 			Student stu = (Student)session.getAttribute("student");
 			int gsnum = Integer.parseInt(request.getParameter("Gsnum"));
@@ -67,7 +75,9 @@ public class serInsertGPS extends HttpServlet {
 				response.getWriter().print("fail");
 			}
 			else{
+				
 				response.getWriter().print("success");
+				
 			}
 		}
 	}
