@@ -130,12 +130,20 @@
                     <div class="panel panel-default">
                         <form id="form_noti">
                             <div class="panel-heading">
-                                <input id="title" name="title" type="text" value="title" readonly="readonly"
-                                       style="border:0.5px solid #ffffff;font-size:16px;font-weight:700;padding:15px 10px 15px 10px;margin-bottom:-20px">
+                                <textarea id="title" name="title" readonly="readonly"
+                                          style="border:0.5px solid #ffffff;font-size:16px;font-weight:700;padding:15px 10px 0px 10px;margin-bottom:-30px;margin-top:5px">title
+                                </textarea>
                             </div>
                             <hr>
-                            <div>
-                                <input id="content" name="content" value="content" readonly="readonly" style="border:0.5px solid #ffffff;padding:15px 10px 15px 10px;margin-left:10px">
+                            <script>
+                                $.each($("textarea"), function (i, n) {
+                                    $(n).css("height", n.scrollHeight + "px");
+                                })
+                            </script>
+                            <div style="width:100%;height:400px" class="textarea" contenteditable="true">
+                                <textarea id="content" name="content" readonly="readonly"
+                                          style="border:0.5px solid #ffffff;padding:0px 10px 0px 10px;margin-left:15px;margin-right:10px;width:97.3%;height:400px">content
+                                </textarea>
                             </div>
                             <hr>
                             <div style="display:flex">
@@ -160,7 +168,8 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">取消
                                                 </button>
-                                                <input type="button" class="btn btn-primary" value="确认" onclick="update_noti()">
+                                                <input type="button" class="btn btn-primary" value="确认"
+                                                       onclick="update_noti()">
                                             </div>
                                         </div>
                                     </div>
