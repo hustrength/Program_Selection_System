@@ -147,6 +147,10 @@
                                 <div style="width:240px; align:right">
                                 <strong>姓名：</strong><%=tea.getTname() %></div>
                             </div>
+                            <div class="alert alert-info">
+                                <div style="width:240px; align:right">
+                                <strong>工号：</strong><%=tea.getTNo() %></div>
+                            </div>
                         </div>
                     </div>
                 </div>
