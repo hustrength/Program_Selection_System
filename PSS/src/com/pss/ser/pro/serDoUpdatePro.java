@@ -60,6 +60,7 @@ public class serDoUpdatePro extends HttpServlet {
 			String bg = request.getParameter("Bg");
 			String info = request.getParameter("Info");
 			String other = request.getParameter("Other");
+			
 			pro = daopro.querybypno(pno);
 			pro.setPName(pname);
 			pro.setPmaxnum(pmaxnum);

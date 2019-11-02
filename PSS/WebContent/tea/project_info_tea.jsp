@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <base href="<%=basePath%>">
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>学生选题信息管理系统——教师界面</title>
@@ -32,7 +33,7 @@
 <script src="<%=path %>/assets/js/jquery.metisMenu.js"></script>
 <!-- Custom Js -->
 <script src="<%=path %>/assets/js/custom-scripts.js"></script>
-
+ <script type="text/javascript" src="<%=path %>/js/project_info_tea.js"></script>
 <script type="text/javascript">
     function GetActiveTab() {
         var t = $('.nav-tabs li.active');
@@ -225,7 +226,7 @@
                                                     data-dismiss="modal">取消
                                             </button>
                                             <input type="button" class="btn btn-primary" value="确认"
-                                                   onclick="">
+                                                   onclick="pro_edit()">
                                         </div>
                                     </div>
                                 </div>
