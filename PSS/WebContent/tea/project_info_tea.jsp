@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>学生选题信息管理系统——学生界面</title>
+    <title>学生选题信息管理系统——教师界面</title>
     <!-- Bootstrap Styles-->
     <link href="<%=path %>/assets/css/bootstrap.css" rel="stylesheet"/>
     <!-- FontAwesome Styles-->
@@ -132,7 +132,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        可选课题 <small></small>
+                        已发布课题 <small></small>
                     </h1>
                 </div>
             </div>
@@ -196,17 +196,8 @@
                             </div>
                         </div>
                         <div style="display:inline">
-                        <label for="status" class="label1">最大可选组数</label>
-                        <select id="group_num_select<%=i%>"></select>
-                        <script>
-                            var select = document.getElementById("group_num_select<%=i%>");
-                            for (var i = 1; i <= 20; i++) {
-                                var opt = document.createElement("option");
-                                opt.value = i;
-                                opt.innerHTML = i;
-                                select.appendChild(opt);
-                            }
-                        </script>
+                        <label for="status" class="label1" style="display:inline">最大可选组数：</label>
+                        <input class="form-control" id="Pmaxnum" name="Pmaxnum" style="width:50px;display:inline">
                         </div>
                         <div style="display:inline">
                             <input type="button" value="提交" class="btn btn-primary"

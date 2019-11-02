@@ -133,7 +133,7 @@
                                             <textarea class="form-control" rows="3" id="Other" name="Other"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label>最多组数</label>
+                                            <label>最大可选组数</label>
                                             <input class="form-control" id="Pmaxnum" name="Pmaxnum">
                                         </div>
                                        	<hr>
