@@ -61,7 +61,8 @@ public class DaoPro {
 			PreparedStatement pst = conn.prepareStatement(sql);
 			ResultSet rs = pst.executeQuery();
 			while(rs.next()){
-				pro=new Project(rs.getInt("PNo"),rs.getString("Pname"),rs.getInt("Pmaxnum"),rs.getInt("Pselected"),rs.getInt("Pavailable"));
+				pro=new Project(rs.getInt("PNo"),rs.getString("Pname"),rs.getInt("Pmaxnum"),rs.getInt("Pselected"),
+						rs.getInt("Pavailable"),rs.getString("Introduction"),rs.getString("Background"),rs.getString("Info"),rs.getString("Other"));
 				list.add(pro);
 				
 			}
