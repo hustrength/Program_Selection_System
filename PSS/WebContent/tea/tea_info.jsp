@@ -105,7 +105,7 @@
                 </li>
               
                 <li>
-                    <a class="active-menu"><i class="fa fa-sitemap"></i> 课题信息<span class="fa arrow"></a>
+                    <a><i class="fa fa-sitemap"></i> 课题信息<span class="fa arrow"></a>
                     <ul class="nav nav-second-level">
                             <li>
                                 <a href="<%=teaPath %>project_release.jsp">发布课题</a><!--连接到发布题目信息jsp，自动创建一个新的题目信息数据结构  -->
@@ -119,7 +119,7 @@
                     <a href="<%=teaPath %>tea_group.jsp"><i class="fa fa-users"></i> 学生组队信息</a>
                 </li>
                 <li>
-                    <a href="<%=teaPath %>tea_info.jsp"><i class="fa fa-user"></i> 教师个人信息</a>
+                    <a class="active-menu" href="<%=teaPath %>tea_info.jsp"><i class="fa fa-user"></i> 教师个人信息</a>
                 </li>
             </ul>
         </div>

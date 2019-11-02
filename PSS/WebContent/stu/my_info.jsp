@@ -159,7 +159,7 @@
             </div>
             <!-- /. ROW  -->
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             个人信息
@@ -190,19 +190,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-4">
+                <div class="col-md-3 col-sm-3">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             用户头像
                         </div>
-                        <img src="<%=path%>/img/profile.png" style="max-width:80%; max-height:80%; margin-left:25px">
+                        <img src="<%=path%>/img/profile.png" style="max-width:70%; max-height:70%; margin-left:15%;">
                         <div class="panel-footer">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <!--  Modals-->
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -222,7 +222,7 @@
                             <input class="form-control" type="password" id="repassword_new" name="repassword_new" required="required" oninput="checkPassword()">
                         </div>
                         <div class="panel-body">
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                                 点击修改
                             </button>
                             <div class="modal fade" id="myModal" tabindex="-1" role="dialog"

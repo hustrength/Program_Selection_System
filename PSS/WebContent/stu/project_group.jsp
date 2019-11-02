@@ -208,7 +208,7 @@
                                 <li class=""><a href="#settings" data-toggle="tab">其他要求</a>
                                 </li>
                             </ul>
-                            <div class="tab-content">
+                            <div class="tab-content" style="height:150px">
                                 <div class="tab-pane fade active in" id="home">
                                     <h4>标题</h4>
                                     <p>数独（shù dú）是源自18世纪瑞士的一种数学游戏。是一种运用纸、笔进行演算的逻辑游戏。
@@ -236,7 +236,7 @@
                 <div class="panel-heading">
                     团队信息
                 </div>
-                <h3><%=gps.getGname() %>
+                <h3 style="padding:20px 0px 10px 29px"><%=gps.getGname() %>
                 </h3>
                 <div class="panel-body">
                     <div class="row" style="margin-left:0px">
