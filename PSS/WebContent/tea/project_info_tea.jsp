@@ -35,23 +35,26 @@
 <script src="<%=path %>/assets/js/custom-scripts.js"></script>
  <script type="text/javascript" src="<%=path %>/js/project_info_tea.js"></script>
 <script type="text/javascript">
-    function GetActiveTab() {
-        var t = $('.nav-tabs li.active');
-        var id = t.children('a').attr('href').substring(1);
+    function GetActiveTab(i) {
+    	var nav_id = "#nav-tabs" + i.toString() + " li.active";
+        var id = $(nav_id).children('a').attr('href').substring(1);
         var div = document.getElementById(id);
         return div.getElementsByTagName("textarea")[0];
     }
 
-    function edit_input(intro,bg,info,other) {
-        var tab = GetActiveTab();
+    function edit_input(i,intro,bg,info,other,group_value) {
+        var tab = GetActiveTab(i);
         var content_old = tab.value;
-        var btn = document.getElementById("edit");
+        var btn_id = "edit" + i.toString();
+        var btn = document.getElementById(btn_id);
+        var group_num_id = "max_group_num" + i.toString();
+        var max_group_num = document.getElementById(group_num_id);
         if (btn.value === "编辑") {
             btn.value = "复原";
             tab.removeAttribute("readOnly");
+            max_group_num.removeAttribute("readOnly");
             tab.style.border = "0.5px solid #808080";
         } else {
-        	
         	if(tab.id=="Intro") tab.value = intro;
         	else if(tab.id=="Bg") tab.value = bg;
         	else if(tab.id=="Info") tab.value = info;
@@ -59,14 +62,20 @@
             btn.setAttribute("value", "编辑");
             tab.setAttribute("readOnly", 'true');
             tab.style.border = "0.5px solid #ffffff";
+            max_group_num.setAttribute("readOnly", 'true');
+            max_group_num.value = group_value;
         }
     }
 
-    function ResetBtn() {
-        var btn = document.getElementById("edit");
-        var tab = GetActiveTab();
+    function ResetBtn(i) {
+    	 var btn_id = "edit" + i.toString();
+         var btn = document.getElementById(btn_id);
+         var group_num_id = "max_group_num" + i.toString();
+         var max_group_num = document.getElementById(group_num_id);
+        var tab = GetActiveTab(i);
         btn.setAttribute("value", "编辑");
         tab.setAttribute("readOnly", 'true');
+        max_group_num.setAttribute("readOnly", 'true');
         tab.style.border = "0.5px solid #ffffff";
     }
 </script>
@@ -157,38 +166,33 @@
                                 课题<%=pro.getPNo()%>
                             </div>
                             <div class="panel-body">
-                                <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#home1" data-toggle="tab"
-                                                          onclick="ResetBtn()">简介</a>
+                                <ul id="nav-tabs<%=i%>" class="nav nav-tabs">
+                                    <li class="active"><a href="#home<%=i%>" data-toggle="tab" onclick="ResetBtn(<%=i%>)">简介</a>
                                     </li>
-                                    <li class=""><a href="#profile1" data-toggle="tab" onclick="ResetBtn()">背景</a>
+                                    <li class=""><a href="#profile<%=i%>" data-toggle="tab" onclick="ResetBtn(<%=i%>)">背景</a>
                                     </li>
-                                    <li class=""><a href="#messages1" data-toggle="tab" onclick="ResetBtn()">详情</a>
+                                    <li class=""><a href="#messages<%=i%>" data-toggle="tab" onclick="ResetBtn(<%=i%>)">详情</a>
                                     </li>
-                                    <li class=""><a href="#settings1" data-toggle="tab"
-                                                    onclick="ResetBtn()">其他要求</a>
+                                    <li class=""><a href="#settings<%=i%>" data-toggle="tab" onclick="ResetBtn(<%=i%>)">其他要求</a>
                                     </li>
-                                    <div>
-                                    	<p style="float:right;margin-top:-12px;font-size:13px">最大可选组数：<%=pro.getPmaxnum() %></p>
-                                    </div>
                                 </ul>
                                 <div class="tab-content">
-                                    <div class="tab-pane fade active in" id="home1" style="height:240px">
+                                    <div class="tab-pane fade active in" id="home<%=i%>" style="height:240px">
                                                     <textarea class="col-sm-12" readonly="readonly" id="Intro" name ="Intro"
                                                               style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;
-                                                              font-weight:200;line-height:25px;margin-top:15px"> <%=pro.getIntroduction() %></textarea>
+                                                              font-weight:200;line-height:25px;margin-top:15px"><%=pro.getIntroduction() %></textarea>
                                     </div>
-                                    <div class="tab-pane fade" id="profile1" style="height:240px">
+                                    <div class="tab-pane fade" id="profile<%=i%>" style="height:240px">
 													<textarea class="col-sm-12" readonly="readonly" id="Bg" name="Bg"
                                                               style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;
                                                               font-weight:200;line-height:25px;margin-top:15px"><%=pro.getBackground() %></textarea>
                                     </div>
-                                    <div class="tab-pane fade" id="messages1" style="height:240px">
+                                    <div class="tab-pane fade" id="messages<%=i%>" style="height:240px">
 													<textarea class="col-sm-12" readonly="readonly" id="Info" name="Info"
                                                               style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;
                                                               font-weight:200;line-height:25px;margin-top:15px"><%=pro.getInfo() %></textarea>
                                     </div>
-                                    <div class="tab-pane fade" id="settings1" style="height:240px">
+                                    <div class="tab-pane fade" id="settings<%=i%>" style="height:240px">
                                                     <textarea class="col-sm-12" readonly="readonly" id="Other" name="Other"
                                                               style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;
                                                               font-weight:200;line-height:25px;margin-top:15px"><%=pro.getOther() %></textarea>
@@ -198,16 +202,16 @@
                         </div>
                         <div style="display:inline">
                         <label for="status" class="label1" style="display:inline">最大可选组数：</label>
-                        <input class="form-control" id="Pmaxnum" name="Pmaxnum" style="width:50px;display:inline">
+                        <input id="max_group_num<%=i%>" class="form-control" value="<%=pro.getPmaxnum() %>" readonly="readonly" id="Pmaxnum" name="Pmaxnum" style="width:50px;display:inline">
                         </div>
                         <div style="display:inline">
-                            <input type="button" value="提交" class="btn btn-primary"
+                            <input id="submit" type="button" value="提交" class="btn btn-primary"
                                    style="margin-right:18px;float:right"
-                                   data-toggle="modal" data-target="#dismiss">
-                            <input id="edit" type="button" value="编辑" class="btn btn-default"
+                                   data-toggle="modal" data-target="#dismiss<%=i%>">
+                            <input id="edit<%=i%>" type="button" value="编辑" class="btn btn-default"
                                    style="margin-right:18px;float:right" 
-                                   onclick="edit_input('<%=pro.getIntroduction()%>','<%=pro.getBackground()%>','<%=pro.getInfo()%>','<%=pro.getOther()%>')">
-                            <div class="modal fade" id="dismiss" tabindex="-1" role="dialog"
+                                   onclick="edit_input(<%=i%>,'<%=pro.getIntroduction()%>','<%=pro.getBackground()%>','<%=pro.getInfo()%>','<%=pro.getOther()%>','<%=pro.getPmaxnum()%>')">
+                            <div class="modal fade" id="dismiss<%=i%>" tabindex="-1" role="dialog"
                                  aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -225,7 +229,7 @@
                                             <button type="button" class="btn btn-default"
                                                     data-dismiss="modal">取消
                                             </button>
-                                            <input type="button" class="btn btn-primary" value="确认"
+                                            <input id="pro_edit<%=i%>" type="button" class="btn btn-primary" value="确认"
                                                    onclick="pro_edit()">
                                         </div>
                                     </div>
