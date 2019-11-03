@@ -160,10 +160,11 @@
                         pro = it_pro.next();
                 %>
                 <div class="col-md-6 col-sm-6">
-                    <form>
+                    <form id="form_pro" name ="form_pro">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                课题<%=pro.getPNo()%>
+                                <input id ="PNo" name="PNo" type="text" value=<%=pro.getPNo()%> style="display:hidden">
+                                <input id="Pname" name="Pname" type="text" value="<%=pro.getPname() %>">
                             </div>
                             <div class="panel-body">
                                 <ul id="nav-tabs<%=i%>" class="nav nav-tabs">
@@ -178,22 +179,22 @@
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane fade active in" id="home<%=i%>" style="height:240px">
-                                                    <textarea class="col-sm-12" readonly="readonly" id="Intro" name ="Intro"
+                                                    <textarea class="col-sm-12"  id="Intro" name ="Intro"
                                                               style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;
                                                               font-weight:200;line-height:25px;margin-top:15px"><%=pro.getIntroduction() %></textarea>
                                     </div>
                                     <div class="tab-pane fade" id="profile<%=i%>" style="height:240px">
-													<textarea class="col-sm-12" readonly="readonly" id="Bg" name="Bg"
+													<textarea class="col-sm-12"  id="Bg" name="Bg"
                                                               style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;
                                                               font-weight:200;line-height:25px;margin-top:15px"><%=pro.getBackground() %></textarea>
                                     </div>
                                     <div class="tab-pane fade" id="messages<%=i%>" style="height:240px">
-													<textarea class="col-sm-12" readonly="readonly" id="Info" name="Info"
+													<textarea class="col-sm-12"  id="Info" name="Info"
                                                               style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;
-                                                              font-weight:200;line-height:25px;margin-top:15px"><%=pro.getInfo() %></textarea>
+                                                              font-weight:200;line-height:25px;margin-top:15px" value="<%=pro.getInfo() %>"></textarea>
                                     </div>
                                     <div class="tab-pane fade" id="settings<%=i%>" style="height:240px">
-                                                    <textarea class="col-sm-12" readonly="readonly" id="Other" name="Other"
+                                                    <textarea class="col-sm-12"  id="Other" name="Other"
                                                               style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;
                                                               font-weight:200;line-height:25px;margin-top:15px"><%=pro.getOther() %></textarea>
                                     </div>
@@ -201,7 +202,8 @@
                             </div>
                         </div>
                         <div style="display:inline">
-                        <label for="status" class="label1" style="display:inline">最大可选组数：</label>
+                        <label for="status" class="label1" style="display:inline" >最大可选组数：</label>
+                      
                         <input id="max_group_num<%=i%>" class="form-control" value="<%=pro.getPmaxnum() %>" readonly="readonly" id="Pmaxnum" name="Pmaxnum" style="width:50px;display:inline">
                         </div>
                         <div style="display:inline">
