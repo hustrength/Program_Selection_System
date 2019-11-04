@@ -42,26 +42,33 @@
         return div.getElementsByTagName("textarea")[0];
     }
 
-    function edit_input(i,intro,bg,info,other,group_value) {
+    function edit_input(i,name,intro,bg,info,other,group_value) {
         var tab = GetActiveTab(i);
         var content_old = tab.value;
         var btn_id = "edit" + i.toString();
         var btn = document.getElementById(btn_id);
         var group_num_id = "max_group_num" + i.toString();
         var max_group_num = document.getElementById(group_num_id);
+        var pname_id = "Pname" + i.toString();
+        var pname = document.getElementById(pname_id);
         if (btn.value === "编辑") {
             btn.value = "复原";
             tab.removeAttribute("readOnly");
             max_group_num.removeAttribute("readOnly");
             tab.style.border = "0.5px solid #808080";
+            pname.style.border = "0.5px solid #808080";
+            pname.removeAttribute("readOnly");
         } else {
         	if(tab.id=="Intro") tab.value = intro;
         	else if(tab.id=="Bg") tab.value = bg;
         	else if(tab.id=="Info") tab.value = info;
         	else if(tab.id=="Other") tab.value = other;
+        	pname.value = name;
             btn.setAttribute("value", "编辑");
             tab.setAttribute("readOnly", 'true');
             tab.style.border = "0.5px solid #ffffff";
+            pname.setAttribute("readOnly", 'true');
+            pname.style.border = "0.5px solid #ffffff";
             max_group_num.setAttribute("readOnly", 'true');
             max_group_num.value = group_value;
         }
@@ -163,8 +170,8 @@
                     <form id="form_pro" name ="form_pro">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <input id ="PNo" name="PNo" type="text" value=<%=pro.getPNo()%> style="display:hidden">
-                                <input id="Pname" name="Pname" type="text" value="<%=pro.getPname() %>">
+                                <input id ="PNo" name="PNo" value=<%=pro.getPNo()%> style="display:none">
+                                <input id="Pname<%=i%>" name="Pname" value="<%=pro.getPname()%>" readonly="readonly" style="border:0.5px solid #ffffff;">
                             </div>
                             <div class="panel-body">
                                 <ul id="nav-tabs<%=i%>" class="nav nav-tabs">
@@ -177,24 +184,52 @@
                                     <li class=""><a href="#settings<%=i%>" data-toggle="tab" onclick="ResetBtn(<%=i%>)">其他要求</a>
                                     </li>
                                 </ul>
+                                    <button type="button" class="close" aria-hidden="true" style="margin:-95px -5px" data-toggle="modal" data-target="#remove_project<%=i%>">
+                                                &times;
+                                    </button>
+                                    <div class="modal fade" id="remove_project<%=i%>" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                    aria-hidden="true">
+                                                &times;
+                                            </button>
+                                            <h4 class="modal-title" id="tips">提示</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            确认删除课题？
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default"
+                                                    data-dismiss="modal">取消
+                                            </button>
+                                            <input id="pro_edit<%=i%>" type="button" class="btn btn-primary" value="确认" data-dismiss="modal"
+                                                   onclick="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                
                                 <div class="tab-content">
                                     <div class="tab-pane fade active in" id="home<%=i%>" style="height:240px">
-                                                    <textarea class="col-sm-12"  id="Intro" name ="Intro"
+                                                    <textarea class="col-sm-12"  id="Intro" name ="Intro" readonly="readonly"
                                                               style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;
                                                               font-weight:200;line-height:25px;margin-top:15px"><%=pro.getIntroduction() %></textarea>
                                     </div>
                                     <div class="tab-pane fade" id="profile<%=i%>" style="height:240px">
-													<textarea class="col-sm-12"  id="Bg" name="Bg"
+													<textarea class="col-sm-12"  id="Bg" name="Bg" readonly="readonly"
                                                               style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;
                                                               font-weight:200;line-height:25px;margin-top:15px"><%=pro.getBackground() %></textarea>
                                     </div>
                                     <div class="tab-pane fade" id="messages<%=i%>" style="height:240px">
-													<textarea class="col-sm-12"  id="Info" name="Info"
+													<textarea class="col-sm-12"  id="Info" name="Info" readonly="readonly"
                                                               style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;
                                                               font-weight:200;line-height:25px;margin-top:15px" value="<%=pro.getInfo() %>"></textarea>
                                     </div>
                                     <div class="tab-pane fade" id="settings<%=i%>" style="height:240px">
-                                                    <textarea class="col-sm-12"  id="Other" name="Other"
+                                                    <textarea class="col-sm-12"  id="Other" name="Other" readonly="readonly"
                                                               style="border:0.5px solid #ffffff;overflow-y:scroll;height:240px;font-size:21px;
                                                               font-weight:200;line-height:25px;margin-top:15px"><%=pro.getOther() %></textarea>
                                     </div>
@@ -212,7 +247,7 @@
                                    data-toggle="modal" data-target="#dismiss<%=i%>">
                             <input id="edit<%=i%>" type="button" value="编辑" class="btn btn-default"
                                    style="margin-right:18px;float:right" 
-                                   onclick="edit_input(<%=i%>,'<%=pro.getIntroduction()%>','<%=pro.getBackground()%>','<%=pro.getInfo()%>','<%=pro.getOther()%>','<%=pro.getPmaxnum()%>')">
+                                   onclick="edit_input(<%=i%>,'<%=pro.getPname()%>','<%=pro.getIntroduction()%>','<%=pro.getBackground()%>','<%=pro.getInfo()%>','<%=pro.getOther()%>','<%=pro.getPmaxnum()%>')">
                             <div class="modal fade" id="dismiss<%=i%>" tabindex="-1" role="dialog"
                                  aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -231,7 +266,7 @@
                                             <button type="button" class="btn btn-default"
                                                     data-dismiss="modal">取消
                                             </button>
-                                            <input id="pro_edit<%=i%>" type="button" class="btn btn-primary" value="确认"
+                                            <input id="pro_edit<%=i%>" type="button" class="btn btn-primary" value="确认" data-dismiss="modal"
                                                    onclick="pro_edit()">
                                         </div>
                                     </div>
