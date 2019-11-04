@@ -82,6 +82,7 @@ public class serUpdateApply extends HttpServlet {
 						gps.setStu2(applicant);
 					}
 					int rs2=0;
+					gps.setGleftnum(gps.getGleftnum()-1);
 					rs2=updateGPS.updateGPS(gps);
 					//É¾³ýapply
 					int rs3=0;

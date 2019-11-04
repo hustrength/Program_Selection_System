@@ -63,14 +63,14 @@ public class serUpdateGPS extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
 		String act=request.getParameter("action");
-		System.out.println(act);
+		
 		String result="yes";
 		GPS gps=null;
 		DaoGPS updateGPS = new DaoGPS();
 		DaoStu updateStu = new DaoStu();
 		int gno = Integer.parseInt(request.getParameter("GNo"));
 		String sno = request.getParameter("SNo");
-		System.out.println(gno);
+		
 		DaoGPS querybygno = new DaoGPS();
 		gps = querybygno.querybyGNo(gno);
 		
@@ -81,23 +81,31 @@ public class serUpdateGPS extends HttpServlet {
 				stu_removed=gps.getStu2();
 				gps.setStu2(gps.getStu3());
 			}
-			else if(sno.equals(gps.getStu3().getSNo())){
+			else if(gps.getStu3()!=null&&sno.equals(gps.getStu3().getSNo())){
 				stu_removed=gps.getStu3();
 			}
 			else {
 				response.getWriter().print("fail");
 			}
+			System.out.println(stu_removed.getSNo());
 				gps.setStu3(null);
+				gps.setGleftnum(gps.getGleftnum()+1);
 				int rs=0;
 				rs=updateGPS.updateGPS(gps);
+				System.out.println(rs);
 				if(rs!=0){
 					result="success";
-					stu_removed.setSgroup(null);
-					stu_removed.setSposition(null);
+					stu_removed.setSgroup("");
+					stu_removed.setSposition("");
 					int rs_updatestu=0;
+					
 					rs_updatestu=updateStu.updateStu(stu_removed);
+					
 					if(rs_updatestu!=0){
 						result="success";
+						Student stu=(Student)session.getAttribute("student");
+						if(stu.getSNo().equals(stu_removed.getSNo()))
+						session.setAttribute("student",stu_removed);
 					}
 					else result="fail";
 				}

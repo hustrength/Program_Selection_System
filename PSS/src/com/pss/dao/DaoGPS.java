@@ -263,11 +263,15 @@ public class DaoGPS {
 			String sql_update = "update gps set PNo=?,Pname=?,SNo1=?,SNo2=?,SNo3=?,Gsnum=?,Gleftnum=? where Gname=?;";//修改一条学生信息
 			 conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql_update);
+			String sno1=null,sno2=null,sno3=null;
+			if(gps.getStu1()!=null) sno1=gps.getStu1().getSNo();
+			if(gps.getStu2()!=null) sno2=gps.getStu2().getSNo();
+			if(gps.getStu3()!=null) sno3=gps.getStu3().getSNo();
 			pst.setInt(1, gps.getPNo());
 			pst.setString(2, gps.getPname());
-			pst.setString(3, gps.getStu1().getSNo());
-			pst.setString(4, gps.getStu2().getSNo());
-			pst.setString(5, gps.getStu3().getSNo());
+			pst.setString(3, sno1);
+			pst.setString(4, sno2);
+			pst.setString(5, sno3);
 			pst.setInt(6, gps.getGsnum());
 			pst.setInt(7, gps.getGleftnum());
 			pst.setString(8, gps.getGname());

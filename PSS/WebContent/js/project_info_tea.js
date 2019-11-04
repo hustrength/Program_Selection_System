@@ -18,3 +18,24 @@ function pro_edit() {
         }
     })
 }
+
+function remove_pro(pno) {
+	
+    $.ajax({
+    	url: "servlet/serDeletePro?action=delete&PNo="+pno,
+        type: "get",
+        async: false,
+       
+        cache: false,
+        success: function (text) {
+           if(text=="success"){
+        	   alert("删除成功");
+        	   location.reload();
+        	   
+           }
+           else{
+        	   alert("删除失败");
+           }
+        }
+    })
+}

@@ -206,7 +206,7 @@
                                                     data-dismiss="modal">取消
                                             </button>
                                             <input id="pro_edit<%=i%>" type="button" class="btn btn-primary" value="确认" data-dismiss="modal"
-                                                   onclick="">
+                                                   onclick="remove_pro(<%=pro.getPNo()%>)">
                                         </div>
                                     </div>
                                 </div>

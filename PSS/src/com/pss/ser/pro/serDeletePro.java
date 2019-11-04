@@ -7,8 +7,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 
 import com.pss.dao.DaoPro;
+import com.pss.user.Project;
 
 public class serDeletePro extends HttpServlet {
 
@@ -55,8 +58,31 @@ public class serDeletePro extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setContentType("text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
+		 String result="yes";
+	     
+			PrintWriter out = response.getWriter();
+			HttpSession session = request.getSession();
+			String act=request.getParameter("action");
+			System.out.println(act);
+			
+			Project pro=null;
+			if("delete".equals(act)){
+				//É¾³ý¿ÎÌâ
+				int pno = Integer.parseInt(request.getParameter("PNo"));
+			
+				DaoPro daopro = new DaoPro();
+				int rs=0;
+				rs=daopro.deletePro(pno);
+				if(rs!=0){
+					result="success";
+				}
+				else{
+					result="fail";
+				}
+				
+				
+			}
+	        response.getWriter().print(result);
 	}
 
 }

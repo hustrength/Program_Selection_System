@@ -46,7 +46,7 @@ public class serDeleteGPS extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
         
-        System.out.println("delete");
+        
         String result="yes";
      
 		PrintWriter out = response.getWriter();

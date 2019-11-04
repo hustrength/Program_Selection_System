@@ -40,6 +40,7 @@
 <script src="<%=path %>/assets/js/custom-scripts.js"></script>
 
 <script type="text/javascript" src="<%=path %>/js/project_group.js"></script>
+
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
@@ -194,6 +195,9 @@
                             GPS gps;
                             DaoGPS querygps = new DaoGPS();
                             gps = querygps.querybyName(stu.getSgroup());
+                            Project pro = null;
+                            DaoPro daopro = new DaoPro();
+                            pro=daopro.querybypno(gps.getPNo());
                         %>
                         <div style="margin-left:20px"><h4><%=gps.getPname() %>
                         </h4></div>
@@ -210,22 +214,18 @@
                             </ul>
                             <div class="tab-content" style="height:150px">
                                 <div class="tab-pane fade active in" id="home">
-                                    <h4>标题</h4>
-                                    <p>数独（shù dú）是源自18世纪瑞士的一种数学游戏。是一种运用纸、笔进行演算的逻辑游戏。
-                                        玩家需要根据9×9盘面上的已知数字，推理出所有剩余空格的数字，
-                                        并满足每一行、每一列、每一个粗线宫（3*3）内的数字均含1-9，不重复</p>
+                                   
+                                    <p><%=pro.getIntroduction() %></p>
                                 </div>
                                 <div class="tab-pane fade" id="profile">
-                                    <h4>标题</h4>
-                                    <p>。。。</p>
+                                   
+                                    <p><%=pro.getBackground() %></p>
                                 </div>
                                 <div class="tab-pane fade" id="messages">
-                                    <h4>标题</h4>
-                                    <p>。。。</p>
+                                    <p><%=pro.getInfo() %></p>
                                 </div>
                                 <div class="tab-pane fade" id="settings">
-                                    <h4>标题</h4>
-                                    <p>。。。</p>
+                                    <p><%=pro.getOther() %></p>
                                 </div>
                             </div>
                         </div>
@@ -340,7 +340,8 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">取消
                                                 </button>
-                                                <button type="button" class="btn btn-primary">确认</button>
+                                                <button type="button" class="btn btn-primary" 
+                                                onclick="remove_member(<%=gps.getGNo()%>,'<%=gps.getStu2().getSNo()%>')">确认</button>
                                             </div>
                                         </div>
                                     </div>
@@ -367,7 +368,8 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">取消
                                                 </button>
-                                                <button type="button" class="btn btn-primary">确认</button>
+                                                <button type="button" class="btn btn-primary" 
+                                                onclick="transfer_leader(<%=gps.getGNo()%>,'<%=gps.getStu2().getSNo()%>')">确认</button>
                                             </div>
                                         </div>
                                     </div>
@@ -376,11 +378,46 @@
                         </div>
                         <%
                             }
+                            else{
+                            if(gps.getStu2().getSNo().equals(stu.getSNo())){
+                            	
+                            
                         %>
+                        <div class="row">
+                                <button class="btn btn-primary btn-lg" style="margin-top:50px;" data-toggle="modal"
+                                        data-target="#remove1">退出团队
+                                </button>
+                                <div class="modal fade" id="remove1" tabindex="-1" role="dialog"
+                                     aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-hidden="true">
+                                                    &times;
+                                                </button>
+                                                <h4 class="modal-title" id="tips1">提示</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                确认退出？
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                                                </button>
+                                                <button type="button" class="btn btn-primary" onclick="quit_group(<%=gps.getGNo()%>,'<%=stu.getSNo() %>')">确认</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <%
+                              }
+                            }
+                            %>
                     </div>
-                    <%
+                   <%
                         }
-                    %>
+                   %>
 
 
                      <%
@@ -428,7 +465,8 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">取消
                                                 </button>
-                                                <button type="button" class="btn btn-primary">确认</button>
+                                                <button type="button" class="btn btn-primary" 
+                                                onclick="remove_member(<%=gps.getGNo()%>,'<%=gps.getStu3().getSNo()%>')">确认</button>
                                             </div>
                                         </div>
                                     </div>
@@ -455,7 +493,8 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">取消
                                                 </button>
-                                                <button type="button" class="btn btn-primary">确认</button>
+                                                <button type="button" class="btn btn-primary"
+                                                 onclick="transfer_leader(<%=gps.getGNo()%>,'<%=gps.getStu3().getSNo()%>')">确认</button>
                                             </div>
                                         </div>
                                     </div>
@@ -464,7 +503,42 @@
                         </div>
                         <%
                             }
+                            else{
+                            	if(gps.getStu3().getSNo().equals(stu.getSNo())){
+                            	
+                            
                         %>
+                        <div class="row">
+                                <button class="btn btn-primary btn-lg" style="margin-top:50px;" data-toggle="modal"
+                                        data-target="#remove1">退出团队
+                                </button>
+                                <div class="modal fade" id="remove1" tabindex="-1" role="dialog"
+                                     aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-hidden="true">
+                                                    &times;
+                                                </button>
+                                                <h4 class="modal-title" id="tips1">提示</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                确认退出？
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                                                </button>
+                                                <button type="button" class="btn btn-primary" onclick="quit_group(<%=gps.getGNo()%>,'<%=stu.getSNo() %>')">确认</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <%
+                              }
+                            }
+                            %>
                     </div>
                     <%
                         }

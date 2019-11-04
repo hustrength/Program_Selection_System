@@ -97,3 +97,22 @@ function refuse(applicant_sno){
 	        }
 })
 }
+function quit_group(gno,sno){
+	
+	$.ajax({
+    	url: "servlet/serUpdateGPS?action=remove&GNo="+gno+"&SNo="+sno,
+        type: "GET",
+        async: false,
+        dataType: "text",
+        cache: false,
+        success: function (text) {
+           if(text=="success"){
+        	   alert("退出成功");
+        	   location.reload();
+           }
+           else{
+        	   alert("退出失败");
+           }
+        }
+    })
+}

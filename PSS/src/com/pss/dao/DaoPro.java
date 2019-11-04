@@ -103,7 +103,12 @@ public class DaoPro {
 		return rs;
 		
 	}
-public int insertProject(Project pro){
+	/**
+	 * ²åÈë¿ÎÌâ
+	 * @param pro
+	 * @return
+	 */
+    public int insertProject(Project pro){
 		
 		int rs = 0;
 		try{
@@ -127,5 +132,29 @@ public int insertProject(Project pro){
 		}catch(Exception e){e.printStackTrace();}
 		return rs;
 		
+	}
+    /**
+     * É¾³ý¿ÎÌâ
+     * @param pno
+     * @return
+     */
+    public int deletePro(int pno){
+        int rs = 0;
+		Connection conn=null;
+		try{
+			String sql_insert = "delete from project where PNo=?;";
+			conn = new Conn().getConn();
+			PreparedStatement pst = conn.prepareStatement(sql_insert);
+			pst.setInt(1, pno);
+			rs = pst.executeUpdate();
+		}catch(Exception e){e.printStackTrace();}
+		finally{
+			try{
+				conn.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+		return rs;
 	}
 }
