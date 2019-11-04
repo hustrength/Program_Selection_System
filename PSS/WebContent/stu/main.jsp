@@ -169,23 +169,15 @@
                      
                     %>
                         <div class="panel-heading">
-                            <div class="function"><p><%=noti.getTitle() %></p></div>
+                            <div class="function" style="font-size:20px;
+                                font-weight:700;padding:0px 10px 0px 10px;margin-bottom:-10px;margin-top:5px"><p><%=noti.getTitle() %></p></div>
                         </div>
                         <div class="box">
-                            <div class="info">
+                            <div class="info" style="padding:0px 10px 0px 10px;margin-left:15px;margin-right:10px;width:97.3%;">
                                 <p>亲爱的<%=stu.getSname() %>同学，你好！</p>
                             </div>
-                            <div class="form">
-                                <table class="news">
-                                    <tr>
-                                        <td><h2></h2></td>
-                                    </tr>
-                                    <tr>
-                                    <td>
+                            <div class="form" style="font-size:16px;padding:10px 0px 0px 10px;margin-left:15px;margin-right:10px;width:97.3%;height:400px">
                                     <%=noti.getContent() %>
-                                    </td>   
-                                     
-                                </table>
                             </div>
                         </div>
                     </div>

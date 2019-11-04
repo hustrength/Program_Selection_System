@@ -167,7 +167,7 @@
                                     <li class=""><a href="#settings1" data-toggle="tab">其他要求</a>
                                     </li>
                                     <div>
-                                    	<p style="float:right;margin-top:-12px;font-size:13px">剩余可选组数：<%=pro.getPavailable() %></p>
+                                    	<p style="float:right;margin-top:-14px;font-size:13px">剩余可选组数：<%=pro.getPavailable() %></p>
                                     </div>
                                 </ul>
                                 <div class="tab-content">

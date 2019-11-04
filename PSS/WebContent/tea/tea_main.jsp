@@ -142,7 +142,7 @@
                             </div>
                             <hr>
                             <div style="width:100%;height:400px" class="textarea" contenteditable="true">
-                                <textarea id="content" name="content" readonly="readonly"style="border:0.5px solid #ffffff;
+                                <textarea id="content" name="content" readonly="readonly" style="border:0.5px solid #ffffff;
                                 padding:0px 10px 0px 10px;margin-left:15px;margin-right:10px;width:97.3%;height:400px"><%=noti.getContent() %>
                                 </textarea>
                             </div>
@@ -169,7 +169,7 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">取消
                                                 </button>
-                                                <input type="button" class="btn btn-primary" value="确认"
+                                                <input type="button" class="btn btn-primary" value="确认" data-dismiss="modal"
                                                        onclick="update_noti()">
                                             </div>
                                         </div>

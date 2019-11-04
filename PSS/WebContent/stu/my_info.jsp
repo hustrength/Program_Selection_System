@@ -241,7 +241,7 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">取消
                                             </button>
-                                            <input type="button" class="btn btn-primary" value="更改" onclick="changePassword()">
+                                            <input type="button" class="btn btn-primary" value="更改" data-dismiss="modal" onclick="changePassword()">
                                         </div>
                                     </div>
                                 </div>
