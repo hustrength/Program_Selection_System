@@ -66,7 +66,7 @@
                             response.sendRedirect(basePath + "stu/Login.jsp");
                         }
                         String leader_sno = stu.getSNo();
-                        if ("队长".equals(stu.getSposition())) {
+                        if ("组长".equals(stu.getSposition())) {
                             String applicant = null;
                             Apply apply = null;
                             DaoApply list_all_apply = new DaoApply();
@@ -80,8 +80,8 @@
                                     applicant = apply.getApplicant().getSNo();
                     %>
 
-                    <li>
-
+                    <li style="margin:3px 0px 0px 15px">
+						
                         <div>
                             <strong><%=apply.getApplicant().getSname() %>
                             </strong>
@@ -89,12 +89,14 @@
                                         <em></em>
                                     </span>
                         </div>
-                        <div style="display:flex; margin-top:3px">
+                        <div style="display:flex;">
                             <div style="margin-top:5px">申请加入你的团队</div>
                             <input type="button" value="同意" class="btn btn-info btn-sm" style="margin-left:40px"
                                    onclick="agree('<%=applicant%>')">
+                            <input type="button" value="拒绝" class="btn btn-danger btn-sm" style="margin-left:40px"
+                                   onclick="agree('<%=applicant%>')">
                         </div>
-
+						
                     </li>
                     <li class="divider"></li>
                     <%
@@ -198,6 +200,14 @@
                             Project pro = null;
                             DaoPro daopro = new DaoPro();
                             pro=daopro.querybypno(gps.getPNo());
+                            String intro=pro.getIntroduction();
+                            String bg=pro.getBackground();
+                            String info=pro.getInfo();
+                            String other=pro.getOther();
+                            intro=intro.replace("\r\n","<br/>");
+                            bg=bg.replace("\r\n","<br/>");
+                            info=info.replace("\r\n","<br/>");
+                            other=other.replace("\r\n","<br/>");
                         %>
                         <div style="margin-left:20px"><h4><%=gps.getPname() %>
                         </h4></div>
@@ -215,17 +225,17 @@
                             <div class="tab-content" style="height:150px">
                                 <div class="tab-pane fade active in" id="home">
                                    
-                                    <p><%=pro.getIntroduction() %></p>
+                                    <p><%=intro%></p>
                                 </div>
                                 <div class="tab-pane fade" id="profile">
                                    
-                                    <p><%=pro.getBackground() %></p>
+                                    <p><%=bg%></p>
                                 </div>
                                 <div class="tab-pane fade" id="messages">
-                                    <p><%=pro.getInfo() %></p>
+                                    <p><%=info%></p>
                                 </div>
                                 <div class="tab-pane fade" id="settings">
-                                    <p><%=pro.getOther() %></p>
+                                    <p><%=other%></p>
                                 </div>
                             </div>
                         </div>

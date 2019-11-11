@@ -44,66 +44,87 @@
             <a class="navbar-brand" href="main.jsp">学生选题信息管理系统</a>
         </div>
 
-        <ul class="nav navbar-top-links navbar-right">
+       <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                     <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
+                <ul class="dropdown-menu dropdown-messages">
                     <%
-                   Student stu=null;
-                   stu = (Student) session.getAttribute("student");
-                   if(stu==null){
-                	   response.sendRedirect(basePath+"stu/Login.jsp");
-                   }
-                   String leader_sno=stu.getSNo();
-                   if("队长".equals(stu.getSposition())){
-                   String applicant=null;
-                   Apply apply = null;
-                   DaoApply list_all_apply = new DaoApply();
-                   List<Apply> list_apply = list_all_apply.listApplybyGname(stu.getSgroup());
-                   Iterator<Apply> it_apply = list_apply.iterator();
-                   
-                   while (it_apply.hasNext()) {
-                       apply = it_apply.next();
-                       int status = apply.getStatus();
-                       if (status== 0) {
-                    	   applicant=apply.getApplicant().getSNo();
-                   %>
-            <li>
-                <div>
-                    <strong><%=apply.getApplicant().getSname() %>
-                    </strong>
-                    <span class="pull-right text-muted">
+
+                        Student stu = null;
+                        stu = (Student) session.getAttribute("student");
+                        if (stu == null) {
+                            response.sendRedirect(basePath + "stu/Login.jsp");
+                        }
+                        String leader_sno = stu.getSNo();
+                        if ("组长".equals(stu.getSposition())) {
+                            String applicant = null;
+                            Apply apply = null;
+                            DaoApply list_all_apply = new DaoApply();
+                            List<Apply> list_apply = list_all_apply.listApplybyGname(stu.getSgroup());
+                            Iterator<Apply> it_apply = list_apply.iterator();
+
+                            while (it_apply.hasNext()) {
+                                apply = it_apply.next();
+                                int status = apply.getStatus();
+                                if (status == 0) {
+                                    applicant = apply.getApplicant().getSNo();
+                    %>
+
+                    <li style="margin:3px 0px 0px 15px">
+
+                        <div>
+                            <strong><%=apply.getApplicant().getSname() %>
+                            </strong>
+                            <span class="pull-right text-muted">
                                         <em></em>
                                     </span>
-                </div>
-                <div style="display:flex; margin-top:3px">
-                    <div style="margin-top:5px">申请加入你的团队</div>
-                    <input type="button" value="同意" class="btn btn-info btn-sm" style="margin-left:40px"
-                           onclick="agree('<%=applicant%>')">
-                </div>
+                        </div>
+                        <div style="display:flex;">
+                            <div style="margin-top:5px">申请加入你的团队</div>
+                            <input type="button" value="同意" class="btn btn-info btn-sm" style="margin-left:40px"
+                                   onclick="agree('<%=applicant%>')">
+                        </div>
+
+                    </li>
+                    <li class="divider"></li>
+                    <%
+                            }
+                        }
+
+                    %>
+                    <li>
+                        <a class="text-center" href="#">
+                            <strong>读取全部消息</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                    <%
+                        }
+                    %>
+                </ul>
+                <!-- /.dropdown-messages -->
             </li>
-            <li class="divider"></li>
-            <%
-                    }
-                }
-            %>
-            <li>
-                <a class="text-center" href="#">
-                    <strong>读取全部消息</strong>
-                    <i class="fa fa-angle-right"></i>
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="<%=stuMainPath %>my_info.jsp"><i class="fa fa-user fa-fw"></i> 个人信息</a>
+                    <li class="divider"></li>
+                    <li><a href="<%=basePath%>stu/Login.jsp"><i class="fa fa-sign-out fa-fw"></i> 注销</a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-user -->
             </li>
-            <%
-                }
-            %>
-        </ul>
-        <!-- /.dropdown-user -->
-        </li>
-        <!-- /.dropdown -->
+            <!-- /.dropdown -->
         </ul>
     </nav>
     <!--/. NAV TOP  -->
+   
+         
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
@@ -149,6 +170,15 @@
                     while (it_pro.hasNext()) {
                         ++i;
                         pro = it_pro.next();
+                        String intro=pro.getIntroduction();
+                        String bg=pro.getBackground();
+                        String info=pro.getInfo();
+                        String other=pro.getOther();
+                        intro=intro.replace("\r\n","<br/>");
+                        bg=bg.replace("\r\n","<br/>");
+                        info=info.replace("\r\n","<br/>");
+                        other=other.replace("\r\n","<br/>");
+                        
                 %>
                 <div class="col-md-6 col-sm-6">
                     <form>
@@ -174,25 +204,25 @@
                                     <div class="tab-pane fade active in" id="home1" style="height:240px">
                                         <p class="col-sm-12"
                                            style="overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
-                                            <%=pro.getIntroduction() %>
+                                            <%=intro%>
                                         </p>
                                     </div>
                                     <div class="tab-pane fade" id="profile1" style="height:240px">
                                         <p class="col-sm-12"
                                            style="overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
-                                            <%=pro.getBackground() %>
+                                            <%=bg %>
                                         </p>
                                     </div>
                                     <div class="tab-pane fade" id="messages1" style="height:240px">
                                         <p class="col-sm-12"
                                            style="overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
-                                            <%=pro.getInfo() %>
+                                            <%=info %>
                                         </p>
                                     </div>
                                     <div class="tab-pane fade" id="settings1" style="height:240px">
                                         <p class="col-sm-12" readonly="readonly"
                                            style="overflow-y:scroll;height:240px;font-size:21px;font-weight:200;line-height:25px;margin-top:15px">
-                                            <%=pro.getOther() %>
+                                            <%=other %>
                                         </p>
                                     </div>
                                 </div>

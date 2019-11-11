@@ -66,7 +66,7 @@
                 	   response.sendRedirect(basePath+"stu/Login.jsp");
                    }
                    String leader_sno=stu.getSNo();
-                   if("队长".equals(stu.getSposition())){
+                   if("组长".equals(stu.getSposition())){
                    String applicant=null;
                    Apply apply = null;
                    DaoApply list_all_apply = new DaoApply();
@@ -80,7 +80,7 @@
                     	   applicant=apply.getApplicant().getSNo();
                    %>
 
-                    <li>
+                    <li style="margin:3px 0px 0px 15px">
                         
                             <div>
                                 <strong><%=apply.getApplicant().getSname() %>
@@ -89,7 +89,7 @@
                                         <em></em>
                                     </span>
                             </div>
-                            <div style="display:flex; margin-top:3px">
+                            <div style="display:flex;">
                                 <div style="margin-top:5px">申请加入你的团队</div>
                                <input type="button" value="同意" class="btn btn-info btn-sm" style="margin-left:40px" onclick="agree('<%=applicant%>')">
                             </div>

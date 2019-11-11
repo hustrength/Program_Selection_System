@@ -38,16 +38,13 @@
 <!-- Custom Js -->
 <script src="<%=path %>/assets/js/custom-scripts.js"></script>
 <script type="text/javascript" src="<%=path %>/js/tea_main.js"></script>
- <%
-            Notification noti=null;
-            DaoNoti daonoti = new DaoNoti();
-            noti=daonoti.query();
-%>
+
 <script type="text/javascript">
     function edit_input(title_old,content_old) {
         var btn = document.getElementById("edit");
         var title = document.getElementById("title");
         var content = document.getElementById("content");
+        alert("");
         if (btn.value === "编辑") {
             btn.value = "复原";
             title.removeAttribute("readOnly");
@@ -130,7 +127,19 @@
                     </h1>
                 </div>
             </div>
-           
+            <%
+            Notification noti=null;
+            DaoNoti daonoti = new DaoNoti();
+            
+            noti=daonoti.query();
+            
+             String cont=noti.getContent();
+             cont=cont.replace("\r\n", "<br/>");
+            
+             System.out.println(cont);
+             String title=noti.getTitle();
+             title=title.replace("\r\n","");
+%>
             <div class="row">
                 <div class="col-sm-12 col-xs-12">
                     <div class="panel panel-default">
@@ -148,8 +157,9 @@
                             </div>
                             <hr>
                             <div style="display:flex">
+                            
                                 <input id="edit" type="button" value="编辑" class="btn btn-default"
-                                       style="margin-left:18px;" onclick="edit_input('<%=noti.getTitle()%>','<%=noti.getContent()%>')">
+                                       style="margin-left:18px;" onclick="edit_input('<%=title%>','<%=cont%>')">
                                 <input type="button" value="提交" class="btn btn-primary" style="margin-left:18px;"
                                        data-toggle="modal" data-target="#dismiss">
                                 <div class="modal fade" id="dismiss" tabindex="-1" role="dialog"

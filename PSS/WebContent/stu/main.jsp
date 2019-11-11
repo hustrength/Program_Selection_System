@@ -61,7 +61,7 @@
                 	   response.sendRedirect(basePath+"stu/Login.jsp");
                    }
                    String leader_sno=stu.getSNo();
-                   if("队长".equals(stu.getSposition())){
+                   if("组长".equals(stu.getSposition())){
                    String applicant=null;
                    Apply apply = null;
                    DaoApply list_all_apply = new DaoApply();
@@ -75,7 +75,7 @@
                     	   applicant=apply.getApplicant().getSNo();
                    %>
 
-                    <li>
+                    <li style="margin:3px 0px 0px 15px">
                         
                             <div>
                                 <strong><%=apply.getApplicant().getSname() %>
@@ -84,7 +84,7 @@
                                         <em></em>
                                     </span>
                             </div>
-                            <div style="display:flex; margin-top:3px">
+                            <div style="display:flex;">
                                 <div style="margin-top:5px">申请加入你的团队</div>
                                <input type="button" value="同意" class="btn btn-info btn-sm" style="margin-left:40px" onclick="agree('<%=applicant%>')">
                             </div>
@@ -154,7 +154,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        关于本学期软件工程选题相关事宜安排的通知 <small>巴拉巴拉</small>
+                        关于本学期软件工程选题相关事宜安排的通知 <small></small>
                     </h1>
                 </div>
             </div>
@@ -166,18 +166,21 @@
                       Notification noti=null;
                       DaoNoti daonoti = new DaoNoti();
                       noti=daonoti.query();
-                     
+                      String cont=noti.getContent();
+                      cont=cont.replace("\r\n", "<br/>");
+                      String title=noti.getTitle();
+                      title=title.replace("\r\n","");
                     %>
                         <div class="panel-heading">
                             <div class="function" style="font-size:20px;
-                                font-weight:700;padding:0px 10px 0px 10px;margin-bottom:-10px;margin-top:5px"><p><%=noti.getTitle() %></p></div>
+                                font-weight:700;padding:0px 10px 0px 10px;margin-bottom:-10px;margin-top:5px"><p><%=title %></p></div>
                         </div>
                         <div class="box">
                             <div class="info" style="padding:0px 10px 0px 10px;margin-left:15px;margin-right:10px;width:97.3%;">
                                 <p>亲爱的<%=stu.getSname() %>同学，你好！</p>
                             </div>
                             <div class="form" style="font-size:16px;padding:10px 0px 0px 10px;margin-left:15px;margin-right:10px;width:97.3%;height:400px">
-                                    <%=noti.getContent() %>
+                                    <%=cont %>
                             </div>
                         </div>
                     </div>
