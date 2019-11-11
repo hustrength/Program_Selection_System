@@ -81,7 +81,8 @@ function refuse(applicant_sno){
 	        cache: false,
 	        success: function (text) {
 	            if (text === "success") {
-					alert("已同意");
+					alert("已拒绝");
+					
 	            } 
 	            else if(text=="ismember") {
 	            	alert("该同学已加入别的组");

@@ -91,7 +91,10 @@
                             </div>
                             <div style="display:flex;">
                                 <div style="margin-top:5px">申请加入你的团队</div>
-                               <input type="button" value="同意" class="btn btn-info btn-sm" style="margin-left:40px" onclick="agree('<%=applicant%>')">
+                                <input type="button" value="同意" class="btn btn-info btn-sm" style="margin-left:20px"
+                                   onclick="agree('<%=applicant%>')">
+                                <input type="button" value="拒绝" class="btn btn-danger btn-sm" style="margin-left:10px"
+                                   onclick="agree('<%=applicant%>')">
                             </div>
                        
                     </li>

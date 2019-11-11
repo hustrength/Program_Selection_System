@@ -44,7 +44,16 @@
 
 <!-- CreateGroup Js -->
 <script type="text/javascript" src="<%=path %>/js/all_group.js"></script>
+<script>
+function hide(i){
+	var li = "apply" + i.toString();
+	var e = document.getElementById(li);
+	e.style.display = 'none';
+}
+</script>
+
 <div id="wrapper">
+<div id="msg">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
@@ -75,15 +84,17 @@
                    DaoApply list_all_apply = new DaoApply();
                    List<Apply> list_apply = list_all_apply.listApplybyGname(stu.getSgroup());
                    Iterator<Apply> it_apply = list_apply.iterator();
+                   int j = 0;
                    
                    while (it_apply.hasNext()) {
+                	   ++j;
                        apply = it_apply.next();
                        int status = apply.getStatus();
                        if (status== 0) {
                     	   applicant=apply.getApplicant().getSNo();
                    %>
 
-                    <li  style="margin:3px 0px 0px 15px">
+                    <li  id="apply<%=j %>" style="margin:3px 0px 0px 15px">
                         
                             <div>
                                 <strong><%=apply.getApplicant().getSname() %>
@@ -94,7 +105,10 @@
                             </div>
                             <div style="display:flex;">
                                 <div style="margin-top:5px">申请加入你的团队</div>
-                               <input type="button" value="同意" class="btn btn-info btn-sm" style="margin-left:40px" onclick="agree('<%=applicant%>')">
+							<input type="button" value="同意" class="btn btn-info btn-sm" style="margin-left:20px"
+                                   onclick="agree('<%=applicant%>')">
+                            <input type="button" value="拒绝" class="btn btn-danger btn-sm" style="margin-left:10px"
+                                   onclick="agree('<%=applicant%>')">
                             </div>
                        
                     </li>
@@ -133,6 +147,7 @@
             <!-- /.dropdown -->
         </ul>
     </nav>
+    </div>
     <!--/. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">

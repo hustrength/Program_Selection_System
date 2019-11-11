@@ -51,27 +51,27 @@ public class serUpdateApply extends HttpServlet {
 				Student leader = (Student) session.getAttribute("student");
 				Student applicant=null;
 				String act=request.getParameter("action");
-				//²éÑ¯ÉêÇëÑ§Éú
+				//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½
 				String sno = request.getParameter("SNo");
 				DaoStu querybyid=new DaoStu();
 				applicant=querybyid.querybyid(sno);
-				//Ñ§ÉúÒÑ¼ÓÈëÆäËû×é
+				//Ñ§ï¿½ï¿½ï¿½Ñ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				if(applicant.getSgroup()!=null&&applicant.getSgroup()!=""){
 					response.getWriter().print("ismember");
 					return;
 				}
 				if("agree".equals(act)){
-					//Í¬Òâ¼ÓÈë
+					//Í¬ï¿½ï¿½ï¿½ï¿½ï¿½
 					
-					//ÉèÖÃÑ§ÉúÉí·Ý
+					//ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½
 					applicant.setSgroup(leader.getSgroup());
-					applicant.setSposition("×éÔ±");
+					applicant.setSposition("ï¿½ï¿½Ô±");
 					
-					//¸üÐÂsqlÖÐÉêÇëÑ§ÉúµÄÐÅÏ¢
+					//ï¿½ï¿½ï¿½ï¿½sqlï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 					int rs1=0;
 					rs1=updateStu.updateStu(applicant);
 					
-					//¸üÐÂgps
+					//ï¿½ï¿½ï¿½ï¿½gps
 					
 					GPS gps=null;
 					gps=updateGPS.querybyName(leader.getSgroup());
@@ -84,7 +84,7 @@ public class serUpdateApply extends HttpServlet {
 					int rs2=0;
 					gps.setGleftnum(gps.getGleftnum()-1);
 					rs2=updateGPS.updateGPS(gps);
-					//É¾³ýapply
+					//É¾ï¿½ï¿½apply
 					int rs3=0;
 					DaoApply delete = new DaoApply();
 					rs3 = delete.deleteApply(applicant.getSNo());
@@ -97,12 +97,14 @@ public class serUpdateApply extends HttpServlet {
 					
 				}
 				else if("refuse".equals(act)){
-					//¾Ü¾ø
+					//ï¿½Ü¾ï¿½
+					System.out.println("refuse");
 					GPS gps=null;
 					gps=updateGPS.querybyName(leader.getSgroup());
-					//¸üÐÂapply
+					System.out.println(gps.getGname());
+					//ï¿½ï¿½ï¿½ï¿½apply
 					int rs3=0;
-					rs3=updateApply.updatetApplyStatus(gps.getGNo(), gps.getGname(), sno, 0, 2);
+					rs3=updateApply.updatetApplyStatus(gps.getGNo(), 2);
 					if(rs3==0){
 						response.getWriter().print("fail");
 					}

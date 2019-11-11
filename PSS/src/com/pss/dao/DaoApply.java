@@ -18,7 +18,7 @@ import com.pss.user.Student;
 public class DaoApply {
 	
 	/**
-	 * ²åÈëÒ»¸öÉêÇëµ¥
+	 * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ëµ¥
 	 * @param gno
 	 * @param applicant
 	 * @param leader
@@ -50,7 +50,7 @@ public class DaoApply {
 		return rs;
 	}
 	/**
-	 * É¾³ýÄ³Ñ§ÉúËùÓÐapply
+	 * É¾ï¿½ï¿½Ä³Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½apply
 	 * @param applicant
 	 * @return
 	 */
@@ -78,7 +78,7 @@ public class DaoApply {
 		return rs;
 	}
 	/**
-	 * ¸üÐÂapply
+	 * ï¿½ï¿½ï¿½ï¿½apply
 	 * @param gno
 	 * @param gname
 	 * @param applicant
@@ -86,21 +86,19 @@ public class DaoApply {
 	 * @param new_s
 	 * @return
 	 */
-	public int updatetApplyStatus(int gno,String gname,String applicant,int old_s,int new_s){
+	public int updatetApplyStatus(int gno,int new_s){
 		int rs = 0;
 		Connection conn=null;
 		try{
-			String sql = "update apply set Status=? where GNo=? and Gname=? and Applicant=? and Status=?;";
+			String sql = "update apply set Status=? where GNo=?;";
 			conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setInt(1, new_s);
 			pst.setInt(2, gno);
-			pst.setString(3, gname);
-			pst.setString(4, applicant);
-			pst.setInt(5, new_s);
+			
 			rs = pst.executeUpdate();
 			if(rs!=0){
-				System.out.println("insert over!");
+				System.out.println("update over!");
 			}
 		}catch(Exception e){e.printStackTrace();}
 		finally{
@@ -113,7 +111,7 @@ public class DaoApply {
 		return rs;
 	}
 	/**
-	 * ²éÑ¯ÉêÇëµ¥
+	 * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ëµ¥
 	 * @param applicant
 	 * @param leader
 	 * @return
@@ -126,6 +124,8 @@ public class DaoApply {
 			conn=new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setString(1, gname);
+			pst.setString(2, applicant_sno);
+			pst.setInt(3, status);
 			ResultSet rs = pst.executeQuery();
 			Student applicant=null;
 			if(rs.next()){
@@ -148,7 +148,7 @@ public class DaoApply {
 	
 	
 	/**
-	 * ±éÀúÉêÇëµ¥
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ëµ¥
 	 * @param sno
 	 * @return
 	 */
