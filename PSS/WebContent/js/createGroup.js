@@ -25,6 +25,8 @@ function create_group() {
 	
 	if(flag==false) return false;
 	
+	var group_project="stu/project_group.jsp";
+	
     $.ajax({
     	url: "servlet/serInsertGPS?action=create",
         type: "post",
@@ -34,12 +36,14 @@ function create_group() {
         success: function (text) {
            if(text=="success"){
         	   alert("创建成功");
+        	   $("#form_create").attr("action",group_project);
            }
            else{
         	   alert("创建失败");
            }
         }
     })
+    
 }
 function show_remains(){
 	var e = document.getElementById("remained_group");

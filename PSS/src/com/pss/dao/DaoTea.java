@@ -12,7 +12,7 @@ import com.pss.user.Teacher;
 public class DaoTea {
 	
 	/**
-	 * 根据id查询是否有此教师
+	 * 锟斤拷锟斤拷id锟斤拷询锟角凤拷锟叫此斤拷师
 	 * @param id
 	 * @return
 	 */
@@ -39,14 +39,14 @@ public class DaoTea {
 		return tea;
 	}
 	/**
-	 * 更新老师信息
+	 * 锟斤拷锟斤拷锟斤拷师锟斤拷息
 	 * @param stu
 	 * @return
 	 */
 	public int updateTea(Teacher tea){
 		int rs = 0;
 		try{
-			String sql_update = "update Teacher set Tname=?,Tpassword=? where TNo=?;";//修改一条学生信息
+			String sql_update = "update teacher set Tname=?,Tpassword=? where TNo=?;";//锟睫革拷一锟斤拷学锟斤拷锟斤拷息
 			Connection conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql_update);
 			pst.setString(1, tea.getTname());

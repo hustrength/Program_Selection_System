@@ -67,6 +67,7 @@ public class serDeleteGPS extends HttpServlet {
 			DaoGPS deleteGPS = new DaoGPS();
 			int rs=0;
 			rs=deleteGPS.deleteGPSbyGNo(gno);
+			System.out.println(rs);
 			if(rs!=0){
 				result="success";
 				DaoPro daopro=new DaoPro();

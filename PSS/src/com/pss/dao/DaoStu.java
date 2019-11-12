@@ -43,7 +43,7 @@ public class DaoStu {
 	public int updateStu(Student stu){
 		int rs = 0;
 		try{
-			String sql_update = "update Student set Sname=?,Spassword=?,Ssex=?,Sclass=?,Sgroup=?,Sposition=? where SNo=?;";//修改一条学生信息
+			String sql_update = "update student set Sname=?,Spassword=?,Ssex=?,Sclass=?,Sgroup=?,Sposition=? where SNo=?;";//修改一条学生信息
 			Connection conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql_update);
 			pst.setString(1, stu.getSname());

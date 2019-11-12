@@ -34,7 +34,7 @@
 <!-- Jquery Js -->
 <script type="text/javascript" src="<%=path %>/js/jquery-latest.js"></script>
 <!-- CreateGroup Js -->
-<script type="text/javascript" src="<%=basePath %>/js/createGroup.js"></script>
+<script type="text/javascript" src="<%=basePath %>js/createGroup.js"></script>
 
 <script>
 
@@ -175,7 +175,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <form role="form" id="form_create" name="form_create" method="post"
+                                        <form  id="form_create" name="form_create" method="post"
                                               onsubmit='create_group()'>
                                             <div class="form-group">
                                                 <label>团队名称</label>
@@ -225,7 +225,7 @@
                                                 </div>
                                             </div>
                                             <hr>
-                                            <button type="submit" class="btn btn-primary">创建</button>
+                                            <input type="submit" class="btn btn-primary" value="创建">
                                         </form>
                                     </div>
                                 </div>
