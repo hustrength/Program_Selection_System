@@ -178,10 +178,10 @@
                         String bg=pro.getBackground();
                         String info=pro.getInfo();
                         String other=pro.getOther();
-                        intro=intro.replace("\r\n","<br/>");
-                        bg=bg.replace("\r\n","<br/>");
-                        info=info.replace("\r\n","<br/>");
-                        other=other.replace("\r\n","<br/>");
+                        intro=intro.replace("\r\n","<br>");
+                        bg=bg.replace("\r\n","<br>");
+                        info=info.replace("\r\n","<br>");
+                        other=other.replace("\r\n","<br>");
                         
                 %>
                 <div class="col-md-6 col-sm-6">

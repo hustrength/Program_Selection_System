@@ -44,7 +44,6 @@
         var btn = document.getElementById("edit");
         var title = document.getElementById("title");
         var content = document.getElementById("content");
-        alert("");
         if (btn.value === "编辑") {
             btn.value = "复原";
             title.removeAttribute("readOnly");
@@ -52,6 +51,9 @@
             content.removeAttribute("readOnly");
             content.style.border = "0.5px solid #808080";
         } else {
+        	title_old=title_old.replace(/<br>/g, '\r\n');
+        	content_old=content_old.replace(/<br>/g, '\r\n');
+        
             title.value = title_old;
             content.value = content_old;
             btn.value = "编辑";
@@ -134,7 +136,7 @@
             noti=daonoti.query();
             
              String cont=noti.getContent();
-             cont=cont.replace("\r\n", "<br/>");
+             cont=cont.replace("\r\n", "<br>");
             
              System.out.println(cont);
              String title=noti.getTitle();

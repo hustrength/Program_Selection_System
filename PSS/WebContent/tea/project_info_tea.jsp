@@ -59,10 +59,10 @@
             pname.style.border = "0.5px solid #808080";
             pname.removeAttribute("readOnly");
         } else {
-        	if(tab.id=="Intro") tab.value = intro;
-        	else if(tab.id=="Bg") tab.value = bg;
-        	else if(tab.id=="Info") tab.value = info;
-        	else if(tab.id=="Other") tab.value = other;
+        	if(tab.id=="Intro") tab.value = intro.replace(/<br>/g, '\r\n');
+        	else if(tab.id=="Bg") tab.value = bg.replace(/<br>/g, '\r\n');
+        	else if(tab.id=="Info") tab.value = info.replace(/<br>/g, '\r\n');
+        	else if(tab.id=="Other") tab.value = other.replace(/<br>/g, '\r\n');
         	pname.value = name;
             btn.setAttribute("value", "编辑");
             tab.setAttribute("readOnly", 'true');
@@ -165,6 +165,14 @@
                     while (it_pro.hasNext()) {
                         ++i;
                         pro = it_pro.next();
+                        String intro=pro.getIntroduction();
+                        String bg=pro.getBackground();
+                        String info=pro.getInfo();
+                        String other=pro.getOther();
+                        intro=intro.replace("\r\n","<br>");
+                        bg=bg.replace("\r\n","<br>");
+                        info=info.replace("\r\n","<br>");
+                        other=other.replace("\r\n","<br>");
                 %>
                 <div class="col-md-6 col-sm-6">
                     <form id="form_pro" name ="form_pro">
@@ -247,7 +255,7 @@
                                    data-toggle="modal" data-target="#dismiss<%=i%>">
                             <input id="edit<%=i%>" type="button" value="编辑" class="btn btn-default"
                                    style="margin-right:18px;float:right" 
-                                   onclick="edit_input(<%=i%>,'<%=pro.getPname()%>','<%=pro.getIntroduction()%>','<%=pro.getBackground()%>','<%=pro.getInfo()%>','<%=pro.getOther()%>','<%=pro.getPmaxnum()%>')">
+                                   onclick="edit_input(<%=i%>,'<%=pro.getPname()%>','<%=intro%>','<%=bg%>','<%=info%>','<%=other%>','<%=pro.getPmaxnum()%>')">
                             <div class="modal fade" id="dismiss<%=i%>" tabindex="-1" role="dialog"
                                  aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
