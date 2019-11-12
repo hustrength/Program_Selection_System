@@ -16,7 +16,7 @@ import com.pss.dao.DaoStu;
 public class DaoGPS {
 	
 	/**
-	 * »ñÈ¡ËùÓÐgps
+	 * ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½gps
 	 * @return
 	 */
 	public List<GPS> listAllGPS(){
@@ -35,8 +35,8 @@ public class DaoGPS {
 				String gname = rs.getString("Gname");
 				String pname = rs.getString("Pname");
 				String sno1 = rs.getString("SNo1");
-				String sno2 = rs.getString("SNo1");
-				String sno3 = rs.getString("SNo1");
+				String sno2 = rs.getString("SNo2");
+				String sno3 = rs.getString("SNo3");
 				int gsnum = rs.getInt("Gsnum");
 				int gleftnum = rs.getInt("Gleftnum");
 				Student stu1,stu2,stu3;
@@ -68,7 +68,7 @@ public class DaoGPS {
 	}
 	
 	/**
-	 * ²åÈëÒ»¸ö¶ÓÎé¿ÎÌâÑ§ÉúÐÅÏ¢£¨GPS£©
+	 * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½GPSï¿½ï¿½
 	 * @param gps
 	 * @return
 	 */
@@ -117,7 +117,7 @@ public class DaoGPS {
 	}
 	
 	/**
-	 * °´¶ÓÃûÉ¾³ý¶ÓÎé
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param gname
 	 * @return
 	 */
@@ -205,7 +205,7 @@ public class DaoGPS {
 	}
 	
 	/**
-	 * °´¶ÓÃû²éÑ¯¶ÓÎé
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
 	 * @param Gname
 	 * @return
 	 */
@@ -252,7 +252,7 @@ public class DaoGPS {
 		return gps;
 	}
 	/**
-	 * ¸üÐÂgps
+	 * ï¿½ï¿½ï¿½ï¿½gps
 	 * @param gps
 	 * @return
 	 */
@@ -260,7 +260,7 @@ public class DaoGPS {
 		int rs=0;
 		Connection conn = null;
 		try{
-			String sql_update = "update gps set PNo=?,Pname=?,SNo1=?,SNo2=?,SNo3=?,Gsnum=?,Gleftnum=? where Gname=?;";//ÐÞ¸ÄÒ»ÌõÑ§ÉúÐÅÏ¢
+			String sql_update = "update gps set PNo=?,Pname=?,SNo1=?,SNo2=?,SNo3=?,Gsnum=?,Gleftnum=? where Gname=?;";//ï¿½Þ¸ï¿½Ò»ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½Ï¢
 			 conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql_update);
 			String sno1=null,sno2=null,sno3=null;

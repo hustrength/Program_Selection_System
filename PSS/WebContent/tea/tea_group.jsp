@@ -11,7 +11,7 @@
     <base href="<%=basePath%>">
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>学生选题信息管理系统——学生界面</title>
+    <title>学生选题信息管理系统——教师界面</title>
     <!-- Bootstrap Styles-->
     <link href="<%=path %>/assets/css/bootstrap.css" rel="stylesheet"/>
     <!-- FontAwesome Styles-->
@@ -139,14 +139,13 @@
                                            id="dataTables-example" name="dataTables-example">
                                         <thead>
                                         <tr>
-                                            <th>团队编号</th>
-                                            <th>团队名</th>
-                                            <th>所选课题</th>
-                                            <th>队长</th>
-                                            <th>剩余成员数</th>
-                                             
-                                           
-                                            
+                                            <th style="width:12%">团队编号</th>
+                                            <th style="width:17%">团队名</th>
+                                            <th style="width:16%">所选课题</th>
+                                            <th style="width:15%">队长</th>
+                                            <th style="width:15%">队员</th>
+                                            <th style="width:15%">队员</th>
+                                            <th style="width:10%">剩余成员数</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -156,6 +155,11 @@
                                                 int gno = gps.getGNo();
                                                 String sno = gps.getStu1().getSNo();
                                                 String gname = gps.getGname();
+                                                String stu2name="";
+                                                
+                                                if(gps.getStu2()!=null) stu2name=gps.getStu2().getSname();
+                                                String stu3name="";
+                                                if(gps.getStu3()!=null) stu3name=gps.getStu3().getSname();
                                         %>
                                         <tr class="odd gradeX">
                                             <td><%= gps.getGNo() %>
@@ -165,6 +169,10 @@
                                             <td><%= gps.getPname() %>
                                             </td>
                                             <td class="center"><%= gps.getStu1().getSname() %>
+                                            </td>
+                                             <td class="center"><%= stu2name %>
+                                            </td>
+                                             <td class="center"><%= stu3name %>
                                             </td>
                                             <td class="center"><%=gps.getGleftnum() %>
                                             </td>

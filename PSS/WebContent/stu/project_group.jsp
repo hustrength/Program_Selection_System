@@ -40,7 +40,7 @@
 <script src="<%=path %>/assets/js/custom-scripts.js"></script>
 
 <script type="text/javascript" src="<%=path %>/js/project_group.js"></script>
-
+<script type="text/javascript" src="<%=path %>/js/msg.js"></script>
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
@@ -52,6 +52,7 @@
             </button>
             <a class="navbar-brand" href="main.jsp">学生选题信息管理系统</a>
         </div>
+        <div id="msg">
         <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
@@ -94,7 +95,7 @@
                             <input type="button" value="同意" class="btn btn-info btn-sm" style="margin-left:20px"
                                    onclick="agree('<%=applicant%>')">
                             <input type="button" value="拒绝" class="btn btn-danger btn-sm" style="margin-left:10px"
-                                   onclick="agree('<%=applicant%>')">
+                                   onclick="refuse('<%=applicant%>')">
                         </div>
 						
                     </li>
@@ -131,6 +132,7 @@
             </li>
             <!-- /.dropdown -->
         </ul>
+        </div>
     </nav>
     <!--/. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation">

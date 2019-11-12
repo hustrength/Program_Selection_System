@@ -90,7 +90,7 @@ public class DaoStu {
 		int rs = 0;
 		Connection conn=null;
 		try{
-			String sql_insert = "insert into student(SNo,Sname,Spassword,Ssex,Sclass,Sgroup,Sposition,Sscore) values(?,?,?,?,?,?,?,?);";
+			String sql_insert = "insert into student(SNo,Sname,Spassword,Ssex,Sclass,Sgroup,Sposition) values(?,?,?,?,?,?,?);";
 			conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql_insert);
 			pst.setString(1, stu.getSNo());
@@ -100,7 +100,7 @@ public class DaoStu {
 			pst.setString(5, stu.getSclass());
 			pst.setString(6, stu.getSgroup());
 			pst.setString(7, stu.getSposition());
-			pst.setInt(8, stu.getSscore());
+			
 			
 			rs = pst.executeUpdate();
 			if(rs!=0){
@@ -133,7 +133,7 @@ public class DaoStu {
 			ResultSet rs = pst.executeQuery();
 			if(rs.next()){
 				stu = new Student(rs.getString("SNo"),rs.getString("Sname"),rs.getString("Spassword"),rs.getString("Ssex"),rs.getString("Sclass"),
-						rs.getString("Sgroup"),rs.getString("Sposition"),rs.getInt("Sscore"));
+						rs.getString("Sgroup"),rs.getString("Sposition"));
 			}
 		}catch(Exception e){e.printStackTrace();}
 		finally{

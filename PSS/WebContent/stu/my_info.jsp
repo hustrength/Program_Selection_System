@@ -36,14 +36,7 @@
 <script type="text/javascript" src="<%=path %>/js/jquery-latest.js"></script>
 <!-- CreateGroup Js -->
 <script type="text/javascript" src="<%=path %>/js/my_info.js"></script>
-<script>
-function hide(i){
-	var li = "apply" + i.toString();
-	var e = document.getElementById(li);
-	e.style.display = 'none';
-	alert("");
-}
-</script>
+<script type="text/javascript" src="<%=path %>/js/msg.js"></script>
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
@@ -101,7 +94,7 @@ function hide(i){
                             	<input type="button" value="同意" class="btn btn-info btn-sm" style="margin-left:20px"
                                    onclick="agree('<%=applicant%>')">
                             	<input type="button" value="拒绝" class="btn btn-danger btn-sm" style="margin-left:10px"
-                                   onclick="refuse('<%=applicant%>'), hide(<%=j%>)">
+                                   onclick="refuse('<%=applicant%>')">
                             </div>
                        
                     </li>
@@ -200,9 +193,7 @@ function hide(i){
                             <div class="alert alert-info">
                                 <strong>团队职位：</strong><%=stu.getSposition()==null?"":stu.getSposition()%>
                             </div>
-                            <div class="alert alert-warning">
-                                <strong>课题得分：</strong><%=stu.getSscore()%>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

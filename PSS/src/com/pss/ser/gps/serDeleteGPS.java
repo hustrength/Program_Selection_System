@@ -11,9 +11,10 @@ import javax.servlet.http.HttpSession;
 
 import com.pss.dao.DaoGPS;
 import com.pss.dao.DaoStu;
+import com.pss.dao.DaoPro;
 import com.pss.user.GPS;
 import com.pss.user.Student;
-
+import com.pss.user.Project;
 @SuppressWarnings("serial")
 public class serDeleteGPS extends HttpServlet {
 
@@ -56,16 +57,22 @@ public class serDeleteGPS extends HttpServlet {
 		
 		GPS gps=null;
 		if("break".equals(act)){
-			//½âÉ¢¶ÓÎé
+			//ï¿½ï¿½É¢ï¿½ï¿½ï¿½ï¿½
 			int gno = Integer.parseInt(request.getParameter("GNo"));
 			System.out.println(gno);
 			DaoGPS querybygno = new DaoGPS();
+			
 			gps = querybygno.querybyGNo(gno);
+			int pno=gps.getPNo();
 			DaoGPS deleteGPS = new DaoGPS();
 			int rs=0;
 			rs=deleteGPS.deleteGPSbyGNo(gno);
 			if(rs!=0){
 				result="success";
+				DaoPro daopro=new DaoPro();
+				Project pro=daopro.querybypno(pno);
+				pro.setPavailable(pro.getPavailable()+1);
+				daopro.updateProject(pro);
 				Student stu1,stu2,stu3;
 				stu1=gps.getStu1();
 				stu1.setSgroup(null);

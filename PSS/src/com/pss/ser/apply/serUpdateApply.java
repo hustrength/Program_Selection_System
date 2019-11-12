@@ -56,7 +56,7 @@ public class serUpdateApply extends HttpServlet {
 				DaoStu querybyid=new DaoStu();
 				applicant=querybyid.querybyid(sno);
 				//ѧ���Ѽ���������
-				if(applicant.getSgroup()!=null&&applicant.getSgroup()!=""){
+				if(applicant.getSgroup()!=null&&(!applicant.getSgroup().equals(""))){
 					response.getWriter().print("ismember");
 					return;
 				}
@@ -104,7 +104,7 @@ public class serUpdateApply extends HttpServlet {
 					System.out.println(gps.getGname());
 					//����apply
 					int rs3=0;
-					rs3=updateApply.updatetApplyStatus(gps.getGNo(), 2);
+					rs3=updateApply.updatetApplyStatus(gps.getGNo(), sno,2);
 					if(rs3==0){
 						response.getWriter().print("fail");
 					}

@@ -44,13 +44,7 @@
 
 <!-- CreateGroup Js -->
 <script type="text/javascript" src="<%=path %>/js/all_group.js"></script>
-<script>
-function hide(i){
-	var li = "apply" + i.toString();
-	var e = document.getElementById(li);
-	e.style.display = 'none';
-}
-</script>
+<script type="text/javascript" src="<%=path %>/js/msg.js"></script>
 
 <div id="wrapper">
 <div id="msg">
@@ -108,7 +102,7 @@ function hide(i){
 							<input type="button" value="同意" class="btn btn-info btn-sm" style="margin-left:20px"
                                    onclick="agree('<%=applicant%>')">
                             <input type="button" value="拒绝" class="btn btn-danger btn-sm" style="margin-left:10px"
-                                   onclick="agree('<%=applicant%>')">
+                                   onclick="refuse('<%=applicant%>')">
                             </div>
                        
                     </li>
@@ -201,13 +195,14 @@ function hide(i){
                                            id="dataTables-example" name="dataTables-example">
                                         <thead>
                                         <tr>
-                                            <th>团队编号</th>
-                                            <th>团队名</th>
-                                            <th>所选课题</th>
-                                            <th>队长</th>
-                                            <th>剩余成员数</th>
-                                             
-                                            <th>选择</th>
+                                            <th style="width:11%">团队编号</th>
+                                            <th style="width:16%">团队名</th>
+                                            <th style="width:16%">所选课题</th>
+                                            <th style="width:13%">队长</th>
+                                            <th style="width:13%">队员</th>
+                                            <th style="width:13%">队员</th>
+                                            <th style="width:9%">剩余成员数</th>
+                                            <th style="width:9%">选择</th>
                                             
                                         </tr>
                                         </thead>
@@ -218,6 +213,11 @@ function hide(i){
                                                 int gno = gps.getGNo();
                                                 String sno = gps.getStu1().getSNo();
                                                 String gname = gps.getGname();
+                                                String stu2name="";
+                                               
+                                                if(gps.getStu2()!=null) stu2name=gps.getStu2().getSname();
+                                                String stu3name="";
+                                                if(gps.getStu3()!=null) stu3name=gps.getStu3().getSname();
                                         %>
                                         <tr class="odd gradeX">
                                             <td><%= gps.getGNo() %>
@@ -228,12 +228,16 @@ function hide(i){
                                             </td>
                                             <td class="center"><%= gps.getStu1().getSname() %>
                                             </td>
+                                             <td class="center"><%= stu2name %>
+                                            </td>
+                                             <td class="center"><%= stu3name %>
+                                            </td>
                                             <td class="center"><%=gps.getGleftnum() %>
                                             </td>
                                             
                                             <td>
                                              <%
-                                            if(gps.getGleftnum()>0&&(stu.getSgroup()==null||stu.getSgroup()=="")){
+                                            if(gps.getGleftnum()>0&&(stu.getSgroup()==null||stu.getSgroup().equals(""))){
                                             %>  
                                           
                                           <input type="button" value="加入" id="join" name="join"

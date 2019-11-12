@@ -1,14 +1,14 @@
 package com.pss.user;
 
 public class Student {
-	private String SNo;//Ñ§ºÅ
-	private String Sname;//ÐÕÃû
-	private String Spassword;//ÃÜÂë
-	private String Ssex;//ÐÔ±ð
-	private String Sclass;//°à¼¶
-	private String Sgroup;//×éÃû
-	private String Sposition;//×é³¤/×éÔ±
-	private int Sscore;//µÃ·Ö
+	private String SNo;//Ñ§ï¿½ï¿½
+	private String Sname;//ï¿½ï¿½ï¿½ï¿½
+	private String Spassword;//ï¿½ï¿½ï¿½ï¿½
+	private String Ssex;//ï¿½Ô±ï¿½
+	private String Sclass;//ï¿½à¼¶
+	private String Sgroup;//ï¿½ï¿½ï¿½ï¿½
+	private String Sposition;//ï¿½é³¤/ï¿½ï¿½Ô±
+	
 	
 
 	public String getSNo() {
@@ -79,13 +79,7 @@ public class Student {
 	
 	
     
-	public int getSscore() {
-		return Sscore;
-	}
 	
-	public void setSscore(int sscore) {
-		Sscore = sscore;
-	}
 	
 	
 	/**
@@ -104,7 +98,7 @@ public class Student {
 		Sclass = sclass;
 		Sgroup = sgroup;
 		Sposition = sposition;
-		Sscore = sscore;
+		
 	}
 	public Student(String sNo, String sname, String spassword, String ssex, String sclass, String sgroup,
 			String sposition) {
@@ -115,7 +109,7 @@ public class Student {
 		this.Sclass = sclass;
 		this.Sgroup = sgroup;
 		this.Sposition = sposition;
-		Sscore = 0;
+		
 	}
 
 

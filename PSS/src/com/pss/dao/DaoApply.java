@@ -86,16 +86,16 @@ public class DaoApply {
 	 * @param new_s
 	 * @return
 	 */
-	public int updatetApplyStatus(int gno,int new_s){
+	public int updatetApplyStatus(int gno,String sno,int new_s){
 		int rs = 0;
 		Connection conn=null;
 		try{
-			String sql = "update apply set Status=? where GNo=?;";
+			String sql = "update apply set Status=? where GNo=? and Applicant=?;";
 			conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setInt(1, new_s);
 			pst.setInt(2, gno);
-			
+			pst.setString(3, sno);
 			rs = pst.executeUpdate();
 			if(rs!=0){
 				System.out.println("update over!");
