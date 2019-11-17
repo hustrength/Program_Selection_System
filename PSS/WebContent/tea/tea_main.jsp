@@ -74,7 +74,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="tea_main.jsp">学生选题信息管理系统--教师端</a>
+            <a class="navbar-brand">学生选题信息管理系统--教师端</a>
         </div>
         <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown">

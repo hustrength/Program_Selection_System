@@ -61,7 +61,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="main.jsp">学生选题信息管理系统</a>
+            <a class="navbar-brand">学生选题信息管理系统</a>
         </div>
          <ul class="nav navbar-top-links navbar-right">
      

@@ -7,7 +7,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <base href="<%=basePath%>">
     <meta charset="utf-8"/>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>学生选题信息管理系统——学生界面</title>
     <!-- Bootstrap Styles-->
@@ -42,7 +44,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="main.jsp">学生选题信息管理系统</a>
+            <a class="navbar-brand">学生选题信息管理系统</a>
         </div>
        <div id="msg">
        <ul class="nav navbar-top-links navbar-right">
@@ -95,16 +97,7 @@
                     <%
                             }
                         }
-
-                    %>
-                    <li>
-                        <a class="text-center" href="#">
-                            <strong>读取全部消息</strong>
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </li>
-                    <%
-                        }
+                    }
                     %>
                 </ul>
                 <!-- /.dropdown-messages -->

@@ -17,7 +17,7 @@ import com.pss.user.Student;
 public class DaoPro {
 	
 	/**
-	 * ¸ù¾Ý¿ÎÌâ±àºÅ²éÑ¯¿ÎÌâ¶ÔÏó
+	 * ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½Å²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param pno
 	 * @return
 	 */
@@ -47,7 +47,7 @@ public class DaoPro {
 	}
 	
 	/**
-	 * ²éÑ¯ÁÐ³öËùÓÐ¿ÎÌâ
+	 * ï¿½ï¿½Ñ¯ï¿½Ð³ï¿½ï¿½ï¿½ï¿½Ð¿ï¿½ï¿½ï¿½
 	 * @return
 	 */
 	public List<Project> listAllProject(){
@@ -82,8 +82,8 @@ public class DaoPro {
 		
 		int rs = 0;
 		try{
-			String sql_update = "update Project set Pname=?,Pmaxnum=?,Pselected=?,Pavailable=?,Introduction=?,Background=?,"
-					+ "Info=?,Other=? where PNo=?;";//ÐÞ¸ÄÒ»ÌõÑ§ÉúÐÅÏ¢
+			String sql_update = "update project set Pname=?,Pmaxnum=?,Pselected=?,Pavailable=?,Introduction=?,Background=?,"
+					+ "Info=?,Other=? where PNo=?;";//ï¿½Þ¸ï¿½Ò»ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½Ï¢
 			Connection conn = new Conn().getConn();
 			PreparedStatement pst = conn.prepareStatement(sql_update);
 			pst.setString(1, pro.getPname());
@@ -104,7 +104,7 @@ public class DaoPro {
 		
 	}
 	/**
-	 * ²åÈë¿ÎÌâ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param pro
 	 * @return
 	 */
@@ -134,7 +134,7 @@ public class DaoPro {
 		
 	}
     /**
-     * É¾³ý¿ÎÌâ
+     * É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      * @param pno
      * @return
      */
